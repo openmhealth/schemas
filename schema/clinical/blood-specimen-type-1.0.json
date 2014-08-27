@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "type": "string",
+    "description": "The type of blood specimen analyzed. ",
+    "references": [
+        {
+            "value": "whole blood",
+            "description": "The SNOMED code represents Whole blood (substance)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/420135007"
+        },
+        {
+            "value": "plasma",
+            "description": "The SNOMED code represents Plasma (substance)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/50863008"
+        },
+        {
+            "value": "serum",
+            "description": "Serum is plasma without coagulating factors. The SNOMED code represents Serum (substance)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/67922002"
+        }
+    ],
+    "enum": ["whole blood", "plasma", "serum"]
+}

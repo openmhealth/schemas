@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a single episode of physical activity.",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Physical activity (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/68130003"
+        }
+    ],
+    "definitions": {
+        "activity-name": {
+            "$ref": "https://gist.githubusercontent.com/scarini/67d56f16151956d2f71a/raw/activity-name.json"
+        },
+        "effective-time-frame": {
+            "$ref": "https://gist.githubusercontent.com/scarini/3cb961190d6ff0d0393b/raw/time-interval.json"
+        },
+        "distance": {
+            "description": "The distance covered, if applicable.",
+            "$ref": "https://gist.githubusercontent.com/scarini/a74e70042c762aec5d0c/raw/length-unit-value.json"
+        }
+    },
+
+    "properties": {
+        "activity-name": {
+            "$ref": "#/definitions/activity-name"
+        },
+        "effective-time-frame": {
+            "$ref": "#/definitions/effective-time-frame"
+        },
+        "distance": {
+            "$ref": "#/definitions/distance"
+        },
+        "reported-activity-intensity": {
+            "description": "Self-reported intensity of the activity performed.",
+            "type": "string",
+            "enum": ["light", "moderate", "vigorous"]
+        }
+    },
+
+    "required": ["activity-name"]
+}

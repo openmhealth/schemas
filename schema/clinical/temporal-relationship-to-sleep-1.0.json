@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "type": "string",
+    "description": "The temporal relationship of a clinical measure or assessment to sleep. (Will add phases of sleep later, depending on use case.)",
+    "references": [
+        {
+            "value": "before sleeping",
+            "description": "The SNOMED code represents Before sleeping (qualifier value)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307155000"
+        },
+        {
+            "value": "during sleep",
+            "description": "The SNOMED code represents During sleep (qualifier value)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/309610004"
+        },
+        {
+            "value": "on waking",
+            "description": "The SNOMED code represents On waking (qualifier value)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307156004"
+        }
+    ],
+    "enum": [
+        "before sleeping",
+        "during sleep",
+        "on waking"
+    ]
+}

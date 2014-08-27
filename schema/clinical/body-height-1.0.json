@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a person's body height, either a single body height measurement, or the result of aggregating several measurements made over time (see Numeric descriptor schema for a list of aggregate measures)",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Body height measure (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/50373000"
+        }
+    ],
+    "definitions": {
+        "effective-time-frame": {
+            "$ref": "https://gist.githubusercontent.com/scarini/3cb961190d6ff0d0393b/raw/time-frame.json"
+        },
+        "descriptive-statistic": {
+            "$ref": "https://gist.githubusercontent.com/scarini/296722c3185b83be0c6d/raw/descriptive-statistic.json"
+        }
+    },
+
+    "properties": {
+        "body-height": {
+            "$ref": "https://gist.githubusercontent.com/scarini/a74e70042c762aec5d0c/raw/length-unit-value.json"
+        },
+        "effective-time-frame": {
+            "$ref": "#/definitions/effective-time-frame"
+        },
+        "descriptive-statistic": {
+            "$ref": "#/definitions/descriptive-statistic"
+        }
+    },
+
+    "required": [ "body-height"]
+
+}
