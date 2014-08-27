@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema describes an interval of time. In the absence of a precise start and/or end time, the time interval can be described as a date + a part of the day (morning, afternoon, evening, night). No commitments are made as to whether the start or end time point itself is included in the interval (i.e., whether the defined interval includes the boundary point(s) or not).",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The NCIT codes represent Timespan (synonym: time interval).",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68594"
+        }
+    ],
+
+    "definitions": {
+        "date-time": {
+            "$ref": "date-time-1.0.json"
+        },
+
+        "full-date": {
+            "type": "string",
+            "references": [
+                {
+                    "description": "This schema represents a date. See RFC 3339 5.6 for details.",
+                    "url": "http://tools.ietf.org/html/rfc3339"
+                }
+            ],
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+
+        "part-of-day": {
+            "$ref": "part-of-day-1.0.json"
+        },
+
+        "duration": {
+            "$ref": "duration-unit-value-1.0.json"
+        }
+    },
+
+    "oneOf": [
+        {
+            "properties": {
+                "start-time": {
+                    "$ref": "#/definitions/date-time"
+                },
+                "duration": {
+                    "$ref": "#/definitions/duration"
+                }
+            },
+            "required": ["start-time", "duration"]
+        },
+        {
+            "properties": {
+                "end-time": {
+                    "$ref": "#/definitions/date-time"
+                },
+                "duration": {
+                    "$ref": "#/definitions/duration"
+                }
+            },
+            "required": ["end-time", "duration"]
+        },
+        {
+            "properties": {
+                "start-time": {
+                    "$ref": "#/definitions/date-time"
+                },
+                "end-time": {
+                    "$ref": "#/definitions/date-time"
+                }
+            },
+            "required": ["start-time", "end-time"]
+        },
+        {
+            "properties": {
+                "date": {
+                    "$ref": "#/definitions/full-date"
+                },
+                "part-of-day": {
+                    "$ref": "#/definitions/part-of-day"
+                }
+            },
+            "required": ["date", "part-of-day"]
+        }
+    ]
+}

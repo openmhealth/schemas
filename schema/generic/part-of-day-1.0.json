@@ -1,8 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "type": "string",
     "description": "The period of time in which a day is commonly divided.",
+
+    "type": "string",
+
     "references": [
         {
             "value": "morning",

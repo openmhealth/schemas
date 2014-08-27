@@ -2,6 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
 
     "description": "This schema represents a duration or length of time.",
+
     "type": "object",
 
     "references": [
