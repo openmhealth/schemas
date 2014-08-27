@@ -16,7 +16,7 @@
             "type": "number"
         },
         "effective-time-frame": {
-            "$ref": "https://gist.githubusercontent.com/scarini/3cb961190d6ff0d0393b/raw/time-interval.json"
+            "$ref": "../generic/time-interval-1.0.json"
         }
     },
 

@@ -13,19 +13,19 @@
 
     "definitions": {
         "blood-specimen-type": {
-            "$ref": "https://gist.githubusercontent.com/scarini/d31fe91c19776de0ab76/raw/blood-specimen-type.json"
+            "$ref": "blood-specimen-type-1.0.json"
         },
         "effective-time-frame": {
-            "$ref": "https://gist.githubusercontent.com/scarini/3cb961190d6ff0d0393b/raw/time-frame.json"
+            "$ref": "../generic/time-frame-1.0.json"
         },
         "temporal-relationship-to-meal": {
-            "$ref": "https://gist.githubusercontent.com/scarini/bd00c1b6563686cf1ad3/raw/temporal-relashionship-to-meal.json"
+            "$ref": "temporal-relationship-to-meal-1.0.json"
         },
         "temporal-relationship-to-sleep": {
-            "$ref": "https://gist.githubusercontent.com/scarini/e04130c85fd2752ef16d/raw/temporal-relationship-to-sleep.json"
+            "$ref": "temporal-relationship-to-sleep-1.0.json"
         },
         "descriptive-statistic": {
-            "$ref": "https://gist.githubusercontent.com/scarini/296722c3185b83be0c6d/raw/descriptive-statistic.json"
+            "$ref": "../generic/descriptive-statistic-1.0.json"
         },
         "user-notes": {
             "type": "string"
@@ -36,7 +36,7 @@
         "blood-glucose": {
             "allOf": [
                 {
-                    "$ref": "https://gist.githubusercontent.com/scarini/a30df58e47f7e95c02f2/raw/unit-value.json"
+                    "$ref": "../generic/unit-value-1.0.json"
                 },
                 {
                     "properties": {

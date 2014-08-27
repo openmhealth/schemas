@@ -11,19 +11,19 @@
     ],
     "definitions": {
         "systolic-blood-pressure": {
-            "$ref": "https://gist.githubusercontent.com/scarini/597428ae6d07b75a8b86/raw/systolic-blood-pressure.json"
+            "$ref": "systolic-blood-pressure-1.0.json"
         },
         "diastolic-blood-pressure": {
-            "$ref": "https://gist.githubusercontent.com/scarini/597428ae6d07b75a8b86/raw/diastolic-blood-pressure.json"
+            "$ref": "diastolic-blood-pressure-1.0.json"
         },
         "effective-time-frame": {
-            "$ref": "https://gist.githubusercontent.com/scarini/3cb961190d6ff0d0393b/raw/time-frame.json"
+            "$ref": "../generic/time-frame-1.0.json"
         },
         "position-during-measurement": {
-            "$ref": "https://gist.githubusercontent.com/scarini/e91842fde394d1455c23/raw/position-during-measurement.json"
+            "$ref": "position-during-measurement-1.0.json"
         },
         "descriptive-statistic": {
-            "$ref": "https://gist.githubusercontent.com/scarini/296722c3185b83be0c6d/raw/descriptive-statistic.json"
+            "$ref": "../generic/descriptive-statistic-1.0.json"
         },
         "user-notes": {
             "type": "string"

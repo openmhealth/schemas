@@ -10,7 +10,7 @@
     ],
     "allOf": [
         {
-            "$ref": "https://gist.githubusercontent.com/scarini/a30df58e47f7e95c02f2/raw/unit-value.json"
+            "$ref": "../generic/unit-value-1.0.json"
         },
         {
             "properties": {

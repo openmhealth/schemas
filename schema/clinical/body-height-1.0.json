@@ -11,16 +11,16 @@
     ],
     "definitions": {
         "effective-time-frame": {
-            "$ref": "https://gist.githubusercontent.com/scarini/3cb961190d6ff0d0393b/raw/time-frame.json"
+            "$ref": "../generic/time-frame-1.0.json"
         },
         "descriptive-statistic": {
-            "$ref": "https://gist.githubusercontent.com/scarini/296722c3185b83be0c6d/raw/descriptive-statistic.json"
+            "$ref": "../generic/descriptive-statistic-1.0.json"
         }
     },
 
     "properties": {
         "body-height": {
-            "$ref": "https://gist.githubusercontent.com/scarini/a74e70042c762aec5d0c/raw/length-unit-value.json"
+            "$ref": "../generic/length-unit-value-1.0.json"
         },
         "effective-time-frame": {
             "$ref": "#/definitions/effective-time-frame"
