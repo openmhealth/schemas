@@ -1,7 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'maven' // used for deploying artifacts to Maven repositories
+apply plugin: 'spring-boot' // used for blessed dependencies and auto-configuration
 
-group = 'org.openmhealth'
+group = 'org.openmhealth.schema'
 version = '1.0.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
@@ -11,19 +12,44 @@ repositories {
     mavenCentral()
 }
 
-//dependencies {
-//    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.3.3'
-//    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: jacksonVersion
-//    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: jacksonVersion
-//    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-joda', version: jacksonVersion
-//    compile group: 'joda-time', name: 'joda-time', version: '2.3'
-//    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.7'
-//    compile group: 'org.springframework', name: 'spring-context', version: springVersion
-//    compile group: 'org.springframework', name: 'spring-web', version: springVersion
-//    compile group: 'javax.validation', name: 'validation-api', version: '1.1.0.Final'
-//
-//    testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
-//    testCompile group: 'junit', name: 'junit', version: '4.11'
-//    testCompile group: 'org.mockito', name: 'mockito-core', version: '1.9.5'
-//    testCompile group: 'org.springframework', name: 'spring-test', version: springVersion
-//}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE'
+    }
+}
+
+dependencies {
+    // Spring IO (http://platform.spring.io/platform) gives us curated and harmonised dependencies, whose versions
+    // you can find at http://docs.spring.io/platform/docs/1.0.1.RELEASE/reference/htmlsingle/#appendix-dependency-versions
+    versionManagement 'io.spring.platform:platform-versions:1.0.1.RELEASE@properties'
+
+    compile 'org.apache.commons:commons-lang3:3.1'
+    compile 'com.google:guava'
+    compile 'org.hibernate:hibernate-validator'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.4.2' // platform's still on 2.3.3, 2.4 required for Java 8
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.2'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.2'
+    compile 'org.slf4j:jcl-over-slf4j'
+    compile 'com.github.fge:json-schema-validator:2.2.5'
+    compile 'org.slf4j:log4j-over-slf4j'
+    compile 'ch.qos.logback:logback-classic'
+    compile 'org.slf4j:slf4j-api'
+    compile 'org.springframework:spring-beans'
+    compile 'org.springframework.boot:spring-boot-autoconfigure'
+    compile 'org.springframework:spring-context'
+    compile 'org.springframework:spring-web'
+    compile 'org.springframework:spring-webmvc'
+    compile 'javax.validation:validation-api'
+
+    testCompile 'org.hamcrest:hamcrest-library'
+    testCompile 'junit:junit'
+    testCompile 'org.mockito:mockito-core'
+    testCompile 'org.springframework:spring-test'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
