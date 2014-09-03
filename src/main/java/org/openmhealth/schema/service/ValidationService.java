@@ -22,7 +22,7 @@ import org.openmhealth.schema.domain.SchemaFile;
 import java.util.Collection;
 
 /**
- * A service that validates data files against schema files.
+ * A service that validates schema files and data files.
  *
  * @author Emerson Farrugia
  */
