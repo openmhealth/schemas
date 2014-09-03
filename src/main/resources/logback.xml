@@ -34,9 +34,6 @@
         <destinationLogger>org.springframework.boot</destinationLogger>
     </appender>
 
-    <logger name="org.springframework" level="warn"/>
-    <logger name="org.openmhealth" level="info"/>
-
     <root level="WARN">
         <appender-ref ref="CONSOLE"/>
     </root>
