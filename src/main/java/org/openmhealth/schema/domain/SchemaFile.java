@@ -44,6 +44,7 @@ public class SchemaFile {
     private URI location;
     private JsonSchema jsonSchema;
 
+    // TODO move this into a builder specific to our structure
     public SchemaFile(String namespace, URI location, JsonSchema jsonSchema) {
 
         checkNotNull(namespace);
