@@ -37,7 +37,7 @@ public class SchemaFile {
      * This pattern corresponds to the current layout in the /schema directory. The metadata extracted from the URI
      * should probably live in the schema itself.
      */
-    public static final Pattern SCHEMA_URI_PATTERN = compile("/(clinical|generic)/([a-z-]+)-([^.]+)\\.json$");
+    public static final Pattern SCHEMA_URI_PATTERN = compile("/(clinical|generic)/([a-z-]+)-(.+)\\.json$");
 
     private SchemaId schemaId;
     private SchemaCategory category;

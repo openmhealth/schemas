@@ -29,9 +29,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class SchemaVersion implements Comparable<SchemaVersion> {
 
-    public static final String QUALIFIER_PATTERN_STRING = "([a-zA-Z0-9]+)?";
+    public static final String QUALIFIER_PATTERN_STRING = "[a-zA-Z0-9]+";
     public static final Pattern QUALIFIER_PATTERN = Pattern.compile(QUALIFIER_PATTERN_STRING);
-    public static final String VERSION_PATTERN_STRING = "(\\d+)\\.(\\d+)\\." + QUALIFIER_PATTERN_STRING;
+    public static final String VERSION_PATTERN_STRING = "(\\d+)\\.(\\d+)(?:\\.(" + QUALIFIER_PATTERN_STRING + "))?";
     public static final Pattern VERSION_PATTERN = Pattern.compile(VERSION_PATTERN_STRING);
 
     private int major;

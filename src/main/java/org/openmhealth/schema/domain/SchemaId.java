@@ -33,8 +33,8 @@ import static java.util.regex.Pattern.compile;
  */
 public class SchemaId implements Comparable<SchemaId> {
 
-    public static final Pattern NAMESPACE_PATTERN = compile("/[a-zA-Z0-9.-]+/");
-    public static final Pattern NAME_PATTERN = compile("/[a-zA-Z0-9-]+/");
+    public static final Pattern NAMESPACE_PATTERN = compile("[a-zA-Z0-9.-]+");
+    public static final Pattern NAME_PATTERN = compile("[a-zA-Z0-9-]+");
 
     private String namespace;
     private String name;
