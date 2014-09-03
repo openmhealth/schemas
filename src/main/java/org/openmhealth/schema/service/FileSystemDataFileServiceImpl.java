@@ -39,6 +39,7 @@ import static java.lang.String.format;
 @Service
 public class FileSystemDataFileServiceImpl implements DataFileService {
 
+    // TODO remove this hard-coding
     private static final String SCHEMA_NAMESPACE = "omh";
 
     private final ObjectMapper objectMapper = new ObjectMapper();
