@@ -70,4 +70,25 @@ public class SchemaId {
 
         return Joiner.on(":").join(namespace, name, version);
     }
+
+    @Override
+    public boolean equals(Object object) {
+
+        if (this == object) {
+            return true;
+        }
+
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        SchemaId schemaId = (SchemaId) object;
+
+        return name.equals(schemaId.name) && namespace.equals(schemaId.namespace) && version.equals(schemaId.version);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 }
