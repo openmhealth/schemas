@@ -16,10 +16,11 @@
 
 package org.openmhealth.schema.domain;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.google.common.base.Preconditions.checkArgument;
-import static java.util.regex.Pattern.compile;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * A sequence-based schema version, consisting of a major number, minor number, and an optional qualifier.
@@ -28,11 +29,25 @@ import static java.util.regex.Pattern.compile;
  */
 public class SchemaVersion {
 
-    public static final Pattern QUALIFIER_PATTERN = compile("/[a-zA-Z0-9]+/");
+    public static final String QUALIFIER_PATTERN_STRING = "([a-zA-Z0-9]+)?";
+    public static final Pattern QUALIFIER_PATTERN = Pattern.compile(QUALIFIER_PATTERN_STRING);
+    public static final String VERSION_PATTERN_STRING = "(\\d+)\\.(\\d+)\\." + QUALIFIER_PATTERN_STRING;
+    public static final Pattern VERSION_PATTERN = Pattern.compile(VERSION_PATTERN_STRING);
 
     private int major;
     private int minor;
     private String qualifier;
+
+    public SchemaVersion(String version) {
+
+        checkNotNull(version);
+        Matcher matcher = VERSION_PATTERN.matcher(version);
+        checkArgument(matcher.matches());
+
+        this.major = Integer.valueOf(matcher.group(1));
+        this.minor = Integer.valueOf(matcher.group(2));
+        this.qualifier = matcher.group(3);
+    }
 
     public SchemaVersion(int major, int minor) {
         this(major, minor, null);
