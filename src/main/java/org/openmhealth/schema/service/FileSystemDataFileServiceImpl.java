@@ -46,64 +46,64 @@ public class FileSystemDataFileServiceImpl implements DataFileService {
     @Override
     public List<DataFile> getDataFiles(URI baseDirectory) {
 
-        List<DataFile> dataFiles = new ArrayList<DataFile>();
-
-        try {
-            dataFiles.addAll(getSampleDataFiles(new File(URI.create(baseDirectory.toString() + "/generic"))));
-            dataFiles.addAll(getSampleDataFiles(new File(URI.create(baseDirectory.toString() + "/clinical"))));
-        }
-        catch (IOException e) {
-            throw new RuntimeException(format("The data files in directory '%s' can't be loaded.", baseDirectory), e);
-        }
-
-        return dataFiles;
-    }
-
-    private List<DataFile> getSampleDataFiles(File schemaCategoryDirectory) throws IOException {
-
         List<DataFile> dataFiles = new ArrayList<>();
 
-        // e.g. blood-pressure
-        File[] schemaNameDirectories = schemaCategoryDirectory.listFiles();
+        try {
+            // e.g. generic
+            File[] schemaCategoryDirectories = new File(baseDirectory).listFiles();
 
-        if (schemaNameDirectories == null) {
-            return dataFiles;
-        }
-
-        for (File schemaNameDirectory : schemaNameDirectories) {
-
-            // e.g. blood-pressure/1.0
-            File[] versionDirectories = schemaNameDirectory.listFiles();
-
-            if (versionDirectories == null) {
-                continue;
+            if (schemaCategoryDirectories == null) {
+                return dataFiles;
             }
 
-            for (File versionDirectory : versionDirectories) {
+            for (File schemaCategoryDirectory : schemaCategoryDirectories) {
 
-                // e.g. blood-pressure/1.0/shouldPass
-                File[] sampleDataDirectories = versionDirectory.listFiles();
+                // e.g. generic/blood-pressure
+                File[] schemaNameDirectories = schemaCategoryDirectory.listFiles();
 
-                if (sampleDataDirectories == null) {
-                    continue;
+                if (schemaNameDirectories == null) {
+                    return dataFiles;
                 }
 
-                for (File sampleDataDirectory : sampleDataDirectories) {
+                for (File schemaNameDirectory : schemaNameDirectories) {
 
-                    // e.g. blood-pressure/1.0/shouldPass/sampleData.json
-                    File[] sampleDataFiles = sampleDataDirectory.listFiles();
+                    // e.g. generic/blood-pressure/1.0
+                    File[] versionDirectories = schemaNameDirectory.listFiles();
 
-                    if (sampleDataFiles == null) {
+                    if (versionDirectories == null) {
                         continue;
                     }
 
-                    for (File sampleDataFile : sampleDataFiles) {
+                    for (File versionDirectory : versionDirectories) {
 
-                        JsonNode sampleData = objectMapper.readTree(sampleDataFile);
-                        dataFiles.add(new DataFile(sampleDataFile.toURI(), SCHEMA_NAMESPACE, sampleData));
+                        // e.g. generic/blood-pressure/1.0/shouldPass
+                        File[] sampleDataDirectories = versionDirectory.listFiles();
+
+                        if (sampleDataDirectories == null) {
+                            continue;
+                        }
+
+                        for (File sampleDataDirectory : sampleDataDirectories) {
+
+                            // e.g. generic/blood-pressure/1.0/shouldPass/sampleData.json
+                            File[] sampleDataFiles = sampleDataDirectory.listFiles();
+
+                            if (sampleDataFiles == null) {
+                                continue;
+                            }
+
+                            for (File sampleDataFile : sampleDataFiles) {
+
+                                JsonNode sampleData = objectMapper.readTree(sampleDataFile);
+                                dataFiles.add(new DataFile(sampleDataFile.toURI(), SCHEMA_NAMESPACE, sampleData));
+                            }
+                        }
                     }
                 }
             }
+        }
+        catch (IOException e) {
+            throw new RuntimeException(format("The data files in directory '%s' can't be loaded.", baseDirectory), e);
         }
 
         return dataFiles;
