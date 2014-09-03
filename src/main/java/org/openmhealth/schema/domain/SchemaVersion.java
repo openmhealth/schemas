@@ -27,7 +27,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Emerson Farrugia
  */
-public class SchemaVersion {
+public class SchemaVersion implements Comparable<SchemaVersion> {
 
     public static final String QUALIFIER_PATTERN_STRING = "([a-zA-Z0-9]+)?";
     public static final Pattern QUALIFIER_PATTERN = Pattern.compile(QUALIFIER_PATTERN_STRING);
@@ -91,5 +91,34 @@ public class SchemaVersion {
         }
 
         return builder.toString();
+    }
+
+    @Override
+    public int compareTo(SchemaVersion that) {
+
+        if (getMajor() < that.getMajor()) {
+            return -1;
+        }
+        if (getMajor() > that.getMajor()) {
+            return 1;
+        }
+
+        if (getMinor() < that.getMinor()) {
+            return -1;
+        }
+        if (getMinor() > that.getMinor()) {
+            return 1;
+        }
+
+        if (getQualifier() != null && that.getQualifier() == null) {
+            return -1;
+        }
+        if (getQualifier() == null && that.getQualifier() != null) {
+            return 1;
+        }
+        if (getQualifier() == null) {
+            return 0;
+        }
+        return getQualifier().compareTo(that.getQualifier());
     }
 }

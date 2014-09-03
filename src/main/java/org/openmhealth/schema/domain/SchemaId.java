@@ -31,7 +31,7 @@ import static java.util.regex.Pattern.compile;
  *
  * @author Emerson Farrugia
  */
-public class SchemaId {
+public class SchemaId implements Comparable<SchemaId> {
 
     public static final Pattern NAMESPACE_PATTERN = compile("/[a-zA-Z0-9.-]+/");
     public static final Pattern NAME_PATTERN = compile("/[a-zA-Z0-9-]+/");
@@ -90,5 +90,19 @@ public class SchemaId {
     @Override
     public int hashCode() {
         return name.hashCode();
+    }
+
+    @Override
+    public int compareTo(SchemaId that) {
+
+        if (getNamespace().compareTo(that.getNamespace()) != 0) {
+            return getNamespace().compareTo(that.getNamespace());
+        }
+
+        if (getName().compareTo(that.getName()) != 0) {
+            return getName().compareTo(that.getName());
+        }
+
+        return getVersion().compareTo(that.getVersion());
     }
 }
