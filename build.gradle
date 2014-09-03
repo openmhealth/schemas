@@ -27,7 +27,7 @@ dependencies {
     versionManagement 'io.spring.platform:platform-versions:1.0.1.RELEASE@properties'
 
     compile 'org.apache.commons:commons-lang3:3.1'
-    compile 'com.google:guava'
+    compile 'com.google.guava:guava'
     compile 'org.hibernate:hibernate-validator'
     compile 'com.fasterxml.jackson.core:jackson-core:2.4.2' // platform's still on 2.3.3, 2.4 required for Java 8
     compile 'com.fasterxml.jackson.core:jackson-databind:2.4.2'
