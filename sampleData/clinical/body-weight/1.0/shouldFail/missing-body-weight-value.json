@@ -1,0 +1,12 @@
+{
+    "body-weight": {
+        "unit": "kg"
+    },
+    "effective-time-frame": {
+        "time-interval": {
+            "start-time": "2013-02-05T07:25:00Z",
+            "end-time": "2013-06-05T07:25:00Z"
+        }
+    },
+    "descriptive-statistic": "minimum"
+}
