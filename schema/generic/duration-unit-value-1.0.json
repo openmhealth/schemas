@@ -28,7 +28,7 @@
                     "enum": [
                         "ps",
                         "ns",
-                        "µs",
+                        "us",
                         "ms",
                         "sec",
                         "min",
