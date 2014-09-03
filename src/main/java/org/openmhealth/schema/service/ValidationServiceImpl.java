@@ -29,8 +29,8 @@ import java.util.Collection;
 import static org.openmhealth.schema.domain.DataFileValidationResult.PASS;
 
 /**
- * A basic validation service implementation. This implementation currently logs failures, but will eventually return
- * reports that can be rendered in a browser.
+ * A primitive validation service implementation. This implementation currently logs failures, but will eventually
+ * return reports that can be rendered in a browser.
  *
  * @author Emerson Farrugia
  */
@@ -38,7 +38,6 @@ import static org.openmhealth.schema.domain.DataFileValidationResult.PASS;
 public class ValidationServiceImpl implements ValidationService {
 
     private static final Logger log = LoggerFactory.getLogger(ValidationServiceImpl.class);
-
 
     @Override
     public void validateDataFiles(Collection<SchemaFile> schemaFiles, Collection<DataFile> dataFiles) {
@@ -67,12 +66,20 @@ public class ValidationServiceImpl implements ValidationService {
                         if (report.isSuccess()) {
                             log.info("> {} -- OK (passed as expected)", dataFile.getName());
                         } else {
+                            if (!log.isInfoEnabled()) {
+                                log.warn(schemaFile.getSchemaId().toString());
+                            }
+
                             log.error("> {} -- NOT OK (failed but was expected to pass)", dataFile.getName());
                         }
                     } else {
                         if (!report.isSuccess()) {
                             log.info("> {} -- OK (failed as expected)", dataFile.getName());
                         } else {
+                            if (!log.isInfoEnabled()) {
+                                log.warn(schemaFile.getSchemaId().toString());
+                            }
+
                             log.error("> {} -- NOT OK (passed but was expected to fail)", dataFile.getName());
                         }
                     }
