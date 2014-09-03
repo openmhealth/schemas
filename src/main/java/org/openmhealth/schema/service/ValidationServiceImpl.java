@@ -16,7 +16,10 @@
 
 package org.openmhealth.schema.service;
 
+import com.github.fge.jackson.JacksonUtils;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
+import com.github.fge.jsonschema.core.report.LogLevel;
+import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import org.openmhealth.schema.domain.DataFile;
 import org.openmhealth.schema.domain.SchemaFile;
@@ -71,6 +74,11 @@ public class ValidationServiceImpl implements ValidationService {
                             }
 
                             log.error("> {} -- NOT OK (failed but was expected to pass)", dataFile.getName());
+                            for (ProcessingMessage processingMessage : report) {
+                                if (processingMessage.getLogLevel() != LogLevel.WARNING) {
+                                    log.error(JacksonUtils.prettyPrint(processingMessage.asJson()));
+                                }
+                            }
                         }
                     } else {
                         if (!report.isSuccess()) {
@@ -81,6 +89,11 @@ public class ValidationServiceImpl implements ValidationService {
                             }
 
                             log.error("> {} -- NOT OK (passed but was expected to fail)", dataFile.getName());
+                            for (ProcessingMessage processingMessage : report) {
+                                if (processingMessage.getLogLevel() != LogLevel.WARNING) {
+                                    log.error(JacksonUtils.prettyPrint(processingMessage.asJson()));
+                                }
+                            }
                         }
                     }
                 }
