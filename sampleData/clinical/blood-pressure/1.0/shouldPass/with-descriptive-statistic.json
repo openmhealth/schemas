@@ -9,8 +9,8 @@
   },
   "effective_time_frame": {
       "time_interval": {
-        "start_date" : "2013-02-05T07:25:00Z",
-        "end_date": "2013-02-05T19:25:00Z"
+          "start_time": "2013-02-05T07:25:00Z",
+          "end_time": "2013-06-05T07:25:00Z"
       }
   },
   "position_during_measurement": "sitting",
