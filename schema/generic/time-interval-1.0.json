@@ -13,7 +13,7 @@
 
     "definitions": {
         "date_time": {
-            "$ref": "date_time_1.0.json"
+            "$ref": "date-time-1.0.json"
         },
 
         "full_date": {
@@ -28,11 +28,11 @@
         },
 
         "part_of_day": {
-            "$ref": "part_of_day_1.0.json"
+            "$ref": "part-of-day-1.0.json"
         },
 
         "duration": {
-            "$ref": "duration_unit_value_1.0.json"
+            "$ref": "duration-unit-value-1.0.json"
         }
     },
 

@@ -10,10 +10,10 @@
     ],
     "definitions": {
         "effective_time_frame": {
-            "$ref": "../generic/time_frame_1.0.json"
+            "$ref": "../generic/time-frame-1.0.json"
         },
         "descriptive_statistic": {
-            "$ref": "../generic/descriptive_statistic_1.0.json"
+            "$ref": "../generic/descriptive-statistic-1.0.json"
         }
     },
 
@@ -21,7 +21,7 @@
         "body_mass_index": {
             "allOf": [
                 {
-                    "$ref": "../generic/unit_value_1.0.json"
+                    "$ref": "../generic/unit-value-1.0.json"
                 },
                 {
                     "properties": {

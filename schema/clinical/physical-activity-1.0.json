@@ -11,14 +11,14 @@
     ],
     "definitions": {
         "activity_name": {
-            "$ref": "activity_name_1.0.json"
+            "$ref": "activity-name-1.0.json"
         },
         "effective_time_frame": {
-            "$ref": "../generic/time_interval_1.0.json"
+            "$ref": "../generic/time-interval-1.0.json"
         },
         "distance": {
             "description": "The distance covered, if applicable.",
-            "$ref": "../generic/length_unit_value_1.0.json"
+            "$ref": "../generic/length-unit-value-1.0.json"
         }
     },
 

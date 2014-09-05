@@ -12,13 +12,13 @@
 
     "definitions": {
         "effective_time_frame": {
-            "$ref": "../generic/time_frame_1.0.json"
+            "$ref": "../generic/time-frame-1.0.json"
         },
         "descriptive_statistic": {
-            "$ref": "../generic/descriptive_statistic_1.0.json"
+            "$ref": "../generic/descriptive-statistic-1.0.json"
         },
         "temporal_relationship_to_physical_activity": {
-            "$ref": "temporal_relationship_to_physical_activity_1.0.json"
+            "$ref": "temporal-relationship-to-physical-activity-1.0.json"
         },
         "user_notes": {
             "type": "string"
@@ -29,7 +29,7 @@
         "heart_rate": {
             "allOf": [
                 {
-                    "$ref": "../generic/unit_value_1.0.json"
+                    "$ref": "../generic/unit-value-1.0.json"
                 },
                 {
                     "properties": {

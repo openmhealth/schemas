@@ -11,7 +11,7 @@
 
     "definitions": {
         "effective_time_frame": {
-            "$ref": "../generic/time_interval_1.0.json"
+            "$ref": "../generic/time-interval-1.0.json"
         },
         "user_notes": {
             "type": "string"
@@ -22,7 +22,7 @@
         "sleep_duration": {
             "allOf": [
                 {
-                    "$ref": "../generic/duration_unit_value_1.0.json"
+                    "$ref": "../generic/duration-unit-value-1.0.json"
                 },
                 {
                     "properties": {

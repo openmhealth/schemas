@@ -12,16 +12,16 @@
 
     "definitions": {
         "effective_time_frame": {
-            "$ref": "../generic/time_frame_1.0.json"
+            "$ref": "../generic/time-frame-1.0.json"
         },
         "activity_name": {
-            "$ref": "activity_name_1.0.json"
+            "$ref": "activity-name-1.0.json"
         }
     },
 
     "properties": {
         "kcal_burned": {
-            "$ref": "../generic/kcal_unit_value_1.0.json"
+            "$ref": "../generic/kcal-unit-value-1.0.json"
         },
         "effective_time_frame": {
             "$ref": "#/definitions/effective_time_frame"
