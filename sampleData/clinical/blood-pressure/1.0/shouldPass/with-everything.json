@@ -1,12 +1,19 @@
 {
     "systolic_blood_pressure": {
-        "value": 160,
+        "value": 100,
         "unit": "mmHg"
     },
     "diastolic_blood_pressure": {
         "value": 60,
         "unit": "mmHg"
     },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_time": "2013-02-05T07:25:00Z",
+            "end_time": "2013-06-05T07:25:00Z"
+        }
+    },
     "position_during_measurement": "sitting",
+    "descriptive_statistic": "minimum",
     "user_notes": "I felt quite dizzy"
 }
