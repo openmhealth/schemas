@@ -10,7 +10,7 @@
     ],
     "allOf": [
         {
-            "$ref": "../generic/unit-value-1.0.json"
+            "$ref": "../generic/unit_value_1.0.json"
         },
         {
             "properties": {

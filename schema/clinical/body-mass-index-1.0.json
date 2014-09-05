@@ -9,19 +9,19 @@
         }
     ],
     "definitions": {
-        "effective-time-frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+        "effective_time_frame": {
+            "$ref": "../generic/time_frame_1.0.json"
         },
-        "descriptive-statistic": {
-            "$ref": "../generic/descriptive-statistic-1.0.json"
+        "descriptive_statistic": {
+            "$ref": "../generic/descriptive_statistic_1.0.json"
         }
     },
 
     "properties": {
-        "body-mass-index": {
+        "body_mass_index": {
             "allOf": [
                 {
-                    "$ref": "../generic/unit-value-1.0.json"
+                    "$ref": "../generic/unit_value_1.0.json"
                 },
                 {
                     "properties": {
@@ -38,14 +38,14 @@
                 }
             ]
         },
-        "effective-time-frame": {
-            "$ref": "#/definitions/effective-time-frame"
+        "effective_time_frame": {
+            "$ref": "#/definitions/effective_time_frame"
         },
-        "descriptive-statistic": {
-            "$ref": "#/definitions/descriptive-statistic"
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
         }
     },
 
-    "required": ["body-mass-index"]
+    "required": ["body_mass_index"]
 
 }

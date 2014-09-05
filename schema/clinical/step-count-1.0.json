@@ -12,22 +12,22 @@
     ],
 
     "definitions": {
-        "step-count": {
+        "step_count": {
             "type": "number"
         },
-        "effective-time-frame": {
-            "$ref": "../generic/time-interval-1.0.json"
+        "effective_time_frame": {
+            "$ref": "../generic/time_interval_1.0.json"
         }
     },
 
     "properties": {
-        "step-count": {
-            "$ref": "#/definitions/step-count"
+        "step_count": {
+            "$ref": "#/definitions/step_count"
         },
-        "effective-time-frame": {
-            "$ref": "#/definitions/effective-time-frame"
+        "effective_time_frame": {
+            "$ref": "#/definitions/effective_time_frame"
         }
     },
 
-    "required": ["step-count"]
+    "required": ["step_count"]
 }

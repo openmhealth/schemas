@@ -4,16 +4,16 @@
     "description": "This schema represents a single measurement of minutes of moderate-intensity activity performed. The ability to represent descriptive statistics (e.g., mean, median) will be added shortly.",
 
     "definitions": {
-        "effective-time-frame": {
-            "$ref": "../generic/time-interval-1.0.json"
+        "effective_time_frame": {
+            "$ref": "../generic/time_interval_1.0.json"
         }
     },
 
     "properties": {
-        "minutes-moderate-activity": {
+        "minutes_moderate_activity": {
             "allOf": [
                 {
-                    "$ref": "../generic/duration-unit-value-1.0.json"
+                    "$ref": "../generic/duration_unit_value_1.0.json"
                 },
                 {
                     "properties": {
@@ -26,10 +26,10 @@
                 }
             ]
         },
-        "effective-time-frame": {
-            "$ref": "#/definitions/effective-time-frame"
+        "effective_time_frame": {
+            "$ref": "#/definitions/effective_time_frame"
         }
     },
 
-    "required": [ "minutes-moderate-activity"]
+    "required": [ "minutes_moderate_activity"]
 }

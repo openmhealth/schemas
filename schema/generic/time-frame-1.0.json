@@ -12,31 +12,31 @@
     ],
 
     "definitions": {
-        "date-time": {
-            "$ref": "date-time-1.0.json"
+        "date_time": {
+            "$ref": "date_time_1.0.json"
         },
 
-        "time-interval": {
-            "$ref": "time-interval-1.0.json"
+        "time_interval": {
+            "$ref": "time_interval_1.0.json"
         }
     },
 
     "oneOf": [
         {
             "properties": {
-                "date-time": {
-                    "$ref": "#/definitions/date-time"
+                "date_time": {
+                    "$ref": "#/definitions/date_time"
                 }
             },
-            "required": [ "date-time"]
+            "required": [ "date_time"]
         },
         {
             "properties": {
-                "time-interval": {
-                    "$ref": "#/definitions/time-interval"
+                "time_interval": {
+                    "$ref": "#/definitions/time_interval"
                 }
             },
-            "required": [ "time-interval"]
+            "required": [ "time_interval"]
         }
     ]
 }

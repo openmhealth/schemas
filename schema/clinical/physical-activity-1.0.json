@@ -10,34 +10,34 @@
         }
     ],
     "definitions": {
-        "activity-name": {
-            "$ref": "activity-name-1.0.json"
+        "activity_name": {
+            "$ref": "activity_name_1.0.json"
         },
-        "effective-time-frame": {
-            "$ref": "../generic/time-interval-1.0.json"
+        "effective_time_frame": {
+            "$ref": "../generic/time_interval_1.0.json"
         },
         "distance": {
             "description": "The distance covered, if applicable.",
-            "$ref": "../generic/length-unit-value-1.0.json"
+            "$ref": "../generic/length_unit_value_1.0.json"
         }
     },
 
     "properties": {
-        "activity-name": {
-            "$ref": "#/definitions/activity-name"
+        "activity_name": {
+            "$ref": "#/definitions/activity_name"
         },
-        "effective-time-frame": {
-            "$ref": "#/definitions/effective-time-frame"
+        "effective_time_frame": {
+            "$ref": "#/definitions/effective_time_frame"
         },
         "distance": {
             "$ref": "#/definitions/distance"
         },
-        "reported-activity-intensity": {
+        "reported_activity_intensity": {
             "description": "Self-reported intensity of the activity performed.",
             "type": "string",
             "enum": ["light", "moderate", "vigorous"]
         }
     },
 
-    "required": ["activity-name"]
+    "required": ["activity_name"]
 }

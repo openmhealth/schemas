@@ -12,11 +12,11 @@
     ],
 
     "definitions": {
-        "date-time": {
-            "$ref": "date-time-1.0.json"
+        "date_time": {
+            "$ref": "date_time_1.0.json"
         },
 
-        "full-date": {
+        "full_date": {
             "type": "string",
             "references": [
                 {
@@ -27,59 +27,59 @@
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
         },
 
-        "part-of-day": {
-            "$ref": "part-of-day-1.0.json"
+        "part_of_day": {
+            "$ref": "part_of_day_1.0.json"
         },
 
         "duration": {
-            "$ref": "duration-unit-value-1.0.json"
+            "$ref": "duration_unit_value_1.0.json"
         }
     },
 
     "oneOf": [
         {
             "properties": {
-                "start-time": {
-                    "$ref": "#/definitions/date-time"
+                "start_time": {
+                    "$ref": "#/definitions/date_time"
                 },
                 "duration": {
                     "$ref": "#/definitions/duration"
                 }
             },
-            "required": ["start-time", "duration"]
+            "required": ["start_time", "duration"]
         },
         {
             "properties": {
-                "end-time": {
-                    "$ref": "#/definitions/date-time"
+                "end_time": {
+                    "$ref": "#/definitions/date_time"
                 },
                 "duration": {
                     "$ref": "#/definitions/duration"
                 }
             },
-            "required": ["end-time", "duration"]
+            "required": ["end_time", "duration"]
         },
         {
             "properties": {
-                "start-time": {
-                    "$ref": "#/definitions/date-time"
+                "start_time": {
+                    "$ref": "#/definitions/date_time"
                 },
-                "end-time": {
-                    "$ref": "#/definitions/date-time"
+                "end_time": {
+                    "$ref": "#/definitions/date_time"
                 }
             },
-            "required": ["start-time", "end-time"]
+            "required": ["start_time", "end_time"]
         },
         {
             "properties": {
                 "date": {
-                    "$ref": "#/definitions/full-date"
+                    "$ref": "#/definitions/full_date"
                 },
-                "part-of-day": {
-                    "$ref": "#/definitions/part-of-day"
+                "part_of_day": {
+                    "$ref": "#/definitions/part_of_day"
                 }
             },
-            "required": ["date", "part-of-day"]
+            "required": ["date", "part_of_day"]
         }
     ]
 }

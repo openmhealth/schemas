@@ -10,47 +10,47 @@
         }
     ],
     "definitions": {
-        "systolic-blood-pressure": {
-            "$ref": "systolic-blood-pressure-1.0.json"
+        "systolic_blood_pressure": {
+            "$ref": "systolic_blood_pressure_1.0.json"
         },
-        "diastolic-blood-pressure": {
-            "$ref": "diastolic-blood-pressure-1.0.json"
+        "diastolic_blood_pressure": {
+            "$ref": "diastolic_blood_pressure_1.0.json"
         },
-        "effective-time-frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+        "effective_time_frame": {
+            "$ref": "../generic/time_frame_1.0.json"
         },
-        "position-during-measurement": {
-            "$ref": "position-during-measurement-1.0.json"
+        "position_during_measurement": {
+            "$ref": "position_during_measurement_1.0.json"
         },
-        "descriptive-statistic": {
-            "$ref": "../generic/descriptive-statistic-1.0.json"
+        "descriptive_statistic": {
+            "$ref": "../generic/descriptive_statistic_1.0.json"
         },
-        "user-notes": {
+        "user_notes": {
             "type": "string"
         }
     },
 
     "properties": {
-        "systolic-blood-pressure": {
-            "$ref": "#/definitions/systolic-blood-pressure"
+        "systolic_blood_pressure": {
+            "$ref": "#/definitions/systolic_blood_pressure"
         },
-        "diastolic-blood-pressure": {
-            "$ref": "#/definitions/diastolic-blood-pressure"
+        "diastolic_blood_pressure": {
+            "$ref": "#/definitions/diastolic_blood_pressure"
         },
-        "effective-time-frame": {
-            "$ref": "#/definitions/effective-time-frame"
+        "effective_time_frame": {
+            "$ref": "#/definitions/effective_time_frame"
         },
-        "position-during-measurement": {
-            "$ref": "#/definitions/position-during-measurement"
+        "position_during_measurement": {
+            "$ref": "#/definitions/position_during_measurement"
         },
-        "descriptive-statistic": {
-            "$ref": "#/definitions/descriptive-statistic"
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
         },
-        "user-notes": {
-            "$ref": "#/definitions/user-notes"
+        "user_notes": {
+            "$ref": "#/definitions/user_notes"
         }
     },
 
-    "required": ["systolic-blood-pressure", "diastolic-blood-pressure"]
+    "required": ["systolic_blood_pressure", "diastolic_blood_pressure"]
 
 }

@@ -12,31 +12,31 @@
     ],
 
     "definitions": {
-        "blood-specimen-type": {
-            "$ref": "blood-specimen-type-1.0.json"
+        "blood_specimen_type": {
+            "$ref": "blood_specimen_type_1.0.json"
         },
-        "effective-time-frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+        "effective_time_frame": {
+            "$ref": "../generic/time_frame_1.0.json"
         },
-        "temporal-relationship-to-meal": {
-            "$ref": "temporal-relationship-to-meal-1.0.json"
+        "temporal_relationship_to_meal": {
+            "$ref": "temporal_relationship_to_meal_1.0.json"
         },
-        "temporal-relationship-to-sleep": {
-            "$ref": "temporal-relationship-to-sleep-1.0.json"
+        "temporal_relationship_to_sleep": {
+            "$ref": "temporal_relationship_to_sleep_1.0.json"
         },
-        "descriptive-statistic": {
-            "$ref": "../generic/descriptive-statistic-1.0.json"
+        "descriptive_statistic": {
+            "$ref": "../generic/descriptive_statistic_1.0.json"
         },
-        "user-notes": {
+        "user_notes": {
             "type": "string"
         }
     },
 
     "properties": {
-        "blood-glucose": {
+        "blood_glucose": {
             "allOf": [
                 {
-                    "$ref": "../generic/unit-value-1.0.json"
+                    "$ref": "../generic/unit_value_1.0.json"
                 },
                 {
                     "properties": {
@@ -50,27 +50,27 @@
                 }
             ]
         },
-        "blood-specimen-type": {
-            "$ref": "#/definitions/blood-specimen-type"
+        "blood_specimen_type": {
+            "$ref": "#/definitions/blood_specimen_type"
         },
-        "effective-time-frame": {
-            "$ref": "#/definitions/effective-time-frame"
+        "effective_time_frame": {
+            "$ref": "#/definitions/effective_time_frame"
         },
-        "temporal-relationship-to-meal": {
-            "$ref": "#/definitions/temporal-relationship-to-meal"
+        "temporal_relationship_to_meal": {
+            "$ref": "#/definitions/temporal_relationship_to_meal"
         },
 
-        "temporal-relationship-to-sleep": {
-            "$ref": "#/definitions/temporal-relationship-to-sleep"
+        "temporal_relationship_to_sleep": {
+            "$ref": "#/definitions/temporal_relationship_to_sleep"
         },
-        "descriptive-statistic": {
-            "$ref": "#/definitions/descriptive-statistic"
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
         },
-        "user-notes": {
-            "$ref": "#/definitions/user-notes"
+        "user_notes": {
+            "$ref": "#/definitions/user_notes"
         }
     },
 
-    "required": ["blood-glucose"]
+    "required": ["blood_glucose"]
 
 }

@@ -11,26 +11,26 @@
     ],
 
     "definitions": {
-        "effective-time-frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+        "effective_time_frame": {
+            "$ref": "../generic/time_frame_1.0.json"
         },
-        "activity-name": {
-            "$ref": "activity-name-1.0.json"
+        "activity_name": {
+            "$ref": "activity_name_1.0.json"
         }
     },
 
     "properties": {
-        "kcal-burned": {
-            "$ref": "../generic/kcal-unit-value-1.0.json"
+        "kcal_burned": {
+            "$ref": "../generic/kcal_unit_value_1.0.json"
         },
-        "effective-time-frame": {
-            "$ref": "#/definitions/effective-time-frame"
+        "effective_time_frame": {
+            "$ref": "#/definitions/effective_time_frame"
         },
-        "activity-name": {
-            "$ref": "#/definitions/activity-name"
+        "activity_name": {
+            "$ref": "#/definitions/activity_name"
         }
     },
 
-    "required": ["kcal-burned"]
+    "required": ["kcal_burned"]
 
 }

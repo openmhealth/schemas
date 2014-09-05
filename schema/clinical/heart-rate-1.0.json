@@ -11,25 +11,25 @@
     ],
 
     "definitions": {
-        "effective-time-frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+        "effective_time_frame": {
+            "$ref": "../generic/time_frame_1.0.json"
         },
-        "descriptive-statistic": {
-            "$ref": "../generic/descriptive-statistic-1.0.json"
+        "descriptive_statistic": {
+            "$ref": "../generic/descriptive_statistic_1.0.json"
         },
-        "temporal-relationship-to-physical-activity": {
-            "$ref": "temporal-relationship-to-physical-activity-1.0.json"
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "temporal_relationship_to_physical_activity_1.0.json"
         },
-        "user-notes": {
+        "user_notes": {
             "type": "string"
         }
     },
 
     "properties": {
-        "heart-rate": {
+        "heart_rate": {
             "allOf": [
                 {
-                    "$ref": "../generic/unit-value-1.0.json"
+                    "$ref": "../generic/unit_value_1.0.json"
                 },
                 {
                     "properties": {
@@ -42,20 +42,20 @@
                 }
             ]
         },
-        "effective-time-frame": {
-            "$ref": "#/definitions/effective-time-frame"
+        "effective_time_frame": {
+            "$ref": "#/definitions/effective_time_frame"
         },
-        "descriptive-statistic": {
-            "$ref": "#/definitions/descriptive-statistic"
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
         },
-        "temporal-relationship-to-physical-activity": {
-            "$ref": "#/definitions/temporal-relationship-to-physical-activity"
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "#/definitions/temporal_relationship_to_physical_activity"
         },
-        "user-notes": {
-            "$ref": "#/definitions/user-notes"
+        "user_notes": {
+            "$ref": "#/definitions/user_notes"
         }
     },
 
-    "required": ["heart-rate"]
+    "required": ["heart_rate"]
 
 }
