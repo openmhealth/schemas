@@ -1,6 +1,5 @@
 {
     "kcal_burned": {
-
         "value": 160,
         "unit": "kcal"
     },
@@ -10,5 +9,5 @@
             "end_time": "2013-02-05T07:25:00Z"
         }
     },
-    "activity_name":"walking"
+    "activity_name": "walking"
 }

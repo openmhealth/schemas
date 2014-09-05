@@ -3,7 +3,6 @@
         "value": 160,
         "unit": "mmHg"
     },
-
     "diastolic_blood_pressure": {
         "value": 60,
         "unit": "mmHg"
