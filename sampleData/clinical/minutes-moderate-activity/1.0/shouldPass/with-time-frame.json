@@ -1,0 +1,11 @@
+{
+    "minutes_moderate_activity": {
+        "value": 60,
+        "unit": "min"
+    },
+    "effective_time_frame": {
+        "start_time": "2013-02-05T06:25:00Z",
+        "end_time": "2013-02-05T07:25:00Z"
+
+    }
+}
