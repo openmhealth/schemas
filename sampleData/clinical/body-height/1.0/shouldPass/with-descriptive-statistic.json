@@ -1,7 +1,7 @@
 {
-    "body_mass_index": {
-        "value": 16,
-        "unit": "kg/m2"
+    "body_height": {
+        "value": 180,
+        "unit": "cm"
     },
     "effective_time_frame": {
         "time_interval": {
