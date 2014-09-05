@@ -1,0 +1,7 @@
+{
+    "blood_glucose": {
+        "unit": "mg/dL",
+        "value": 95
+    },
+    "temporal_relationship_to_sleep": "before sleeping"
+}

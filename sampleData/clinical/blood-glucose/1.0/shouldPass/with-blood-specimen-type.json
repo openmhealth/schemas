@@ -1,0 +1,7 @@
+{
+    "blood_glucose": {
+        "unit": "mg/dL",
+        "value": 95
+    },
+    "blood_specimen_type": "serum"
+}

@@ -1,0 +1,7 @@
+{
+    "blood_glucose": {
+        "unit": "mg/dL",
+        "value": 95
+    },
+    "user_notes": "feeling fine"
+}
