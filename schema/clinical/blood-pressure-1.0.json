@@ -24,9 +24,6 @@
         },
         "descriptive_statistic": {
             "$ref": "../generic/descriptive-statistic-1.0.json"
-        },
-        "user_notes": {
-            "type": "string"
         }
     },
 
@@ -47,10 +44,9 @@
             "$ref": "#/definitions/descriptive_statistic"
         },
         "user_notes": {
-            "$ref": "#/definitions/user_notes"
+            "type": "string"
         }
     },
 
     "required": ["systolic_blood_pressure", "diastolic_blood_pressure"]
-
 }

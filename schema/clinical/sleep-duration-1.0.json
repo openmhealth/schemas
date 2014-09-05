@@ -10,11 +10,11 @@
     ],
 
     "definitions": {
+        "duration_unit_value": {
+            "$ref": "../generic/duration-unit-value-1.0.json"
+        },
         "effective_time_frame": {
             "$ref": "../generic/time-interval-1.0.json"
-        },
-        "user_notes": {
-            "type": "string"
         }
     },
 
@@ -22,7 +22,7 @@
         "sleep_duration": {
             "allOf": [
                 {
-                    "$ref": "../generic/duration-unit-value-1.0.json"
+                    "$ref": "#/definitions/duration_unit_value"
                 },
                 {
                     "properties": {
@@ -40,9 +40,9 @@
             "$ref": "#/definitions/effective_time_frame"
         },
         "user_notes": {
-            "$ref": "#/definitions/user_notes"
+            "type": "string"
         }
     },
-    "required": ["sleep_duration"]
 
+    "required": ["sleep_duration"]
 }

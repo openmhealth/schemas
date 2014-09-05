@@ -12,6 +12,9 @@
     ],
 
     "definitions": {
+        "unit_value": {
+            "$ref": "../generic/unit-value-1.0.json"
+        },
         "blood_specimen_type": {
             "$ref": "blood-specimen-type-1.0.json"
         },
@@ -26,9 +29,6 @@
         },
         "descriptive_statistic": {
             "$ref": "../generic/descriptive-statistic-1.0.json"
-        },
-        "user_notes": {
-            "type": "string"
         }
     },
 
@@ -36,7 +36,7 @@
         "blood_glucose": {
             "allOf": [
                 {
-                    "$ref": "../generic/unit-value-1.0.json"
+                    "$ref": "#/definitions/unit_value"
                 },
                 {
                     "properties": {
@@ -67,10 +67,9 @@
             "$ref": "#/definitions/descriptive_statistic"
         },
         "user_notes": {
-            "$ref": "#/definitions/user_notes"
+            "type": "string"
         }
     },
 
     "required": ["blood_glucose"]
-
 }

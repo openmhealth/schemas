@@ -20,5 +20,10 @@
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/67922002"
         }
     ],
-    "enum": ["whole blood", "plasma", "serum"]
+
+    "enum": [
+        "whole blood",
+        "plasma",
+        "serum"
+    ]
 }

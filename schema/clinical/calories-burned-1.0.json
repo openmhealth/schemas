@@ -11,6 +11,9 @@
     ],
 
     "definitions": {
+        "kcal_unit_value": {
+                "$ref": "../generic/kcal-unit-value-1.0.json"
+        },
         "effective_time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         },
@@ -21,7 +24,7 @@
 
     "properties": {
         "kcal_burned": {
-            "$ref": "../generic/kcal-unit-value-1.0.json"
+            "$ref": "#/definitions/kcal_unit_value"
         },
         "effective_time_frame": {
             "$ref": "#/definitions/effective_time_frame"
@@ -32,5 +35,4 @@
     },
 
     "required": ["kcal_burned"]
-
 }

@@ -9,6 +9,9 @@
         }
     ],
     "definitions": {
+        "unit_value": {
+            "$ref": "../generic/unit-value-1.0.json"
+         },
         "effective_time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         },
@@ -21,7 +24,7 @@
         "body_mass_index": {
             "allOf": [
                 {
-                    "$ref": "../generic/unit-value-1.0.json"
+                    "$ref": "#/definitions/unit_value"
                 },
                 {
                     "properties": {
@@ -47,5 +50,4 @@
     },
 
     "required": ["body_mass_index"]
-
 }

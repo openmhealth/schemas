@@ -11,6 +11,9 @@
     ],
 
     "definitions": {
+        "unit_value": {
+             "$ref": "../generic/unit-value-1.0.json"
+        },
         "effective_time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         },
@@ -19,9 +22,6 @@
         },
         "temporal_relationship_to_physical_activity": {
             "$ref": "temporal-relationship-to-physical-activity-1.0.json"
-        },
-        "user_notes": {
-            "type": "string"
         }
     },
 
@@ -29,7 +29,7 @@
         "heart_rate": {
             "allOf": [
                 {
-                    "$ref": "../generic/unit-value-1.0.json"
+                    "$ref": "#/definitions/unit_value"
                 },
                 {
                     "properties": {
@@ -52,10 +52,9 @@
             "$ref": "#/definitions/temporal_relationship_to_physical_activity"
         },
         "user_notes": {
-            "$ref": "#/definitions/user_notes"
+            "type": "string"
         }
     },
 
     "required": ["heart_rate"]
-
 }

@@ -10,6 +10,9 @@
         }
     ],
     "definitions": {
+        "mass_unit_value": {
+            "$ref": "../generic/mass-unit-value-1.0.json"
+        },
         "effective_time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         },
@@ -20,7 +23,7 @@
 
     "properties": {
         "body_weight": {
-            "$ref": "../generic/mass-unit-value-1.0.json"
+            "$ref": "#/definitions/mass_unit_value"
         },
         "effective_time_frame": {
             "$ref": "#/definitions/effective_time_frame"
@@ -31,5 +34,4 @@
     },
 
     "required": [ "body_weight"]
-
 }

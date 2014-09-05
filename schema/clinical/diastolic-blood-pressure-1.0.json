@@ -8,9 +8,16 @@
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/271650006"
         }
     ],
+
+    "definitions": {
+        "unit_value": {
+            "$ref": "../generic/unit-value-1.0.json"
+        }
+    },
+
     "allOf": [
         {
-            "$ref": "../generic/unit-value-1.0.json"
+            "$ref": "#/definitions/unit_value"
         },
         {
             "properties": {
