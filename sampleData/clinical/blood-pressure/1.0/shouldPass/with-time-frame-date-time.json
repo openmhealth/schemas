@@ -1,14 +1,20 @@
 {
-  "systolic_blood_pressure": {
-    "value": 160,
-    "unit": "mmHg"
-  },
-  "diastolic_blood_pressure": {
-    "value": 60,
-    "unit": "mmHg"
-  },
-  "effective_time_frame": {
-      "date_time": "2013-02-05T07:25:00Z"
-  },
-  "position_during_measurement": "sitting"
+    "systolic_blood_pressure": {
+        "value": 160,
+        "unit": "mmHg"
+    },
+    "diastolic_blood_pressure": {
+        "value": 60,
+        "unit": "mmHg"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+          "date" : "2013-02-05",
+          "part_of_day": "evening"
+        }
+    },
+    "position_during_measurement": "sitting",
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00Z"
+    }
 }
