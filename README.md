@@ -28,6 +28,5 @@ If you're using IntelliJ, simply create a run configuration that points at `org.
 
 If you're running from the command line on Linux or from Terminal on OS X, run the following commands from the root of the project directory.
 
-1. cd <project-root>
-1. gradlew build
-1. java -jar build/libs/validator-1.0.0-SNAPSHOT.jar
+1. `gradlew build`
+1. `java -jar build/libs/validator-1.0.0-SNAPSHOT.jar`
