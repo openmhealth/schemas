@@ -14,7 +14,7 @@
             "$ref": "activity-name-1.0.json"
         },
         "effective_time_frame": {
-            "$ref": "../generic/time-interval-1.0.json"
+            "$ref": "../generic/time-frame-1.0.json"
         },
         "distance": {
             "description": "The distance covered, if applicable.",
