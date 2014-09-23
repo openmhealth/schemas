@@ -63,7 +63,7 @@ public class FileSystemDataFileServiceImpl implements DataFileService {
                 File[] schemaNameDirectories = schemaCategoryDirectory.listFiles();
 
                 if (schemaNameDirectories == null) {
-                    return dataFiles;
+                    continue;
                 }
 
                 for (File schemaNameDirectory : schemaNameDirectories) {

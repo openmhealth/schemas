@@ -61,7 +61,7 @@ public class FileSystemSchemaFileServiceImpl implements SchemaFileService {
                 File[] files = schemaCategoryDirectory.listFiles();
 
                 if (files == null) {
-                    return schemaFiles;
+                    continue;
                 }
 
                 for (File file : files) {
