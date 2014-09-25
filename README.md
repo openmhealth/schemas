@@ -20,8 +20,9 @@ The validator is a simple application that validates sample data against schemas
 
 ### Configuration
 By default, the validator looks for schemas in the `schemas` directory and sample data files in the `sampleData` file directory. 
+If you want to test new schemas or new sample data, just drop them into these directories and the validator will pick them up. 
 
-To change these defaults, modify the corresponding lines in th `application.properties` file.
+To change these defaults, modify the corresponding lines in the `application.properties` file. You can also set the logging level in there to `WARN` if you find the output too verbose.
 
 ### Running
 If you're using IntelliJ, simply create a run configuration that points at `org.openmhealth.schema.configuration.Application`.
