@@ -1,11 +1,16 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "The name(s) of the physical activity(ies) in which the person is engaged. It is recommended that the activity(ies) name(s) be drawn from this extensive list based on CDC guidelines to facilitate mapping to standard energy expenditure values (METs). Note that the CPA compendium lists standard METs intended for use in population-level epidemiological research, not for individual use which should be corrected for sex and BMI. The CDC table is more useful for this application because the categories are broad (moderate, vs. vigorous) and it doesn’t pretend to have the precision that the CPA compendium does.",
+    "description": "The name(s) of the physical activity(ies) in which the person is engaged. It is recommended that the activity name be drawn from the CDC guidelines to facilitate mapping to standard energy expenditure values (METs)",
+
     "references": [
         {
             "description": "The SNOMED code represents Activity",
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/257733005"
+        },
+        {
+             "description": "CDC guidelines on standard energy expenditure values (METs).",
+             "url": "http://www.startwalkingnow.org/documents/PA_Intensity_table_2_1.pdf"
         }
     ],
     "type": "string"
