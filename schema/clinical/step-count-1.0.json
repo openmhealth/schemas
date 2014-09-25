@@ -12,9 +12,6 @@
     ],
 
     "definitions": {
-        "step_count": {
-            "type": "number"
-        },
         "effective_time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         }
@@ -22,7 +19,7 @@
 
     "properties": {
         "step_count": {
-            "$ref": "#/definitions/step_count"
+            "type": "number"
         },
         "effective_time_frame": {
             "$ref": "#/definitions/effective_time_frame"
