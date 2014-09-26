@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a versioned JSON Schema schema.",
+
+    "type": "object",
+
+    "properties": {
+        "namespace": {
+            "description": "The namespace of the schema.",
+            "type": "string"
+        },
+        "name": {
+            "description": "The name of the schema.",
+            "type": "string"
+        },
+        "version": {
+            "description": "The version of the schema.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "namespace",
+        "name",
+        "version"
+    ]
+}
