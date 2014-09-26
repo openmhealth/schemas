@@ -8,11 +8,27 @@
         "creation_time": {
             "$ref": "date-time-1.0.json"
         },
-        "schema": {
-            "$ref": "schema-1.0.json"
+        "schema_id": {
+            "$ref": "schema-id-1.0.json"
         },
         "acquisition_provenance": {
-            "$ref": "acquisition-provenance-1.0.json"
+            "type": "object",
+            "properties": {
+                "source_name": {
+                    "description": "The name of the source of the data.",
+                    "type": "string"
+                },
+                "source_creation_timestamp": {
+                    "description": "The timestamp of data creation at the source.",
+                    "$ref": "date-time-1.0.json"
+                },
+                "modality": {
+                    "description": "The modality whereby the measure is obtained.",
+                    "type": "string",
+                    "enum": ["sensed","self-reported"]
+                }
+            },
+            "required": ["source_name"]
         }
     },
 
@@ -23,8 +39,8 @@
         "creation_time": {
             "$ref": "#/definitions/creation_time"
         },
-        "schema": {
-            "$ref": "#/definitions/schema"
+        "schema_id": {
+            "$ref": "#/definitions/schema_id"
         },
         "acquisition_provenance": {
             "$ref": "#/definitions/acquisition_provenance"
@@ -34,7 +50,6 @@
     "required": [
         "id",
         "creation_time",
-        "schema",
-        "acquisition_provenance"
+        "schema_id"
     ]
 }
