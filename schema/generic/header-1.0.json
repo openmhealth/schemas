@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the header of a data transaction.",
+    "type": "object",
+
+    "definitions": {
+        "creation_time": {
+            "$ref": "date-time-1.0.json"
+        },
+        "schema": {
+            "$ref": "schema-1.0.json"
+        },
+        "acquisition_provenance": {
+            "$ref": "acquisition-provenance-1.0.json"
+        }
+    },
+
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "creation_time": {
+            "$ref": "#/definitions/creation_time"
+        },
+        "schema": {
+            "$ref": "#/definitions/schema"
+        },
+        "acquisition_provenance": {
+            "$ref": "#/definitions/acquisition_provenance"
+        }
+    },
+
+    "required": [
+        "id",
+        "creation_time",
+        "schema",
+        "acquisition_provenance"
+    ]
+}
