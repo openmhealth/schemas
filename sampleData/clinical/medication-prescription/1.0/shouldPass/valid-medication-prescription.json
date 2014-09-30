@@ -8,7 +8,7 @@
         "value": 1,
         "unit": "{tablet}"
     },
-    "route": "po",
+    "route": "oral",
 
     "frequency": {
         "number_of_times": 1,
