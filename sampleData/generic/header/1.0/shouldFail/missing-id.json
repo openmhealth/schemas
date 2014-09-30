@@ -1,5 +1,5 @@
 {
-    "creation_time": "2013-02-05T07:25:00Z",
+    "creation_date_time": "2013-02-05T07:25:00Z",
     "schema_id": {
         "namespace": "omh",
         "name": "physical-activity",
@@ -7,7 +7,7 @@
     },
     "acquisition_provenance": {
         "source_name": "RunKeeper",
-        "source_creation_timestamp": "2013-02-05T07:25:00Z",
+        "source_creation_date_time": "2013-02-05T07:25:00Z",
         "modality": "sensed"
     }
 }
