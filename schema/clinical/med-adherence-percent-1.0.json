@@ -1,0 +1,30 @@
+{
+   "$schema":"http://json-schema.org/draft-04/schema#",
+
+   "description":"This schema represents summary adherence to a prescription as a ratio doses taken / doses prescribed x 100 within a time frame.",
+
+   "type":"object",
+
+   "definitions": {
+        "medication_prescription": {
+            "$ref": "medication-prescription-1.0.json"
+        },
+        "effective_time_frame": {
+            "$ref": "../generic/time-frame-1.0.json"
+        }
+   },
+   "properties": {
+      "medication_prescription":{
+         "$ref": "#/definitions/medication_prescription"
+      },
+      "effective_time_frame": {
+          "$ref": "#/definitions/effective_time_frame"
+      },
+      "med_adherence_percent": {
+         "type":"number",
+         "minimum": 0,
+         "maximum": 100
+      }
+   },
+   "required": ["medication_prescription","med_adherence_percent"]
+}
