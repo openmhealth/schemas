@@ -5,7 +5,7 @@
     "type": "object",
 
     "definitions": {
-        "creation_time": {
+        "creation_date_time": {
             "$ref": "date-time-1.0.json"
         },
         "schema_id": {
@@ -18,8 +18,8 @@
                     "description": "The name of the source of the data.",
                     "type": "string"
                 },
-                "source_creation_timestamp": {
-                    "description": "The timestamp of data creation at the source.",
+                "source_creation_date_time": {
+                    "description": "The date time (timestamp) of data creation at the source.",
                     "$ref": "date-time-1.0.json"
                 },
                 "modality": {
@@ -36,8 +36,8 @@
         "id": {
             "type": "string"
         },
-        "creation_time": {
-            "$ref": "#/definitions/creation_time"
+        "creation__date_time": {
+            "$ref": "#/definitions/creation_date_time"
         },
         "schema_id": {
             "$ref": "#/definitions/schema_id"
@@ -49,7 +49,7 @@
 
     "required": [
         "id",
-        "creation_time",
+        "creation_date_time",
         "schema_id"
     ]
 }
