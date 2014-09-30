@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the frequency of an event as number of times over a duration, e.g., 1/14 d meaning once every 14 days.",
+
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Frequency (qualifier value)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+        }
+    ],
+    "definitions": {
+        "duration": {
+            "$ref": "duration-unit-value-1.0.json"
+        }
+    },
+
+    "properties": {
+        "number_of_times": {
+            "type": "number"
+        },
+        "duration": {
+            "$ref": "#/definitions/duration"
+        }
+    },
+
+    "required": [
+        "number_of_times",
+        "duration"
+    ]
+}
