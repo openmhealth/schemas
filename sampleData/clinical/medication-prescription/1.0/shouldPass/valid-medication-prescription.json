@@ -1,0 +1,24 @@
+{
+    "medication": {
+        "generic_name": "Atenolol 50 MG Oral Tablet [Tenormin]",
+        "rxnorm_code": 152414
+    },
+
+    "dose": {
+        "value": 1,
+        "unit": "{tablet}"
+    },
+    "route": "po",
+
+    "frequency": {
+        "number_of_times": 1,
+        "duration": {
+            "value": 1,
+            "unit": "d"
+        }
+    },
+    "duration": {
+        "value": 15,
+        "unit": "d"
+    }
+}
