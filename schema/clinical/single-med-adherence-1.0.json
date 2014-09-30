@@ -1,7 +1,7 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
 
-   "description":"This schema represents a single instance of adherence or non-adherence to a prescribed dose of a medication.",
+   "description":"This schema represents adherence or non-adherence to a single prescribed dose of a medication.",
 
    "type":"object",
 
