@@ -1,0 +1,30 @@
+{
+   "$schema":"http://json-schema.org/draft-04/schema#",
+
+   "description":"This schema represents a single instance of adherence or non-adherence to a prescribed dose of a medication.",
+
+   "type":"object",
+
+   "definitions": {
+        "medication": {
+            "$ref":"medication-1.0.json"
+        },
+        "effective_time_frame": {
+            "$ref":"../generic/time-frame-1.0.json"
+        }
+    },
+
+   "properties": {
+      "medication": {
+          "$ref": "#/definitions/medication"
+      },
+      "effective_time_frame": {
+          "$ref": "#/definitions/effective_time_frame"
+      },
+      "dose_taken":{
+         "type":"boolean"
+
+      }
+   },
+   "required": ["medication","dose_taken"]
+}
