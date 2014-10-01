@@ -1,4 +1,8 @@
 {
-   "generic_name": "Aspirin 500 mg [Ascriptin]",
+   "generic_name": "Aspirin [Ascriptin]",
+   "strength": {
+       "value": 500,
+       "unit": "mg"
+   },
    "rxnorm_code": 830525
 }

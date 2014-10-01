@@ -1,7 +1,11 @@
 {
     "medication": {
-        "generic_name": "Atenolol 50 MG Oral Tablet [Tenormin]",
-        "rxnorm_code": 152414
+        "generic_name": "Aspirin [Ascriptin]",
+        "strength": {
+            "value": 500,
+            "unit": "mg"
+        },
+        "rxnorm_code": 830525
     },
 
     "dose": {

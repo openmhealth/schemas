@@ -2,6 +2,10 @@
     "medication_prescription": {
         "medication": {
             "generic_name": "Atenolol 25 MG Oral Tablet [Tenormin]",
+            "strength": {
+                "value": 25,
+                "unit": "mg"
+            },
             "rxnorm_code": 150750
         },
         "dose": {
