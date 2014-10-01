@@ -11,6 +11,27 @@
         }
     },
 
+    "anyOf": [
+        {
+            "properties": {
+                "generic_name": {
+                    "description":"The generic name of the drug.",
+                    "type":"string"
+                }
+            },
+            "required": ["generic_name"]
+        },
+        {
+            "properties": {
+                "trade_name": {
+                    "description":"The trade (brand) name of the drug.",
+                    "type":"string"
+                }
+            },
+            "required": ["trade_name"]
+        }
+    ],
+
     "properties": {
         "strength": {
             "allOf": [
@@ -44,7 +65,8 @@
                               "nmol",
                               "umol",
                               "mol",
-                              "mmol"
+                              "mmol",
+                              "%"
                             ]
                         }
                     }
@@ -57,25 +79,5 @@
         }
     },
 
-    "anyOf": [
-        {
-            "properties": {
-                "generic_name": {
-                    "description":"The generic name of the drug.",
-                    "type":"string"
-                }
-            },
-            "required": ["generic_name"]
-        },
-        {
-            "properties": {
-                "trade_name": {
-                    "description":"The trade (brand) name of the drug.",
-                    "type":"string"
-                }
-            },
-            "required": ["trade_name"]
-        }
-    ],
     "required": ["strength"]
 }
