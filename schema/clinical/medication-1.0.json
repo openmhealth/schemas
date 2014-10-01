@@ -1,23 +1,45 @@
 {
-   "$schema":"http://json-schema.org/draft-04/schema#",
+    "$schema":"http://json-schema.org/draft-04/schema#",
 
-   "description":"This schema represents a drug, single-active ingredient or combination.",
+    "description":"This schema represents a drug, single-active ingredient or combination.",
 
-   "type":"object",
+    "type":"object",
 
-   "properties": {
-      "generic_name": {
-         "description":"The generic name of the drug.",
-         "type":"string"
-      },
-      "trade_name": {
-         "description":"The trade (brand) name of the drug.",
-         "type":"string"
-      },
-      "rxnorm_code": {
-         "description":"The RxNORM CUI of the drug, which includes drug name, strength (if applicable), formulation, manufacturer.",
-         "type":"number"
-      }
-   },
-   "minProperties": 1
+    "definitions": {
+        "unit_value": {
+            "$ref": "../generic/unit-value-1.0.json"
+        }
+    },
+
+    "properties": {
+        "strength": {
+            "$ref": "#/definitions/unit_value"
+        },
+        "rxnorm_code": {
+            "description":"The RxNORM CUI of the drug, which includes drug name, strength (if applicable), formulation, manufacturer.",
+            "type":"number"
+        }
+    },
+
+    "anyOf": [
+        {
+            "properties": {
+                "generic_name": {
+                    "description":"The generic name of the drug.",
+                    "type":"string"
+                }
+            },
+            "required": ["generic_name"]
+        },
+        {
+            "properties": {
+                "trade_name": {
+                    "description":"The trade (brand) name of the drug.",
+                    "type":"string"
+                }
+            },
+            "required": ["trade_name"]
+        }
+    ],
+    "required": ["strength"]
 }
