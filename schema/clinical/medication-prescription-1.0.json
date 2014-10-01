@@ -196,8 +196,8 @@
               "urethral",
               "vaginal"
           ]
-      },
-      "frequency": {
+       },
+       "frequency": {
           "$ref": "#/definitions/frequency"
       },
       "duration": {
