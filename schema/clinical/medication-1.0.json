@@ -13,7 +13,43 @@
 
     "properties": {
         "strength": {
-            "$ref": "#/definitions/unit_value"
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "references": [
+                                {
+                                    "description": "The unit of measure of the element. Allowed values are drawn from ...",
+                                    "url": "http://www.hl7.de/download/documents/ucum/ucumdata.html "
+                                }
+                            ],
+                            "enum": [
+                              "ng",
+                              "ug",
+                              "mg",
+                              "g",
+                              "uL",
+                              "mL",
+                              "dL",
+                              "L",
+                              "mU",
+                              "U",
+                              "[iU]",
+                              "uCi",
+                              "Ci",
+                              "meq",
+                              "nmol",
+                              "umol",
+                              "mol",
+                              "mmol"
+                            ]
+                        }
+                    }
+                }
+            ]
         },
         "rxnorm_code": {
             "description":"The RxNORM CUI of the drug, which includes drug name, strength (if applicable), formulation, manufacturer.",
