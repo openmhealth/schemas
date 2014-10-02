@@ -16,7 +16,7 @@
         "diastolic_blood_pressure": {
             "$ref": "diastolic-blood-pressure-1.0.json"
         },
-        "effective_time_frame": {
+        "time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         },
         "position_during_measurement": {
@@ -35,7 +35,7 @@
             "$ref": "#/definitions/diastolic_blood_pressure"
         },
         "effective_time_frame": {
-            "$ref": "#/definitions/effective_time_frame"
+            "$ref": "#/definitions/time_frame"
         },
         "position_during_measurement": {
             "$ref": "#/definitions/position_during_measurement"

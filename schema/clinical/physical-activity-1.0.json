@@ -13,7 +13,7 @@
         "activity_name": {
             "$ref": "activity-name-1.0.json"
         },
-        "effective_time_frame": {
+        "time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         },
         "distance": {
@@ -27,7 +27,7 @@
             "$ref": "#/definitions/activity_name"
         },
         "effective_time_frame": {
-            "$ref": "#/definitions/effective_time_frame"
+            "$ref": "#/definitions/time_frame"
         },
         "distance": {
             "$ref": "#/definitions/distance"
