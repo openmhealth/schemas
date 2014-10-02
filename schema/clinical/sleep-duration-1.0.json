@@ -13,7 +13,7 @@
         "duration_unit_value": {
             "$ref": "../generic/duration-unit-value-1.0.json"
         },
-        "effective_time_frame": {
+        "time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         }
     },
@@ -38,7 +38,7 @@
             ]
         },
         "effective_time_frame": {
-            "$ref": "#/definitions/effective_time_frame"
+            "$ref": "#/definitions/time_frame"
         },
         "user_notes": {
             "type": "string"

@@ -18,7 +18,7 @@
         "blood_specimen_type": {
             "$ref": "blood-specimen-type-1.0.json"
         },
-        "effective_time_frame": {
+        "time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         },
         "temporal_relationship_to_meal": {
@@ -54,7 +54,7 @@
             "$ref": "#/definitions/blood_specimen_type"
         },
         "effective_time_frame": {
-            "$ref": "#/definitions/effective_time_frame"
+            "$ref": "#/definitions/time_frame"
         },
         "temporal_relationship_to_meal": {
             "$ref": "#/definitions/temporal_relationship_to_meal"

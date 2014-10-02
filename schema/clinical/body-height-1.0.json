@@ -13,7 +13,7 @@
         "length_unit_value": {
             "$ref": "../generic/length-unit-value-1.0.json"
         },
-        "effective_time_frame": {
+        "time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         },
         "descriptive_statistic": {
@@ -26,7 +26,7 @@
             "$ref": "#/definitions/length_unit_value"
         },
         "effective_time_frame": {
-            "$ref": "#/definitions/effective_time_frame"
+            "$ref": "#/definitions/time_frame"
         },
         "descriptive_statistic": {
             "$ref": "#/definitions/descriptive_statistic"

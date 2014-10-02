@@ -14,7 +14,7 @@
         "kcal_unit_value": {
                 "$ref": "../generic/kcal-unit-value-1.0.json"
         },
-        "effective_time_frame": {
+        "time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         },
         "activity_name": {
@@ -27,7 +27,7 @@
             "$ref": "#/definitions/kcal_unit_value"
         },
         "effective_time_frame": {
-            "$ref": "#/definitions/effective_time_frame"
+            "$ref": "#/definitions/time_frame"
         },
         "activity_name": {
             "$ref": "#/definitions/activity_name"
