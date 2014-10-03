@@ -2,7 +2,7 @@
     "medication_prescription": {
         "medication": {
             "generic_name": "Atenolol 25 MG Oral Tablet [Tenormin]",
-            "strength": {
+            "medication_strength": {
                 "value": 25,
                 "unit": "mg"
             },
@@ -10,11 +10,11 @@
         },
         "dose": {
             "value": 2,
-            "unit": "{tablet}"
+            "unit": "tablet"
         },
         "route": "oral",
 
-        "frequency": {
+        "schedule": {
             "number_of_times": 1,
             "duration": {
                 "value": 1,
@@ -29,7 +29,7 @@
 
     "effective_time_frame": {
         "time_interval": {
-            "start_time" : "2013-02-05T21:00:00Z",
+            "start_date_time" : "2013-02-05T21:00:00Z",
             "duration": {
                 "value": 15,
                 "unit": "d"
