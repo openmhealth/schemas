@@ -39,36 +39,36 @@
     "oneOf": [
         {
             "properties": {
-                "start_time": {
+                "start_date_time": {
                     "$ref": "#/definitions/date_time"
                 },
                 "duration": {
                     "$ref": "#/definitions/duration"
                 }
             },
-            "required": ["start_time", "duration"]
+            "required": ["start_date_time", "duration"]
         },
         {
             "properties": {
-                "end_time": {
+                "end_date_time": {
                     "$ref": "#/definitions/date_time"
                 },
                 "duration": {
                     "$ref": "#/definitions/duration"
                 }
             },
-            "required": ["end_time", "duration"]
+            "required": ["end_date_time", "duration"]
         },
         {
             "properties": {
-                "start_time": {
+                "start_date_time": {
                     "$ref": "#/definitions/date_time"
                 },
-                "end_time": {
+                "end_date_time": {
                     "$ref": "#/definitions/date_time"
                 }
             },
-            "required": ["start_time", "end_time"]
+            "required": ["start_date_time", "end_date_time"]
         },
         {
             "properties": {
