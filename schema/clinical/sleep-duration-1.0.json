@@ -28,6 +28,7 @@
                     "properties": {
                         "unit": {
                             "enum": [
+                                "sec",
                                 "min",
                                 "h"
                             ]

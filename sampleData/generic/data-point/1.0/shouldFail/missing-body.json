@@ -1,0 +1,15 @@
+{
+    "header": {
+        "id": "123e4567-e89b-12d3-a456-426655440000",
+        "creation_time": "2013-02-05T07:25:00Z",
+        "schema_id": {
+            "namespace": "omh",
+            "name": "physical-activity",
+            "version": "1.0"
+        },
+        "acquisition_provenance": {
+            "source_name": "RunKeeper",
+            "modality": "sensed"
+        }
+    }
+}
