@@ -5,11 +5,23 @@
     "type": "object",
 
     "definitions": {
-        "creation_date_time": {
+        "date_time": {
             "$ref": "date-time-1.0.json"
         },
         "schema_id": {
             "$ref": "schema-id-1.0.json"
+        }
+    },
+
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "creation_date_time": {
+            "$ref": "#/definitions/date_time"
+        },
+        "schema_id": {
+            "$ref": "#/definitions/schema_id"
         },
         "acquisition_provenance": {
             "type": "object",
@@ -20,7 +32,7 @@
                 },
                 "source_creation_date_time": {
                     "description": "The date time (timestamp) of data creation at the source.",
-                    "$ref": "date-time-1.0.json"
+                    "$ref": "#/definitions/date_time"
                 },
                 "modality": {
                     "description": "The modality whereby the measure is obtained.",
@@ -29,21 +41,6 @@
                 }
             },
             "required": ["source_name"]
-        }
-    },
-
-    "properties": {
-        "id": {
-            "type": "string"
-        },
-        "creation__date_time": {
-            "$ref": "#/definitions/creation_date_time"
-        },
-        "schema_id": {
-            "$ref": "#/definitions/schema_id"
-        },
-        "acquisition_provenance": {
-            "$ref": "#/definitions/acquisition_provenance"
         }
     },
 
