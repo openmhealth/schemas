@@ -13,12 +13,11 @@
         "activity_name": {
             "$ref": "activity-name-1.0.json"
         },
+        "length_unit_value": {
+            "$ref": "../generic/length-unit-value-1.0.json"
+        },
         "time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
-        },
-        "distance": {
-            "description": "The distance covered, if applicable.",
-            "$ref": "../generic/length-unit-value-1.0.json"
         }
     },
 
@@ -30,7 +29,8 @@
             "$ref": "#/definitions/time_frame"
         },
         "distance": {
-            "$ref": "#/definitions/distance"
+            "description": "The distance covered, if applicable.",
+            "$ref": "#/definitions/length_unit_value"
         },
         "reported_activity_intensity": {
             "description": "Self-reported intensity of the activity performed.",
