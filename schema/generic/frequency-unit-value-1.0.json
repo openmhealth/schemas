@@ -17,6 +17,9 @@
         },
         "fuzzy_duration": {
             "$ref": "fuzzy-duration-unit-value-1.0.json"
+        },
+        "time": {
+            "$ref": "time-1.0.json"
         }
     },
 
@@ -49,6 +52,14 @@
                 "number_of_times",
                 "fuzzy_duration"
             ]
+        },
+        {
+            "properties": {
+                "time": {
+                    "$ref": "#/definitions/time"
+                }
+            },
+            "required": ["time"]
         }
     ]
 }
