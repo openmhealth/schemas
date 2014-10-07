@@ -7,27 +7,48 @@
 
     "references": [
         {
-            "description": "The SNOMED code represents Frequency (qualifier value)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+            "description": "The SNOMED code represents Frequency (quantitative concept)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/260864003"
         }
     ],
     "definitions": {
         "duration": {
             "$ref": "duration-unit-value-1.0.json"
-        }
-    },
-
-    "properties": {
-        "number_of_times": {
-            "type": "number"
         },
-        "duration": {
-            "$ref": "#/definitions/duration"
+        "fuzzy_duration": {
+            "$ref": "fuzzy-duration-unit-value-1.0.json"
         }
     },
 
-    "required": [
-        "number_of_times",
-        "duration"
+    "oneOf": [
+        {
+            "properties": {
+                "number_of_times": {
+                    "type": "number"
+                },
+                "duration": {
+                    "$ref": "#/definitions/duration"
+                }
+            },
+            "required": [
+                "number_of_times",
+                "duration"
+            ]
+        },
+        {
+            "properties": {
+                "number_of_times": {
+                    "type": "number"
+                },
+                "fuzzy_duration": {
+                    "$ref": "#/definitions/fuzzy_duration"
+                }
+            },
+
+            "required": [
+                "number_of_times",
+                "fuzzy_duration"
+            ]
+        }
     ]
 }
