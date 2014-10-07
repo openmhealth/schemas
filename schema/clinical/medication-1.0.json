@@ -6,72 +6,22 @@
     "type":"object",
 
     "definitions": {
-        "unit_value": {
-            "$ref": "../generic/unit-value-1.0.json"
+        "strength_unit_value": {
+            "$ref": "strength-unit-value-1.0.json"
         }
     },
 
-    "anyOf": [
-        {
-            "properties": {
-                "generic_name": {
-                    "description":"The generic name of the drug.",
-                    "type":"string"
-                }
-            },
-            "required": ["generic_name"]
-        },
-        {
-            "properties": {
-                "trade_name": {
-                    "description":"The trade (brand) name of the drug.",
-                    "type":"string"
-                }
-            },
-            "required": ["trade_name"]
-        }
-    ],
-
     "properties": {
-        "strength": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/unit_value"
-                },
-                {
-                    "properties": {
-                        "unit": {
-                            "references": [
-                                {
-                                    "description": "The unit of measure of the element. Allowed values are drawn from ...",
-                                    "url": "http://www.hl7.de/download/documents/ucum/ucumdata.html "
-                                }
-                            ],
-                            "enum": [
-                              "ng",
-                              "ug",
-                              "mg",
-                              "g",
-                              "uL",
-                              "mL",
-                              "dL",
-                              "L",
-                              "mU",
-                              "U",
-                              "[iU]",
-                              "uCi",
-                              "Ci",
-                              "meq",
-                              "nmol",
-                              "umol",
-                              "mol",
-                              "mmol",
-                              "%"
-                            ]
-                        }
-                    }
-                }
-            ]
+        "generic_name": {
+            "description":"The generic name of the drug.",
+            "type":"string"
+        },
+        "trade_name": {
+            "description":"The trade (brand) name of the drug.",
+            "type":"string"
+        },
+        "medication_strength": {
+            "$ref": "#/definitions/strength_unit_value"
         },
         "rxnorm_code": {
             "description":"The RxNORM CUI of the drug, which includes drug name, strength (if applicable), formulation, manufacturer.",
@@ -79,5 +29,13 @@
         }
     },
 
-    "required": ["strength"]
+    "required": ["medication_strength"],
+    "anyOf": [
+        {
+            "required": ["generic_name"]
+        },
+        {
+            "required": ["trade_name"]
+        }
+    ]
 }
