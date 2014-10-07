@@ -1,209 +1,54 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
 
-   "description":"This schema represents a medication prescription e.g., atenolol 20 mg, 2 tablets po once a day.",
+    "description":"This schema represents a medication prescription e.g., atenolol 50 mg, 1 tablet po in the morning and 1/2 tablet in the evening.",
 
-   "type":"object",
+    "type":"object",
 
-   "definitions": {
+    "definitions": {
         "medication": {
             "$ref": "medication-1.0.json"
         },
-        "unit_value": {
-            "$ref": "../generic/unit-value-1.0.json"
+        "route": {
+            "$ref": "route-1.0.json"
         },
-        "frequency": {
+        "dose_unit_value": {
+            "$ref": "dose-unit-value-1.0.json"
+        },
+        "frequency-unit-value": {
             "$ref": "../generic/frequency-unit-value-1.0.json"
         },
-        "duration": {
+        "duration_unit_value": {
             "$ref": "../generic/duration-unit-value-1.0.json"
+        },
+        "schedule": {
+            "type": "object",
+            "properties": {
+                "dose_unit_value": {
+                    "$ref": "#/definitions/dose_unit_value",
+                    "default": "oral"
+                },
+                "dose_recurrence": {
+                    "$ref": "#/definitions/frequency-unit-value"
+                },
+                "duration": {
+                    "$ref": "#/definitions/duration_unit_value"
+                }
+            }
         }
     },
 
-   "properties": {
-      "medication":{
-         "$ref": "#/definitions/medication"
-      },
-      "dose": {
-          "allOf": [
-              {
-                  "$ref": "#/definitions/unit_value"
-              },
-              {
-                  "references": [
-                      {
-                          "description": "The list of acceptable units of measure for a medication dose, a subset of the HealthVault list",
-                          "url": "https://developer.healthvault.com/pages/types/vocab.aspx?name=medication-dose-units&family=wc&version=1",
-                          "description": "FDA units of measure",
-                          "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm",
-                          "description": "FDA pharmaceutical dosage form",
-                          "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162038.htm"
-                      }
-                  ],
-                  "properties": {
-                      "unit": {
-                          "enum": [
-                              "ng",
-                              "ug",
-                              "mg",
-                              "g",
-                              "uL",
-                              "mL",
-                              "dL",
-                              "L",
-                              "tsp",
-                              "tbsp",
-                              "mU",
-                              "U",
-                              "[iU]",
-                              "uCi",
-                              "Ci",
-                              "meq",
-                              "nmol",
-                              "umol",
-                              "mol",
-                              "mmol",
-                              "cm^2",
-                              "{capsule}",
-                              "{globule}",
-                              "{granule}",
-                              "{tablet}"
-                          ]
-                      }
-                  }
-              }
-          ]
-      },
-      "route": {
-          "type": "string",
-          "enum": [
-              "auricular (otic)",
-              "buccal",
-              "conjunctival",
-              "cutaneous",
-              "dental",
-              "electro-osmosis",
-              "endocervical",
-              "endosinusial",
-              "endotracheal",
-              "enteral",
-              "epidural",
-              "extra-amniotic",
-              "extracorporeal",
-              "hemodialysis",
-              "infiltration",
-              "interstitial",
-              "intra-abdominal",
-              "intra-amniotic",
-              "intra-arterial",
-              "intra-articular",
-              "intrabiliary",
-              "intrabronchial",
-              "intrabursal",
-              "intracardiac",
-              "intracartilaginous",
-              "intracaudal",
-              "intracavernous",
-              "intracavitary",
-              "intracerebral",
-              "intracisternal",
-              "intracorneal",
-              "intracoronal",
-              "intracoronary",
-              "intracorporus cavernosum",
-              "intracranial",
-              "intradermal",
-              "intradiscal",
-              "intraductal",
-              "intraduodenal",
-              "intradural",
-              "intraepicardial",
-              "intraepidermal",
-              "intraesophageal",
-              "intragastric",
-              "intragingival",
-              "intrahepatic",
-              "intraileal",
-              "intralesional",
-              "intralingual",
-              "intraluminal",
-              "intralymphatic",
-              "intramammary",
-              "intramedullary",
-              "intrameningeal",
-              "intramuscular",
-              "intranodal",
-              "intraocular",
-              "intraomentum",
-              "intraovarian",
-              "intrapericardial",
-              "intraperitoneal",
-              "intrapleural",
-              "intraprostatic",
-              "intrapulmonary",
-              "intraruminal",
-              "intrasinal",
-              "intraspinal",
-              "intrasynovial",
-              "intratendinous",
-              "intratesticular",
-              "intrathecal",
-              "intrathoracic",
-              "intratubular",
-              "intratumor",
-              "intratympanic",
-              "intrauterine",
-              "intravascular",
-              "intravenous",
-              "intraventricular",
-              "intravesical",
-              "intravitreal",
-              "iontophoresis",
-              "irrigation",
-              "laryngeal",
-              "nasal",
-              "nasogastric",
-              "not applicable",
-              "occlusive dressing technique",
-              "ophthalmic",
-              "oral",
-              "oropharyngeal",
-              "parenteral",
-              "percutaneous",
-              "periarticular",
-              "peridural",
-              "perineural",
-              "periodontal",
-              "rectal",
-              "respiratory (inhalation)",
-              "retrobulbar",
-              "soft tissue",
-              "subarachnoid",
-              "subconjunctival",
-              "subcutaneous",
-              "subgingival",
-              "sublingual",
-              "submucosal",
-              "subretinal",
-              "topical",
-              "transdermal",
-              "transendocardial",
-              "transmucosal",
-              "transplacental",
-              "transtracheal",
-              "transtympanic",
-              "ureteral",
-              "urethral",
-              "vaginal"
-          ]
-       },
-       "frequency": {
-          "$ref": "#/definitions/frequency"
-      },
-      "duration": {
-         "$ref": "#/definitions/duration"
-      }
-   },
+    "properties": {
+         "medication":{
+             "$ref": "#/definitions/medication"
+         },
+         "route": {
+             "$ref": "#/definitions/route"
+         },
+         "schedule": {
+             "$ref": "#/definitions/schedule"
+         }
+    },
 
-   "required": ["medication"]
+    "required": ["medication","schedule"]
 }
