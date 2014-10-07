@@ -9,7 +9,7 @@
         "medication_prescription": {
             "$ref": "medication-prescription-1.0.json"
         },
-        "effective_time_frame": {
+        "time_frame": {
             "$ref": "../generic/time-frame-1.0.json"
         }
    },
@@ -18,7 +18,7 @@
          "$ref": "#/definitions/medication_prescription"
       },
       "effective_time_frame": {
-          "$ref": "#/definitions/effective_time_frame"
+          "$ref": "#/definitions/time_frame"
       },
       "med_adherence_percent": {
          "type":"number",
