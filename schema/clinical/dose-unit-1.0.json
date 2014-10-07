@@ -4,9 +4,7 @@
     "description": "This schema represents the dose of a therapeutic agent",
     "references": [
         {
-            "description": "The list of acceptable units of measure for a medication dose, a subset of the HealthVault list",
-            "url": "https://developer.healthvault.com/pages/types/vocab.aspx?name=medication-dose-units&family=wc&version=1",
-            "description": "FDA units of measure",
+            "description": "The list of acceptable units of measure for a medication dose, FDA units of measure.",
             "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm",
             "description": "FDA pharmaceutical dosage form",
             "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162038.htm"
