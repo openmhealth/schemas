@@ -1,0 +1,26 @@
+{
+    "medication": {
+        "generic_name": "Aspirin [Ascriptin]",
+        "medication_strength": {
+            "value": 500,
+            "unit": "mg"
+        },
+        "rxnorm_code": 830525
+    },
+
+    "route": "oral",
+
+    "schedule": {
+        "dose_value_unit": {
+            "dose_value": "1",
+            "dose_unit": "tablet"
+        },
+        "dose_recurrence": {
+            "time": "8 AM"
+        },
+        "duration": {
+            "value": 15,
+            "unit": "d"
+        }
+    }
+}
