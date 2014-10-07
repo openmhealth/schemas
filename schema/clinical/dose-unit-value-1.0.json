@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description": "This schema represents the dose of a therapeutic agent",
+    "references": [
+        {
+            "description": "The NCIT code represents Dose",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25488"
+        }
+    ],
+    "definitions": {
+        "dose_unit": {
+            "$ref": "dose-unit-1.0.json"
+        }
+    },
+    "properties": {
+        "dose_value": {
+            "type": "string"
+        },
+        "dose_unit": {
+            "$ref": "#/definitions/dose_unit"
+        }
+    },
+    "required": ["dose_value", "dose_unit"]
+}
