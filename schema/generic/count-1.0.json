@@ -4,7 +4,12 @@
     "description": "This schema represents the count (number) of some elements (unit).",
 
     "type": "object",
-
+    "references": [
+        {
+            "description": "The NCIT code represents count",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25463"
+        }
+    ],
     "properties": {
         "value": {
             "description": "The count of the element.",
