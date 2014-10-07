@@ -1,7 +1,7 @@
 {
    "generic_name": "Aspirin",
    "trade_name": "Ascriptin",
-   "strength": {
+   "medication_strength": {
        "value": 500,
        "unit": "mg"
    },
