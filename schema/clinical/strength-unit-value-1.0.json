@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description": "This schema represents the strength of a therapeutic agent",
+    "references": [
+        {
+            "description": "The NCIT code represents Strength",
+            "url": ""
+        }
+    ],
+    "allOf": [
+        {
+            "$ref": "../generic/unit-value-1.0.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Allowed values are drawn from FDA units of measure",
+                            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm",
+                            "description": "FDA pharmaceutical dosage form",
+                            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162038.htm"
+                        }
+                    ],
+                    "enum": [
+                        "ng",
+                        "ug",
+                        "mg",
+                        "g",
+                        "uL",
+                        "mL",
+                        "dL",
+                        "L",
+                        "mU",
+                        "U",
+                        "IU",
+                        "IU/L",
+                        "IU/mL",
+                        "uCi",
+                        "mCi/mL",
+                        "Ci",
+                        "nmol",
+                        "umol",
+                        "mol",
+                        "mmol",
+                        "mmole",
+                        "%",
+                        "mg/actuat",
+                        "mg/mL",
+                        "ug/mL",
+                        "mg/mg",
+                        "unt",
+                        "unt/mL",
+                        "mEq",
+                        "organisms",
+                        "mg/hr",
+                        "X",
+                        "BAU/mL",
+                        "BU",
+                        "AU/mL",
+                        "LfU/mL",
+                        "PNU/mL"
+                    ]
+                }
+            }
+        }
+    ]
+}
