@@ -10,7 +10,8 @@
             "$ref": "medication-1.0.json"
         },
         "route": {
-            "$ref": "route-1.0.json"
+            "$ref": "route-1.0.json",
+            "default": "oral"
         },
         "dose_unit_value": {
             "$ref": "dose-unit-value-1.0.json"
@@ -25,8 +26,7 @@
             "type": "object",
             "properties": {
                 "dose_unit_value": {
-                    "$ref": "#/definitions/dose_unit_value",
-                    "default": "oral"
+                    "$ref": "#/definitions/dose_unit_value"
                 },
                 "dose_recurrence": {
                     "$ref": "#/definitions/frequency-unit-value"
