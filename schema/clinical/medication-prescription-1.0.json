@@ -16,7 +16,7 @@
         "dose_unit_value": {
             "$ref": "dose-unit-value-1.0.json"
         },
-        "frequency-unit-value": {
+        "frequency_unit_value": {
             "$ref": "../generic/frequency-unit-value-1.0.json"
         },
         "duration_unit_value": {
@@ -29,7 +29,7 @@
                     "$ref": "#/definitions/dose_unit_value"
                 },
                 "dose_recurrence": {
-                    "$ref": "#/definitions/frequency-unit-value"
+                    "$ref": "#/definitions/frequency_unit_value"
                 },
                 "duration": {
                     "$ref": "#/definitions/duration_unit_value"
