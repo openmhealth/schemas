@@ -14,23 +14,25 @@
         },
         "route": "oral",
 
-        "schedule": {
-            "dose_unit_value": {
-                "dose_value": "1",
-                "dose_unit": "tablet"
-            },
-            "dose_recurrence": {
-                "number_of_times": 1,
+        "schedule": [
+            {
+                "dose_value_unit": {
+                    "dose_value": "1",
+                    "dose_unit": "tablet"
+                },
+                "dose_recurrence": {
+                    "number_of_times": 1,
+                    "duration": {
+                        "value": 1,
+                        "unit": "d"
+                    }
+                },
                 "duration": {
-                    "value": 1,
+                    "value": 15,
                     "unit": "d"
                 }
-            },
-            "duration": {
-                "value": 15,
-                "unit": "d"
             }
-        }
+        ]
     },
 
     "effective_time_frame": {
