@@ -11,7 +11,7 @@
     "route": "oral",
 
     "schedule": {
-        "dose_value_unit": {
+        "dose_unit_value": {
             "dose_value": "1",
             "dose_unit": "tablet"
         },
@@ -28,7 +28,7 @@
         }
     },
     "schedule": {
-        "dose_value_unit": {
+        "dose_unit_value": {
             "dose_value": "1/2",
             "dose_unit": "tablet"
         },
