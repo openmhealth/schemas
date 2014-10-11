@@ -5,7 +5,9 @@
     "references": [
         {
             "description": "The list of acceptable units of measure for a medication dose, FDA units of measure.",
-            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm",
+            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm"
+        },
+        {
             "description": "FDA pharmaceutical dosage form",
             "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162038.htm"
         }
