@@ -23,16 +23,19 @@
             "$ref": "../generic/duration-unit-value-1.0.json"
         },
         "schedule": {
-            "type": "object",
-            "properties": {
-                "dose_unit_value": {
-                    "$ref": "#/definitions/dose_unit_value"
-                },
-                "dose_recurrence": {
-                    "$ref": "#/definitions/frequency_unit_value"
-                },
-                "duration": {
-                    "$ref": "#/definitions/duration_unit_value"
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "dose_unit_value": {
+                        "$ref": "#/definitions/dose_unit_value"
+                    },
+                    "dose_recurrence": {
+                        "$ref": "#/definitions/frequency_unit_value"
+                    },
+                    "duration": {
+                        "$ref": "#/definitions/duration_unit_value"
+                    }
                 }
             }
         }
