@@ -13,7 +13,7 @@
     "schedule": [
         {
             "dose_value_unit": {
-                "dose_value": "1",
+                "dose_value": 1,
                 "dose_unit": "tablet"
             },
             "dose_recurrence": {
