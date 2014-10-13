@@ -15,7 +15,7 @@
     },
     "properties": {
         "dose_value": {
-            "type": "string"
+            "type": "number"
         },
         "dose_unit": {
             "$ref": "#/definitions/dose_unit"
