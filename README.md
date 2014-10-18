@@ -16,7 +16,7 @@ To run the validator, you'll also need
 * [Java SE 8](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html) to run it
 
 ## Validator
-The validator is a simple application that validates sample data against schemas. 
+The validator is a simple application that validates sample data against schemas. It makes good use of Francis Galiegue's JSON Schema validator, which you can find [here](https://github.com/fge/json-schema-validator). Thank you, Francis.
 
 ### Configuration
 By default, the validator looks for schemas in the `schemas` directory and sample data files in the `sampleData` file directory. 
