@@ -1,5 +1,5 @@
 # Open mHealth Schema Repository
-A repository of Open mHealth (generic and clinical schemas)[http://www.openmhealth.org/developers/schemas/]. This repository also includes sample data and a validator for that data.
+A repository of Open mHealth [generic and clinical schemas](http://www.openmhealth.org/developers/schemas/). This repository also includes sample data and a validator for that data.
 
 ## Tooling
 There are a few tools which are well suited to working with the schemas and source code in this repository.
