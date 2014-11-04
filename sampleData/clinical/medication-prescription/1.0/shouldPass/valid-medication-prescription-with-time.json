@@ -7,17 +7,20 @@
         },
         "rxnorm_code": 830525
     },
-
-    "route": "oral",
+    "medication_route": "oral",
     "schedule": [
         {
-            "dose_value_unit": {
-                "dose_value": 1,
-                "dose_unit": "tablet"
+            "medication_dose_value_unit": {
+                "medication_dose_value": 1,
+                "medication_dose_unit": "tablet"
             },
-            "dose_recurrence": {
-                "time": "8 AM"
+            "medication_dose_recurrence": {
+                "time": "8 am"
             }
         }
-    ]
+    ],
+    "prescription_duration": {
+        "value": 30,
+        "unit": "d"
+    }
 }

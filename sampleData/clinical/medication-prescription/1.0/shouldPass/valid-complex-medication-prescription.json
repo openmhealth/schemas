@@ -8,42 +8,38 @@
         "rxnorm_code": 152414
     },
 
-    "route": "oral",
+    "medication_route": "oral",
 
     "schedule": [
         {
-            "dose_value_unit": {
-                "dose_value": 1,
-                "dose_unit": "tablet"
+            "medication_dose_value_unit": {
+                "medication_dose_value": 1,
+                "medication_dose_unit": "tablet"
             },
-            "dose_recurrence": {
+            "medication_dose_recurrence": {
                 "number_of_times": 1,
                 "duration": {
                     "value": 1,
                     "unit": "d"
                 }
-            },
-            "duration": {
-                "value": 15,
-                "unit": "d"
             }
         },
         {
-            "dose_value_unit": {
-                "dose_value": 0.5,
-                "dose_unit": "tablet"
+            "medication_dose_value_unit": {
+                "medication_dose_value": 0.5,
+                "medication_dose_unit": "tablet"
             },
-            "dose_recurrence": {
+            "medication_dose_recurrence": {
                 "number_of_times": 1,
                 "fuzzy_duration": {
                     "value" :2,
                     "unit": "evening"
                 }
-            },
-            "duration": {
-                "value": 15,
-                "unit": "d"
             }
         }
-    ]
+    ],
+    "prescription_duration": {
+        "value": 15,
+        "unit": "d"
+    }
 }

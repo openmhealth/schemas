@@ -8,31 +8,27 @@
             },
             "rxnorm_code": 150750
         },
-        "dose": {
-            "value": 2,
-            "unit": "tablet"
-        },
-        "route": "oral",
+        "medication_route": "oral",
 
         "schedule": [
             {
-                "dose_value_unit": {
+                "medication_dose_value_unit": {
                     "dose_value": 1,
                     "dose_unit": "tablet"
                 },
-                "dose_recurrence": {
+                "medication_dose_recurrence": {
                     "number_of_times": 1,
                     "duration": {
                         "value": 1,
                         "unit": "d"
                     }
-                },
-                "duration": {
-                    "value": 15,
-                    "unit": "d"
                 }
             }
-        ]
+        ],
+        "prescription_duration": {
+            "value": 15,
+            "unit": "d"
+        }
     },
 
     "effective_time_frame": {
@@ -43,5 +39,6 @@
                 "unit": "d"
             }
         }
-    }
+    },
+    "medication_adherence_percent": 93
 }

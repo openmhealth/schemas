@@ -6,8 +6,12 @@
             "unit": "mg"
         }
     },
+    "medication_dose_taken": {
+        "medication_dose_value": 1,
+        "medication_dose_unit": "capsule"
+
+    },
     "effective_time_frame": {
         "date_time": "2013-02-05T21:00:00Z"
-    },
-    "adherent": true
+    }
 }
