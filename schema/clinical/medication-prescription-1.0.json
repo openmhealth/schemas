@@ -9,12 +9,12 @@
         "medication": {
             "$ref": "medication-1.0.json"
         },
-        "route": {
-            "$ref": "route-1.0.json",
+        "medication_route": {
+            "$ref": "medication-route-1.0.json",
             "default": "oral"
         },
-        "dose_unit_value": {
-            "$ref": "dose-unit-value-1.0.json"
+        "medication_dose_unit_value": {
+            "$ref": "medication-dose-unit-value-1.0.json"
         },
         "frequency_unit_value": {
             "$ref": "../generic/frequency-unit-value-1.0.json"
@@ -28,27 +28,27 @@
          "medication":{
              "$ref": "#/definitions/medication"
          },
-         "route": {
-             "$ref": "#/definitions/route"
+         "medication_route": {
+             "$ref": "#/definitions/medication_route"
          },
          "schedule": {
              "type": "array",
              "items": {
                  "type": "object",
                  "properties": {
-                     "dose_unit_value": {
-                         "$ref": "#/definitions/dose_unit_value"
+                     "medication_dose_unit_value": {
+                         "$ref": "#/definitions/medication_dose_unit_value"
                      },
-                     "dose_recurrence": {
+                     "medication_dose_recurrence": {
                          "$ref": "#/definitions/frequency_unit_value"
-                     },
-                     "duration": {
-                         "$ref": "#/definitions/duration_unit_value"
                      }
                  }
              }
+         },
+         "prescription_duration": {
+              "$ref": "#/definitions/duration_unit_value"
          }
     },
 
-    "required": ["medication","schedule"]
+    "required": ["medication","schedule","prescription_duration"]
 }
