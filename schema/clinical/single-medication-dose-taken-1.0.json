@@ -1,13 +1,16 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
 
-   "description":"This schema represents adherence or non-adherence to a single prescribed dose of a medication.",
+   "description":"This schema represents assumption of a single prescribed dose of a medication.",
 
    "type":"object",
 
    "definitions": {
         "medication": {
             "$ref":"medication-1.0.json"
+        },
+        "medication_dose_unit_value": {
+            "$ref": "medication-dose-unit-value-1.0.json"
         },
         "time_frame": {
             "$ref":"../generic/time-frame-1.0.json"
@@ -18,13 +21,15 @@
       "medication": {
           "$ref": "#/definitions/medication"
       },
+      "medication_dose_taken": {
+          "$ref": "#/definitions/medication_dose_unit_value"
+      },
       "effective_time_frame": {
           "$ref": "#/definitions/time_frame"
-      },
-      "adherent":{
-         "type":"boolean"
-
       }
    },
-   "required": ["medication","adherent"]
+   "required": [
+       "medication",
+       "medication_dose_taken",
+       "effective_time_frame"]
 }
