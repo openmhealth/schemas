@@ -9,17 +9,17 @@
         }
     ],
     "definitions": {
-        "dose_unit": {
-            "$ref": "dose-unit-1.0.json"
+        "medication_dose_unit": {
+            "$ref": "medication-dose-unit-1.0.json"
         }
     },
     "properties": {
-        "dose_value": {
+        "medication_dose_value": {
             "type": "number"
         },
-        "dose_unit": {
-            "$ref": "#/definitions/dose_unit"
+        "medication_dose_unit": {
+            "$ref": "#/definitions/medication_dose_unit"
         }
     },
-    "required": ["dose_value", "dose_unit"]
+    "required": ["medication_dose_value", "medication_dose_unit"]
 }

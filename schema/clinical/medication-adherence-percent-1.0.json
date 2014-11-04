@@ -20,11 +20,11 @@
       "effective_time_frame": {
           "$ref": "#/definitions/time_frame"
       },
-      "med_adherence_percent": {
+      "medication_adherence_percent": {
          "type":"number",
          "minimum": 0,
          "maximum": 100
       }
    },
-   "required": ["medication_prescription","med_adherence_percent"]
+   "required": ["medication_prescription","medication_adherence_percent"]
 }
