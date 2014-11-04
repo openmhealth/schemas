@@ -37,7 +37,7 @@
                 "modality": {
                     "description": "The modality whereby the measure is obtained.",
                     "type": "string",
-                    "enum": ["sensed","self-reported"]
+                    "enum": ["sensed","self-reported","proxy-reported"]
                 }
             },
             "required": ["source_name"]
