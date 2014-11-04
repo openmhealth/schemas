@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema describes a time.",
+
+    "references": [
+        {
+            "description": "The XX code represent Time of day.",
+            "url": ""
+        }
+    ],
+
+    "type": "string",
+    "pattern": "^([0-9]|[0-1][0-2])(:([0-5][0-9]))?\\s((am|pm)|(AM|PM))$"
+
+}
