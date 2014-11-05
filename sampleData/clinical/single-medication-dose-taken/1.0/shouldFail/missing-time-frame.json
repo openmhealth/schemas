@@ -7,7 +7,7 @@
         }
     },
     "medication_dose_taken": {
-        "medication_dose_value": 0.5,
-        "medication_dose_unit": "tablet"
+        "value": 0.5,
+        "unit": "tablet"
     }
 }

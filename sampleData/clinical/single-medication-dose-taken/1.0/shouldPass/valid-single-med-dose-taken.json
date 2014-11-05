@@ -7,8 +7,8 @@
         }
     },
     "medication_dose_taken": {
-        "medication_dose_value": 1,
-        "medication_dose_unit": "capsule"
+        "value": 1,
+        "unit": "capsule"
 
     },
     "effective_time_frame": {

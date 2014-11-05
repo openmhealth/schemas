@@ -12,8 +12,8 @@
         "schedule": [
             {
                 "medication_dose_value_unit": {
-                    "dose_value": 1,
-                    "dose_unit": "tablet"
+                    "value": 1,
+                    "unit": "tablet"
                 },
                 "medication_dose_recurrence": {
                     "number_of_times": 1,
