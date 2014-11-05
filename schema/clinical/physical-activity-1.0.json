@@ -36,6 +36,10 @@
             "description": "Self-reported intensity of the activity performed.",
             "type": "string",
             "enum": ["light", "moderate", "vigorous"]
+        },
+        "met_value": {
+            "description": "Metabolic Equivalent of Task value for the activity",
+            "type": "number"
         }
     },
 
