@@ -8,18 +8,52 @@
             "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25488"
         }
     ],
-    "definitions": {
-        "medication_dose_unit": {
-            "$ref": "medication-dose-unit-1.0.json"
-        }
-    },
-    "properties": {
-        "medication_dose_value": {
-            "type": "number"
+    "allOf": [
+        {
+            "$ref": "../generic/unit-value-1.0.json"
         },
-        "medication_dose_unit": {
-            "$ref": "#/definitions/medication_dose_unit"
+        {
+            "properties": {
+                "unit": {
+                    "description": "The value set of units used in the dose of a therapeutic agent. The value set is To Be COMPLETED",
+                    "references": [
+                        {
+                            "description": "The list of acceptable units of measure for a medication dose, FDA units of measure.",
+                            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm"
+                        },
+                        {
+                            "description": "FDA pharmaceutical dosage form",
+                            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162038.htm"
+                        }
+                    ],
+                    "enum": [
+                        "ng",
+                        "mg",
+                        "g",
+                        "uL",
+                        "mL",
+                        "dL",
+                        "L",
+                        "tsp",
+                        "tbsp",
+                        "mU",
+                        "U",
+                        "iU",
+                        "uCi",
+                        "Ci",
+                        "meq",
+                        "nmol",
+                        "umol",
+                        "mol",
+                        "mmol",
+                        "cm^2",
+                        "capsule",
+                        "globule",
+                        "granule",
+                        "tablet"
+                    ]
+                }
+            }
         }
-    },
-    "required": ["medication_dose_value", "medication_dose_unit"]
+    ]
 }

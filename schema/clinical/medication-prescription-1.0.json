@@ -42,7 +42,8 @@
                      "medication_dose_recurrence": {
                          "$ref": "#/definitions/frequency_unit_value"
                      }
-                 }
+                 },
+                 "required": ["medication_dose_unit_value","medication_dose_recurrence"]
              }
          },
          "prescription_duration": {
