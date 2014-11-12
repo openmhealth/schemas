@@ -12,11 +12,11 @@
 
     "schedule": [
         {
-            "medication_dose_value_unit": {
+            "dose": {
                 "value": 1,
                 "unit": "tablet"
             },
-            "medication_dose_recurrence": {
+            "dose_recurrence": {
                 "number_of_times": 1,
                 "duration": {
                     "value": 1,
