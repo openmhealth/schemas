@@ -1,7 +1,7 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
 
-    "description":"This schema represents a medication prescription e.g., atenolol 50 mg, 1 tablet po in the morning and 1/2 tablet in the evening.",
+    "description":"This schema represents a medication prescription e.g., atenolol 50 mg, 1 tablet in the morning and 0.5 tablet in the evening for 30 days.",
 
     "type":"object",
 
@@ -33,6 +33,7 @@
          },
          "schedule": {
              "type": "array",
+             "description": "The description of the schedule (dose and dose recurrence) for taking the medication. A medication can have different schedules for different times, hence this is an array."
              "items": {
                  "type": "object",
                  "properties": {
