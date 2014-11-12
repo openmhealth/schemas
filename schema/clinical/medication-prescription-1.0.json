@@ -28,7 +28,7 @@
          "medication":{
              "$ref": "#/definitions/medication"
          },
-         "medication_route": {
+         "route": {
              "$ref": "#/definitions/medication_route"
          },
          "schedule": {
@@ -36,14 +36,14 @@
              "items": {
                  "type": "object",
                  "properties": {
-                     "medication_dose_unit_value": {
+                     "dose": {
                          "$ref": "#/definitions/medication_dose_unit_value"
                      },
-                     "medication_dose_recurrence": {
+                     "dose_recurrence": {
                          "$ref": "#/definitions/frequency_unit_value"
                      }
                  },
-                 "required": ["medication_dose_unit_value","medication_dose_recurrence"]
+                 "required": ["dose","dose_recurrence"]
              }
          },
          "prescription_duration": {
