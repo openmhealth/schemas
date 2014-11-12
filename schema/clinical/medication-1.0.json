@@ -6,8 +6,8 @@
     "type":"object",
 
     "definitions": {
-        "strength_unit_value": {
-            "$ref": "strength-unit-value-1.0.json"
+        "medication_strength_unit_value": {
+            "$ref": "medication-strength-unit-value-1.0.json"
         }
     },
 
@@ -21,7 +21,7 @@
             "type":"string"
         },
         "medication_strength": {
-            "$ref": "#/definitions/strength_unit_value"
+            "$ref": "#/definitions/medication_strength_unit_value"
         },
         "rxnorm_code": {
             "description":"The RxNORM CUI of the drug, which includes drug name, strength (if applicable), formulation, manufacturer.",
