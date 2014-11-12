@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "This schema represents a point in time (ISO8601). If a timezone is not included, the timezone is assumed to be UTC. 
+    "description": "This schema represents a point in time (ISO8601). If a timezone is not included, the timezone is assumed to be UTC.", 
     "type": "string",
     "references": [
         {
