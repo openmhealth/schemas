@@ -21,7 +21,7 @@
       "medication": {
           "$ref": "#/definitions/medication"
       },
-      "medication_dose_taken": {
+      "dose": {
           "$ref": "#/definitions/medication_dose_unit_value"
       },
       "effective_time_frame": {
@@ -30,6 +30,6 @@
    },
    "required": [
        "medication",
-       "medication_dose_taken",
+       "dose",
        "effective_time_frame"]
 }
