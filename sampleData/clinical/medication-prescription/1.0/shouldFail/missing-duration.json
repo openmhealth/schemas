@@ -1,14 +1,14 @@
 {
     "medication": {
         "generic_name": "Aspirin [Ascriptin]",
-        "medication_strength": {
+        "strength": {
             "value": 500,
             "unit": "mg"
         },
         "rxnorm_code": 830525
     },
 
-    "medication_route": "oral",
+    "route": "oral",
 
     "schedule": [
         {
