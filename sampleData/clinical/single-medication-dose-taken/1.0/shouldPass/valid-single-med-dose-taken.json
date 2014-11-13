@@ -1,7 +1,7 @@
 {
     "medication": {
         "generic_name": "atenolol 25 mg oral tablet",
-        "medication_strength": {
+        "strength": {
             "value": 25,
             "unit": "mg"
         }
