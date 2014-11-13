@@ -1,7 +1,7 @@
 {
     "medication": {
         "generic_name": "Tenormin 50 MG Oral Tablet",
-        "medication_strength": {
+        "strength": {
             "value": 50,
             "unit": "mg"
         },
