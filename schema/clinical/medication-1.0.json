@@ -20,7 +20,7 @@
             "description":"The trade (brand) name of the drug.",
             "type":"string"
         },
-        "medication_strength": {
+        "strength": {
             "$ref": "#/definitions/medication_strength_unit_value"
         },
         "rxnorm_code": {
@@ -29,7 +29,7 @@
         }
     },
 
-    "required": ["medication_strength"],
+    "required": ["strength"],
     "anyOf": [
         {
             "required": ["generic_name"]
