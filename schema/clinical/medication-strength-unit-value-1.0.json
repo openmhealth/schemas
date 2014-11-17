@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "description": "This schema represents the strength of a therapeutic agent. The value set is TO BE COMPLETED",
+    "description": "This schema represents the strength of a therapeutic agent. The value set covers the most common values. Suggestions for additions are accepted.",
     "references": [
         {
             "description": "The NCIT code represents Pharmaceutical Strength",
