@@ -53,14 +53,31 @@
                         "unt",
                         "unt/mL",
                         "mEq",
+                        "meq",
                         "organisms",
                         "mg/hr",
                         "X",
+                        "BAU",
                         "BAU/mL",
                         "BU",
                         "AU/mL",
+                        "AU",
                         "LfU/mL",
-                        "PNU/mL"
+                        "Lf",
+                        "PNU/mL",
+                        "PNU",
+                        "PFU",
+                        "CCID_50",
+                        "TCID_50",
+                        "cm2",
+                        "USP'U",
+                        "D'ag'U",
+                        "FFU",
+                        "hp_C",
+                        "hp_M",
+                        "hp_Q",
+                        "hp_X",
+                        "kp_C"
                     ]
                 }
             }
