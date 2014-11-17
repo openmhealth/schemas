@@ -17,10 +17,8 @@
                 "unit": {
                     "references": [
                         {
-                            "description": "The unit of measure of the element. Allowed values are drawn from FDA units of measure",
-                            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm",
-                            "description": "FDA pharmaceutical dosage form",
-                            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162038.htm"
+                            "description": "The unit of measure of the element. Allowed values are drawn in part from FDA units of measure",
+                            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm"
                         }
                     ],
                     "enum": [
