@@ -4,8 +4,8 @@
     "description": "This schema represents the strength of a therapeutic agent. The value set is TO BE COMPLETED",
     "references": [
         {
-            "description": "The NCIT code represents Strength",
-            "url": ""
+            "description": "The NCIT code represents Pharmaceutical Strength",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C53294"
         }
     ],
     "allOf": [
