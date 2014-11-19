@@ -1,11 +1,11 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "description": "This schema represents the strength of a therapeutic agent. The value set is TO BE COMPLETED",
+    "description": "This schema represents the strength of a therapeutic agent. The value set covers the most common values. Suggestions for additions are accepted.",
     "references": [
         {
-            "description": "The NCIT code represents Strength",
-            "url": ""
+            "description": "The NCIT code represents Pharmaceutical Strength",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C53294"
         }
     ],
     "allOf": [
@@ -17,10 +17,8 @@
                 "unit": {
                     "references": [
                         {
-                            "description": "The unit of measure of the element. Allowed values are drawn from FDA units of measure",
-                            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm",
-                            "description": "FDA pharmaceutical dosage form",
-                            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162038.htm"
+                            "description": "The unit of measure of the element. Allowed values are drawn in part from FDA units of measure",
+                            "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm"
                         }
                     ],
                     "enum": [
@@ -44,7 +42,6 @@
                         "umol",
                         "mol",
                         "mmol",
-                        "mmole",
                         "%",
                         "mg/actuat",
                         "mg/mL",
@@ -56,11 +53,27 @@
                         "organisms",
                         "mg/hr",
                         "X",
+                        "BAU",
                         "BAU/mL",
                         "BU",
                         "AU/mL",
+                        "AU",
                         "LfU/mL",
-                        "PNU/mL"
+                        "Lf",
+                        "PNU/mL",
+                        "PNU",
+                        "PFU",
+                        "CCID_50",
+                        "TCID_50",
+                        "cm2",
+                        "USP'U",
+                        "D'ag'U",
+                        "FFU",
+                        "hp_C",
+                        "hp_M",
+                        "hp_Q",
+                        "hp_X",
+                        "kp_C"
                     ]
                 }
             }
