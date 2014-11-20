@@ -7,7 +7,86 @@
 
     "definitions": {
         "medication_strength_unit_value": {
-            "$ref": "medication-strength-unit-value-1.0.json"
+            "type": "object",
+            "description": "This property represents the strength of a therapeutic agent. The value set covers the most common values. Suggestions for additions are accepted.",
+            "references": [
+                {
+                    "description": "The NCIT code represents Pharmaceutical Strength",
+                    "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C53294"
+                }
+            ],
+            "allOf": [
+                {
+                    "$ref": "../generic/unit-value-1.0.json"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "references": [
+                                {
+                                    "description": "The unit of measure of the element. Allowed values are drawn in part from FDA units of measure",
+                                    "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm"
+                                }
+                            ],
+                            "enum": [
+                                "%",
+                                "AU",
+                                "AU/mL",
+                                "BAU",
+                                "BAU/mL",
+                                "BU",
+                                "CCID_50",
+                                "Ci",
+                                "cm^2",
+                                "D'ag'U",
+                                "dL",
+                                "FFU",
+                                "g",
+                                "hp_C",
+                                "hp_M",
+                                "hp_Q",
+                                "hp_X",
+                                "IU",
+                                "IU/L",
+                                "IU/mL",
+                                "kp_C",
+                                "L",
+                                "Lf",
+                                "LfU/mL",
+                                "mCi",
+                                "mCi/mL",
+                                "mEq",
+                                "mg",
+                                "mg/actuat",
+                                "mg/hr",
+                                "mg/mg",
+                                "mg/mL",
+                                "mL",
+                                "mmol",
+                                "mol",
+                                "mU",
+                                "ng",
+                                "nmol",
+                                "organisms",
+                                "PFU",
+                                "PNU",
+                                "PNU/mL",
+                                "TCID_50",
+                                "U",
+                                "uCi",
+                                "ug",
+                                "ug/mL",
+                                "uL",
+                                "umol",
+                                "unt",
+                                "unt/mL",
+                                "USP'U",
+                                "X"
+                            ]
+                        }
+                    }
+                }
+	    ]
         }
     },
 
