@@ -6,7 +6,7 @@
 
     "references": [
         {
-            "description": "The NCIT codes represent Timespan (synonym: time interval).",
+            "description": "The NCIT code represents Timespan (synonym: time interval).",
             "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68594"
         }
     ],
@@ -19,14 +19,7 @@
             "$ref": "duration-unit-value-1.0.json"
         },
         "full_date": {
-            "type": "string",
-            "references": [
-                {
-                    "description": "This property represents a date. See RFC 3339 5.6 for details.",
-                    "url": "http://tools.ietf.org/html/rfc3339"
-                }
-            ],
-            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            "$ref": "full-date-1.0.json"
         },
         "timezone": {
             "type": "string",
