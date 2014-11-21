@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a date. See RFC 3339 5.6 for details.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The NCIT codes represent Timespan (synonym: time interval).",
+            "url": "http://tools.ietf.org/html/rfc3339"
+        }
+    ],
+
+    "definitions": {
+        "full_date": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "timezone_offset": {
+            "type": "string",
+            "references": [
+                {
+                    "description": "This property represents the timezone. See RFC 3339 5.6 for details.",
+                    "url": "http://tools.ietf.org/html/rfc3339"
+                }
+            ],
+            "pattern": "^Z|[+-]([01][0-9]|2[0-3]):[0-5][0-9]$"
+        },
+        "part_of_day": {
+            "$ref": "part-of-day-1.0.json"
+        }
+    },
+
+    "properties": {
+        "date": {
+            "$ref": "#/definitions/full_date"
+        },
+        "timezone_offset": {
+            "$ref": "#/definitions/timezone_offset"
+        },
+        "part_of_day": {
+            "$ref": "#/definitions/part_of_day"
+        }
+    },
+    "required": ["date", "timezone"]
+}
