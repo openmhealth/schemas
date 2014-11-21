@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a date with timezone offset (for example: 2014-11-20). See RFC 3339 5.6 for details.",
+    "description": "This schema represents a full date (for example: 2014-11-20). See RFC 3339 5.6 for details.",
     "type": "object",
 
     "references": [
