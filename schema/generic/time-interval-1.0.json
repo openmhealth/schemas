@@ -68,14 +68,11 @@
                 "date": {
                     "$ref": "#/definitions/full_date"
                 },
-                "timezone": {
-                    "$ref": "#/definitions/timezone_offset"
-                },
                 "part_of_day": {
                     "$ref": "#/definitions/part_of_day"
                 }
             },
-            "required": ["date", "timezone"]
+            "required": ["date"]
         }
     ]
 }
