@@ -22,9 +22,10 @@
                 {
                     "properties": {
                         "unit": {
+                            "description": "The list of most commonly used units of measure for a medication's strength. Suggestions for additions are accepted.",
                             "references": [
                                 {
-                                    "description": "The unit of measure of the element. Allowed values are drawn in part from FDA units of measure",
+                                    "description": "Units are drawn in part from FDA units of measure",
                                     "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm"
                                 }
                             ],
