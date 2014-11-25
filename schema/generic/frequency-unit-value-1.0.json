@@ -15,11 +15,26 @@
         "duration": {
             "$ref": "duration-unit-value-1.0.json"
         },
-        "fuzzy_duration": {
-            "$ref": "fuzzy-duration-unit-value-1.0.json"
+        "part_of_day": {
+            "$ref": "part-of-day-1.0.json"
         },
         "time": {
             "$ref": "time-1.0.json"
+        },
+        "part_of_day_interval": {
+            "properties": {
+                "value": {
+                    "description": "The numeric value of the element.",
+                    "type": "number"
+                },
+                "unit": {
+                    "$ref": "#/definitions/part_of_day"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
+            ]
         }
     },
 
@@ -43,14 +58,14 @@
                 "number_of_times": {
                     "type": "number"
                 },
-                "fuzzy_duration": {
-                    "$ref": "#/definitions/fuzzy_duration"
+                "part_of_day_interval": {
+                    "$ref": "#/definitions/part_of_day_interval"
                 }
             },
 
             "required": [
                 "number_of_times",
-                "fuzzy_duration"
+                "part_of_day_interval"
             ]
         },
         {

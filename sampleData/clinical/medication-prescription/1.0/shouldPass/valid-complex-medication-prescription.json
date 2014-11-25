@@ -31,7 +31,7 @@
             },
             "dose_recurrence": {
                 "number_of_times": 1,
-                "fuzzy_duration": {
+                "part_of_day_interval": {
                     "value" :2,
                     "unit": "evening"
                 }
