@@ -1,5 +1,4 @@
 apply plugin: 'java'
-apply plugin: 'maven' // used for deploying artifacts to Maven repositories
 apply plugin: 'spring-boot' // used for blessed dependencies and auto-configuration
 
 buildscript {
@@ -8,8 +7,8 @@ buildscript {
     }
 
     ext {
-        springPlatformVersion = '1.0.2.RELEASE'
-        springBootVersion = '1.1.8.RELEASE' // platform's still on 1.1.6.RELEASE
+        springPlatformVersion = '1.0.3.RELEASE'
+        springBootVersion = '1.1.9.RELEASE'
     }
 
     dependencies {
