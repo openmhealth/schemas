@@ -18,6 +18,7 @@
             "type": "string"
         },
         "creation_date_time": {
+            "description": "The date time this data point was created.",
             "$ref": "#/definitions/date_time"
         },
         "schema_id": {
