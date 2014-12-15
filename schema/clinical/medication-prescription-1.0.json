@@ -40,6 +40,9 @@
         "route": {
             "$ref": "#/definitions/medication_route"
         },
+        "epoch_duration":{
+            "$ref": "#/definitions/duration_unit_value"
+        },
         "schedule": {
             "type": "array",
             "description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",
@@ -60,6 +63,9 @@
                     },
                     "temporal_relationship_to_sleep": {
                         "$ref": "#/definitions/temporal_relationship_to_sleep"
+                    },
+                    "epoch_sequence": {
+                        "type": "number"
                     }
                 },
                 "required": ["dose"],
