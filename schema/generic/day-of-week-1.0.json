@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "description": "The names of the days of week.",
+
+  "type": "string",
+
+  "references": [
+    {
+      "value": "Monday",
+      "description": "The SNOMED code represents Monday (temporal qualifier)",
+      "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307145004"
+    },
+    {
+      "value": "Tuesday",
+      "description": "The SNOMED code represents Tuesday (temporal qualifier)",
+      "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307147007"
+    },
+    {
+      "value": "Wednesday",
+      "description": "The SNOMED code represents Wednesday (temporal qualifier)",
+      "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307148002"
+    },
+    {
+      "value": "Thursday",
+      "description": "The SNOMED code represents Thursday (temporal qualifier)",
+      "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307149005"
+    },
+    {
+      "value": "Friday",
+      "description": "The SNOMED code represents Friday (temporal qualifier)",
+      "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307150005"
+    },
+    {
+      "value": "Saturday",
+      "description": "The SNOMED code represents Saturday (temporal qualifier)",
+      "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307151009"
+    },
+    {
+      "value": "Sunday",
+      "description": "The SNOMED code represents Sunday (temporal qualifier)",
+      "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307146003"
+    }
+  ],
+  "enum": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+}

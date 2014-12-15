@@ -1,0 +1,87 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the frequency of an event as number of times over a duration, e.g., 1/14 d meaning once every 14 days.",
+
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Frequency (quantitative concept)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/260864003"
+        }
+    ],
+    "definitions": {
+        "duration": {
+            "$ref": "duration-unit-value-1.0.json"
+        },
+        "duration_range": {
+            "$ref": "duration-unit-value-range-1.0.json"
+        },
+        "part_of_day": {
+            "$ref": "part-of-day-1.0.json"
+        },
+        "day_of_week": {
+            "$ref": "day-of-week-1.0.json"
+        },
+        "time": {
+            "$ref": "time-1.0.json"
+        }
+    },
+
+    "properties": {
+        "number_of_times": {
+            "type": "number"
+        },
+        "time_window": {
+
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/duration"
+                },
+                {
+                    "$ref": "#/definitions/duration_range"
+                }
+            ]
+
+        },
+        "parts_of_day": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "properties": {
+                    "part_of_day": {
+                        "$ref": "#/definitions/part_of_day"
+                    }
+                }
+            }
+        },
+        "days_of_week": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "properties": {
+                    "day_of_week": {
+                        "$ref": "#/definitions/day_of_week"
+                    }
+                }
+            }
+        },
+        "times_of_day": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "properties": {
+                    "time_of_day": {
+                        "$ref": "#/definitions/time"
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "number_of_times",
+        "time_window"
+    ]
+
+}
