@@ -1,16 +1,13 @@
 {
     "medication": {
-        "generic_name": "Aspirin",
-        "trade_name": "Ascriptin",
+        "generic_name": "Aspirin [Ascriptin]",
         "strength": {
             "value": 500,
             "unit": "mg"
         },
         "rxnorm_code": 830525
     },
-
     "route": "oral",
-
     "schedule": [
         {
             "dose": {
@@ -18,12 +15,17 @@
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 1,
+                "number_of_times": 2,
                 "time_window": {
                     "value": 1,
                     "unit": "d"
-                }
+                },
+                "parts_of_day": ["morning","evening"]
             }
         }
-    ]
+    ],
+    "prescription_duration": {
+        "value": 30,
+        "unit": "d"
+    }
 }

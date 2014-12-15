@@ -1,6 +1,7 @@
 {
     "medication": {
-        "generic_name": "Aspirin [Ascriptin]",
+        "generic_name": "Aspirin",
+        "trade_name": "Ascriptin",
         "strength": {
             "value": 500,
             "unit": "mg"
@@ -14,7 +15,7 @@
         {
             "dose_recurrence": {
                 "number_of_times": 1,
-                "duration": {
+                "time_window": {
                     "value": 1,
                     "unit": "d"
                 }

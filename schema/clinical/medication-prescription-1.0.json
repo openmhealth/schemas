@@ -17,39 +17,72 @@
             "$ref": "medication-dose-unit-value-1.0.json"
         },
         "frequency_unit_value": {
-            "$ref": "../generic/frequency-unit-value-1.0.json"
+            "$ref": "../generic/new-frequency-unit-value-1.0.json"
         },
         "duration_unit_value": {
             "$ref": "../generic/duration-unit-value-1.0.json"
+        },
+        "expected_time_frame": {
+            "$ref": "../generic/expected-time-frame-1.0.json"
+        },
+        "temporal_relationship_to_meal": {
+            "$ref": "temporal-relationship-to-meal-1.0.json"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "temporal-relationship-to-sleep-1.0.json"
         }
     },
 
     "properties": {
-         "medication":{
-             "$ref": "#/definitions/medication"
-         },
-         "route": {
-             "$ref": "#/definitions/medication_route"
-         },
-         "schedule": {
-             "type": "array",
-             "description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",
-             "items": {
-                 "type": "object",
-                 "properties": {
-                     "dose": {
-                         "$ref": "#/definitions/medication_dose_unit_value"
-                     },
-                     "dose_recurrence": {
-                         "$ref": "#/definitions/frequency_unit_value"
-                     }
-                 },
-                 "required": ["dose","dose_recurrence"]
-             }
-         },
-         "prescription_duration": {
-              "$ref": "#/definitions/duration_unit_value"
-         }
+        "medication":{
+            "$ref": "#/definitions/medication"
+        },
+        "route": {
+            "$ref": "#/definitions/medication_route"
+        },
+        "schedule": {
+            "type": "array",
+            "description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "dose": {
+                        "$ref": "#/definitions/medication_dose_unit_value"
+                    },
+                    "dose_recurrence": {
+                        "$ref": "#/definitions/frequency_unit_value"
+                    },
+                    "prn_reason": {
+                        "type": "string"
+                    },
+                    "temporal_relationship_to_meal": {
+                        "$ref": "#/definitions/temporal_relationship_to_meal"
+                    },
+                    "temporal_relationship_to_sleep": {
+                        "$ref": "#/definitions/temporal_relationship_to_sleep"
+                    }
+                },
+                "required": ["dose"],
+                "anyOf": [
+                    {
+                        "required": ["dose_recurrence"]
+                    },
+                    {
+                        "required": ["prn_reason"]
+                    }
+                ]
+            }
+        },
+        "prescription_duration": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/duration_unit_value"
+                },
+                {
+                    "$ref": "#/definitions/expected_time_frame"
+                }
+            ]
+        }
     },
 
     "required": ["medication","schedule","prescription_duration"]

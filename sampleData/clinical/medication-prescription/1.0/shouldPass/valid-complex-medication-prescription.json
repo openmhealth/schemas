@@ -1,6 +1,6 @@
 {
     "medication": {
-        "generic_name": "Tenormin 50 MG Oral Tablet",
+        "trade_name": "Tenormin 50 MG Oral Tablet",
         "strength": {
             "value": 50,
             "unit": "mg"
@@ -18,7 +18,7 @@
             },
             "dose_recurrence": {
                 "number_of_times": 1,
-                "duration": {
+                "time_window": {
                     "value": 1,
                     "unit": "d"
                 }
@@ -31,10 +31,12 @@
             },
             "dose_recurrence": {
                 "number_of_times": 1,
-                "part_of_day_interval": {
-                    "value" :2,
-                    "unit": "evening"
-                }
+                "time_window": {
+                    "value": 2,
+                    "unit": "d"
+                },
+                "part_of_day": ["evening"],
+                "temporal_relationship_to_sleep": "before sleeping"
             }
         }
     ],
