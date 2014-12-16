@@ -20,15 +20,21 @@
                     "time_window": {
                         "value": 1,
                         "unit": "d"
+                    },
+                    "part_of_day": ["morning"],
+                    "temporal_relationship_to_meal": "after breakfast",
+                    "time_between_successive_windows": {
+                        "value": 2,
+                        "unit": "d"
                     }
                 }
             }
         ],
+
         "prescription_duration": {
             "value": 15,
             "unit": "d"
         }
-
     },
 
     "effective_time_frame": {
