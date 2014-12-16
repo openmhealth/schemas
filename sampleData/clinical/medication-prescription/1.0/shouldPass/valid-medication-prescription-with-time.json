@@ -20,7 +20,11 @@
                     "value": 1,
                     "unit": "d"
                 },
-                "time_of_day": "08:00:00"
+                "time_of_day": "08:00:00",
+                "time_between_successive_windows": {
+                    "value": 1,
+                    "unit": "d"
+                }
             },
             "temporal_relationship_to_meal": "after breakfast"
         }
@@ -28,6 +32,5 @@
     "prescription_duration": {
         "start_date": "2013-02-05",
         "end_date": "2013-02-20"
-        }
     }
 }

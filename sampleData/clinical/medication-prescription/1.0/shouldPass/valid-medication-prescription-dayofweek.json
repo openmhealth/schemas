@@ -18,6 +18,10 @@
                 "number_of_times": 1,
                 "time_window": {
                     "value": 1,
+                    "unit": "d"
+                },
+                "time_between_successive_windows": {
+                    "value": 1,
                     "unit": "wk"
                 },
                 "part_of_day": "morning",

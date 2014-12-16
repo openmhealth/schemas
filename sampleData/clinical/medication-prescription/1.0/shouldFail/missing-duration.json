@@ -22,6 +22,10 @@
                 "time_window": {
                     "value": 1,
                     "unit": "d"
+                },
+                "time_between_successive_windows": {
+                    "value": 1,
+                    "unit": "d"
                 }
             }
         }

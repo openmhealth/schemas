@@ -21,7 +21,11 @@
                     "unit": "wk"
                 },
                 "part_of_day": "morning",
-                "days_of_week": ["Monday","Wednesday","Friday"]
+                "days_of_week": ["Monday","Wednesday","Friday"],
+                "time_between_successive_windows": {
+                    "value": 1,
+                    "unit": "wk"
+                }
             }
         },
         {
@@ -36,7 +40,11 @@
                     "unit": "wk"
                 },
                 "part_of_day": "morning",
-                "days_of_week": ["Tuesday","Thursday","Saturday","Sunday"]
+                "days_of_week": ["Tuesday","Thursday","Saturday","Sunday"],
+                "time_between_successive_windows": {
+                    "value": 1,
+                    "unit": "wk"
+                }
             }
         }
     ],

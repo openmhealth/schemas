@@ -21,6 +21,10 @@
                 "time_window": {
                     "value": 1,
                     "unit": "d"
+                },
+                "time_between_successive_windows": {
+                    "value": 1,
+                    "unit": "d"
                 }
             }
         },
@@ -32,6 +36,10 @@
             "dose_recurrence": {
                 "number_of_times": 1,
                 "time_window": {
+                    "value": 1,
+                    "unit": "d"
+                },
+                "time_between_successive_windows": {
                     "value": 2,
                     "unit": "d"
                 },

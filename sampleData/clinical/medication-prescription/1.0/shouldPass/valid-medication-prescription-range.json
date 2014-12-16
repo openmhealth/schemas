@@ -22,6 +22,11 @@
                     "low_value": 4,
                     "high_value": 6,
                     "unit": "h"
+                },
+                "time_between_successive_windows": {
+                    "low_value": 4,
+                    "high_value": 6,
+                    "unit": "h"
                 }
             }
         }

@@ -20,7 +20,11 @@
                     "value": 1,
                     "unit": "d"
                 },
-                "parts_of_day": ["morning","evening"]
+                "parts_of_day": ["morning","evening"],
+                "time_between_successive_windows": {
+                    "value": 1,
+                    "unit": "d"
+                }
             }
         }
     ],
