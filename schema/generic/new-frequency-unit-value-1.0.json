@@ -34,7 +34,6 @@
             "type": "number"
         },
         "time_window": {
-
             "oneOf": [
                 {
                     "$ref": "#/definitions/duration"

@@ -22,9 +22,11 @@
             "dose_recurrence": {
                 "number_of_times": 1,
                 "time_window": {
-                    "value": 1,
+                    "value": 2,
                     "unit": "d"
-                }
+                },
+                "part_of_day": ["morning"],
+                "temporal_relationship_to_meal": "after breakfast"
             },
             "epoch_sequence": 1
         },

@@ -27,7 +27,7 @@
         }
     ],
     "prescription_duration": {
-        "value": 1,
-        "unit": "Mo"
+        "value": 3,
+        "unit": "d"
     }
 }
