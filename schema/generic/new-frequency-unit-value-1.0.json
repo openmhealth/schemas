@@ -31,9 +31,11 @@
 
     "properties": {
         "number_of_times": {
+            "definition": "How many times the event occurs or should occur in the time window: e.g., in twice a day every other day --> 2 times in 1 day every 2 days, number of times is 2",
             "type": "number"
         },
         "time_window": {
+            "definition": "Time window in which the event occurs or should occur: e.g., in twice a day every other day --> 2 times in 1 day every 2 days, time window is 1 day",
             "oneOf": [
                 {
                     "$ref": "#/definitions/duration"
@@ -42,6 +44,21 @@
                     "$ref": "#/definitions/duration_range"
                 }
             ]
+        },
+        "time_between_successive_windows": {
+            "definition": "Length of time between the beginning of two successive windows in which the event occurs or should occur: e.g., in twice a day every other day --> 2 times in 1 day every 2 days, time between successive windows is 2 days",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/duration"
+                },
+                {
+                    "$ref": "#/definitions/duration_range"
+                }
+            ],
+            "default": {
+                "value": 1,
+                "unit": "d"
+            }
         },
         "parts_of_day": {
             "type": "array",
@@ -81,5 +98,4 @@
         "number_of_times",
         "time_window"
     ]
-
 }
