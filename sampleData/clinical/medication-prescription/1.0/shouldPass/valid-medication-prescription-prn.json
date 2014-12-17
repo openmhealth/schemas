@@ -17,8 +17,5 @@
             "prn_reason": "pain"
         }
     ],
-    "prescription_duration": {
-        "value": 3,
-        "unit": "Mo"
-    }
+    "prescription_duration": "until symptoms persist"
 }

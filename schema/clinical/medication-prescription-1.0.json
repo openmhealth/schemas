@@ -86,6 +86,10 @@
                 },
                 {
                     "$ref": "#/definitions/expected_time_frame"
+                },
+                {
+                    "type": "string",
+                    "default": "continuing"
                 }
             ]
         }
