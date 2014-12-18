@@ -1,0 +1,50 @@
+{
+    "medication": {
+        "trade_name": "Trimox",
+        "strength": {
+            "value": 500,
+            "unit": "mg"
+        },
+        "rxnorm_code": 94406
+    },
+
+    "route": "oral",
+
+    "schedule": [
+        {
+            "dose": {
+                "value": 1,
+                "unit": "tablet"
+            },
+            "dose_recurrence": {
+                "number_of_times": 4,
+                "time_window": {
+                    "value": 1,
+                    "unit": "d"
+                },
+                "time_between_successive_windows": {
+                    "value": 1,
+                    "unit": "d"
+                }
+            },
+            "timing": [
+                {
+                    "time_of_day": "06:00:00"
+                },
+                {
+                    "time_of_day": "12:00:00"
+                },
+                {
+                    "time_of_day": "18:00:00"
+                }                                ,
+                {
+                    "time_of_day": "00:00:00"
+                }
+            ]
+        }
+    ],
+    "prescription_duration": {
+        "value": 5,
+        "unit": "d"
+    }
+}

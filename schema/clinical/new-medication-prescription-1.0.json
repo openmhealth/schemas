@@ -1,0 +1,130 @@
+{
+   "$schema":"http://json-schema.org/draft-04/schema#",
+
+    "description":"This schema represents a medication prescription e.g., atenolol 50 mg, 1 tablet in the morning and 0.5 tablet in the evening for 30 days.",
+
+    "type":"object",
+
+    "definitions": {
+        "medication": {
+            "$ref": "medication-1.0.json"
+        },
+        "medication_route": {
+            "$ref": "medication-route-1.0.json",
+            "default": "oral"
+        },
+        "medication_dose_unit_value": {
+            "$ref": "medication-dose-unit-value-1.0.json"
+        },
+        "frequency_unit_value": {
+            "$ref": "../generic/new-frequency-unit-value-1.0.json"
+        },
+        "duration_unit_value": {
+            "$ref": "../generic/duration-unit-value-1.0.json"
+        },
+        "expected_time_frame": {
+            "$ref": "../generic/expected-time-frame-1.0.json"
+        },
+        "temporal_relationship_to_meal": {
+            "$ref": "temporal-relationship-to-meal-1.0.json"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "temporal-relationship-to-sleep-1.0.json"
+        },
+        "part_of_day": {
+            "$ref": "../generic/part-of-day-1.0.json"
+        },
+        "day_of_week": {
+            "$ref": "../generic/day-of-week-1.0.json"
+        },
+        "time": {
+            "$ref": "../generic/time-1.0.json"
+        }
+    },
+
+    "properties": {
+        "medication":{
+            "$ref": "#/definitions/medication"
+        },
+        "route": {
+            "$ref": "#/definitions/medication_route"
+        },
+        "epoch_duration":{
+            "$ref": "#/definitions/duration_unit_value"
+        },
+        "schedule": {
+            "type": "array",
+            "description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "dose": {
+                        "$ref": "#/definitions/medication_dose_unit_value"
+                    },
+                    "dose_recurrence": {
+                        "$ref": "#/definitions/frequency_unit_value"
+                    },
+                    "prn_reason": {
+                        "type": "string"
+                    },
+
+"timing": {
+"type": "array",
+"description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",
+"items": {
+    "type": "object",
+    "properties": {
+        "part_of_day": {
+"$ref": "#/definitions/part_of_day"
+},
+"day_of_week": {
+"$ref": "#/definitions/day_of_week"
+},
+"time_of_day": {
+"$ref": "#/definitions/time"
+},
+        "temporal_relationship_to_meal": {
+            "$ref": "#/definitions/temporal_relationship_to_meal"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "#/definitions/temporal_relationship_to_sleep"
+        }
+
+   }
+
+}
+},
+
+                    "epoch_sequence": {
+                        "type": "number"
+                    }
+                },
+                "required": ["dose"],
+                "anyOf": [
+                    {
+                        "required": ["dose_recurrence"]
+                    },
+                    {
+                        "required": ["prn_reason"]
+                    }
+                ]
+            }
+        },
+        "prescription_duration": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/duration_unit_value"
+                },
+                {
+                    "$ref": "#/definitions/expected_time_frame"
+                },
+                {
+                    "type": "string",
+                    "default": "continuing"
+                }
+            ]
+        }
+    },
+
+    "required": ["medication","schedule","prescription_duration"]
+}
