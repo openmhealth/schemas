@@ -67,33 +67,30 @@
                     "prn_reason": {
                         "type": "string"
                     },
-
-"timing": {
-"type": "array",
-"description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",
-"items": {
-    "type": "object",
-    "properties": {
-        "part_of_day": {
-"$ref": "#/definitions/part_of_day"
-},
-"day_of_week": {
-"$ref": "#/definitions/day_of_week"
-},
-"time_of_day": {
-"$ref": "#/definitions/time"
-},
-        "temporal_relationship_to_meal": {
-            "$ref": "#/definitions/temporal_relationship_to_meal"
-        },
-        "temporal_relationship_to_sleep": {
-            "$ref": "#/definitions/temporal_relationship_to_sleep"
-        }
-
-   }
-
-}
-},
+                    "timing": {
+                        "type": "array",
+                        "description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "part_of_day": {
+                                    "$ref": "#/definitions/part_of_day"
+                                },
+                                "day_of_week": {
+                                    "$ref": "#/definitions/day_of_week"
+                                },
+                                "time_of_day": {
+                                    "$ref": "#/definitions/time"
+                                },
+                                "temporal_relationship_to_meal": {
+                                    "$ref": "#/definitions/temporal_relationship_to_meal"
+                                },
+                                "temporal_relationship_to_sleep": {
+                                    "$ref": "#/definitions/temporal_relationship_to_sleep"
+                                }
+                            }
+                        }
+                    },
 
                     "epoch_sequence": {
                         "type": "number"
