@@ -12,14 +12,14 @@
     ],
 
     "definitions": {
-        "duration-unit-value": {
+        "duration_unit_value": {
             "$ref": "duration-unit-value-1.0.json"
         },
         "full_date": {
             "$ref": "full-date-1.0.json"
         },
-        "timezone_offset": {
-            "$ref": "timezone-offset-1.0.json"
+        "utc_offset": {
+            "$ref": "utc-offset-1.0.json"
         },
         "part_of_day": {
             "$ref": "part-of-day-1.0.json"
@@ -33,7 +33,7 @@
                     "$ref": "#/definitions/full_date"
                 },
                 "duration": {
-                    "$ref": "#/definitions/duration-unit-value"
+                    "$ref": "#/definitions/duration_unit_value"
                 }
             },
             "required": ["start_date", "duration"]
@@ -44,7 +44,7 @@
                     "$ref": "#/definitions/full_date"
                 },
                 "duration": {
-                    "$ref": "#/definitions/duration-unit-value"
+                    "$ref": "#/definitions/duration_unit_valuee"
                 }
             },
             "required": ["end_date", "duration"]
