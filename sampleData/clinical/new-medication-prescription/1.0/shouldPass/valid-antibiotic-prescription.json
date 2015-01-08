@@ -29,7 +29,8 @@
             },
             "timing": [
                 {
-                    "time_of_day": "06:00:00"
+                    "time_of_day": "06:00:00",
+                    "temporal_relationship_to_meal": "after breakfast"
                 },
                 {
                     "time_of_day": "12:00:00"
@@ -38,7 +39,8 @@
                     "time_of_day": "18:00:00"
                 }                                ,
                 {
-                    "time_of_day": "00:00:00"
+                    "time_of_day": "00:00:00",
+                    "temporal_relationship_to_sleep": "before sleeping"
                 }
             ]
         }

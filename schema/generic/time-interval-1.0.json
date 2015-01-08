@@ -18,8 +18,8 @@
         "duration-unit-value": {
             "$ref": "duration-unit-value-1.0.json"
         },
-        "full_date": {
-            "$ref": "full-date-1.0.json"
+        "date": {
+            "$ref": "date-1.0.json"
         },
         "utc_offset": {
             "$ref": "utc-offset-1.0.json"
@@ -66,13 +66,58 @@
         {
             "properties": {
                 "date": {
-                    "$ref": "#/definitions/full_date"
+                    "$ref": "#/definitions/date"
                 },
                 "part_of_day": {
                     "$ref": "#/definitions/part_of_day"
                 }
             },
             "required": ["date"]
+        },
+        {
+            "properties": {
+                "start_date": {
+                    "$ref": "#/definitions/date"
+                },
+                "part_of_day": {
+                    "$ref": "#/definitions/part_of_day"
+                },
+                "duration": {
+                    "$ref": "#/definitions/duration-unit-value"
+                }
+            },
+            "required": ["start_date"]
+        },
+        {
+            "properties": {
+                "end_date": {
+                    "$ref": "#/definitions/date"
+                },
+                "part_of_day": {
+                    "$ref": "#/definitions/part_of_day"
+                },
+                "duration": {
+                    "$ref": "#/definitions/duration-unit-value"
+                }
+            },
+            "required": ["end_date"]
+        },
+        {
+            "properties": {
+                "start_date": {
+                    "$ref": "#/definitions/date"
+                },
+                "start_part_of_day": {
+                    "$ref": "#/definitions/part_of_day"
+                },
+                "end_date": {
+                    "$ref": "#/definitions/date"
+                },
+                "end_part_of_day": {
+                    "$ref": "#/definitions/part_of_day"
+                }
+            },
+            "required": ["start_date","end_date"]
         }
     ]
 }

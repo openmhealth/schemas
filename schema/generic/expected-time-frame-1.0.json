@@ -44,7 +44,7 @@
                     "$ref": "#/definitions/full_date"
                 },
                 "duration": {
-                    "$ref": "#/definitions/duration_unit_valuee"
+                    "$ref": "#/definitions/duration_unit_value"
                 }
             },
             "required": ["end_date", "duration"]

@@ -70,11 +70,11 @@
         },
         {
             "properties": {
-                "time": {
+                "time_of_day": {
                     "$ref": "#/definitions/time"
                 }
             },
-            "required": ["time"]
+            "required": ["time_of_day"]
         }
     ]
 }
