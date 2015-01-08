@@ -1,0 +1,71 @@
+{
+    "medication": {
+        "trade_name": "Tenormin 50 MG Oral Tablet",
+        "strength": {
+            "value": 50,
+            "unit": "mg"
+        },
+        "rxnorm_code": 152414
+    },
+
+    "route": "oral",
+
+    "epoch_duration": {
+        "value": 2,
+        "unit": "d"
+    },
+    "schedule": [
+        {
+            "dose": {
+                "value": 1,
+                "unit": "tablet"
+            },
+            "dose_recurrence": {
+                "number_of_times": 1,
+                "time_window": {
+                    "value": 1,
+                    "unit": "d"
+                },
+                "time_between_successive_windows": {
+                    "value": 2,
+                    "unit": "d"
+                }
+            },
+            "timing": [
+                {
+                    "part_of_day": "morning",
+                    "temporal_relationship_to_meal": "after breakfast"
+                }
+            ],
+            "epoch_sequence": 1
+        },
+        {
+            "dose": {
+                "value": 0.5,
+                "unit": "tablet"
+            },
+            "dose_recurrence": {
+                "number_of_times": 1,
+                "time_window": {
+                    "value": 1,
+                    "unit": "d"
+                },
+                "time_between_successive_windows": {
+                    "value": 2,
+                    "unit": "d"
+                }
+            },
+            "timing": [
+                {
+                    "part_of_day": "morning",
+                    "temporal_relationship_to_meal": "after breakfast"
+                }
+            ],
+            "epoch_sequence": 2
+        }
+    ],
+    "prescription_duration": {
+        "value": 15,
+        "unit": "d"
+    }
+}
