@@ -22,8 +22,8 @@
         "duration_unit_value": {
             "$ref": "../generic/duration-unit-value-1.0.json"
         },
-        "expected_time_frame": {
-            "$ref": "../generic/expected-time-frame-1.0.json"
+        "time_frame": {
+            "$ref": "../generic/time-frame-1.0.json"
         },
         "temporal_relationship_to_meal": {
             "$ref": "temporal-relationship-to-meal-1.0.json"
@@ -120,7 +120,7 @@
                     "$ref": "#/definitions/duration_unit_value"
                 },
                 {
-                    "$ref": "#/definitions/expected_time_frame"
+                    "$ref": "#/definitions/time_frame"
                 },
                 {
                     "type": "string",
