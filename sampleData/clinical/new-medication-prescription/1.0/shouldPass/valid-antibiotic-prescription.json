@@ -46,7 +46,9 @@
         }
     ],
     "prescription_duration": {
-        "value": 5,
-        "unit": "d"
+        "time_interval": {
+            "start_date": "2013-02-06",
+            "end_date": "2013-02-10"
+        }
     }
 }

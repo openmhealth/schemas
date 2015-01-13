@@ -86,7 +86,7 @@
                     "$ref": "#/definitions/duration-unit-value"
                 }
             },
-            "required": ["start_date"]
+            "required": ["start_date","duration"]
         },
         {
             "properties": {
@@ -100,7 +100,7 @@
                     "$ref": "#/definitions/duration-unit-value"
                 }
             },
-            "required": ["end_date"]
+            "required": ["end_date","duration"]
         },
         {
             "properties": {
