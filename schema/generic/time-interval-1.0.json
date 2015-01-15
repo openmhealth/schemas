@@ -70,6 +70,9 @@
                 },
                 "part_of_day": {
                     "$ref": "#/definitions/part_of_day"
+                },
+                "utc_offset": {
+                    "$ref": "#/definitions/utc_offset"
                 }
             },
             "required": ["date"]
@@ -84,6 +87,9 @@
                 },
                 "duration": {
                     "$ref": "#/definitions/duration-unit-value"
+                },
+                "utc_offset": {
+                    "$ref": "#/definitions/utc_offset"
                 }
             },
             "required": ["start_date","duration"]
@@ -98,6 +104,9 @@
                 },
                 "duration": {
                     "$ref": "#/definitions/duration-unit-value"
+                },
+                "utc_offset": {
+                    "$ref": "#/definitions/utc_offset"
                 }
             },
             "required": ["end_date","duration"]
@@ -110,11 +119,17 @@
                 "start_part_of_day": {
                     "$ref": "#/definitions/part_of_day"
                 },
+                "start_date_utc_offset": {
+                    "$ref": "#/definitions/utc_offset"
+                },
                 "end_date": {
                     "$ref": "#/definitions/date"
                 },
                 "end_part_of_day": {
                     "$ref": "#/definitions/part_of_day"
+                },
+                "end_date_utc_offset": {
+                    "$ref": "#/definitions/utc_offset"
                 }
             },
             "required": ["start_date","end_date"]
