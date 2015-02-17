@@ -49,7 +49,7 @@
         "route": {
             "$ref": "#/definitions/medication_route"
         },
-        "prescription_prn": {
+        "prescription_trigger": {
             "type": "string"
         },
         "periodicity":{
