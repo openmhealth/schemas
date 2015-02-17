@@ -1,0 +1,36 @@
+{
+    "medication": {
+        "trade_name": "Leucovorin 20 MG/ML Injectable Solution",
+        "strength": {
+            "value": 20,
+            "unit": "mg/mL"
+        },
+        "rxnorm_code": 237788
+    },
+
+    "route": "intravenous peripheral",
+
+    "schedule": [
+        {
+            "dose": {
+                "value": 3.675,
+                "unit": "mL"
+            },
+            "dose_recurrence": {
+                "number_of_times": 1,
+                "time_window": {
+                    "value": 1,
+                    "unit": "d"
+                },
+                "time_between_successive_windows": {
+                    "value": 1,
+                    "unit": "d"
+                }
+            }
+        }
+    ],
+    "prescription_duration": {
+        "value": 5,
+        "unit": "d"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "medication": {
+        "trade_name": "Trimox",
+        "strength": {
+            "value": 500,
+            "unit": "mg"
+        },
+        "rxnorm_code": 94406
+    },
+
+    "route": "oral",
+
+    "prescription_trigger": "at onset of urinary symptoms",
+
+    "schedule": [
+        {
+            "dose": {
+                "value": 1,
+                "unit": "tablet"
+            },
+            "dose_recurrence": {
+                "number_of_times": 4,
+                "time_window": {
+                    "value": 1,
+                    "unit": "d"
+                },
+                "time_between_successive_windows": {
+                    "value": 1,
+                    "unit": "d"
+                }
+            },
+            "timing": [
+                {
+                    "time_of_day": "06:00:00",
+                    "temporal_relationship_to_meal": "after breakfast"
+                },
+                {
+                    "time_of_day": "12:00:00"
+                },
+                {
+                    "time_of_day": "18:00:00"
+                }                                ,
+                {
+                    "time_of_day": "00:00:00",
+                    "temporal_relationship_to_sleep": "before sleeping"
+                }
+            ]
+        }
+    ],
+    "prescription_duration": {
+        "time_interval": {
+            "start_date": "2013-02-06",
+            "end_date": "2013-02-10"
+        }
+    }
+}

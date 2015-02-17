@@ -10,10 +10,6 @@
 
     "route": "oral",
 
-    "epoch_duration": {
-        "value": 2,
-        "unit": "d"
-    },
     "schedule": [
         {
             "dose": {
@@ -37,7 +33,12 @@
                     "temporal_relationship_to_meal": "after breakfast"
                 }
             ],
-            "epoch_sequence": 1
+            "sequence": [
+                {
+                    "unit": "d",
+                    "value": 1
+                }
+            ]
         },
         {
             "dose": {
@@ -62,7 +63,12 @@
                     "temporal_relationship_to_meal": "after breakfast"
                 }
             ],
-            "epoch_sequence": 2
+            "sequence": [
+                {
+                    "unit": "d",
+                    "value": 2
+                }
+            ]
         }
     ],
     "prescription_duration": {
