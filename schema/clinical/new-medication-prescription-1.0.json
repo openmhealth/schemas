@@ -72,7 +72,7 @@
                     },
                     "timing": {
                         "type": "array",
-                        "description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",
+                        "description": "A medication dose can have different schedules (dose recurrence), hence this is an array.",
                         "items": {
                             "type": "object",
                             "properties": {
@@ -125,6 +125,21 @@
                                  }
                              }
                          }
+                    },
+                    "dose_duration": {
+                        "description": "A medication prescription can last a certain length of time (duration), a time frame (one day or a time interval) or as long as a certain condition (e.g., until skin lesion heals). The prescription for a chronic condition continues indeterminately.",
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/duration_unit_value"
+                            },
+                            {
+                                "$ref": "#/definitions/time_frame"
+                            },
+                            {
+                                "type": "string",
+                                "default": "continuing"
+                            }
+                        ]
                     }
                 },
                 "required": ["dose"],
@@ -155,5 +170,5 @@
         }
     },
 
-    "required": ["medication","schedule","prescription_duration"]
+    "required": ["medication","schedule"]
 }
