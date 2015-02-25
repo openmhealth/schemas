@@ -14,6 +14,12 @@
 
     "schedule": [
         {
+            "dose_duration": {
+                "time_interval": {
+                    "start_date": "2013-02-06",
+                    "end_date": "2013-02-10"
+                }
+            },
             "dose": {
                 "value": 1,
                 "unit": "tablet"
@@ -21,10 +27,6 @@
             "dose_recurrence": {
                 "number_of_times": 4,
                 "time_window": {
-                    "value": 1,
-                    "unit": "d"
-                },
-                "time_between_successive_windows": {
                     "value": 1,
                     "unit": "d"
                 }
@@ -46,11 +48,5 @@
                 }
             ]
         }
-    ],
-    "prescription_duration": {
-        "time_interval": {
-            "start_date": "2013-02-06",
-            "end_date": "2013-02-10"
-        }
-    }
+    ]
 }

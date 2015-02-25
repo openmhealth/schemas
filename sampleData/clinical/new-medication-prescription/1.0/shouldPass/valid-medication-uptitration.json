@@ -1,4 +1,6 @@
 {
+    "documentation": "1 tab daily x 3 days, 1 tab BID x 3 days, 1 tab TID x 3 days, 2 tab TID x 2 wks, 3 tab TID",
+
     "medication": {
         "trade_name": "Generic antidepressant 300 MG Oral Tablet",
         "strength": {
@@ -9,9 +11,13 @@
     },
 
     "route": "oral",
-
     "schedule": [
         {
+            "dose_duration": {
+                "value": 3,
+                "unit": "d"
+            },
+
             "dose": {
                 "value": 1,
                 "unit": "tablet"
@@ -28,13 +34,14 @@
                     "part_of_day": "morning",
                     "temporal_relationship_to_meal": "after breakfast"
                 }
-            ],
+            ]
+        },
+        {
             "dose_duration": {
                 "value": 3,
                 "unit": "d"
-            }
-        },
-        {
+            },
+
             "dose": {
                 "value": 1,
                 "unit": "tablet"
@@ -55,11 +62,7 @@
                     "part_of_day": "evening",
                     "temporal_relationship_to_meal": "after dinner"
                 }
-            ],
-            "dose_duration": {
-                "value": 3,
-                "unit": "d"
-            }
+            ]
         },
         {
             "dose": {
@@ -124,6 +127,7 @@
             }
         },
         {
+            "dose_duration": "continuing",
             "dose": {
                 "value": 3,
                 "unit": "tablet"
@@ -148,8 +152,7 @@
                     "part_of_day": "evening",
                     "temporal_relationship_to_meal": "after dinner"
                 }
-            ],
-            "dose_duration": "continuing"
+            ]
         }
     ]
 }

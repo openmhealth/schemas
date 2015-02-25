@@ -12,6 +12,10 @@
 
     "schedule": [
         {
+            "dose_duration": {
+                "value": 15,
+                "unit": "d"
+            },
             "dose": {
                 "value": 1,
                 "unit": "tablet"
@@ -22,17 +26,8 @@
                     "low_value": 4,
                     "high_value": 6,
                     "unit": "h"
-                },
-                "time_between_successive_windows": {
-                    "low_value": 4,
-                    "high_value": 6,
-                    "unit": "h"
                 }
             }
         }
-    ],
-    "prescription_duration": {
-        "value": 15,
-        "unit": "d"
-    }
+    ]
 }

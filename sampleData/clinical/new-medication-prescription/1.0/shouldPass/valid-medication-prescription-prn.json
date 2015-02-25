@@ -12,6 +12,10 @@
 
     "schedule": [
         {
+            "dose_duration": {
+                "value": 15,
+                "unit": "d"
+            },
             "dose": {
                 "value": 1,
                 "unit": "tablet"
@@ -19,10 +23,6 @@
             "dose_recurrence": {
                 "number_of_times": 2,
                 "time_window": {
-                    "value": 1,
-                    "unit": "d"
-                },
-                "time_between_successive_windows": {
                     "value": 1,
                     "unit": "d"
                 }
@@ -39,15 +39,15 @@
             ]
         },
         {
+            "dose_duration": {
+                "value": 15,
+                "unit": "d"
+            },
             "dose": {
                 "value": 1,
                 "unit": "tablet"
             },
             "prn_reason": "pain"
         }
-    ],
-    "prescription_duration": {
-        "value": 15,
-        "unit": "d"
-    }
+    ]
 }

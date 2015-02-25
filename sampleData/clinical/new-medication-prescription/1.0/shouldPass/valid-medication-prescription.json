@@ -1,4 +1,6 @@
 {
+    "documentation": "Tenormin 50 MG 1 tab daily 30 minutes before breakfast",
+
     "medication": {
         "trade_name": "Tenormin 50 MG Oral Tablet",
         "strength": {
@@ -12,6 +14,7 @@
 
     "schedule": [
         {
+            "dose_duration": "continuing",
             "dose": {
                 "value": 1,
                 "unit": "tablet"
@@ -19,10 +22,6 @@
             "dose_recurrence": {
                 "number_of_times": 1,
                 "time_window": {
-                    "value": 1,
-                    "unit": "d"
-                },
-                "time_between_successive_windows": {
                     "value": 1,
                     "unit": "d"
                 }
@@ -37,33 +36,6 @@
                     }
                 }
             ]
-        },
-        {
-            "dose": {
-                "value": 0.5,
-                "unit": "tablet"
-            },
-            "dose_recurrence": {
-                "number_of_times": 1,
-                "time_window": {
-                    "value": 1,
-                    "unit": "d"
-                },
-                "time_between_successive_windows": {
-                    "value": 2,
-                    "unit": "d"
-                }
-            },
-            "timing": [
-                {
-                    "part_of_day": "evening",
-                    "temporal_relationship_to_sleep": "before sleeping"
-                }
-            ]
         }
-    ],
-    "prescription_duration": {
-        "value": 15,
-        "unit": "d"
-    }
+    ]
 }

@@ -16,6 +16,10 @@
 
     "schedule": [
         {
+            "dose_duration": {
+                "value": 6,
+                "unit": "Mo"
+            },
             "dose": {
                 "value": 1,
                 "unit": "tablet"
@@ -43,6 +47,10 @@
             ]
         },
         {
+            "dose_duration": {
+                "value": 6,
+                "unit": "Mo"
+            },
             "dose": {
                 "value": 0.5,
                 "unit": "tablet"
@@ -61,9 +69,5 @@
                 }
             ]
         }
-    ],
-    "prescription_duration": {
-        "value": 6,
-        "unit": "Mo"
-    }
+    ]
 }

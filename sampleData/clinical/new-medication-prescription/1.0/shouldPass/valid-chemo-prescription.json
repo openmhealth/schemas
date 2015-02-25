@@ -12,6 +12,10 @@
 
     "schedule": [
         {
+            "dose_duration": {
+                "value": 5,
+                "unit": "d"
+            },
             "dose": {
                 "value": 3.675,
                 "unit": "mL"
@@ -21,16 +25,8 @@
                 "time_window": {
                     "value": 1,
                     "unit": "d"
-                },
-                "time_between_successive_windows": {
-                    "value": 1,
-                    "unit": "d"
                 }
             }
         }
-    ],
-    "prescription_duration": {
-        "value": 5,
-        "unit": "d"
-    }
+    ]
 }
