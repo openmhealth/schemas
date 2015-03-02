@@ -1,5 +1,5 @@
 {
-    "documentation": "1 tab and 1/2 tab alternating every other day after breakfast",
+    "documentation": "1 tab daily and 1/2 tab daily alternating every other day after breakfast",
 
     "medication": {
         "trade_name": "Tenormin 50 MG Oral Tablet",
@@ -11,6 +11,7 @@
     },
 
     "route": "oral",
+
     "periodicity": {
         "value": 2,
         "unit": "d"
@@ -34,7 +35,6 @@
             },
             "timing": [
                 {
-                    "part_of_day": "morning",
                     "temporal_relationship_to_meal": "after breakfast"
                 }
             ],
@@ -63,7 +63,6 @@
             },
             "timing": [
                 {
-                    "part_of_day": "morning",
                     "temporal_relationship_to_meal": "after breakfast"
                 }
             ],

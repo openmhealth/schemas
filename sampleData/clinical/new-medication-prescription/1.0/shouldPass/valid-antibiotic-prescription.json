@@ -1,4 +1,6 @@
 {
+    "documentation": "Trimox 500 mg 1 tab every 6 hours for 5 days",
+
     "medication": {
         "trade_name": "Trimox",
         "strength": {
@@ -13,38 +15,21 @@
     "schedule": [
         {
             "dose_duration": {
-                "time_interval": {
-                    "start_date": "2013-02-06",
-                    "end_date": "2013-02-10"
-                }
+                "value": 5,
+                "unit": "d"
+
             },
             "dose": {
                 "value": 1,
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 4,
+                "number_of_times": 1,
                 "time_window": {
-                    "value": 1,
-                    "unit": "d"
+                    "value": 6,
+                    "unit": "h"
                 }
-            },
-            "timing": [
-                {
-                    "time_of_day": "06:00:00",
-                    "temporal_relationship_to_meal": "after breakfast"
-                },
-                {
-                    "time_of_day": "12:00:00"
-                },
-                {
-                    "time_of_day": "18:00:00"
-                }                                ,
-                {
-                    "time_of_day": "00:00:00",
-                    "temporal_relationship_to_sleep": "before sleeping"
-                }
-            ]
+            }
         }
     ]
 }

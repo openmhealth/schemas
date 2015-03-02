@@ -1,11 +1,13 @@
 {
+    "documentation": "Cipro 500 MG 1 tab every 12 hours for 5 days from onset of urinary symptoms",
+
     "medication": {
-        "trade_name": "Trimox",
+        "trade_name": "Cipro 500 MG Oral Tablet",
         "strength": {
             "value": 500,
             "unit": "mg"
         },
-        "rxnorm_code": 94406
+        "rxnorm_code": 205770
     },
 
     "route": "oral",
@@ -15,38 +17,21 @@
     "schedule": [
         {
             "dose_duration": {
-                "time_interval": {
-                    "start_date": "2013-02-06",
-                    "end_date": "2013-02-10"
-                }
+                "value": 5,
+                "unit": "d"
+
             },
             "dose": {
                 "value": 1,
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 4,
+                "number_of_times": 1,
                 "time_window": {
-                    "value": 1,
-                    "unit": "d"
+                    "value": 12,
+                    "unit": "h"
                 }
-            },
-            "timing": [
-                {
-                    "time_of_day": "06:00:00",
-                    "temporal_relationship_to_meal": "after breakfast"
-                },
-                {
-                    "time_of_day": "12:00:00"
-                },
-                {
-                    "time_of_day": "18:00:00"
-                }                                ,
-                {
-                    "time_of_day": "00:00:00",
-                    "temporal_relationship_to_sleep": "before sleeping"
-                }
-            ]
+            }
         }
     ]
 }

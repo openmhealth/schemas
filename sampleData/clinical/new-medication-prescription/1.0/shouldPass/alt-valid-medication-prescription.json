@@ -73,7 +73,6 @@
             },
             "timing": [
                 {
-                    "part_of_day": "evening",
                     "temporal_relationship_to_sleep": "before sleeping"
                 }
             ],

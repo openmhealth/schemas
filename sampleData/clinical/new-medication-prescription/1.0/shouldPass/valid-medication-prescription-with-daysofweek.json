@@ -1,25 +1,20 @@
 {
+    "documentation": "Coumadin 2 mg 1 tab 3 times a week (MWF) + 1/2 tab on Saturday for 1 month in the morning",
+
     "medication": {
-        "generic_name": "Aspirin [Ascriptin]",
+        "brand_name": "Warfarin Sodium 2 MG [Coumadin]",
         "strength": {
-            "value": 325,
+            "value": 2,
             "unit": "mg"
         },
-        "rxnorm_code": 830530
+        "rxnorm_code": 855303
     },
     "route": "oral",
 
-    "periodicity": {
-        "value": 1,
-        "unit": "wk"
-    },
-
     "schedule": [
         {
-            "dose_duration": {
-                "value": 6,
-                "unit": "Mo"
-            },
+            "dose_duration": "continuing",
+
             "dose": {
                 "value": 1,
                 "unit": "tablet"
@@ -48,7 +43,7 @@
         },
         {
             "dose_duration": {
-                "value": 6,
+                "value": 1,
                 "unit": "Mo"
             },
             "dose": {

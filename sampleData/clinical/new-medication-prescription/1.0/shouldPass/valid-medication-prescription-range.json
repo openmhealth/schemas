@@ -1,4 +1,6 @@
 {
+    "documentation": "Ascriptin 500 mg 1 tab every 4-6 hours for 2 weeks",
+
     "medication": {
         "generic_name": "Aspirin [Ascriptin]",
         "strength": {
@@ -13,8 +15,8 @@
     "schedule": [
         {
             "dose_duration": {
-                "value": 15,
-                "unit": "d"
+                "value": 2,
+                "unit": "wk"
             },
             "dose": {
                 "value": 1,
