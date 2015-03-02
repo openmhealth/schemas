@@ -37,7 +37,6 @@
             },
             "timing": [
                 {
-                    "part_of_day": "morning",
                     "temporal_relationship_to_meal": "before breakfast",
                     "time_frame_of_temporal_relationship_to_meal": {
                         "value": 30,

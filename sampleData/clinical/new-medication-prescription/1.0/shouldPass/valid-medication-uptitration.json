@@ -28,13 +28,7 @@
                     "value": 1,
                     "unit": "d"
                 }
-            },
-            "timing": [
-                {
-                    "part_of_day": "morning",
-                    "temporal_relationship_to_meal": "after breakfast"
-                }
-            ]
+            }
         },
         {
             "dose_duration": {
@@ -52,19 +46,14 @@
                     "value": 1,
                     "unit": "d"
                 }
-            },
-            "timing": [
-                {
-                    "part_of_day": "morning",
-                    "temporal_relationship_to_meal": "after breakfast"
-                },
-                {
-                    "part_of_day": "evening",
-                    "temporal_relationship_to_meal": "after dinner"
-                }
-            ]
+            }
         },
         {
+            "dose_duration": {
+                "value": 3,
+                "unit": "d"
+            },
+
             "dose": {
                 "value": 1,
                 "unit": "tablet"
@@ -75,27 +64,15 @@
                     "value": 1,
                     "unit": "d"
                 }
-            },
-            "timing": [
-                {
-                    "part_of_day": "morning",
-                    "temporal_relationship_to_meal": "after breakfast"
-                },
-                {
-                    "part_of_day": "afternoon",
-                    "temporal_relationship_to_meal": "after lunch"
-                },
-                {
-                    "part_of_day": "evening",
-                    "temporal_relationship_to_meal": "after dinner"
-                }
-            ],
-            "dose_duration": {
-                "value": 3,
-                "unit": "d"
             }
         },
         {
+
+            "dose_duration": {
+                "value": 2,
+                "unit": "wk"
+            },
+
             "dose": {
                 "value": 2,
                 "unit": "tablet"
@@ -106,24 +83,6 @@
                     "value": 1,
                     "unit": "d"
                 }
-            },
-            "timing": [
-                {
-                    "part_of_day": "morning",
-                    "temporal_relationship_to_meal": "after breakfast"
-                },
-                {
-                    "part_of_day": "afternoon",
-                    "temporal_relationship_to_meal": "after lunch"
-                },
-                {
-                    "part_of_day": "evening",
-                    "temporal_relationship_to_meal": "after dinner"
-                }
-            ],
-            "dose_duration": {
-                "value": 2,
-                "unit": "wk"
             }
         },
         {
@@ -138,21 +97,7 @@
                     "value": 1,
                     "unit": "d"
                 }
-            },
-            "timing": [
-                {
-                    "part_of_day": "morning",
-                    "temporal_relationship_to_meal": "after breakfast"
-                },
-                {
-                    "part_of_day": "afternoon",
-                    "temporal_relationship_to_meal": "after lunch"
-                },
-                {
-                    "part_of_day": "evening",
-                    "temporal_relationship_to_meal": "after dinner"
-                }
-            ]
+            }
         }
     ]
 }
