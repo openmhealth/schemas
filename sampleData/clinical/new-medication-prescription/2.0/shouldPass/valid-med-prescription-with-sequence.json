@@ -31,19 +31,19 @@
                 "time_window": {
                     "value": 1,
                     "unit": "d"
-                }
-            },
-            "timing": [
-                {
-                    "temporal_relationship_to_meal": "after breakfast"
-                }
-            ],
-            "sequence": [
-                {
-                    "unit": "d",
-                    "value": 1
-                }
-            ]
+                },
+                "timing": [
+                    {
+                        "temporal_relationship_to_meal": "after breakfast"
+                    }
+                ],
+                "sequence": [
+                    {
+                        "unit": "d",
+                        "value": 1
+                    }
+                ]
+            }
         },
         {
             "dose_duration": {
@@ -59,19 +59,19 @@
                 "time_window": {
                     "value": 1,
                     "unit": "d"
-                }
-            },
-            "timing": [
-                {
-                    "temporal_relationship_to_meal": "after breakfast"
-                }
-            ],
-            "sequence": [
-                {
-                    "unit": "d",
-                    "value": 2
-                }
-            ]
+                },
+                "timing": [
+                    {
+                        "temporal_relationship_to_meal": "after breakfast"
+                    }
+                ],
+                "sequence": [
+                    {
+                        "unit": "d",
+                        "value": 2
+                    }
+                ]
+            }
         }
     ]
 }

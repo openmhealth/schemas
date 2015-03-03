@@ -2,7 +2,7 @@
     "documentation": "Coumadin 2 mg 1 tab 3 times a week (MWF) + 1/2 tab on Saturday for 1 month in the morning",
 
     "medication": {
-        "brand_name": "Warfarin Sodium 2 MG [Coumadin]",
+        "trade_name": "Warfarin Sodium 2 MG [Coumadin]",
         "strength": {
             "value": 2,
             "unit": "mg"
