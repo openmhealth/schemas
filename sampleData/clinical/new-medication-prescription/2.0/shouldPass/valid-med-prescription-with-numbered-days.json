@@ -13,17 +13,22 @@
 
     "schedule": [
         {
-            "dose_duration": "continuing",
+            "dose_duration": {
+                "value": 1,
+                "unit": "Mo"
+            },
 
             "dose": {
                 "value": 1,
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 3,
-                "time_window": {
-                    "value": 1,
-                    "unit": "wk"
+                "frequency": {
+                    "number_of_times": 3,
+                    "time_window": {
+                        "value": 1,
+                        "unit": "wk"
+                    }
                 },
                 "sequence": [
                     {

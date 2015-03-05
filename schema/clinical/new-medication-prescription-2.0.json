@@ -10,8 +10,7 @@
             "$ref": "medication-1.0.json"
         },
         "medication_route": {
-            "$ref": "medication-route-1.0.json",
-            "default": "oral"
+            "$ref": "medication-route-1.0.json"
         },
         "medication_dose_unit_value": {
             "$ref": "medication-dose-unit-value-1.0.json"
@@ -78,7 +77,10 @@
                             },
                             {
                                 "type": "string",
-                                "default": "continuing"
+                                "enum": [
+                                    "continuing",
+                                    "undefined"
+                                ]
                             }
                         ]
                     },
@@ -155,7 +157,7 @@
                     }
 
                 },
-                "required": ["dose"]
+                "required": ["dose_duration","dose"]
             }
         }
     },

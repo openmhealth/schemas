@@ -15,6 +15,7 @@
     "schedule": [
         {
             "dose_duration": "continuing",
+
             "dose": {
                 "value": 1,
                 "unit": "tablet"

@@ -1,5 +1,5 @@
 {
-    "documentation": "Tenormin 50 mg 1 tab daily and 1/2 tab daily alternating every other day after breakfast",
+    "documentation": "Tenormin 50 mg 1 tab and 1/2 tab alternating every other day after breakfast",
 
     "medication": {
         "trade_name": "Tenormin 50 MG Oral Tablet",
@@ -18,20 +18,13 @@
     },
     "schedule": [
         {
-            "dose_duration": {
-                "value": 15,
-                "unit": "d"
-            },
+            "dose_duration": "continuing",
+
             "dose": {
                 "value": 1,
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 1,
-                "time_window": {
-                    "value": 1,
-                    "unit": "d"
-                },
                 "timing": [
                     {
                         "temporal_relationship_to_meal": "after breakfast"
@@ -46,20 +39,13 @@
             }
         },
         {
-            "dose_duration": {
-                "value": 15,
-                "unit": "d"
-            },
+            "dose_duration": "continuing",
+
             "dose": {
                 "value": 0.5,
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 1,
-                "time_window": {
-                    "value": 1,
-                    "unit": "d"
-                },
                 "timing": [
                     {
                         "temporal_relationship_to_meal": "after breakfast"
