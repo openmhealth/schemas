@@ -14,8 +14,10 @@
 
     "schedule": [
         {
-            "dose_duration": "continuing",
-
+            "dose_duration": {
+                "value": 99,
+                "unit": "yr"
+            },
             "dose": {
                 "value": 1,
                 "unit": "tablet"

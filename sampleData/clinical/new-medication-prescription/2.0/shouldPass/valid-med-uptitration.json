@@ -90,7 +90,11 @@
             }
         },
         {
-            "dose_duration": "continuing",
+            "dose_duration": {
+                "value": 99,
+                "unit": "yr"
+            },
+
             "dose": {
                 "value": 3,
                 "unit": "tablet"
