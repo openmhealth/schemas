@@ -8,7 +8,7 @@
     },
     "dose": {
         "value": 1,
-        "unit": "capsule"
+        "unit": "tab"
 
     },
     "effective_time_frame": {
