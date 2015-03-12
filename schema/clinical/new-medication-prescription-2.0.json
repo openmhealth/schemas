@@ -16,7 +16,7 @@
             "$ref": "medication-dose-unit-value-1.0.json"
         },
         "frequency_unit_value": {
-            "$ref": "../generic/new-frequency-unit-value-1.0.json"
+            "$ref": "../generic/frequency-unit-value-2.0.json"
         },
         "duration_unit_value": {
             "$ref": "../generic/duration-unit-value-1.0.json"

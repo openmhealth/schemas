@@ -8,7 +8,7 @@
     },
     "dose": {
         "value": 1,
-        "unit": "tab"
+        "unit": "tablet"
 
     },
     "effective_time_frame": {
