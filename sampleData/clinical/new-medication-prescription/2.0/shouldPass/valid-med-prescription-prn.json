@@ -1,13 +1,14 @@
 {
-    "description": "Ascriptin 500 mg 1 tab BID + prn for 2 weeks",
+    "description": " Percocet (oxycodone 5 mg/ acetaminophen 325 mg) every 6 hours prn pain",
 
     "medication": {
-        "generic_name": "Aspirin [Ascriptin]",
+        "trade_name": "Percocet",
+        "generic_name": "Acetaminophen 325 MG / Oxycodone Hydrochloride 5 MG Oral Tablet every 6 hours prn pain",
         "strength": {
-            "value": 500,
+            "value": 330,
             "unit": "mg"
         },
-        "rxnorm_code": 830525
+        "rxnorm_code": 1049640
     },
 
     "route": "oral",
@@ -24,25 +25,13 @@
             },
             "dose_recurrence": {
                 "frequency": {
-                    "number_of_times": 2,
+                    "number_of_times": 1,
                     "time_window": {
-                        "value": 1,
-                        "unit": "d"
+                        "value": 6,
+                        "unit": "h"
                     }
-                }
-            }
-        },
-        {
-            "dose_duration": {
-                "value": 2,
-                "unit": "wk"
-            },
-            "dose": {
-                "value": 1,
-                "unit": "tablet"
-            },
-            "dose_recurrence": {
-                "prn_reason": "pain"
+                },
+                "dose_prn": "pain"
             }
         }
     ]
