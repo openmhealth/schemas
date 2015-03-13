@@ -1,0 +1,9 @@
+{
+    "ambient_temperature": {
+        "value": 75,
+        "unit": "F"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00Z"
+    }
+}
