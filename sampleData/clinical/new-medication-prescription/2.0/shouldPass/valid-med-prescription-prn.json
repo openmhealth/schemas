@@ -31,7 +31,7 @@
                         "unit": "h"
                     }
                 },
-                "dose_prn": "pain"
+                "dose_prn_trigger": "pain"
             }
         }
     ]
