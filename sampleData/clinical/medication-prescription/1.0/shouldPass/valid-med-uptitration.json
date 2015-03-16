@@ -3,10 +3,12 @@
 
     "medication": {
         "trade_name": "Generic antidepressant 300 MG Oral Tablet",
-        "strength": {
-            "value": 300,
-            "unit": "mg"
-        },
+        "strength": [
+            {
+                "value": 300,
+                "unit": "mg"
+            }
+        ],
         "rxnorm_code": 123456
     },
 
@@ -17,16 +19,17 @@
                 "value": 3,
                 "unit": "d"
             },
-
             "dose": {
                 "value": 1,
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 1,
-                "time_window": {
-                    "value": 1,
-                    "unit": "d"
+                "frequency": {
+                    "number_of_times": 1,
+                    "time_window": {
+                        "value": 1,
+                        "unit": "d"
+                    }
                 }
             }
         },
@@ -35,16 +38,17 @@
                 "value": 3,
                 "unit": "d"
             },
-
             "dose": {
                 "value": 1,
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 2,
-                "time_window": {
-                    "value": 1,
-                    "unit": "d"
+                "frequency": {
+                    "number_of_times": 2,
+                    "time_window": {
+                        "value": 1,
+                        "unit": "d"
+                    }
                 }
             }
         },
@@ -53,21 +57,21 @@
                 "value": 3,
                 "unit": "d"
             },
-
             "dose": {
                 "value": 1,
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 3,
-                "time_window": {
-                    "value": 1,
-                    "unit": "d"
+                "frequency": {
+                    "number_of_times": 3,
+                    "time_window": {
+                        "value": 1,
+                        "unit": "d"
+                    }
                 }
             }
         },
         {
-
             "dose_duration": {
                 "value": 2,
                 "unit": "wk"
@@ -78,24 +82,32 @@
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 3,
-                "time_window": {
-                    "value": 1,
-                    "unit": "d"
+                "frequency": {
+                    "number_of_times": 3,
+                    "time_window": {
+                        "value": 1,
+                        "unit": "d"
+                    }
                 }
             }
         },
         {
-            "dose_duration": "continuing",
+            "dose_duration": {
+                "value": 99,
+                "unit": "yr"
+            },
+
             "dose": {
                 "value": 3,
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "number_of_times": 3,
-                "time_window": {
-                    "value": 1,
-                    "unit": "d"
+                "frequency": {
+                    "number_of_times": 3,
+                    "time_window": {
+                        "value": 1,
+                        "unit": "d"
+                    }
                 }
             }
         }

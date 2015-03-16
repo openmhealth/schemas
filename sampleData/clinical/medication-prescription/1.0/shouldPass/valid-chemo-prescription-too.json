@@ -3,10 +3,12 @@
 
     "medication": {
         "trade_name": "Leucovorin 20 MG/ML Injectable Solution",
-        "strength": {
-            "value": 20,
-            "unit": "mg/mL"
-        },
+        "strength": [
+            {
+                "value": 20,
+                "unit": "mg/mL"
+            }
+        ],
         "rxnorm_code": 237788
     },
 

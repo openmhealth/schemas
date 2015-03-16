@@ -1,40 +1,48 @@
 {
     "medication_prescription": {
         "medication": {
-            "trade_name": "Atenolol 25 MG Oral Tablet [Tenormin]",
-            "strength": {
-                "value": 25,
-                "unit": "mg"
-            },
-            "rxnorm_code": 150750
+            "trade_name": "Tenormin 50 MG Oral Tablet",
+            "strength": [
+                {
+                    "value": 50,
+                    "unit": "mg"
+                }
+            ],
+            "rxnorm_code": 152414
         },
+
         "route": "oral",
+
         "schedule": [
             {
+                "dose_duration": {
+                    "value": 99,
+                    "unit": "yr"
+                },
                 "dose": {
                     "value": 1,
                     "unit": "tablet"
                 },
                 "dose_recurrence": {
-                    "number_of_times": 1,
-                    "time_window": {
-                        "value": 1,
-                        "unit": "d"
+                    "frequency": {
+                        "number_of_times": 1,
+                        "time_window": {
+                            "value": 1,
+                            "unit": "d"
+                        }
                     },
-                    "part_of_day": ["morning"],
-                    "temporal_relationship_to_meal": "after breakfast",
-                    "time_between_successive_windows": {
-                        "value": 2,
-                        "unit": "d"
-                    }
+                    "timing": [
+                        {
+                            "temporal_relationship_to_meal": "before breakfast",
+                            "time_frame_of_temporal_relationship_to_meal": {
+                                "value": 30,
+                                "unit": "min"
+                            }
+                        }
+                    ]
                 }
             }
-        ],
-
-        "prescription_duration": {
-            "value": 15,
-            "unit": "d"
-        }
+        ]
     },
 
     "effective_time_frame": {

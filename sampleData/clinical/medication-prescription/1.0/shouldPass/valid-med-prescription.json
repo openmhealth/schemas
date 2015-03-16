@@ -3,10 +3,12 @@
 
     "medication": {
         "trade_name": "Tenormin 50 MG Oral Tablet",
-        "strength": {
-            "value": 50,
-            "unit": "mg"
-        },
+        "strength": [
+            {
+                "value": 50,
+                "unit": "mg"
+            }
+        ],
         "rxnorm_code": 152414
     },
 

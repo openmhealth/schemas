@@ -1,10 +1,12 @@
 {
     "medication": {
         "generic_name": "atenolol 50 mg oral tablet",
-        "strength": {
-            "value": 50,
-            "unit": "mg"
-        }
+        "strength": [
+            {
+                "value": 50,
+                "unit": "mg"
+            }
+        ]
     },
     "dose": {
         "value": 0.5,
