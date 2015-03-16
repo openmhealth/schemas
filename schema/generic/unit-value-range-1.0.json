@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a range of numerical values with a unit of measure. The lower and upper boundaries are included.",
+    "description": "This schema represents a range of numerical values with a unit of measure. The lower and upper boundaries are included in the interval.",
 
     "type": "object",
 

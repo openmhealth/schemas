@@ -4,7 +4,12 @@
    "description":"This schema represents summary adherence to a prescription as a ratio doses taken / doses prescribed x 100 within a time frame.",
 
    "type":"object",
-
+    "references": [
+        {
+            "description": "The SNOMED code represents Adherence to medication regime",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/418633004"
+        }
+    ],
    "definitions": {
         "medication_prescription": {
             "$ref": "medication-prescription-1.0.json"

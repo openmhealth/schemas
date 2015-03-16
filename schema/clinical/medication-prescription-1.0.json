@@ -4,6 +4,12 @@
     "description":"This schema represents a medication prescription e.g., atenolol 50 mg, 1 tablet in the morning and 0.5 tablet in the evening for 30 days.",
 
     "type":"object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Drug prescription",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/182817000"
+        }
+    ],
 
     "definitions": {
         "medication": {
@@ -16,7 +22,7 @@
             "$ref": "medication-dose-unit-value-1.0.json"
         },
         "frequency_unit_value": {
-            "$ref": "../generic/frequency-unit-value-2.0.json"
+            "$ref": "../generic/frequency-unit-value-1.0.json"
         },
         "duration_unit_value": {
             "$ref": "../generic/duration-unit-value-1.0.json"

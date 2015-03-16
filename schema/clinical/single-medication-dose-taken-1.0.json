@@ -4,7 +4,12 @@
    "description":"This schema represents assumption of a single prescribed dose of a medication.",
 
    "type":"object",
-
+    "references": [
+        {
+            "description": "The SNOMED code represents Adherence to medication regime",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/418633004"
+        }
+    ],
    "definitions": {
         "medication": {
             "$ref":"medication-1.0.json"

@@ -1,0 +1,8 @@
+{
+    "number_of_times": 2,
+    "time_window": {
+        "low_value": 4,
+        "high_value": 6,
+        "unit": "h"
+    }
+}
