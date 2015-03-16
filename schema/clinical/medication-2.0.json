@@ -1,14 +1,14 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
 
-    "description":"This schema represents a drug, single-active ingredient or combination.",
+    "description":"This schema represents a therapeutic agent, single-active ingredient or combination.",
 
     "type":"object",
 
     "definitions": {
         "medication_strength_unit_value": {
             "type": "array",
-            "description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",
+            "description": "A therapeutic agent can be the combination of more than one active ingredient, hence this isn an array.",
             "items": {
                 "type": "object",
                 "description": "This property represents the strength of a therapeutic agent. The value set covers the most common values. Suggestions for additions are accepted.",

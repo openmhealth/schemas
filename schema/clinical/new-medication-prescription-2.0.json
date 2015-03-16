@@ -86,7 +86,7 @@
                                 "frequency": "#/definitions/frequency_unit_value"
                             },
                             {
-                                "dose_prn": {
+                                "dose_prn_trigger": {
                                     "type": "string"
                                 }
                             },
