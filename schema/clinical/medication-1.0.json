@@ -1,93 +1,107 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
 
-    "description":"This schema represents a drug, single-active ingredient or combination.",
-
+    "description":"This schema represents a therapeutic agent, single-active ingredient or combination.",
+    "references": [
+        {
+            "description": "The SNOMED code represents Drug or medicament",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/410942007"
+        }
+    ],
     "type":"object",
 
     "definitions": {
         "medication_strength_unit_value": {
-            "type": "object",
-            "description": "This property represents the strength of a therapeutic agent. The value set covers the most common values. Suggestions for additions are accepted.",
-            "references": [
-                {
-                    "description": "The NCIT code represents Pharmaceutical Strength",
-                    "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C53294"
-                }
-            ],
-            "allOf": [
-                {
-                    "$ref": "../generic/unit-value-1.0.json"
-                },
-                {
-                    "properties": {
-                        "unit": {
-                            "description": "The list of most commonly used units of measure for a medication's strength. Suggestions for additions are accepted.",
-                            "references": [
-                                {
-                                    "description": "Units are drawn in part from FDA units of measure",
-                                    "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm"
-                                }
-                            ],
-                            "enum": [
-                                "%",
-                                "AU",
-                                "AU/mL",
-                                "BAU",
-                                "BAU/mL",
-                                "BU",
-                                "CCID_50",
-                                "Ci",
-                                "cm^2",
-                                "D'ag'U",
-                                "dL",
-                                "FFU",
-                                "g",
-                                "hp_C",
-                                "hp_M",
-                                "hp_Q",
-                                "hp_X",
-                                "IU",
-                                "IU/L",
-                                "IU/mL",
-                                "kp_C",
-                                "L",
-                                "Lf",
-                                "LfU/mL",
-                                "mCi",
-                                "mCi/mL",
-                                "mEq",
-                                "mg",
-                                "mg/actuat",
-                                "mg/hr",
-                                "mg/mg",
-                                "mg/mL",
-                                "mL",
-                                "mmol",
-                                "mol",
-                                "mU",
-                                "ng",
-                                "nmol",
-                                "organisms",
-                                "PFU",
-                                "PNU",
-                                "PNU/mL",
-                                "TCID_50",
-                                "U",
-                                "uCi",
-                                "ug",
-                                "ug/mL",
-                                "uL",
-                                "umol",
-                                "unt",
-                                "unt/mL",
-                                "USP'U",
-                                "X"
-                            ]
+            "type": "array",
+            "description": "A therapeutic agent can be the combination of more than one active ingredient, hence this isn an array.",
+            "items": {
+                "type": "object",
+                "description": "This property represents the strength of a therapeutic agent. The value set covers the most common values. Suggestions for additions are accepted.",
+                "references": [
+                    {
+                        "description": "The NCIT code represents Pharmaceutical Strength",
+                        "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C53294"
+                    }
+                ],
+                "allOf": [
+                    {
+                        "ingredient_name": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "../generic/unit-value-1.0.json"
+                    },
+                    {
+                        "properties": {
+                            "unit": {
+                                "description": "The list of most commonly used units of measure for a medication's strength. Suggestions for additions are accepted.",
+                                "references": [
+                                    {
+                                        "description": "Units are drawn in part from FDA units of measure",
+                                        "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm"
+                                    }
+                                ],
+                                "enum": [
+                                    "%",
+                                    "AU",
+                                    "AU/mL",
+                                    "BAU",
+                                    "BAU/mL",
+                                    "BU",
+                                    "CCID_50",
+                                    "Ci",
+                                    "cm^2",
+                                    "D'ag'U",
+                                    "dL",
+                                    "FFU",
+                                    "g",
+                                    "hp_C",
+                                    "hp_M",
+                                    "hp_Q",
+                                    "hp_X",
+                                    "IU",
+                                    "IU/L",
+                                    "IU/mL",
+                                    "kp_C",
+                                    "L",
+                                    "Lf",
+                                    "LfU/mL",
+                                    "mCi",
+                                    "mCi/mL",
+                                    "mEq",
+                                    "mg",
+                                    "mg/actuat",
+                                    "mg/hr",
+                                    "mg/mg",
+                                    "mg/mL",
+                                    "mL",
+                                    "mmol",
+                                    "mol",
+                                    "mU",
+                                    "ng",
+                                    "nmol",
+                                    "organisms",
+                                    "PFU",
+                                    "PNU",
+                                    "PNU/mL",
+                                    "TCID_50",
+                                    "U",
+                                    "uCi",
+                                    "ug",
+                                    "ug/mL",
+                                    "uL",
+                                    "umol",
+                                    "unt",
+                                    "unt/mL",
+                                    "USP'U",
+                                    "X"
+                                ]
+                            }
                         }
                     }
-                }
-	    ]
+                ]
+            }
         }
     },
 
