@@ -60,9 +60,6 @@
         "prescription_trigger": {
             "type": "string"
         },
-        "periodicity":{
-            "$ref": "#/definitions/duration_unit_value"
-        },
         "schedule": {
             "type": "array",
             "description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",

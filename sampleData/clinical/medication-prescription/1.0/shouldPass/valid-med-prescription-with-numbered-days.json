@@ -1,5 +1,5 @@
 {
-    "description": "Coumadin 2 mg 1 tab 3 times a week (odd days) + 1/2 tab on Saturday for 1 month in the morning",
+    "description": "Coumadin 2 mg 1 tab 2 times (day 1 and 3) every 5 days ",
 
     "medication": {
         "trade_name": "Warfarin Sodium 2 MG [Coumadin]",
@@ -26,10 +26,10 @@
             },
             "dose_recurrence": {
                 "frequency": {
-                    "number_of_times": 3,
+                    "number_of_times": 2,
                     "time_window": {
-                        "value": 1,
-                        "unit": "wk"
+                        "value": 5,
+                        "unit": "d"
                     }
                 },
                 "sequence": [
@@ -40,28 +40,6 @@
                     {
                         "unit": "d",
                         "value": 3
-                    },
-                    {
-                        "unit": "d",
-                        "value": 5
-                    }
-                ]
-            }
-        },
-        {
-            "dose_duration": {
-                "value": 1,
-                "unit": "Mo"
-            },
-            "dose": {
-                "value": 0.5,
-                "unit": "tablet"
-            },
-            "dose_recurrence": {
-                "timing": [
-                    {
-                        "part_of_day": "morning",
-                        "day_of_week": "Saturday"
                     }
                 ]
             }
