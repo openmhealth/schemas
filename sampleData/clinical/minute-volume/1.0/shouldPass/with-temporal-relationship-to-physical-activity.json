@@ -1,0 +1,10 @@
+{
+    "minute_volume": {
+        "value": 7,
+        "unit": "L/min"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00Z"
+    },
+    "temporal_relationship_to_physical_activity": "at rest"
+}
