@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the oxygen saturation, either a single measurement, or the result of aggregating several measurements made over time (see Numeric descriptor schema for a list of aggregate measures)",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents ??? (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+        }
+    ],
+
+    "definitions": {
+        "unit_value": {
+            "$ref": "../generic/unit-value-1.0.json"
+        },
+        "time_frame": {
+            "$ref": "../generic/time-frame-1.0.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "../generic/descriptive-statistic-1.0.json"
+        }
+    },
+
+    "properties": {
+        "oxygen_saturation": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/duration_unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "%"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "measurement_method": {
+            "type": "string",
+            "enum": [
+                "pulse oximetry",
+                "arterial blood gas analyzer",
+                "CO-oximetry"
+            ]
+        }
+    },
+
+    "required": ["oxygen_saturation"]
+}
