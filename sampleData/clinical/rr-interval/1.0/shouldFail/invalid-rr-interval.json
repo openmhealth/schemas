@@ -1,0 +1,6 @@
+{
+    "rr_interval": {
+        "value": 30,
+        "unit": "mm"
+    }
+}

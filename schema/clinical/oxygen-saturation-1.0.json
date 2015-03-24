@@ -26,7 +26,7 @@
         "oxygen_saturation": {
             "allOf": [
                 {
-                    "$ref": "#/definitions/duration_unit_value"
+                    "$ref": "#/definitions/unit_value"
                 },
                 {
                     "properties": {
