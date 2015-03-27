@@ -39,6 +39,42 @@
             "value": "median",
             "description": "The NCIT code represents median",
             "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C28007"
+        },
+        {
+            "value": "count",
+            "description": "The NCIT code represents count",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25463"
+        },
+        {
+            "value": "quartile deviation",
+            "description": "In a distribution, partial variance between the upper quartile and lower quartile (semi inter quartile range)."
+        },
+        {
+            "value": "80th percentile",
+            "description": "The NCIT code represents percentile, any of the 99 numbered points that divide an ordered set of scores into 100 parts each of which contains one-hundredth of the total.",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C48919"
+        },
+        {
+            "value": "lower quartile",
+            "description": "The NCIT code represents quartile, any of four equal-sized sets of observations in a ranked sample.",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C87306"
+        },
+        {
+            "value": "upper quartile",
+            "description": "The NCIT code represents quartile, any of four equal-sized sets of observations in a ranked sample.",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C87306"
+        },
+        {
+            "value": "1st quintile"
+        },
+        {
+            "value": "2nd quintile"
+        },
+        {
+            "value": "3rd quintile"
+        },
+        {
+            "value": "4th quintile"
         }
     ],
     "enum": [
@@ -48,6 +84,15 @@
         "standard deviation",
         "variance",
         "sum",
-        "median"
+        "median",
+        "count",
+        "quartile deviation",
+        "80th percentile",
+        "lower quartile",
+        "upper quartile",
+        "1st quintile",
+        "2nd quintile",
+        "3rd quintile",
+        "4th quintile"
     ]
 }
