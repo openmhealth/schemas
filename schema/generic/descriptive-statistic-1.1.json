@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "The descriptive statistic of a set of measurements. A measurement value can be the result of combining various measurements and calculating descriptive statistics like average, maximum, minimum, etc. Additional descriptive statistics will be added as the need arises. A measurement value without a descriptive statistic is interpreted as being the result of an individual measurement.",
+    "type": "string",
+
+    "references": [
+        {
+            "value": "average",
+            "description": "The NCIT code represents average",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C37917"
+        },
+        {
+            "value": "maximum",
+            "description": "The NCIT code represents maximum",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25564"
+        },
+        {
+            "value": "minimum",
+            "description": "The NCIT code represents minimum",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25570"
+        },
+        {
+            "value": "standard deviation",
+            "description": "The NCIT code represents standard deviation",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C53322"
+        },
+        {
+            "value": "variance",
+            "description": "The NCIT code represents variance",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C48918"
+        },
+        {
+            "value": "sum",
+            "description": "The NCIT code represents sum",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25697"
+        },
+        {
+            "value": "median",
+            "description": "The NCIT code represents median",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C28007"
+        }
+    ],
+    "enum": [
+        "average",
+        "maximum",
+        "minimum",
+        "standard deviation",
+        "variance",
+        "sum",
+        "median"
+    ]
+}

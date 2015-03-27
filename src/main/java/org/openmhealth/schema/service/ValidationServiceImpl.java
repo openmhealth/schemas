@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Open mHealth
+ * Copyright 2015 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import org.openmhealth.schema.domain.DataFile;
 import org.openmhealth.schema.domain.SchemaFile;
+import org.openmhealth.schema.domain.SchemaVersion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 import static org.openmhealth.schema.domain.DataFileValidationResult.PASS;
+
 
 /**
  * A primitive validation service implementation. This implementation currently logs failures, but will eventually
@@ -56,19 +58,25 @@ public class ValidationServiceImpl implements ValidationService {
                         continue;
                     }
 
-                    if (dataFile.getSchemaId().getVersion().getMajor() != schemaFile.getSchemaId().getVersion().getMajor()) {
+                    SchemaVersion dataFileVersion = dataFile.getSchemaId().getVersion();
+                    SchemaVersion schemaFileVersion = schemaFile.getSchemaId().getVersion();
+
+                    if (dataFileVersion.getMajor() != schemaFileVersion.getMajor()) {
                         continue;
                     }
 
-                    // TODO think this through
-                    // sampleDataFile.getSchemaVersion().getMinor() > schemaFile.getVersion().getMinor())) {
+                    // a data point conforms to the schema listed in its header and newer minor versions of that schema
+                    if (dataFileVersion.getMinor() > schemaFileVersion.getMinor()) {
+                        continue;
+                    }
 
                     ProcessingReport report = schemaFile.getJsonSchema().validate(dataFile.getData());
 
                     if (dataFile.getExpectedValidationResult() == PASS) {
                         if (report.isSuccess()) {
                             log.info("> {} -- OK (passed as expected)", dataFile.getName());
-                        } else {
+                        }
+                        else {
                             if (!log.isInfoEnabled()) {
                                 log.warn(schemaFile.getSchemaId().toString());
                             }
@@ -80,10 +88,12 @@ public class ValidationServiceImpl implements ValidationService {
                                 }
                             }
                         }
-                    } else {
+                    }
+                    else {
                         if (!report.isSuccess()) {
                             log.info("> {} -- OK (failed as expected)", dataFile.getName());
-                        } else {
+                        }
+                        else {
                             if (!log.isInfoEnabled()) {
                                 log.warn(schemaFile.getSchemaId().toString());
                             }
