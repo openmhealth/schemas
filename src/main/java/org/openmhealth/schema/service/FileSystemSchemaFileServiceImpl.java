@@ -62,6 +62,11 @@ public class FileSystemSchemaFileServiceImpl implements SchemaFileService {
 
                 for (File file : files) {
 
+                    // skip wildcard links, $referenced links are tested automatically
+                    if (file.toURI().toString().endsWith(".x.json")) {
+                        continue;
+                    }
+
                     JsonSchema jsonSchema = jsonSchemaFactory.getJsonSchema(file.toURI().toString());
                     schemaFiles.add(new SchemaFile(file.toURI(), jsonSchema));
                 }
