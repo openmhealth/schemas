@@ -14,10 +14,10 @@
             "$ref": "activity-name-1.0.json"
         },
         "length_unit_value": {
-            "$ref": "../generic/length-unit-value-1.0.json"
+            "$ref": "length-unit-value-1.0.json"
         },
         "time_frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+            "$ref": "time-frame-1.0.json"
         }
     },
 

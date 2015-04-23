@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Open mHealth
+ * Copyright 2015 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static java.util.regex.Pattern.compile;
 import static org.openmhealth.schema.domain.DataFileValidationResult.FAIL;
 import static org.openmhealth.schema.domain.DataFileValidationResult.PASS;
-import static org.openmhealth.schema.domain.SchemaVersion.VERSION_PATTERN_STRING;
+
 
 /**
  * A representation of a data file containing a JSON document.
@@ -35,27 +35,25 @@ import static org.openmhealth.schema.domain.SchemaVersion.VERSION_PATTERN_STRING
  */
 public class DataFile {
 
-    public static final Pattern SAMPLE_DATA_URI_PATTERN =
-            compile("/(clinical|generic)/([a-z-]+)/([^/]+)/(shouldPass|shouldFail)/([a-z-]+)\\.json$");
+    public static final Pattern TEST_DATA_URI_PATTERN =
+            compile("/([a-z-]+)/([a-z-]+)/([^/]+)/(shouldPass|shouldFail)/([a-z-]+)\\.json$");
 
     private String name;
     private URI location;
     private SchemaId schemaId;
-    private SchemaCategory schemaCategory;
     private DataFileValidationResult expectedValidationResult;
     private JsonNode data;
 
     // TODO move this into a builder specific to our structure
-    public DataFile(URI location, String schemaNamespace, JsonNode data) {
+    public DataFile(URI location, JsonNode data) {
 
-        Matcher matcher = SAMPLE_DATA_URI_PATTERN.matcher(location.toString());
+        Matcher matcher = TEST_DATA_URI_PATTERN.matcher(location.toString());
 
-        checkArgument(matcher.find(), "The URI '%s' doesn't identify a document containing sample data.", location);
+        checkArgument(matcher.find(), "The URI '%s' doesn't identify a document containing test data.", location);
 
         this.name = matcher.group(5);
         this.location = location;
-        this.schemaId = new SchemaId(schemaNamespace, matcher.group(2), new SchemaVersion(matcher.group(3)));
-        this.schemaCategory = SchemaCategory.valueOf(matcher.group(1).toUpperCase());
+        this.schemaId = new SchemaId(matcher.group(1), matcher.group(2), new SchemaVersion(matcher.group(3)));
         this.expectedValidationResult = matcher.group(4).equals("shouldPass") ? PASS : FAIL;
         this.data = data;
     }
@@ -70,10 +68,6 @@ public class DataFile {
 
     public SchemaId getSchemaId() {
         return schemaId;
-    }
-
-    public SchemaCategory getSchemaCategory() {
-        return schemaCategory;
     }
 
     public DataFileValidationResult getExpectedValidationResult() {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Open mHealth
+ * Copyright 2015 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,17 +29,14 @@ import java.util.List;
 
 import static java.lang.String.format;
 
+
 /**
- * A schema file service implementation that loads schema files from the file system. It assumes that schemas are
- * divided into schema categories.
+ * A schema file service implementation that loads schema files from the file system.
  *
  * @author Emerson Farrugia
  */
 @Service
 public class FileSystemSchemaFileServiceImpl implements SchemaFileService {
-
-    // TODO remove this hard-coding
-    private static final String SCHEMA_NAMESPACE = "omh";
 
     private final JsonSchemaFactory jsonSchemaFactory = JsonSchemaFactory.byDefault();
 
@@ -49,16 +46,15 @@ public class FileSystemSchemaFileServiceImpl implements SchemaFileService {
         List<SchemaFile> schemaFiles = new ArrayList<>();
 
         try {
-            // e.g. generic
-            File[] schemaCategoryDirectories = new File(baseDirectory).listFiles();
+            File[] namespaceDirectories = new File(baseDirectory).listFiles();
 
-            if (schemaCategoryDirectories == null) {
+            if (namespaceDirectories == null) {
                 return schemaFiles;
             }
 
-            for (File schemaCategoryDirectory : schemaCategoryDirectories) {
+            for (File namespaceDirectory : namespaceDirectories) {
 
-                File[] files = schemaCategoryDirectory.listFiles();
+                File[] files = namespaceDirectory.listFiles();
 
                 if (files == null) {
                     continue;
@@ -67,12 +63,13 @@ public class FileSystemSchemaFileServiceImpl implements SchemaFileService {
                 for (File file : files) {
 
                     JsonSchema jsonSchema = jsonSchemaFactory.getJsonSchema(file.toURI().toString());
-                    schemaFiles.add(new SchemaFile(SCHEMA_NAMESPACE, file.toURI(), jsonSchema));
+                    schemaFiles.add(new SchemaFile(file.toURI(), jsonSchema));
                 }
             }
         }
         catch (ProcessingException e) {
-            throw new RuntimeException(format("The schema files in directory '%s' can't be loaded.", baseDirectory), e);
+            throw new RuntimeException(format("The schema files in directory '%s' can't be loaded.", baseDirectory),
+                    e);
         }
 
         return schemaFiles;

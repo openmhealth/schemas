@@ -13,7 +13,7 @@
 
     "definitions": {
         "time_frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+            "$ref": "time-frame-1.0.json"
         }
     },
 

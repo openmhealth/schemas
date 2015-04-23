@@ -37,17 +37,15 @@ public class SchemaFile {
      * This pattern corresponds to the current layout in the /schema directory. The metadata extracted from the URI
      * should probably live in the schema itself.
      */
-    public static final Pattern SCHEMA_URI_PATTERN = compile("/(clinical|generic)/([a-z-]+)-(.+)\\.json$");
+    public static final Pattern SCHEMA_URI_PATTERN = compile("/([a-z-]+)/([a-z-]+)-(.+)\\.json$");
 
     private SchemaId schemaId;
-    private SchemaCategory category;
     private URI location;
     private JsonSchema jsonSchema;
 
     // TODO move this into a builder specific to our structure
-    public SchemaFile(String namespace, URI location, JsonSchema jsonSchema) {
+    public SchemaFile(URI location, JsonSchema jsonSchema) {
 
-        checkNotNull(namespace);
         checkNotNull(location);
         checkNotNull(jsonSchema);
 
@@ -55,18 +53,13 @@ public class SchemaFile {
 
         checkArgument(matcher.find(), "The URI '%s' doesn't identify a schema.", location);
 
-        this.schemaId = new SchemaId(namespace, matcher.group(2), new SchemaVersion(matcher.group(3)));
-        this.category = SchemaCategory.valueOf(matcher.group(1).toUpperCase());
+        this.schemaId = new SchemaId(matcher.group(1), matcher.group(2), new SchemaVersion(matcher.group(3)));
         this.location = location;
         this.jsonSchema = jsonSchema;
     }
 
     public SchemaId getSchemaId() {
         return schemaId;
-    }
-
-    public SchemaCategory getCategory() {
-        return category;
     }
 
     public URI getLocation() {

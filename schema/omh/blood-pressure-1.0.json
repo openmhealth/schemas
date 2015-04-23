@@ -17,13 +17,13 @@
             "$ref": "diastolic-blood-pressure-1.0.json"
         },
         "time_frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+            "$ref": "time-frame-1.0.json"
         },
         "position_during_measurement": {
             "$ref": "position-during-measurement-1.0.json"
         },
         "descriptive_statistic": {
-            "$ref": "../generic/descriptive-statistic-1.0.json"
+            "$ref": "descriptive-statistic-1.0.json"
         }
     },
 

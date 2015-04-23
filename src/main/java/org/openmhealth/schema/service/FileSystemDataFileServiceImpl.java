@@ -30,6 +30,7 @@ import java.util.List;
 
 import static java.lang.String.format;
 
+
 /**
  * A data file service implementation that loads data files from the file system. This simple implementation is very
  * brittle and can be replaced with a {@link FileVisitor} to make it more robust.
@@ -39,9 +40,6 @@ import static java.lang.String.format;
 @Service
 public class FileSystemDataFileServiceImpl implements DataFileService {
 
-    // TODO remove this hard-coding
-    private static final String SCHEMA_NAMESPACE = "omh";
-
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
@@ -50,17 +48,17 @@ public class FileSystemDataFileServiceImpl implements DataFileService {
         List<DataFile> dataFiles = new ArrayList<>();
 
         try {
-            // e.g. generic
-            File[] schemaCategoryDirectories = new File(baseDirectory).listFiles();
+            // e.g. omh
+            File[] namespaceDirectories = new File(baseDirectory).listFiles();
 
-            if (schemaCategoryDirectories == null) {
+            if (namespaceDirectories == null) {
                 return dataFiles;
             }
 
-            for (File schemaCategoryDirectory : schemaCategoryDirectories) {
+            for (File namespaceDirectory : namespaceDirectories) {
 
-                // e.g. generic/blood-pressure
-                File[] schemaNameDirectories = schemaCategoryDirectory.listFiles();
+                // e.g. omh/blood-pressure
+                File[] schemaNameDirectories = namespaceDirectory.listFiles();
 
                 if (schemaNameDirectories == null) {
                     continue;
@@ -68,7 +66,7 @@ public class FileSystemDataFileServiceImpl implements DataFileService {
 
                 for (File schemaNameDirectory : schemaNameDirectories) {
 
-                    // e.g. generic/blood-pressure/1.0
+                    // e.g. omh/blood-pressure/1.0
                     File[] versionDirectories = schemaNameDirectory.listFiles();
 
                     if (versionDirectories == null) {
@@ -77,26 +75,26 @@ public class FileSystemDataFileServiceImpl implements DataFileService {
 
                     for (File versionDirectory : versionDirectories) {
 
-                        // e.g. generic/blood-pressure/1.0/shouldPass
-                        File[] sampleDataDirectories = versionDirectory.listFiles();
+                        // e.g. omh/blood-pressure/1.0/shouldPass
+                        File[] testDataDirectories = versionDirectory.listFiles();
 
-                        if (sampleDataDirectories == null) {
+                        if (testDataDirectories == null) {
                             continue;
                         }
 
-                        for (File sampleDataDirectory : sampleDataDirectories) {
+                        for (File testDataDirectory : testDataDirectories) {
 
-                            // e.g. generic/blood-pressure/1.0/shouldPass/sampleData.json
-                            File[] sampleDataFiles = sampleDataDirectory.listFiles();
+                            // e.g. generic/blood-pressure/1.0/shouldPass/test-data.json
+                            File[] testDataFiles = testDataDirectory.listFiles();
 
-                            if (sampleDataFiles == null) {
+                            if (testDataFiles == null) {
                                 continue;
                             }
 
-                            for (File sampleDataFile : sampleDataFiles) {
+                            for (File testDataFile : testDataFiles) {
 
-                                JsonNode sampleData = objectMapper.readTree(sampleDataFile);
-                                dataFiles.add(new DataFile(sampleDataFile.toURI(), SCHEMA_NAMESPACE, sampleData));
+                                JsonNode testData = objectMapper.readTree(testDataFile);
+                                dataFiles.add(new DataFile(testDataFile.toURI(), testData));
                             }
                         }
                     }

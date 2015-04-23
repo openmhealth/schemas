@@ -1,5 +1,5 @@
 # Open mHealth Schema Repository
-A repository of Open mHealth [generic and clinical schemas](http://www.openmhealth.org/developers/schemas/). This repository also includes sample data and a validator for that data.
+A repository of Open mHealth [schemas](http://www.openmhealth.org/developers/schemas/). This repository also includes sample test data and a validator for that data.
 
 ## Tooling
 There are a few tools which are well suited to working with the schemas and source code in this repository.
@@ -16,11 +16,11 @@ To run the validator, you'll also need
 * [Java SE 8](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html) to run it
 
 ## Validator
-The validator is a simple application that validates sample data against schemas. It makes good use of Francis Galiegue's JSON Schema validator, which you can find [here](https://github.com/fge/json-schema-validator). Thank you, Francis.
+The validator is a simple application that validates test data against schemas. It makes good use of Francis Galiegue's JSON Schema validator, which you can find [here](https://github.com/fge/json-schema-validator). Thank you, Francis.
 
 ### Configuration
-By default, the validator looks for schemas in the `schemas` directory and sample data files in the `sampleData` file directory. 
-If you want to test new schemas or new sample data, just drop them into these directories and the validator will pick them up. 
+By default, the validator looks for schemas in the `schemas` directory and test data files in the `test-data` file directory. 
+If you want to test new schemas or new test data, just drop them into these directories and the validator will pick them up. 
 
 To change these defaults, modify the corresponding lines in the `application.properties` file. You can also set the logging level in there to `WARN` if you find the output too verbose.
 

@@ -1,24 +1,25 @@
 apply plugin: 'java'
-apply plugin: 'spring-boot' // used for blessed dependencies and auto-configuration
+apply plugin: 'spring-boot'
+apply plugin: 'io.spring.dependency-management'
 
 buildscript {
     repositories {
-        mavenCentral()
+        mavenLocal()
+        jcenter()
     }
 
     ext {
-        springPlatformVersion = '1.0.3.RELEASE'
-        springBootVersion = '1.1.9.RELEASE'
+        springBootVersion = '1.2.3.RELEASE'
     }
 
     dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:0.5.0.RELEASE'
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
     }
 }
 
 ext {
     javaVersion = 1.8
-    jacksonVersion = '2.4.2' // platform's still on 2.3.4, 2.4 required for Java 8
 }
 
 group = 'org.openmhealth.schema'
@@ -28,27 +29,25 @@ sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    // Spring IO (http://platform.spring.io/platform) gives us curated and harmonised dependencies, whose versions
-    // you can find at http://docs.spring.io/platform/docs/${springPlatformVersion}/reference/htmlsingle/#appendix-dependency-versions
-    versionManagement "io.spring.platform:platform-versions:${springPlatformVersion}@properties"
-
     compile 'org.apache.commons:commons-lang3:3.1'
     compile 'com.google.guava:guava'
     compile 'org.hibernate:hibernate-validator'
-    compile "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
-    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
-    compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}"
+    compile "com.fasterxml.jackson.core:jackson-core"
+    compile "com.fasterxml.jackson.core:jackson-databind"
+    compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
+    compile "javax.el:javax.el-api:2.2.4"
     compile 'org.slf4j:jcl-over-slf4j'
     compile 'com.github.fge:json-schema-validator:2.2.6'
     compile 'org.slf4j:log4j-over-slf4j'
     compile 'ch.qos.logback:logback-classic'
     compile 'org.slf4j:slf4j-api'
     compile 'org.springframework:spring-beans'
-    compile "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
     compile 'org.springframework:spring-web'
     compile 'org.springframework:spring-webmvc'
     compile 'org.springframework:spring-context'
@@ -61,5 +60,5 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+    gradleVersion = '2.3'
 }

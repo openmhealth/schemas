@@ -36,7 +36,7 @@ import java.net.URI;
 import java.util.List;
 
 /**
- * A standalone application that validates sample data files against their corresponding schemas.
+ * A standalone application that validates test data files against their corresponding schemas.
  *
  * @author Emerson Farrugia
  */
@@ -48,8 +48,8 @@ public class Application {
     @Value("${schemaFiles.baseDirectory}")
     private String schemaFileBaseDirectory;
 
-    @Value("${sampleDataFiles.baseDirectory}")
-    private String sampleDataFileBaseDirectory;
+    @Value("${testDataFiles.baseDirectory}")
+    private String testDataFileBaseDirectory;
 
     @Autowired
     private SchemaFileService schemaFileService;
@@ -65,13 +65,13 @@ public class Application {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(Application.class, args);
 
         Application application = applicationContext.getBean(Application.class);
-        application.checkSampleDataFiles();
+        application.checkTestDataFiles();
     }
 
-    public void checkSampleDataFiles() {
+    public void checkTestDataFiles() {
 
         List<SchemaFile> schemaFiles = schemaFileService.getSchemaFiles(asUri(schemaFileBaseDirectory));
-        List<DataFile> dataFiles = dataFileService.getDataFiles(asUri(sampleDataFileBaseDirectory));
+        List<DataFile> dataFiles = dataFileService.getDataFiles(asUri(testDataFileBaseDirectory));
 
         validationService.validateDataFiles(schemaFiles, dataFiles);
     }
