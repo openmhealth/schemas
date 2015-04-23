@@ -11,13 +11,13 @@
     ],
     "definitions": {
         "mass_unit_value": {
-            "$ref": "mass-unit-value-1.0.json"
+            "$ref": "mass-unit-value-1.x.json"
         },
         "time_frame": {
-            "$ref": "time-frame-1.0.json"
+            "$ref": "time-frame-1.x.json"
         },
         "descriptive_statistic": {
-            "$ref": "descriptive-statistic-1.0.json"
+            "$ref": "descriptive-statistic-1.x.json"
         }
     },
 
