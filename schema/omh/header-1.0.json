@@ -6,10 +6,10 @@
 
     "definitions": {
         "date_time": {
-            "$ref": "date-time-1.0.json"
+            "$ref": "date-time-1.x.json"
         },
         "schema_id": {
-            "$ref": "schema-id-1.0.json"
+            "$ref": "schema-id-1.x.json"
         }
     },
 

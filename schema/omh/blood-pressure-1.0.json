@@ -11,19 +11,19 @@
     ],
     "definitions": {
         "systolic_blood_pressure": {
-            "$ref": "systolic-blood-pressure-1.0.json"
+            "$ref": "systolic-blood-pressure-1.x.json"
         },
         "diastolic_blood_pressure": {
-            "$ref": "diastolic-blood-pressure-1.0.json"
+            "$ref": "diastolic-blood-pressure-1.x.json"
         },
         "time_frame": {
-            "$ref": "time-frame-1.0.json"
+            "$ref": "time-frame-1.x.json"
         },
         "position_during_measurement": {
-            "$ref": "position-during-measurement-1.0.json"
+            "$ref": "position-during-measurement-1.x.json"
         },
         "descriptive_statistic": {
-            "$ref": "descriptive-statistic-1.0.json"
+            "$ref": "descriptive-statistic-1.x.json"
         }
     },
 

@@ -13,22 +13,22 @@
 
     "definitions": {
         "unit_value": {
-            "$ref": "unit-value-1.0.json"
+            "$ref": "unit-value-1.x.json"
         },
         "blood_specimen_type": {
-            "$ref": "blood-specimen-type-1.0.json"
+            "$ref": "blood-specimen-type-1.x.json"
         },
         "time_frame": {
-            "$ref": "time-frame-1.0.json"
+            "$ref": "time-frame-1.x.json"
         },
         "temporal_relationship_to_meal": {
-            "$ref": "temporal-relationship-to-meal-1.0.json"
+            "$ref": "temporal-relationship-to-meal-1.x.json"
         },
         "temporal_relationship_to_sleep": {
-            "$ref": "temporal-relationship-to-sleep-1.0.json"
+            "$ref": "temporal-relationship-to-sleep-1.x.json"
         },
         "descriptive_statistic": {
-            "$ref": "descriptive-statistic-1.0.json"
+            "$ref": "descriptive-statistic-1.x.json"
         }
     },
 

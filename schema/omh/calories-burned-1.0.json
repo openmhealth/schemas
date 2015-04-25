@@ -12,13 +12,13 @@
 
     "definitions": {
         "kcal_unit_value": {
-                "$ref": "kcal-unit-value-1.0.json"
+                "$ref": "kcal-unit-value-1.x.json"
         },
         "time_frame": {
-            "$ref": "time-frame-1.0.json"
+            "$ref": "time-frame-1.x.json"
         },
         "activity_name": {
-            "$ref": "activity-name-1.0.json"
+            "$ref": "activity-name-1.x.json"
         }
     },
 

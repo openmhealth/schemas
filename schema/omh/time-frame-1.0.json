@@ -13,11 +13,11 @@
 
     "definitions": {
         "date_time": {
-            "$ref": "date-time-1.0.json"
+            "$ref": "date-time-1.x.json"
         },
 
         "time_interval": {
-            "$ref": "time-interval-1.0.json"
+            "$ref": "time-interval-1.x.json"
         }
     },
 
