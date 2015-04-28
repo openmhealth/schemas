@@ -14,24 +14,18 @@
  * limitations under the License.
  */
 
-subprojects {
-    apply plugin: 'java'
+version = '1.0'
 
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
-
-    group = 'org.openmhealth.schema'
-
-    ext {
-        javaVersion = 1.7
-    }
-
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
+ext {
+    jacksonVersion = '2.4.4'
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+dependencies {
+    compile 'com.google.guava:guava:17.0'
+    compile "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    compile 'com.google.code.findbugs:jsr305:3.0.0'
+
+    compile 'com.github.fge:json-schema-validator:2.2.6'
+    compile 'junit:junit:4.11'
 }
