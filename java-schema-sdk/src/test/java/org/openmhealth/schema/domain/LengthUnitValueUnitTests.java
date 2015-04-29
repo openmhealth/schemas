@@ -16,9 +16,7 @@
 
 package org.openmhealth.schema.domain;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.github.fge.jsonschema.core.report.ProcessingReport;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -42,17 +40,9 @@ public class LengthUnitValueUnitTests extends AbstractUnitValueUnitTests {
         return SCHEMA_FILENAME;
     }
 
-    @Test
-    public void serializationShouldCreateValidDocument() throws IOException, ProcessingException {
-
-        LengthUnitValue value = new LengthUnitValue(METER, TEN);
-
-        String valueAsString = objectMapper.writeValueAsString(value);
-        JsonNode valueAsTree = objectMapper.readTree(valueAsString);
-
-        ProcessingReport report = schema.validate(valueAsTree);
-
-        assertThat(report.isSuccess(), equalTo(true));
+    @Override
+    protected UnitValue newUnitValue() {
+        return new LengthUnitValue(METER, TEN);
     }
 
     @Test
@@ -66,5 +56,4 @@ public class LengthUnitValueUnitTests extends AbstractUnitValueUnitTests {
         assertThat(value.getTypedUnit(), equalTo(METER));
         assertThat(value.getValue(), equalTo(TEN));
     }
-
 }

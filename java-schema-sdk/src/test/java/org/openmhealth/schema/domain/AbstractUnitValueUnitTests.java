@@ -17,14 +17,21 @@
 package org.openmhealth.schema.domain;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
+import com.github.fge.jsonschema.core.report.ProcessingReport;
 import com.github.fge.jsonschema.main.JsonSchema;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import javax.annotation.Nullable;
 import java.io.File;
+import java.io.IOException;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 /**
@@ -63,4 +70,21 @@ public abstract class AbstractUnitValueUnitTests {
     protected String getSchemaFilename() {
         return null;
     }
+
+
+    @Test
+    public void serializationShouldCreateValidDocument() throws IOException, ProcessingException {
+
+        String valueAsString = objectMapper.writeValueAsString(newUnitValue());
+        JsonNode valueAsTree = objectMapper.readTree(valueAsString);
+
+        ProcessingReport report = schema.validate(valueAsTree);
+
+        assertThat(report.isSuccess(), equalTo(true));
+    }
+
+    /**
+     * @return a new instance of the class under test
+     */
+    protected abstract UnitValue newUnitValue();
 }
