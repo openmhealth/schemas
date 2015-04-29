@@ -16,51 +16,44 @@
 
 package org.openmhealth.schema.domain;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.github.fge.jsonschema.main.JsonSchema;
-import com.github.fge.jsonschema.main.JsonSchemaFactory;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-import javax.annotation.Nullable;
-import java.io.File;
+import static java.math.BigDecimal.ONE;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 /**
- * A base class for unit value unit tests.
- *
  * @author Emerson Farrugia
  */
-public abstract class UnitValueUnitTests {
+public class UnitValueUnitTests {
 
-    protected static final ObjectMapper objectMapper = new ObjectMapper();
-    private static final JsonSchemaFactory jsonSchemaFactory = JsonSchemaFactory.byDefault();
+    @Test(expectedExceptions = NullPointerException.class)
+    public void constructorShouldThrowExceptionOnUndefinedUnit() {
 
-    protected static JsonSchema schema;
-
-    @BeforeClass
-    public void initializeObjectMapper() {
-        objectMapper.enable(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS);
+        new UnitValue(null, ONE);
     }
 
-    @BeforeClass
-    public void loadSchema() throws ProcessingException {
-        schema = jsonSchemaFactory.getJsonSchema(getSchemaUri());
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void constructorShouldThrowExceptionOnEmptyUnit() {
+
+        new UnitValue("", ONE);
     }
 
-    /**
-     * @return the URI of the unit value schema corresponding to the class under test
-     */
-    protected String getSchemaUri() {
-        return new File(getSchemaFilename()).toURI().toString();
+    @Test(expectedExceptions = NullPointerException.class)
+    public void constructorShouldThrowExceptionOnUndefinedValue() {
+
+        new UnitValue("g", null);
     }
 
-    /**
-     * @return the filename of the unit value schema corresponding to the class under test
-     */
-    @Nullable
-    protected String getSchemaFilename() {
-        return null;
+    @Test
+    public void constructorShouldWork() {
+
+        UnitValue unitValue = new UnitValue("g", ONE);
+
+        assertThat(unitValue, notNullValue());
+        assertThat(unitValue.getUnit(), equalTo("g"));
+        assertThat(unitValue.getValue(), equalTo(ONE));
     }
 }

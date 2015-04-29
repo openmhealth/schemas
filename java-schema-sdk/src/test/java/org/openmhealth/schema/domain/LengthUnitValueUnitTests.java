@@ -33,7 +33,7 @@ import static org.openmhealth.schema.domain.LengthUnit.METER;
 /**
  * @author Emerson Farrugia
  */
-public class LengthUnitValueUnitTests extends UnitValueUnitTests {
+public class LengthUnitValueUnitTests extends AbstractUnitValueUnitTests {
 
     public static final String SCHEMA_FILENAME = "schema/omh/length-unit-value-1.0.json";
 
