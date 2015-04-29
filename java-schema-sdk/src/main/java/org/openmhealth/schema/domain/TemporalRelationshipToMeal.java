@@ -32,7 +32,7 @@ import java.util.Map;
  * @see <a href="http://www.openmhealth.org/developers/schemas/#temporal-relationship-to-meal">temporal-relationship
  * -to-meal</a>
  */
-public enum TemporalRelationshipToMeal {
+public enum TemporalRelationshipToMeal implements SchemaEnumValue {
 
     FASTING,
     NOT_FASTING,
@@ -63,6 +63,7 @@ public enum TemporalRelationshipToMeal {
         this.schemaValue = schemaValue;
     }
 
+    @Override
     @JsonValue
     public String getSchemaValue() {
         return this.schemaValue;

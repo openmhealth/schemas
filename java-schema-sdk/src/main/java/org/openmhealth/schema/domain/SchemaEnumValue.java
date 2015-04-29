@@ -17,10 +17,14 @@
 package org.openmhealth.schema.domain;
 
 /**
- * A marker interface for units of measure.
+ * An interface implemented by Java enumerations that represent schema enumerations.
  *
  * @author Emerson Farrugia
  */
-public interface Unit extends SchemaEnumValue {
+public interface SchemaEnumValue {
 
+    /**
+     * @return the schema enumeration value
+     */
+    String getSchemaValue();
 }
