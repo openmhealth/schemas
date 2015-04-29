@@ -25,7 +25,7 @@ import java.util.Map;
 
 
 /**
- * A temporal relationship of a clinical measure or assessment to meals.
+ * The temporal relationship of a clinical measure or assessment to meals.
  *
  * @author Emerson Farrugia
  * @version 1.0

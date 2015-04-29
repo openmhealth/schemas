@@ -25,31 +25,29 @@ import java.util.Map;
 
 
 /**
- * The temporal relationship of a clinical measure or assessment to physical activity.
+ * The position of a subject during a clinical measurement.
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#temporal-relationship-to-physical-activity">temporal
- * -relationship-to-physical-activity</a>
+ * @see <a href="http://www.openmhealth.org/developers/schemas/#position-during-measurement">position-during
+ * -measurement</a>
  */
-public enum TemporalRelationshipToPhysicalActivity implements SchemaEnumValue {
+public enum PositionDuringMeasurement implements SchemaEnumValue {
 
-    AT_REST,
-    ACTIVE,
-    BEFORE_EXERCISE,
-    AFTER_EXERCISE,
-    DURING_EXERCISE;
+    SITTING,
+    LYING_DOWN,
+    STANDING;
 
     private String schemaValue;
-    private static final Map<String, TemporalRelationshipToPhysicalActivity> constantsBySchemaValue = new HashMap<>();
+    private static final Map<String, PositionDuringMeasurement> constantsBySchemaValue = new HashMap<>();
 
     static {
-        for (TemporalRelationshipToPhysicalActivity constant : values()) {
+        for (PositionDuringMeasurement constant : values()) {
             constantsBySchemaValue.put(constant.getSchemaValue(), constant);
         }
     }
 
-    TemporalRelationshipToPhysicalActivity() {
+    PositionDuringMeasurement() {
         this.schemaValue = name().toLowerCase().replace('_', ' ');
     }
 
@@ -61,7 +59,7 @@ public enum TemporalRelationshipToPhysicalActivity implements SchemaEnumValue {
 
     @Nullable
     @JsonCreator
-    public static TemporalRelationshipToPhysicalActivity findBySchemaValue(String schemaValue) {
+    public static PositionDuringMeasurement findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
     }
 }
