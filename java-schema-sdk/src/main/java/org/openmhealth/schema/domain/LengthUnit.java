@@ -29,7 +29,7 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#length-unit">length-unit</a>
+ * @see <a href="http://www.openmhealth.org/developers/schemas/#length-unit-value">length-unit-value</a>
  */
 public enum LengthUnit implements Unit {
 
