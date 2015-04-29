@@ -25,29 +25,32 @@ import java.util.Map;
 
 
 /**
- * A temporal relationship of a clinical measure or assessment to sleep.
+ * A descriptive statistic of a set of measurements.
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#temporal-relationship-to-sleep">temporal-relationship
- * -to-sleep</a>
+ * @see <a href="http://www.openmhealth.org/developers/schemas/#descriptive-statistic">descriptive-statistic</a>
  */
-public enum TemporalRelationshipToSleep implements SchemaEnumValue {
+public enum DescriptiveStatistic implements SchemaEnumValue {
 
-    BEFORE_SLEEPING,
-    DURING_SLEEP,
-    ON_WAKING;
+    AVERAGE,
+    MAXIMUM,
+    MINIMUM,
+    STANDARD_DEVIATION,
+    VARIANCE,
+    SUM,
+    MEDIAN;
 
     private String schemaValue;
-    private static final Map<String, TemporalRelationshipToSleep> constantsBySchemaValue = new HashMap<>();
+    private static final Map<String, DescriptiveStatistic> constantsBySchemaValue = new HashMap<>();
 
     static {
-        for (TemporalRelationshipToSleep constant : values()) {
+        for (DescriptiveStatistic constant : values()) {
             constantsBySchemaValue.put(constant.getSchemaValue(), constant);
         }
     }
 
-    TemporalRelationshipToSleep() {
+    DescriptiveStatistic() {
         this.schemaValue = name().toLowerCase().replace('_', ' ');
     }
 
@@ -59,7 +62,7 @@ public enum TemporalRelationshipToSleep implements SchemaEnumValue {
 
     @Nullable
     @JsonCreator
-    public static TemporalRelationshipToSleep findBySchemaValue(String schemaValue) {
+    public static DescriptiveStatistic findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
     }
 }

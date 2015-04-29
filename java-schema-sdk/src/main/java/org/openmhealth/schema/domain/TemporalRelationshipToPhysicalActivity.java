@@ -25,7 +25,7 @@ import java.util.Map;
 
 
 /**
- * The temporal relationship of a clinical measure or assessment to physical activity.
+ * A temporal relationship of a clinical measure or assessment to physical activity.
  *
  * @author Emerson Farrugia
  * @version 1.0
