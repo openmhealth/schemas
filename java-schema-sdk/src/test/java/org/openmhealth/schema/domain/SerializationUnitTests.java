@@ -19,16 +19,24 @@ package org.openmhealth.schema.domain;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import com.github.fge.jsonschema.main.JsonSchema;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
+import org.openmhealth.schema.serializer.Rfc3339OffsetDateTimeSerializer;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import javax.annotation.Nullable;
 import java.io.File;
 import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.Collections;
+import java.util.Iterator;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -50,11 +58,21 @@ public abstract class SerializationUnitTests {
     @BeforeClass
     public void initializeObjectMapper() {
 
-        // since we represent JSON numbers as Java BigDecimals...
+        // we represent JSON numbers as Java BigDecimals
         objectMapper.enable(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS);
 
-        // include the JSR-310 module to support timestamp serialization
-        objectMapper.findAndRegisterModules();
+        // we serialize dates, date times, and times as strings, not numbers
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+        // we default to the ISO8601 format for JSR-310
+        objectMapper.registerModule(new JSR310Module());
+
+        // but we have to explicitly support the RFC3339 format over ISO8601 to make JSON Schema happy, specifically to
+        // prevent the truncation of zero second fields
+        SimpleModule rfc3339Module = new SimpleModule("rfc3339Module");
+        rfc3339Module.addSerializer(new Rfc3339OffsetDateTimeSerializer(OffsetDateTime.class));
+        objectMapper.registerModule(rfc3339Module);
+
     }
 
     @BeforeClass
@@ -97,16 +115,28 @@ public abstract class SerializationUnitTests {
         assertThat(documentNode, equalTo(expectedDocumentNode));
     }
 
+    @DataProvider(name = "expectedDocumentProvider")
+    protected Iterator<Object[]> newExpectedDocumentProvider() {
+
+        return Collections.emptyIterator();
+    }
+
     /**
      * A parameterized test that checks if objects are deserialized correctly.
      */
     @Test(dataProvider = "expectedObjectProvider")
-    public void deserializationShouldCreateValidObject(String document, Class<?> objectClass, Object expectedObject)
+    public void deserializationShouldCreateValidObject(String document, Object expectedObject)
             throws IOException, ProcessingException {
 
-        Object object = objectMapper.readValue(document, objectClass);
+        Object object = objectMapper.readValue(document, expectedObject.getClass());
 
         assertThat(object, notNullValue());
         assertThat(object, equalTo(expectedObject));
+    }
+
+    @DataProvider(name = "expectedObjectProvider")
+    protected Iterator<Object[]> newExpectedObjectProvider() {
+
+        return Collections.emptyIterator();
     }
 }

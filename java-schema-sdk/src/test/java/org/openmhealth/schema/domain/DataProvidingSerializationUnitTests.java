@@ -53,6 +53,7 @@ public abstract class DataProvidingSerializationUnitTests extends SerializationU
         addSerializationTest(new SerializationTuple(document, object));
     }
 
+    @Override
     @DataProvider(name = "expectedDocumentProvider")
     public Iterator<Object[]> newExpectedDocumentProvider() {
 
@@ -62,12 +63,13 @@ public abstract class DataProvidingSerializationUnitTests extends SerializationU
                 .iterator();
     }
 
+    @Override
     @DataProvider(name = "expectedObjectProvider")
     public Iterator<Object[]> newExpectedObjectProvider() {
 
         return getSerializationTuples()
                 .stream()
-                .map((t) -> new Object[]{t.getDocument(), t.getObjectClass(), t.getObject()})
+                .map((t) -> new Object[]{t.getDocument(), t.getObject()})
                 .iterator();
     }
 }
