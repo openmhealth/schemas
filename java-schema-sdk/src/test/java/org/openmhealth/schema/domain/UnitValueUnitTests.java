@@ -33,17 +33,6 @@ public class UnitValueUnitTests extends DataProvidingSerializationUnitTests {
 
     public static final String SCHEMA_FILENAME = "schema/omh/unit-value-1.0.json";
 
-    @Override
-    protected String getSchemaFilename() {
-        return SCHEMA_FILENAME;
-    }
-
-    @BeforeClass
-    public void addSerializationTuples() {
-
-        addSerializationTuple("{\"unit\":\"trees\",\"value\":10}", new UnitValue("trees", TEN));
-    }
-
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedUnit() {
 
@@ -70,5 +59,16 @@ public class UnitValueUnitTests extends DataProvidingSerializationUnitTests {
         assertThat(unitValue, notNullValue());
         assertThat(unitValue.getUnit(), equalTo("g"));
         assertThat(unitValue.getValue(), equalTo(ONE));
+    }
+
+    @Override
+    protected String getSchemaFilename() {
+        return SCHEMA_FILENAME;
+    }
+
+    @BeforeClass
+    public void addSerializationTests() {
+
+        addSerializationTest("{\"unit\":\"trees\",\"value\":10}", new UnitValue("trees", TEN));
     }
 }

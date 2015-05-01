@@ -34,10 +34,9 @@ public class LengthUnitValueUnitTests extends DataProvidingSerializationUnitTest
         return SCHEMA_FILENAME;
     }
 
-
     @BeforeClass
-    public void addSerializationTuples() {
+    public void addSerializationTests() {
 
-        addSerializationTuple("{\"unit\":\"m\",\"value\":10}", new LengthUnitValue(METER, TEN));
+        addSerializationTest("{\"unit\":\"m\",\"value\":10}", new LengthUnitValue(METER, TEN));
     }
 }

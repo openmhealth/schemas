@@ -35,8 +35,8 @@ public class DurationUnitValueUnitTests extends DataProvidingSerializationUnitTe
     }
 
     @BeforeClass
-    public void addSerializationTuples() {
+    public void addSerializationTests() {
 
-        addSerializationTuple("{\"unit\":\"sec\",\"value\":10}", new DurationUnitValue(SECOND, TEN));
+        addSerializationTest("{\"unit\":\"sec\",\"value\":10}", new DurationUnitValue(SECOND, TEN));
     }
 }

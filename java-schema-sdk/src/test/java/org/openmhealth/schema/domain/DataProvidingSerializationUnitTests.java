@@ -40,7 +40,7 @@ public abstract class DataProvidingSerializationUnitTests extends SerializationU
         return this.serializationTuples;
     }
 
-    protected void addSerializationTuple(SerializationTuple tuple) {
+    protected void addSerializationTest(SerializationTuple tuple) {
         this.serializationTuples.add(tuple);
     }
 
@@ -48,9 +48,9 @@ public abstract class DataProvidingSerializationUnitTests extends SerializationU
      * @param document a JSON document
      * @param object a Java object corresponding to the document
      */
-    protected void addSerializationTuple(String document, Object object) {
+    protected void addSerializationTest(String document, Object object) {
 
-        addSerializationTuple(new SerializationTuple(document, object));
+        addSerializationTest(new SerializationTuple(document, object));
     }
 
     @DataProvider(name = "expectedDocumentProvider")

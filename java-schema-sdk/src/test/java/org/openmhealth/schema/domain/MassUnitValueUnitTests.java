@@ -35,8 +35,8 @@ public class MassUnitValueUnitTests extends DataProvidingSerializationUnitTests 
     }
 
     @BeforeClass
-    public void addSerializationTuples() {
+    public void addSerializationTests() {
 
-        addSerializationTuple("{\"unit\":\"kg\",\"value\":10}", new MassUnitValue(KILOGRAM, TEN));
+        addSerializationTest("{\"unit\":\"kg\",\"value\":10}", new MassUnitValue(KILOGRAM, TEN));
     }
 }
