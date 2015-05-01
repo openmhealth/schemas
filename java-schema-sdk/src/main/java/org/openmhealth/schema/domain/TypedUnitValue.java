@@ -43,4 +43,31 @@ public abstract class TypedUnitValue<T extends Unit> extends UnitValue {
     public T getTypedUnit() {
         return typedUnit;
     }
+
+    @Override
+    public boolean equals(Object object) {
+
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        if (!super.equals(object)) {
+            return false;
+        }
+
+        TypedUnitValue<?> that = (TypedUnitValue<?>) object;
+
+        return typedUnit.equals(that.typedUnit);
+
+    }
+
+    @Override
+    public int hashCode() {
+
+        int result = super.hashCode();
+        result = 31 * result + typedUnit.hashCode();
+        return result;
+    }
 }

@@ -55,4 +55,28 @@ public class UnitValue {
     public BigDecimal getValue() {
         return value;
     }
+
+    @Override
+    public boolean equals(Object object) {
+
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        UnitValue unitValue = (UnitValue) object;
+
+        return unit.equals(unitValue.unit) && value.equals(unitValue.value);
+
+    }
+
+    @Override
+    public int hashCode() {
+
+        int result = unit.hashCode();
+        result = 31 * result + value.hashCode();
+        return result;
+    }
 }
