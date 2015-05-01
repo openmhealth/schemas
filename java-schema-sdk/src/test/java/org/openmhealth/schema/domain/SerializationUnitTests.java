@@ -50,8 +50,11 @@ public abstract class SerializationUnitTests {
     @BeforeClass
     public void initializeObjectMapper() {
 
-        // this library represents JSON numbers as Java BigDecimals
+        // since we represent JSON numbers as Java BigDecimals...
         objectMapper.enable(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS);
+
+        // include the JSR-310 module to support timestamp serialization
+        objectMapper.findAndRegisterModules();
     }
 
     @BeforeClass
