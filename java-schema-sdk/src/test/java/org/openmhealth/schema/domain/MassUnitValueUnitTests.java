@@ -16,22 +16,16 @@
 
 package org.openmhealth.schema.domain;
 
-import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import org.testng.annotations.Test;
-
-import java.io.IOException;
+import org.testng.annotations.BeforeClass;
 
 import static java.math.BigDecimal.TEN;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.MassUnit.KILOGRAM;
 
 
 /**
  * @author Emerson Farrugia
  */
-public class MassUnitValueUnitTests extends AbstractUnitValueUnitTests {
+public class MassUnitValueUnitTests extends DataProvidingSerializationUnitTests {
 
     public static final String SCHEMA_FILENAME = "schema/omh/mass-unit-value-1.0.json";
 
@@ -40,20 +34,9 @@ public class MassUnitValueUnitTests extends AbstractUnitValueUnitTests {
         return SCHEMA_FILENAME;
     }
 
-    @Override
-    protected UnitValue newUnitValue() {
-        return new MassUnitValue(KILOGRAM, TEN);
-    }
+    @BeforeClass
+    public void addSerializationTuples() {
 
-    @Test
-    public void deserializationShouldCreateValidObject() throws IOException, ProcessingException {
-
-        String valueAsString = "{\"unit\":\"kg\",\"value\":10}";
-
-        MassUnitValue value = objectMapper.readValue(valueAsString, MassUnitValue.class);
-
-        assertThat(value, notNullValue());
-        assertThat(value.getTypedUnit(), equalTo(KILOGRAM));
-        assertThat(value.getValue(), equalTo(TEN));
+        addSerializationTuple("{\"unit\":\"kg\",\"value\":10}", new MassUnitValue(KILOGRAM, TEN));
     }
 }

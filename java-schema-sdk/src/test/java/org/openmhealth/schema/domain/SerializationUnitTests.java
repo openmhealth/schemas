@@ -31,15 +31,16 @@ import java.io.File;
 import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
 /**
- * A base class for unit value unit tests.
+ * A base class for serialization and deserialization unit tests.
  *
  * @author Emerson Farrugia
  */
-public abstract class AbstractUnitValueUnitTests {
+public abstract class SerializationUnitTests {
 
     protected static final ObjectMapper objectMapper = new ObjectMapper();
     private static final JsonSchemaFactory jsonSchemaFactory = JsonSchemaFactory.byDefault();
@@ -48,6 +49,8 @@ public abstract class AbstractUnitValueUnitTests {
 
     @BeforeClass
     public void initializeObjectMapper() {
+
+        // this library represents JSON numbers as Java BigDecimals
         objectMapper.enable(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS);
     }
 
@@ -57,34 +60,50 @@ public abstract class AbstractUnitValueUnitTests {
     }
 
     /**
-     * @return the URI of the unit value schema corresponding to the class under test
+     * @return the URI of the schema corresponding to the class under test
      */
     protected String getSchemaUri() {
         return new File(getSchemaFilename()).toURI().toString();
     }
 
     /**
-     * @return the filename of the unit value schema corresponding to the class under test
+     * This convenience method is intentionally not abstract. If the method is not overridden,
+     * the {@link SerializationUnitTests#getSchemaUri()} should be overridden to provide the schema URI.
+     *
+     * @return the filename of the schema corresponding to the class under test
      */
     @Nullable
     protected String getSchemaFilename() {
         return null;
     }
 
+    /**
+     * A parameterized test that checks if objects are serialized correctly.
+     */
+    @Test(dataProvider = "expectedDocumentProvider")
+    public void serializationShouldCreateValidDocument(Object object, String expectedDocument)
+            throws IOException, ProcessingException {
 
-    @Test
-    public void serializationShouldCreateValidDocument() throws IOException, ProcessingException {
+        String documentAsString = objectMapper.writeValueAsString(object);
+        JsonNode documentNode = objectMapper.readTree(documentAsString);
 
-        String valueAsString = objectMapper.writeValueAsString(newUnitValue());
-        JsonNode valueAsTree = objectMapper.readTree(valueAsString);
-
-        ProcessingReport report = schema.validate(valueAsTree);
-
+        ProcessingReport report = schema.validate(documentNode);
         assertThat(report.isSuccess(), equalTo(true));
+
+        JsonNode expectedDocumentNode = objectMapper.readTree(expectedDocument);
+        assertThat(documentNode, equalTo(expectedDocumentNode));
     }
 
     /**
-     * @return a new instance of the class under test
+     * A parameterized test that checks if objects are deserialized correctly.
      */
-    protected abstract UnitValue newUnitValue();
+    @Test(dataProvider = "expectedObjectProvider")
+    public void deserializationShouldCreateValidObject(String document, Class<?> objectClass, Object expectedObject)
+            throws IOException, ProcessingException {
+
+        Object object = objectMapper.readValue(document, objectClass);
+
+        assertThat(object, notNullValue());
+        assertThat(object, equalTo(expectedObject));
+    }
 }

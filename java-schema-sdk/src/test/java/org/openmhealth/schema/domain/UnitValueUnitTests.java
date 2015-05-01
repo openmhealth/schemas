@@ -16,9 +16,11 @@
 
 package org.openmhealth.schema.domain;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static java.math.BigDecimal.ONE;
+import static java.math.BigDecimal.TEN;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -27,7 +29,20 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * @author Emerson Farrugia
  */
-public class UnitValueUnitTests {
+public class UnitValueUnitTests extends DataProvidingSerializationUnitTests {
+
+    public static final String SCHEMA_FILENAME = "schema/omh/unit-value-1.0.json";
+
+    @Override
+    protected String getSchemaFilename() {
+        return SCHEMA_FILENAME;
+    }
+
+    @BeforeClass
+    public void addSerializationTuples() {
+
+        addSerializationTuple("{\"unit\":\"trees\",\"value\":10}", new UnitValue("trees", TEN));
+    }
 
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedUnit() {

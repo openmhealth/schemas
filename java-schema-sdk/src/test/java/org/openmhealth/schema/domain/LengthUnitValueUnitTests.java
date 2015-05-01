@@ -16,22 +16,16 @@
 
 package org.openmhealth.schema.domain;
 
-import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import org.testng.annotations.Test;
-
-import java.io.IOException;
+import org.testng.annotations.BeforeClass;
 
 import static java.math.BigDecimal.TEN;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.LengthUnit.METER;
 
 
 /**
  * @author Emerson Farrugia
  */
-public class LengthUnitValueUnitTests extends AbstractUnitValueUnitTests {
+public class LengthUnitValueUnitTests extends DataProvidingSerializationUnitTests {
 
     public static final String SCHEMA_FILENAME = "schema/omh/length-unit-value-1.0.json";
 
@@ -40,20 +34,10 @@ public class LengthUnitValueUnitTests extends AbstractUnitValueUnitTests {
         return SCHEMA_FILENAME;
     }
 
-    @Override
-    protected UnitValue newUnitValue() {
-        return new LengthUnitValue(METER, TEN);
-    }
 
-    @Test
-    public void deserializationShouldCreateValidObject() throws IOException, ProcessingException {
+    @BeforeClass
+    public void addSerializationTuples() {
 
-        String valueAsString = "{\"unit\":\"m\",\"value\":10}";
-
-        LengthUnitValue value = objectMapper.readValue(valueAsString, LengthUnitValue.class);
-
-        assertThat(value, notNullValue());
-        assertThat(value.getTypedUnit(), equalTo(METER));
-        assertThat(value.getValue(), equalTo(TEN));
+        addSerializationTuple("{\"unit\":\"m\",\"value\":10}", new LengthUnitValue(METER, TEN));
     }
 }
