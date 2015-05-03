@@ -37,7 +37,7 @@ public class StepCountUnitTests extends SerializationUnitTests {
     public static final String SCHEMA_FILENAME = "schema/omh/step-count-1.0.json";
 
     @Test(expectedExceptions = NullPointerException.class)
-    public void builderShouldThrowExceptionOnUndefinedStepCount() {
+    public void constructorShouldThrowExceptionOnUndefinedStepCount() {
 
         new StepCount.Builder(null);
     }

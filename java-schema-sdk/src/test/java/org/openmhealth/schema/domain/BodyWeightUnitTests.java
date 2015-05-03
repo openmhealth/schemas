@@ -39,7 +39,7 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
     public static final String SCHEMA_FILENAME = "schema/omh/body-weight-1.0.json";
 
     @Test(expectedExceptions = NullPointerException.class)
-    public void builderShouldThrowExceptionOnUndefinedBodyWeight() {
+    public void constructorShouldThrowExceptionOnUndefinedBodyWeight() {
 
         new BodyWeight.Builder(null);
     }

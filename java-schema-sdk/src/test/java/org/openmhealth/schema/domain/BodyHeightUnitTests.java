@@ -40,7 +40,7 @@ public class BodyHeightUnitTests extends SerializationUnitTests {
     public static final String SCHEMA_FILENAME = "schema/omh/body-height-1.0.json";
 
     @Test(expectedExceptions = NullPointerException.class)
-    public void builderShouldThrowExceptionOnUndefinedBodyHeight() {
+    public void constructorShouldThrowExceptionOnUndefinedBodyHeight() {
 
         new BodyHeight.Builder(null);
     }
