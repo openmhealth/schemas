@@ -37,7 +37,7 @@ public class BodyWeight extends Measure {
     private final MassUnitValue bodyWeight;
 
 
-    public static class Builder extends Measure.Builder {
+    public static class Builder extends Measure.Builder<Builder> {
 
         private MassUnitValue bodyWeight;
 

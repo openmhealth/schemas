@@ -16,6 +16,9 @@
 
 package org.openmhealth.schema.domain;
 
+import java.time.OffsetDateTime;
+
+
 /**
  * A base class for measures that provides an extensible builder for common properties.
  *
@@ -27,7 +30,7 @@ public abstract class Measure {
     private final DescriptiveStatistic descriptiveStatistic;
 
 
-    public static abstract class Builder {
+    public static abstract class Builder<T extends Builder> {
 
         private TimeFrame effectiveTimeFrame;
         private DescriptiveStatistic descriptiveStatistic;
@@ -37,9 +40,19 @@ public abstract class Measure {
             return this;
         }
 
-        public Builder setDescriptiveStatistic(DescriptiveStatistic descriptiveStatistic) {
+        public T setEffectiveTimeFrame(TimeInterval timeInterval) {
+            this.effectiveTimeFrame = new TimeFrame(timeInterval);
+            return (T) this;
+        }
+
+        public T setEffectiveTimeFrame(OffsetDateTime dateTime) {
+            this.effectiveTimeFrame = new TimeFrame(dateTime);
+            return (T) this;
+        }
+
+        public T setDescriptiveStatistic(DescriptiveStatistic descriptiveStatistic) {
             this.descriptiveStatistic = descriptiveStatistic;
-            return this;
+            return (T) this;
         }
 
         public abstract Measure build();
