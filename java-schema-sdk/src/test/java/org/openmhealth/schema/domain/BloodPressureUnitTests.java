@@ -70,6 +70,7 @@ public class BloodPressureUnitTests extends SerializationUnitTests {
         assertThat(bloodPressure, notNullValue());
         assertThat(bloodPressure.getSystolicBloodPressure(), equalTo(systolicBloodPressure));
         assertThat(bloodPressure.getDiastolicBloodPressure(), equalTo(diastolicBloodPressure));
+        assertThat(bloodPressure.getPositionDuringMeasurement(), nullValue());
         assertThat(bloodPressure.getEffectiveTimeFrame(), nullValue());
         assertThat(bloodPressure.getDescriptiveStatistic(), nullValue());
         assertThat(bloodPressure.getUserNotes(), nullValue());
