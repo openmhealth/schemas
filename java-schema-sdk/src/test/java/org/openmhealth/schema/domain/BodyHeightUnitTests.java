@@ -70,12 +70,14 @@ public class BodyHeightUnitTests extends SerializationUnitTests {
         BodyHeight bodyHeight = new BodyHeight.Builder(lengthUnitValue)
                 .setEffectiveTimeFrame(effectiveTimeInterval)
                 .setDescriptiveStatistic(AVERAGE)
+                .setUserNotes("feeling fine")
                 .build();
 
         assertThat(bodyHeight, notNullValue());
         assertThat(bodyHeight.getBodyHeight(), equalTo(lengthUnitValue));
         assertThat(bodyHeight.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
         assertThat(bodyHeight.getDescriptiveStatistic(), equalTo(AVERAGE));
+        assertThat(bodyHeight.getUserNotes(), equalTo("feeling fine"));
     }
 
     @Override

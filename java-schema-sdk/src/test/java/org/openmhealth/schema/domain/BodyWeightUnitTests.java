@@ -61,6 +61,7 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
     public void buildShouldConstructBodyWeightUsingTimeIntervalTimeFrame() {
 
         MassUnitValue massUnitValue = new MassUnitValue(KILOGRAM, BigDecimal.valueOf(65));
+
         TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
                 OffsetDateTime.now(),
                 new DurationUnitValue(DAY, TEN));
@@ -68,12 +69,14 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
         BodyWeight bodyWeight = new BodyWeight.Builder(massUnitValue)
                 .setEffectiveTimeFrame(effectiveTimeInterval)
                 .setDescriptiveStatistic(AVERAGE)
+                .setUserNotes("feeling fine")
                 .build();
 
         assertThat(bodyWeight, notNullValue());
         assertThat(bodyWeight.getBodyWeight(), equalTo(massUnitValue));
         assertThat(bodyWeight.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
         assertThat(bodyWeight.getDescriptiveStatistic(), equalTo(AVERAGE));
+        assertThat(bodyWeight.getUserNotes(), equalTo("feeling fine"));
     }
 
     @Test
