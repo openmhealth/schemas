@@ -24,11 +24,11 @@ import java.math.BigDecimal;
 
 
 /**
- * A base unit value implementation that uses a Java enum to represent units.
+ * A unit value implementation that uses a Java enum to represent units.
  *
  * @author Emerson Farrugia
  */
-public abstract class TypedUnitValue<T extends Unit> extends UnitValue {
+public class TypedUnitValue<T extends Unit> extends UnitValue {
 
     private T typedUnit;
 
