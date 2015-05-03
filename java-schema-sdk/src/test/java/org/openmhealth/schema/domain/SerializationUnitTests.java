@@ -33,7 +33,6 @@ import org.testng.annotations.Test;
 
 import javax.annotation.Nullable;
 import java.io.File;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Collections;
 import java.util.Iterator;
@@ -102,8 +101,7 @@ public abstract class SerializationUnitTests {
      * A parameterized test that checks if objects are serialized correctly.
      */
     @Test(dataProvider = "expectedDocumentProvider")
-    public void serializationShouldCreateValidDocument(Object object, String expectedDocument)
-            throws IOException, ProcessingException {
+    public void serializationShouldCreateValidDocument(Object object, String expectedDocument) throws Exception {
 
         String documentAsString = objectMapper.writeValueAsString(object);
         JsonNode documentNode = objectMapper.readTree(documentAsString);
@@ -125,8 +123,7 @@ public abstract class SerializationUnitTests {
      * A parameterized test that checks if objects are deserialized correctly.
      */
     @Test(dataProvider = "expectedObjectProvider")
-    public void deserializationShouldCreateValidObject(String document, Object expectedObject)
-            throws IOException, ProcessingException {
+    public void deserializationShouldCreateValidObject(String document, Object expectedObject) throws Exception {
 
         Object object = objectMapper.readValue(document, expectedObject.getClass());
 

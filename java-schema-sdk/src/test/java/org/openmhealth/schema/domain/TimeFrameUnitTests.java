@@ -16,10 +16,8 @@
 
 package org.openmhealth.schema.domain;
 
-import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 import java.time.OffsetDateTime;
 
 import static java.math.BigDecimal.TEN;
@@ -68,7 +66,7 @@ public class TimeFrameUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void dateTimeTimeFrameShouldSerializeCorrectly() throws IOException, ProcessingException {
+    public void dateTimeTimeFrameShouldSerializeCorrectly() throws Exception {
 
         OffsetDateTime dateTime = OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 123_000_000, UTC);
 
@@ -83,7 +81,7 @@ public class TimeFrameUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void timeIntervalTimeFrameShouldSerializeCorrectly() throws IOException, ProcessingException {
+    public void timeIntervalTimeFrameShouldSerializeCorrectly() throws Exception {
 
         TimeInterval timeInterval = TimeInterval.ofEndDateTimeAndDuration(
                 OffsetDateTime.of(2013, 2, 5, 7, 35, 0, 0, UTC),

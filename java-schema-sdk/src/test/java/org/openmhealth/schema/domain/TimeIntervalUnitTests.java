@@ -16,10 +16,8 @@
 
 package org.openmhealth.schema.domain;
 
-import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -162,7 +160,7 @@ public class TimeIntervalUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void ofStartDateTimeAndEndDateTimeShouldSerializeCorrectly() throws IOException, ProcessingException {
+    public void ofStartDateTimeAndEndDateTimeShouldSerializeCorrectly() throws Exception {
 
         OffsetDateTime startDateTime = OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, ZoneOffset.UTC);
         OffsetDateTime endDateTime = OffsetDateTime.of(2013, 2, 5, 7, 35, 20, 0, ZoneOffset.UTC);
@@ -179,7 +177,7 @@ public class TimeIntervalUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void ofStartDateTimeAndDurationShouldSerializeCorrectly() throws IOException, ProcessingException {
+    public void ofStartDateTimeAndDurationShouldSerializeCorrectly() throws Exception {
 
         OffsetDateTime startDateTime = OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, ZoneOffset.UTC);
         DurationUnitValue duration = new DurationUnitValue(DurationUnit.DAY, ONE);
@@ -199,7 +197,7 @@ public class TimeIntervalUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void ofEndDateTimeAndDurationShouldSerializeCorrectly() throws IOException, ProcessingException {
+    public void ofEndDateTimeAndDurationShouldSerializeCorrectly() throws Exception {
 
         OffsetDateTime endDateTime = OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, ZoneOffset.UTC);
         DurationUnitValue duration = new DurationUnitValue(DurationUnit.DAY, ONE);
