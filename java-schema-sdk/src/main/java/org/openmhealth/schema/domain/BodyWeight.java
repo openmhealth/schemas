@@ -19,6 +19,7 @@ package org.openmhealth.schema.domain;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -34,8 +35,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
 public class BodyWeight extends Measure {
 
-    private final MassUnitValue bodyWeight;
+    private MassUnitValue bodyWeight;
 
+
+    @SerializationConstructor
+    private BodyWeight() {
+    }
 
     public static class Builder extends Measure.Builder<Builder> {
 

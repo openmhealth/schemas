@@ -19,6 +19,7 @@ package org.openmhealth.schema.domain;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.time.OffsetDateTime;
 
@@ -40,6 +41,7 @@ public class TimeFrame {
     private OffsetDateTime dateTime;
 
 
+    @SerializationConstructor
     private TimeFrame() {
 
     }

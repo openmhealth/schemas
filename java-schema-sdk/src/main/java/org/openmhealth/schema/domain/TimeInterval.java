@@ -19,6 +19,7 @@ package org.openmhealth.schema.domain;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -44,6 +45,8 @@ public class TimeInterval {
     private LocalDate date;
     private PartOfDay partOfDay;
 
+
+    @SerializationConstructor
     private TimeInterval() {
 
     }

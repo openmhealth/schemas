@@ -16,6 +16,8 @@
 
 package org.openmhealth.schema.domain;
 
+import org.openmhealth.schema.serializer.SerializationConstructor;
+
 import java.time.OffsetDateTime;
 
 
@@ -26,8 +28,9 @@ import java.time.OffsetDateTime;
  */
 public abstract class Measure {
 
-    private final TimeFrame effectiveTimeFrame;
-    private final DescriptiveStatistic descriptiveStatistic;
+    // these fields are not final to prevent errors caused by the presence of the default serialization constructor
+    private TimeFrame effectiveTimeFrame;
+    private DescriptiveStatistic descriptiveStatistic;
 
 
     public static abstract class Builder<T extends Builder> {
@@ -56,6 +59,11 @@ public abstract class Measure {
         }
 
         public abstract Measure build();
+    }
+
+    @SerializationConstructor
+    protected Measure() {
+
     }
 
     protected Measure(Builder builder) {
