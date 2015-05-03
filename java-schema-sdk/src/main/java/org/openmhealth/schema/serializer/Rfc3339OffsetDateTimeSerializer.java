@@ -46,7 +46,7 @@ public class Rfc3339OffsetDateTimeSerializer extends StdSerializer<OffsetDateTim
 
         builder.append(instant.toLocalDateTime().toString());
 
-        if (instant.getSecond() == 0) {
+        if (instant.getSecond() == 0 && instant.getNano() == 0) {
             builder.append(":00");
         }
 
