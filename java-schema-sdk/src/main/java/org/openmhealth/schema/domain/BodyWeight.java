@@ -47,7 +47,9 @@ public class BodyWeight extends Measure {
         private MassUnitValue bodyWeight;
 
         public Builder(MassUnitValue bodyWeight) {
-            checkNotNull(bodyWeight);
+
+            checkNotNull(bodyWeight, "A body weight hasn't been specified.");
+
             this.bodyWeight = bodyWeight;
         }
 

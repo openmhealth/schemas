@@ -47,7 +47,9 @@ public class BodyHeight extends Measure {
         private LengthUnitValue bodyHeight;
 
         public Builder(LengthUnitValue bodyHeight) {
-            checkNotNull(bodyHeight);
+
+            checkNotNull(bodyHeight, "A body height hasn't been specified.");
+
             this.bodyHeight = bodyHeight;
         }
 

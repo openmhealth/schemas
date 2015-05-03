@@ -52,7 +52,9 @@ public class HeartRate extends Measure {
         private TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity;
 
         public Builder(BigDecimal heartRateValue) {
-            checkNotNull(heartRateValue);
+
+            checkNotNull(heartRateValue, "A heart rate hasn't been specified.");
+
             this.heartRate = new TypedUnitValue<>(BEATS_PER_MINUTE, heartRateValue);
         }
 

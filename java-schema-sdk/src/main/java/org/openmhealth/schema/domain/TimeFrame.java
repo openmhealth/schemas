@@ -55,7 +55,7 @@ public class TimeFrame {
 
     public TimeFrame(OffsetDateTime dateTime) {
 
-        checkNotNull(dateTime, "A date time hasn't been specified.");
+        checkNotNull(dateTime, "A point in time hasn't been specified.");
 
         this.dateTime = dateTime;
     }
