@@ -31,12 +31,14 @@ public abstract class Measure {
     // these fields are not final to prevent errors caused by the presence of the default serialization constructor
     private TimeFrame effectiveTimeFrame;
     private DescriptiveStatistic descriptiveStatistic;
+    private String userNotes;
 
 
     public static abstract class Builder<T extends Builder> {
 
         private TimeFrame effectiveTimeFrame;
         private DescriptiveStatistic descriptiveStatistic;
+        private String userNotes;
 
         public Builder setEffectiveTimeFrame(TimeFrame effectiveTimeFrame) {
             this.effectiveTimeFrame = effectiveTimeFrame;
@@ -55,6 +57,11 @@ public abstract class Measure {
 
         public T setDescriptiveStatistic(DescriptiveStatistic descriptiveStatistic) {
             this.descriptiveStatistic = descriptiveStatistic;
+            return (T) this;
+        }
+
+        public T setUserNotes(String userNotes) {
+            this.userNotes = userNotes;
             return (T) this;
         }
 
@@ -80,8 +87,12 @@ public abstract class Measure {
         return descriptiveStatistic;
     }
 
-    @SuppressWarnings("SimplifiableIfStatement")
+    public String getUserNotes() {
+        return userNotes;
+    }
+
     @Override
+    @SuppressWarnings("SimplifiableIfStatement")
     public boolean equals(Object object) {
 
         if (this == object) {
@@ -93,12 +104,14 @@ public abstract class Measure {
 
         Measure measure = (Measure) object;
 
-        if (effectiveTimeFrame != null
-                ? !effectiveTimeFrame.equals(measure.effectiveTimeFrame)
+        if (effectiveTimeFrame != null ? !effectiveTimeFrame.equals(measure.effectiveTimeFrame)
                 : measure.effectiveTimeFrame != null) {
             return false;
         }
-        return descriptiveStatistic == measure.descriptiveStatistic;
+        if (descriptiveStatistic != measure.descriptiveStatistic) {
+            return false;
+        }
+        return !(userNotes != null ? !userNotes.equals(measure.userNotes) : measure.userNotes != null);
 
     }
 
@@ -107,6 +120,7 @@ public abstract class Measure {
 
         int result = effectiveTimeFrame != null ? effectiveTimeFrame.hashCode() : 0;
         result = 31 * result + (descriptiveStatistic != null ? descriptiveStatistic.hashCode() : 0);
+        result = 31 * result + (userNotes != null ? userNotes.hashCode() : 0);
         return result;
     }
 }
