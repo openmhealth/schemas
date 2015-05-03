@@ -37,7 +37,7 @@ public class TimeFrameUnitTests extends SerializationUnitTests {
     public static final String SCHEMA_FILENAME = "schema/omh/time-frame-1.0.json";
 
     @Test
-    public void constructorTakingTimeIntervalShouldConstructTimeFrame() throws Exception {
+    public void constructorShouldConstructTimeFrameWithTimeInterval() throws Exception {
 
         OffsetDateTime startDateTime = OffsetDateTime.now().minusDays(1);
         OffsetDateTime endDateTime = OffsetDateTime.now();
@@ -51,7 +51,7 @@ public class TimeFrameUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void constructorTakingDateTimeShouldConstructTimeFrame() throws Exception {
+    public void constructorShouldConstructTimeFrameWithDateTime() throws Exception {
 
         OffsetDateTime dateTime = OffsetDateTime.now().minusDays(1);
 
