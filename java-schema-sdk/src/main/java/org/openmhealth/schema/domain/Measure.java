@@ -34,15 +34,15 @@ public abstract class Measure {
     private String userNotes;
 
 
-    public static abstract class Builder<T extends Builder> {
+    public static abstract class Builder<T extends Builder<?>> {
 
         private TimeFrame effectiveTimeFrame;
         private DescriptiveStatistic descriptiveStatistic;
         private String userNotes;
 
-        public Builder setEffectiveTimeFrame(TimeFrame effectiveTimeFrame) {
+        public T setEffectiveTimeFrame(TimeFrame effectiveTimeFrame) {
             this.effectiveTimeFrame = effectiveTimeFrame;
-            return this;
+            return (T) this;
         }
 
         public T setEffectiveTimeFrame(TimeInterval timeInterval) {
@@ -77,6 +77,7 @@ public abstract class Measure {
 
         this.effectiveTimeFrame = builder.effectiveTimeFrame;
         this.descriptiveStatistic = builder.descriptiveStatistic;
+        this.userNotes = builder.userNotes;
     }
 
     public TimeFrame getEffectiveTimeFrame() {
