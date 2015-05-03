@@ -45,7 +45,7 @@ public class HeartRateUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void buildShouldConstructHeartRateUsingOnlyRequiredProperties() {
+    public void buildShouldConstructMeasureUsingOnlyRequiredProperties() {
 
         BigDecimal heartRateValue = BigDecimal.valueOf(60);
 
@@ -55,10 +55,11 @@ public class HeartRateUnitTests extends SerializationUnitTests {
         assertThat(heartRate.getHeartRate(), equalTo(new TypedUnitValue<>(BEATS_PER_MINUTE, heartRateValue)));
         assertThat(heartRate.getEffectiveTimeFrame(), nullValue());
         assertThat(heartRate.getDescriptiveStatistic(), nullValue());
+        assertThat(heartRate.getUserNotes(), nullValue());
     }
 
     @Test
-    public void buildShouldConstructBodyHeightUsingOptionalProperties() {
+    public void buildShouldConstructMeasureUsingOptionalProperties() {
 
         BigDecimal heartRateValue = BigDecimal.valueOf(60);
 
@@ -85,7 +86,7 @@ public class HeartRateUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void heartRateShouldSerializeCorrectly() throws Exception {
+    public void measureShouldSerializeCorrectly() throws Exception {
 
         HeartRate heartRate = new HeartRate.Builder(BigDecimal.valueOf(50))
                 .setEffectiveTimeFrame(OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, UTC))

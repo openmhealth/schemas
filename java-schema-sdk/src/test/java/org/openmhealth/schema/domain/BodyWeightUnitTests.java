@@ -45,7 +45,7 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void buildShouldConstructBodyWeightUsingOnlyRequiredProperties() {
+    public void buildShouldConstructMeasureUsingOnlyRequiredProperties() {
 
         MassUnitValue massUnitValue = new MassUnitValue(KILOGRAM, BigDecimal.valueOf(65));
 
@@ -55,10 +55,11 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
         assertThat(bodyWeight.getBodyWeight(), equalTo(massUnitValue));
         assertThat(bodyWeight.getEffectiveTimeFrame(), nullValue());
         assertThat(bodyWeight.getDescriptiveStatistic(), nullValue());
+        assertThat(bodyWeight.getUserNotes(), nullValue());
     }
 
     @Test
-    public void buildShouldConstructBodyWeightUsingTimeIntervalTimeFrame() {
+    public void buildShouldConstructMeasureUsingTimeIntervalTimeFrame() {
 
         MassUnitValue massUnitValue = new MassUnitValue(KILOGRAM, BigDecimal.valueOf(65));
 
@@ -80,7 +81,7 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void buildShouldConstructBodyWeightUsingDateTimeTimeFrame() {
+    public void buildShouldConstructMeasureUsingDateTimeTimeFrame() {
 
         MassUnitValue massUnitValue = new MassUnitValue(KILOGRAM, BigDecimal.valueOf(65));
         OffsetDateTime effectiveDateTime = OffsetDateTime.now();
@@ -101,7 +102,7 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void bodyWeightShouldSerializeCorrectly() throws Exception {
+    public void measureShouldSerializeCorrectly() throws Exception {
 
         MassUnitValue massUnitValue = new MassUnitValue(KILOGRAM, BigDecimal.valueOf(50));
 

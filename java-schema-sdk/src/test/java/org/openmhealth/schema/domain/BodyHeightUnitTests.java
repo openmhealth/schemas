@@ -46,7 +46,7 @@ public class BodyHeightUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void buildShouldConstructBodyHeightUsingOnlyRequiredProperties() {
+    public void buildShouldConstructMeasureUsingOnlyRequiredProperties() {
 
         LengthUnitValue lengthUnitValue = new LengthUnitValue(CENTIMETER, BigDecimal.valueOf(180));
 
@@ -56,10 +56,11 @@ public class BodyHeightUnitTests extends SerializationUnitTests {
         assertThat(bodyHeight.getBodyHeight(), equalTo(lengthUnitValue));
         assertThat(bodyHeight.getEffectiveTimeFrame(), nullValue());
         assertThat(bodyHeight.getDescriptiveStatistic(), nullValue());
+        assertThat(bodyHeight.getUserNotes(), nullValue());
     }
 
     @Test
-    public void buildShouldConstructBodyHeightUsingOptionalProperties() {
+    public void buildShouldConstructMeasureUsingOptionalProperties() {
 
         LengthUnitValue lengthUnitValue = new LengthUnitValue(CENTIMETER, BigDecimal.valueOf(180));
 
@@ -86,7 +87,7 @@ public class BodyHeightUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void bodyHeightShouldSerializeCorrectly() throws Exception {
+    public void measureShouldSerializeCorrectly() throws Exception {
 
         BodyHeight bodyHeight = new BodyHeight
                 .Builder(new LengthUnitValue(CENTIMETER, BigDecimal.valueOf(180)))
