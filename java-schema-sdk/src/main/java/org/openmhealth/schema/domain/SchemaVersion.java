@@ -46,9 +46,9 @@ public class SchemaVersion implements Comparable<SchemaVersion> {
     @JsonCreator
     public SchemaVersion(String version) {
 
-        checkNotNull(version);
+        checkNotNull(version, "A version hasn't been specified.");
         Matcher matcher = VERSION_PATTERN.matcher(version);
-        checkArgument(matcher.matches());
+        checkArgument(matcher.matches(), "A malformed version has been specified.");
 
         this.major = Integer.valueOf(matcher.group(1));
         this.minor = Integer.valueOf(matcher.group(2));
@@ -61,9 +61,10 @@ public class SchemaVersion implements Comparable<SchemaVersion> {
 
     public SchemaVersion(int major, int minor, String qualifier) {
 
-        checkArgument(major >= 0);
-        checkArgument(minor >= 0);
-        checkArgument(qualifier == null || QUALIFIER_PATTERN.matcher(qualifier).matches());
+        checkArgument(major >= 0, "A negative major version has been specified.");
+        checkArgument(minor >= 0, "A negative minor version has been specified.");
+        checkArgument(qualifier == null || QUALIFIER_PATTERN.matcher(qualifier).matches(),
+                "A malformed qualifier has been specified.");
 
         this.major = major;
         this.minor = minor;
