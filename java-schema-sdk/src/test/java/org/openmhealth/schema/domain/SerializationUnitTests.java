@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
@@ -63,8 +64,9 @@ public abstract class SerializationUnitTests {
         // we serialize dates, date times, and times as strings, not numbers
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-        // we default to the ISO8601 format for JSR-310
+        // we default to the ISO8601 format for JSR-310 and support Optional
         objectMapper.registerModule(new JSR310Module());
+        objectMapper.registerModule(new Jdk8Module());
 
         // but we have to explicitly support the RFC3339 format over ISO8601 to make JSON Schema happy, specifically to
         // prevent the truncation of zero second fields
