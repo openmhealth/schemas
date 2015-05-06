@@ -19,9 +19,11 @@ package org.openmhealth.schema.configuration;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import org.openmhealth.schema.domain.DataFile;
 import org.openmhealth.schema.domain.SchemaFile;
+import org.openmhealth.schema.domain.ValidationSummary;
 import org.openmhealth.schema.service.DataFileService;
 import org.openmhealth.schema.service.SchemaFileService;
 import org.openmhealth.schema.service.ValidationService;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -35,6 +37,9 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
+
 /**
  * A standalone application that validates test data files against their corresponding schemas.
  *
@@ -44,6 +49,8 @@ import java.util.List;
 @EnableAutoConfiguration
 @ComponentScan("org.openmhealth.schema")
 public class Application {
+
+    private static final Logger logger = getLogger(Application.class);
 
     @Value("${schemaFiles.baseDirectory}")
     private String schemaFileBaseDirectory;
@@ -65,15 +72,36 @@ public class Application {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(Application.class, args);
 
         Application application = applicationContext.getBean(Application.class);
-        application.checkTestDataFiles();
+        application.validateTestDataFiles();
     }
 
-    public void checkTestDataFiles() {
+    public void validateTestDataFiles() {
 
         List<SchemaFile> schemaFiles = schemaFileService.getSchemaFiles(asUri(schemaFileBaseDirectory));
-        List<DataFile> dataFiles = dataFileService.getDataFiles(asUri(testDataFileBaseDirectory));
+        if (schemaFiles.size() == 0) {
+            logger.warn("No schema files have been loaded.");
+            return;
+        }
 
-        validationService.validateDataFiles(schemaFiles, dataFiles);
+        logger.info("{} schema files have been loaded.", schemaFiles.size());
+
+        List<DataFile> dataFiles = dataFileService.getDataFiles(asUri(testDataFileBaseDirectory));
+        if (dataFiles.size() == 0) {
+            logger.warn("No data files have been loaded.");
+            return;
+        }
+
+        logger.info("{} data files have been loaded.", dataFiles.size());
+
+        ValidationSummary validationSummary = validationService.validateDataFiles(schemaFiles, dataFiles);
+        if (validationSummary.getAttempted() == 0) {
+            logger.warn("No validations have been attempted.");
+            return;
+        }
+
+        logger.info("{} validations have been attempted.", validationSummary.getAttempted());
+        logger.info("{} validations have succeeded.", validationSummary.getSucceeded());
+        logger.info("{} validations have failed.", validationSummary.getFailed());
     }
 
     private URI asUri(String filename) {

@@ -18,6 +18,7 @@ package org.openmhealth.schema.service;
 
 import org.openmhealth.schema.domain.DataFile;
 import org.openmhealth.schema.domain.SchemaFile;
+import org.openmhealth.schema.domain.ValidationSummary;
 
 import java.util.Collection;
 
@@ -32,5 +33,5 @@ public interface ValidationService {
      * @param schemaFiles a collection of schema files
      * @param dataFiles the data files to validate against the schema files
      */
-    void validateDataFiles(Collection<SchemaFile> schemaFiles, Collection<DataFile> dataFiles);
+    ValidationSummary validateDataFiles(Collection<SchemaFile> schemaFiles, Collection<DataFile> dataFiles);
 }

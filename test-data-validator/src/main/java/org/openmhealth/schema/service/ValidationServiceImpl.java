@@ -23,6 +23,7 @@ import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import org.openmhealth.schema.domain.DataFile;
 import org.openmhealth.schema.domain.SchemaFile;
+import org.openmhealth.schema.domain.ValidationSummary;
 import org.openmhealth.schema.domain.omh.SchemaVersion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,12 +46,14 @@ public class ValidationServiceImpl implements ValidationService {
     private static final Logger log = LoggerFactory.getLogger(ValidationServiceImpl.class);
 
     @Override
-    public void validateDataFiles(Collection<SchemaFile> schemaFiles, Collection<DataFile> dataFiles) {
+    public ValidationSummary validateDataFiles(Collection<SchemaFile> schemaFiles, Collection<DataFile> dataFiles) {
+
+        ValidationSummary validationSummary = new ValidationSummary();
 
         try {
             for (SchemaFile schemaFile : schemaFiles) {
 
-                log.info(schemaFile.getSchemaId().toString());
+                log.debug(schemaFile.getSchemaId().toString());
 
                 for (DataFile dataFile : dataFiles) {
 
@@ -71,13 +74,15 @@ public class ValidationServiceImpl implements ValidationService {
                     }
 
                     ProcessingReport report = schemaFile.getJsonSchema().validate(dataFile.getData());
+                    validationSummary.incrementAttempted();
 
                     if (dataFile.getExpectedValidationResult() == PASS) {
                         if (report.isSuccess()) {
-                            log.info("> {} -- OK (passed as expected)", dataFile.getName());
+                            log.debug("> {} -- OK (passed as expected)", dataFile.getName());
+                            validationSummary.incrementSucceeded();
                         }
                         else {
-                            if (!log.isInfoEnabled()) {
+                            if (!log.isDebugEnabled()) {
                                 log.warn(schemaFile.getSchemaId().toString());
                             }
 
@@ -87,14 +92,16 @@ public class ValidationServiceImpl implements ValidationService {
                                     log.error(JacksonUtils.prettyPrint(processingMessage.asJson()));
                                 }
                             }
+                            validationSummary.incrementFailed();
                         }
                     }
                     else {
                         if (!report.isSuccess()) {
-                            log.info("> {} -- OK (failed as expected)", dataFile.getName());
+                            log.debug("> {} -- OK (failed as expected)", dataFile.getName());
+                            validationSummary.incrementSucceeded();
                         }
                         else {
-                            if (!log.isInfoEnabled()) {
+                            if (!log.isDebugEnabled()) {
                                 log.warn(schemaFile.getSchemaId().toString());
                             }
 
@@ -104,6 +111,7 @@ public class ValidationServiceImpl implements ValidationService {
                                     log.error(JacksonUtils.prettyPrint(processingMessage.asJson()));
                                 }
                             }
+                            validationSummary.incrementFailed();
                         }
                     }
                 }
@@ -112,5 +120,7 @@ public class ValidationServiceImpl implements ValidationService {
         catch (ProcessingException e) {
             throw new RuntimeException("The specified data files and schemas can't be validated.", e);
         }
+
+        return validationSummary;
     }
 }
