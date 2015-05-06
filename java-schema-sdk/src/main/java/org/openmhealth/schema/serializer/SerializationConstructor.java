@@ -14,24 +14,13 @@
  * limitations under the License.
  */
 
-subprojects {
-    apply plugin: 'java'
+package org.openmhealth.schema.serializer;
 
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
+/**
+ * An annotation used to mark a constructor as necessary for serialization.
+ *
+ * @author Emerson Farrugia
+ */
+public @interface SerializationConstructor {
 
-    group = 'org.openmhealth.schema'
-
-    ext {
-        javaVersion = 1.7
-    }
-
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
 }

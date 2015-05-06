@@ -14,24 +14,15 @@
  * limitations under the License.
  */
 
-subprojects {
-    apply plugin: 'java'
+package org.openmhealth.schema.domain;
 
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
+/**
+ * An enumeration of possible results when validating a {@link DataFile}.
+ *
+ * @author Emerson Farrugia
+ */
+public enum DataFileValidationResult {
 
-    group = 'org.openmhealth.schema'
-
-    ext {
-        javaVersion = 1.7
-    }
-
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    PASS,
+    FAIL
 }

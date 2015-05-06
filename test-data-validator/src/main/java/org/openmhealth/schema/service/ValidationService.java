@@ -14,24 +14,23 @@
  * limitations under the License.
  */
 
-subprojects {
-    apply plugin: 'java'
+package org.openmhealth.schema.service;
 
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
+import org.openmhealth.schema.domain.DataFile;
+import org.openmhealth.schema.domain.SchemaFile;
 
-    group = 'org.openmhealth.schema'
+import java.util.Collection;
 
-    ext {
-        javaVersion = 1.7
-    }
+/**
+ * A service that validates schema files and data files.
+ *
+ * @author Emerson Farrugia
+ */
+public interface ValidationService {
 
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    /**
+     * @param schemaFiles a collection of schema files
+     * @param dataFiles the data files to validate against the schema files
+     */
+    void validateDataFiles(Collection<SchemaFile> schemaFiles, Collection<DataFile> dataFiles);
 }

@@ -14,24 +14,17 @@
  * limitations under the License.
  */
 
-subprojects {
-    apply plugin: 'java'
+package org.openmhealth.schema.domain.omh;
 
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
+/**
+ * An interface implemented by Java enumerations that represent schema enumerations.
+ *
+ * @author Emerson Farrugia
+ */
+public interface SchemaEnumValue {
 
-    group = 'org.openmhealth.schema'
-
-    ext {
-        javaVersion = 1.7
-    }
-
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    /**
+     * @return the schema enumeration value
+     */
+    String getSchemaValue();
 }

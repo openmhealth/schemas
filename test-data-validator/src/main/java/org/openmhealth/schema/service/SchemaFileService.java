@@ -14,24 +14,19 @@
  * limitations under the License.
  */
 
-subprojects {
-    apply plugin: 'java'
+package org.openmhealth.schema.service;
 
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
+import org.openmhealth.schema.domain.SchemaFile;
 
-    group = 'org.openmhealth.schema'
+import java.net.URI;
+import java.util.List;
 
-    ext {
-        javaVersion = 1.7
-    }
+/**
+ * A service that manages schema files.
+ *
+ * @author Emerson Farrugia
+ */
+public interface SchemaFileService {
 
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    List<SchemaFile> getSchemaFiles(URI baseDirectory);
 }

@@ -14,24 +14,13 @@
  * limitations under the License.
  */
 
-subprojects {
-    apply plugin: 'java'
+package org.openmhealth.schema.domain.omh;
 
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
+/**
+ * A marker interface for units of measure.
+ *
+ * @author Emerson Farrugia
+ */
+public interface Unit extends SchemaEnumValue {
 
-    group = 'org.openmhealth.schema'
-
-    ext {
-        javaVersion = 1.7
-    }
-
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
 }

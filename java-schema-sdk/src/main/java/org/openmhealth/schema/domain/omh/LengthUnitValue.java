@@ -14,24 +14,23 @@
  * limitations under the License.
  */
 
-subprojects {
-    apply plugin: 'java'
+package org.openmhealth.schema.domain.omh;
 
-    repositories {
-        mavenLocal()
-        jcenter()
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.math.BigDecimal;
+
+
+/**
+ * @author Emerson Farrugia
+ * @version 1.0
+ * @see <a href="http://www.openmhealth.org/developers/schemas/#length-unit-value">length-unit-value</a>
+ */
+public class LengthUnitValue extends TypedUnitValue<LengthUnit> {
+
+    @JsonCreator
+    public LengthUnitValue(@JsonProperty("unit") LengthUnit unit, @JsonProperty("value") BigDecimal value) {
+        super(unit, value);
     }
-
-    group = 'org.openmhealth.schema'
-
-    ext {
-        javaVersion = 1.7
-    }
-
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
 }
