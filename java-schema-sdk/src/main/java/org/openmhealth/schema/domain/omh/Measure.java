@@ -34,6 +34,7 @@ public abstract class Measure {
     private String userNotes;
 
 
+    @SuppressWarnings("unchecked")
     public static abstract class Builder<T extends Builder<?>> {
 
         private TimeFrame effectiveTimeFrame;

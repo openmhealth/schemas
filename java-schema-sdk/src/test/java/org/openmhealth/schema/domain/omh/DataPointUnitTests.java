@@ -64,13 +64,13 @@ public class DataPointUnitTests extends SerializationUnitTests {
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedHeader() {
 
-        new DataPoint(null, Collections.emptyMap());
+        new DataPoint<>(null, Collections.emptyMap());
     }
 
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedBody() {
 
-        new DataPoint(header, null);
+        new DataPoint<>(header, null);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class DataPointUnitTests extends SerializationUnitTests {
         Map<String,String> body = new HashMap<>();
         body.put("key", "value");
 
-        DataPoint dataPoint = new DataPoint(header, body);
+        DataPoint dataPoint = new DataPoint<>(header, body);
 
         assertThat(dataPoint, notNullValue());
         assertThat(dataPoint.getHeader(), equalTo(header));
