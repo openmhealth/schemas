@@ -23,7 +23,7 @@ import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import org.openmhealth.schema.domain.DataFile;
 import org.openmhealth.schema.domain.SchemaFile;
-import org.openmhealth.schema.domain.SchemaVersion;
+import org.openmhealth.schema.domain.omh.SchemaVersion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

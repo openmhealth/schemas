@@ -17,6 +17,8 @@
 package org.openmhealth.schema.domain;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import org.openmhealth.schema.domain.omh.SchemaId;
+import org.openmhealth.schema.domain.omh.SchemaVersion;
 
 import java.net.URI;
 import java.util.regex.Matcher;
