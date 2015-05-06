@@ -66,6 +66,7 @@ public class DataPointAcquisitionProvenance {
 
         /**
          * @param sourceCreationDateTime the timestamp of data point creation at the source
+         * @return this builder
          */
         public Builder setSourceCreationDateTime(OffsetDateTime sourceCreationDateTime) {
             this.sourceCreationDateTime = sourceCreationDateTime;
@@ -74,6 +75,7 @@ public class DataPointAcquisitionProvenance {
 
         /**
          * @param modality the modality whereby the measure is obtained
+         * @return this builder
          */
         public Builder setModality(DataPointModality modality) {
             this.modality = modality;

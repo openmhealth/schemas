@@ -85,6 +85,7 @@ public class DataPointHeader {
 
         /**
          * @param acquisitionProvenance the acquisition provenance of this data point
+         * @return this builder
          */
         public Builder setAcquisitionProvenance(DataPointAcquisitionProvenance acquisitionProvenance) {
             this.acquisitionProvenance = acquisitionProvenance;
