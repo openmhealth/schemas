@@ -1,0 +1,67 @@
+{
+    "description": "Warfarin 6 mg tabs: take 1.5 tabs on Mondays, Wednesdays, Fridays and 1 tab on all other days",
+
+    "medication": {
+        "generic_name": "Warfarin Sodium 6 MG Oral tablet",
+        "strength": [
+            {
+                "value": 6,
+                "unit": "mg"
+            }
+        ],
+        "rxnorm_code": 855338
+    },
+    "route": "oral",
+
+    "schedule": [
+        {
+            "dose_duration": {
+                "value": 99,
+                "unit": "yr"
+            },
+            "dose": {
+                "value": 1.5,
+                "unit": "tablet"
+            },
+            "dose_recurrence": {
+                "timing": [
+                    {
+                        "day_of_week": "Monday"
+                    },
+                    {
+                        "day_of_week": "Wednesday"
+                    },
+                    {
+                        "day_of_week": "Friday"
+                    }
+                ]
+            }
+        },
+        {
+            "dose_duration": {
+                "value": 99,
+                "unit": "yr"
+            },
+            "dose": {
+                "value": 1,
+                "unit": "tablet"
+            },
+            "dose_recurrence": {
+                "timing": [
+                    {
+                        "day_of_week": "Tuesday"
+                    },
+                    {
+                        "day_of_week": "Thursday"
+                    },
+                    {
+                        "day_of_week": "Saturday"
+                    },
+                    {
+                        "day_of_week": "Sunday"
+                    }
+                ]
+            }
+        }
+    ]
+}
