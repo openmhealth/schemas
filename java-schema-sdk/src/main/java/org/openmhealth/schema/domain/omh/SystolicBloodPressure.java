@@ -35,4 +35,12 @@ public class SystolicBloodPressure extends TypedUnitValue<BloodPressureUnit> {
 
         super(unit, value);
     }
+
+    public SystolicBloodPressure(BloodPressureUnit unit, double value) {
+        super(unit, value);
+    }
+
+    public SystolicBloodPressure(BloodPressureUnit unit, long value) {
+        super(unit, value);
+    }
 }

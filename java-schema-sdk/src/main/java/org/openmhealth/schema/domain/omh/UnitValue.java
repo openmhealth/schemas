@@ -48,6 +48,14 @@ public class UnitValue {
         this.value = value;
     }
 
+    public UnitValue(String unit, double value) {
+        this(unit, BigDecimal.valueOf(value));
+    }
+
+    public UnitValue(String unit, long value) {
+        this(unit, BigDecimal.valueOf(value));
+    }
+
     public String getUnit() {
         return unit;
     }

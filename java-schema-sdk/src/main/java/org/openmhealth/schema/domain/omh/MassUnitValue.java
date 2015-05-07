@@ -33,4 +33,12 @@ public class MassUnitValue extends TypedUnitValue<MassUnit> {
     public MassUnitValue(@JsonProperty("unit") MassUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
     }
+
+    public MassUnitValue(MassUnit unit, double value) {
+        super(unit, value);
+    }
+
+    public MassUnitValue(MassUnit unit, long value) {
+        super(unit, value);
+    }
 }

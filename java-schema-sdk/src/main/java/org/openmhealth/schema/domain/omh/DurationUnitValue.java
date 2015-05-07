@@ -33,4 +33,12 @@ public class DurationUnitValue extends TypedUnitValue<DurationUnit> {
     public DurationUnitValue(@JsonProperty("unit") DurationUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
     }
+
+    public DurationUnitValue(DurationUnit unit, double value) {
+        super(unit, value);
+    }
+
+    public DurationUnitValue(DurationUnit unit, long value) {
+        super(unit, value);
+    }
 }

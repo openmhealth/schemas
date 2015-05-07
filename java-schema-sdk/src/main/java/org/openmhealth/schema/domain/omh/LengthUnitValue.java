@@ -33,4 +33,12 @@ public class LengthUnitValue extends TypedUnitValue<LengthUnit> {
     public LengthUnitValue(@JsonProperty("unit") LengthUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
     }
+
+    public LengthUnitValue(LengthUnit unit, double value) {
+        super(unit, value);
+    }
+
+    public LengthUnitValue(LengthUnit unit, long value) {
+        super(unit, value);
+    }
 }

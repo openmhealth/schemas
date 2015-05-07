@@ -39,6 +39,14 @@ public class TypedUnitValue<T extends Unit> extends UnitValue {
         this.typedUnit = typedUnit;
     }
 
+    public TypedUnitValue(T typedUnit, double value) {
+        this(typedUnit, BigDecimal.valueOf(value));
+    }
+
+    public TypedUnitValue(T typedUnit, long value) {
+        this(typedUnit, BigDecimal.valueOf(value));
+    }
+
     @JsonIgnore
     public T getTypedUnit() {
         return typedUnit;
