@@ -130,6 +130,9 @@
         },
         {
             "required": ["trade_name"]
+        },
+        {
+            "required": ["rxnorm_code"]
         }
     ]
 }
