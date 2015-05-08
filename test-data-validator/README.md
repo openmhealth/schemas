@@ -12,11 +12,15 @@ You'll need
 ### Building and running
 To build and run the validator from a Linux shell or on OS X Terminal, either run this command from the `test-data-validator` directory
 
-> `../gradlew bootRun`
+```sh
+$ ../gradlew bootRun
+```
 
 or this command from the root of the repository
 
-> `./gradlew test-data-validator:bootRun`
+```sh
+$ ./gradlew test-data-validator:bootRun
+```
 
 The validator will run through the test data files and display a validation summary and any validation errors. If
 you want to see more verbose information, you can adjust the logging level in the `application.properties` file.

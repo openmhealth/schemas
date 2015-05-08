@@ -32,9 +32,11 @@ If you use Maven, add the following dependency to your POM file to use it
 
 ## Building it
 
-If you'd like to build the JAR file yourself, simply run the following command from the root of this repository.
- 
-> `./gradlew java-schema-sdk`
+If you'd like to build the JAR file yourself, run the following command from the root of this repository.
+
+```sh 
+$ ./gradlew java-schema-sdk:build
+```
  
 The resulting JAR files will available in `java-schema-sdk/build/libs`.
 
