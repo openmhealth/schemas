@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "This schema serves to wrap health kit correlation sample data (HKCorrelation) into an omh-compliant form",
+  "type": "object",
+  "definitions":{
+    "time_frame": {
+      "$ref": "time-frame-1.x.json"
+    },
+    "hk_correlation_type":{
+      "$ref":"hk-correlation-type-1.0.json"
+    },
+    "hk_metadata":{
+      "$ref":"hk-metadata-1.0.json"
+    },
+    "hk_category_sample":{
+      "$ref":"hk-category-sample-1.0.json"
+    },
+    "hk_quantity_sample":{
+      "$ref":"hk-quantity-sample-1.0.json"
+    }
+  },
+  "properties":{
+    "correlation_type":{
+      "$ref":"#/definitions/hk_correlation_type"
+    },
+    "objects":{
+      "type":"array",
+      "items":{
+        "oneOf":[
+          {
+            "properties": {
+              "hk_category_sample": {
+                "$ref": "#/definitions/hk_category_sample"
+              }
+            },
+            "properties": {
+              "hk_quantity_sample": {
+                "$ref": "#/definitions/hk_quantity_sample"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "effective_time_frame": {
+      "$ref": "#/definitions/time_frame"
+    },
+    "metadata":{
+      "$ref":"#/definitions/hk_metadata"
+    }
+  }
+
+}

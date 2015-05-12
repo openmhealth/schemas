@@ -1,0 +1,53 @@
+{
+  "correlation_type":"HKCorrelationTypeIdentifierFood",
+  "objects":[
+    {
+      "hk_quantity_sample":{
+        "quantity_type":"HKQuantityTypeIdentifierDietaryCarbohydrates",
+        "unit_value":{
+          "value":29.3,
+          "unit":"gram"
+        },
+        "effective_time_frame": {
+          "time_interval": {
+            "start_date_time": "2013-02-05T06:25:00Z",
+            "end_date_time": "2013-02-05T06:25:00Z"
+          }
+        }
+
+
+
+      }
+    },
+    {
+      "hk_quantity_sample":{
+        "quantity_type":"HKQuantityTypeIdentifierDietaryEnergyConsumed",
+        "unit_value":{
+          "value":105,
+          "unit":"kcal"
+        },
+        "effective_time_frame": {
+          "time_interval": {
+            "start_date_time": "2013-02-05T06:25:00Z",
+            "end_date_time": "2013-02-05T06:25:00Z"
+          }
+        }
+      }
+    }
+
+
+
+  ],
+  "effective_time_frame": {
+    "time_interval": {
+      "start_date_time": "2013-02-05T06:25:00Z",
+      "end_date_time": "2013-02-05T06:25:00Z"
+    }
+  },
+  "metadata":[
+    {
+      "key":"HKMetadataKeyFoodType",
+      "value":"Apple"
+    }
+  ]
+}

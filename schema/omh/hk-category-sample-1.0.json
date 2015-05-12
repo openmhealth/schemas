@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "This schema serves to wrap health kit category sample data (HKCategorySample) into an omh-compliant form",
+  "type": "object",
+  "definitions": {
+    "time_frame": {
+      "$ref": "time-frame-1.x.json"
+    },
+    "hk_category_type":{
+      "$ref":"hk-category-type-1.0.json"
+    },
+    "hk_metadata":{
+      "$ref":"hk-metadata-1.0.json"
+    }
+
+  },
+  "properties":{
+    "effective_time_frame": {
+      "$ref": "#/definitions/time_frame"
+    },
+    "value":{
+      "type":"integer"
+    },
+    "type":{
+      "$ref":"#/definitions/hk_category_type"
+    },
+    "metadata":{
+      "$ref":"#/definitions/hk_metadata"
+    }
+  }
+}
