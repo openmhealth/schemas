@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "number",
-  "description": "The constants for quantity type data as defined by the Apple HK Framework",
+  "description": "The constants for workout type data as defined by the Apple HK Framework, an enumeration of ints, starting at 1, that represent different types of physical activity. The max is 3000 which is used to indicate 'other' workout ",
   "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html",
   "maximum":3000
 
