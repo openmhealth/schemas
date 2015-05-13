@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "number",
+  "description": "The constants for quantity type data as defined by the Apple HK Framework",
+  "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html",
+  "maximum":3000
+
+}
