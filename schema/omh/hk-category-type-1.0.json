@@ -6,7 +6,7 @@
   "references": [
     {
       "value": "HKCategoryTypeIdentifierSleepAnalysis",
-      "description": "A category sample type for samples that contain sleep analysis information",
+      "description": "A category sample type for samples that contain sleep analysis information"
     }
   ],
   "enum": [
