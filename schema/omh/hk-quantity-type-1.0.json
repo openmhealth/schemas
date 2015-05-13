@@ -1,31 +1,18 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "string",
-  "description": "The constants for quantity type data as defined by the Apple HK Framework",
-  "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html",
-  "references": [
-    {
-      "value": "HKQuantityTypeIdentifierBodyMassIndex",
-      "description": "A quantity sample type that measures the user’s body mass index"
-    },
-    {
-      "value": "HKQuantityTypeIdentifierBodyFatPercentage",
-      "description": "A quantity sample type that measures the user’s body fat percentage"
-    },
-    {
-      "value":"HKQuantityTypeIdentifierDietaryCarbohydrates",
-      "description": "A quantity sample type that measures the amount of carbohydrates consumed"
-    },
-    {
-      "value":"HKQuantityTypeIdentifierDietaryEnergyConsumed",
-      "description":"A quantity sample type that measures the amount of energy consumed."
-    }
+    "$schema": "http://json-schema.org/draft-04/schema#",
 
-  ],
-  "enum": [
-    "HKQuantityTypeIdentifierBodyMassIndex",
-    "HKQuantityTypeIdentifierBodyFatPercentage",
-    "HKQuantityTypeIdentifierDietaryCarbohydrates",
-    "HKQuantityTypeIdentifierDietaryEnergyConsumed"
-  ]
+    "type": "string",
+    "description": "A quantity type identifier defined by the Apple HealthKit framework.",
+    "references": [
+        {
+            "description" : "The HealthKit constants reference, which includes descriptions for each constant.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html"
+        }
+    ],
+    "enum": [
+        "HKQuantityTypeIdentifierBodyMassIndex",
+        "HKQuantityTypeIdentifierBodyFatPercentage",
+        "HKQuantityTypeIdentifierDietaryCarbohydrates",
+        "HKQuantityTypeIdentifierDietaryEnergyConsumed"
+    ]
 }

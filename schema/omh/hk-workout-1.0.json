@@ -1,48 +1,47 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "This schema serves to wrap health kit workout sample data (HKWorkout) into an omh-compliant form",
-  "type": "object",
-  "definitions": {
-    "time_frame": {
-      "$ref": "time-frame-1.x.json"
-    },
-    "workout_activity_type":{
-      "$ref":"hk-workout-activity-type-1.0.json"
-    },
-    "kcal_unit_value":{
-      "$ref":"kcal-unit-value-1.x.json"
-    },
-    "length_unit_value": {
-      "$ref": "length-unit-value-1.x.json"
-    },
-    "hk_metadata":{
-      "$ref":"hk-metadata-1.0.json"
-    }
-
-  },
-  "properties":{
-    "effective_time_frame": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/time_frame"
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "This schema serves to wrap health kit workout sample data (HKWorkout) into an omh-compliant form",
+    "type": "object",
+    "definitions": {
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
         },
-        {
-          "required": ["time_interval"]
+        "kcal_unit_value": {
+            "$ref": "kcal-unit-value-1.x.json"
+        },
+        "hk_metadata": {
+            "$ref": "hk-metadata-1.0.json"
         }
-      ]
     },
-    "distance": {
-      "description": "The distance covered, if applicable.",
-      "$ref": "#/definitions/length_unit_value"
-    },
-    "kcal_burned":{
-      "$ref":"#/definitions/kcal_unit_value"
-    },
-    "activity_type":{
-      "$ref":"#/definitions/workout_activity_type"
-    },
-    "metadata":{
-      "$ref":"#/definitions/hk_metadata"
-    }
-  }
+    "allOf": [
+        {
+            "properties": {
+                "$ref": "#/definitions/physical_activity"
+            },
+            "properties": {
+                "activity_name": {
+                    "description": "This should correspond to the Constant ..., e.g. HK...",
+                    "$ref": "#/definitions/activity_name"
+                },
+                "effective_time_frame": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/time_frame"
+                        },
+                        {
+                            "required": ["time_interval"]
+                        }
+                    ]
+                },
+
+                "kcal_burned": {
+                    "$ref": "#/definitions/kcal_unit_value"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/hk_metadata"
+                }
+            },
+            "required": ["effective_time_frame"]
+        }
+    ]
 }
