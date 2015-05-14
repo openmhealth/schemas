@@ -2,7 +2,7 @@
     "correlation_type": "HKCorrelationTypeIdentifierFood",
     "objects": [
         {
-            "hk_quantity_sample": {
+            "quantity_sample": {
                 "quantity_type": "HKQuantityTypeIdentifierDietaryCarbohydrates",
                 "unit_value": {
                     "value": 29.3,
@@ -17,7 +17,7 @@
             }
         },
         {
-            "hk_quantity_sample": {
+            "quantity_sample": {
                 "quantity_type": "HKQuantityTypeIdentifierDietaryEnergyConsumed",
                 "unit_value": {
                     "value": 105,
