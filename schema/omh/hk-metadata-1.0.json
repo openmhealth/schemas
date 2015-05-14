@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "An array of key-value pairs.",
+    "description": "An array of key-value pairs that represent Apple HealthKit metadata information.",
     "type": "array",
 
     "definitions": {
@@ -11,11 +11,11 @@
     },
     "items": {
         "type": "object",
-        "title": "HK Metadata Item",
         "properties": {
             "key": {
-                "description": "check page so-and-so, and use HK... as the value."
-                "type": "string"
+                "description": "A set of Apple predefined or custom developer defined keys for adding metadata to HealthKit objects. Use Apple defined keys, e.g. HKMetadataKeyDeviceSerialNumber, when possible.",
+                "type": "string",
+                "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/#//apple_ref/doc/constant_group/Metadata_Keys"
             },
             "value": {
                 "oneOf": [

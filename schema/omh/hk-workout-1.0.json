@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "This schema serves to wrap health kit workout sample data (HKWorkout) into an omh-compliant form",
+    "description": "This schema serves to wrap Apple HealthKit HKWorkout sample data into an omh-compliant form",
     "type": "object",
     "definitions": {
         "time_frame": {
@@ -11,37 +11,43 @@
         },
         "hk_metadata": {
             "$ref": "hk-metadata-1.0.json"
+        },
+        "physical_activity":{
+          "$ref":"physical-activity-1.x.json"
         }
     },
-    "allOf": [
-        {
+    "properties":{
+      "physical_activity":{
+        "allOf":[
+          {
+            "$ref": "#/definitions/physical_activity"
+          },
+          {
             "properties": {
-                "$ref": "#/definitions/physical_activity"
-            },
-            "properties": {
-                "activity_name": {
-                    "description": "This should correspond to the Constant ..., e.g. HK...",
-                    "$ref": "#/definitions/activity_name"
-                },
-                "effective_time_frame": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/time_frame"
-                        },
-                        {
-                            "required": ["time_interval"]
-                        }
-                    ]
-                },
-
-                "kcal_burned": {
-                    "$ref": "#/definitions/kcal_unit_value"
-                },
-                "metadata": {
-                    "$ref": "#/definitions/hk_metadata"
-                }
+              "activity_name": {
+                "description": "This should correspond to the constant for the desired type of activity, e.g. HKWorkoutActivityTypeCycling, not the integer value associated with that constant"
+              },
+              "effective_time_frame": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/time_frame"
+                  },
+                  {
+                    "required": ["time_interval"]
+                  }
+                ]
+              }
             },
             "required": ["effective_time_frame"]
-        }
-    ]
+          }
+        ]
+      },
+      "kcal_burned": {
+        "$ref": "#/definitions/kcal_unit_value"
+      },
+      "metadata": {
+        "$ref": "#/definitions/hk_metadata"
+      }
+
+    }
 }

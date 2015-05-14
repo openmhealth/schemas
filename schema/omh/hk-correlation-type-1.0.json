@@ -5,7 +5,6 @@
     "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html",
     "references": [
         {
-            // you should probably not use this
             "value": "HKCorrelationTypeIdentifierBloodPressure",
             "description": "Blood pressure correlation types combine a systolic sample and a diastolic sample into a single blood pressure reading."
         },
