@@ -10,6 +10,7 @@
             "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKQuantitySample_Class/index.html"
         }
     ],
+
     "definitions": {
         "time_frame": {
             "$ref": "time-frame-1.x.json"
@@ -27,9 +28,11 @@
 
     "properties": {
         "effective_time_frame": {
+            "description":"The date and time range or point when the sample occurred. When startdate and enddate are different, use the time_interval property, and when they are the same, use the date-time property.",
             "$ref": "#/definitions/time_frame"
         },
         "quantity_value":{
+            "description": "The quantity value for this sample either as a unit_value or unitless number in the case of data points that have 'count' as the unit in HealthKit.",
             "oneOf":[
                 {
                     "properties":{
@@ -48,6 +51,7 @@
             ]
         },
         "quantity_type": {
+            "description": "The quantity type for this sample.",
             "$ref": "#/definitions/hk_quantity_type"
         },
         "metadata": {

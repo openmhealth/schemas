@@ -1,7 +1,20 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "This schema serves to wrap health kit correlation sample data (HKCorrelation) into an omh-compliant form",
+
+    "description": "An Apple HealthKit correlation sample that represents data using multiple quantity and category samples.",
     "type": "object",
+
+    "references": [
+        {
+            "description": "The class reference for HKCorrelationSample.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKCorrelation_Class/index.html"
+        },
+        {
+            "description": "The reference for the HKMetadataKeyFoodType metadata key that should be used with correlation samples of type HKCorrelationTypeIdentifierFood.",
+            "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKMetadataKeyFoodType"
+        }
+    ],
+
     "definitions": {
         "time_frame": {
             "$ref": "time-frame-1.x.json"
@@ -19,12 +32,15 @@
             "$ref": "hk-quantity-sample-1.0.json"
         }
     },
+
     "properties": {
         "correlation_type": {
+            "description": "The correlation type for this sample.",
             "$ref": "#/definitions/hk_correlation_type"
         },
         "samples": {
             "type": "array",
+            "description":"An array of category and quantity samples that represent all the components of the correlation sample.",
             "items": {
                 "oneOf": [
                     {
@@ -43,9 +59,11 @@
             }
         },
         "effective_time_frame": {
+            "description":"The date and time range or point when the sample occurred. When startdate and enddate are different, use the time_interval property, and when they are the same, use the date-time property.",
             "$ref": "#/definitions/time_frame"
         },
         "metadata": {
+            "description":"For HKCorrelationTypeIdentifierFood the data point should contain a metadata item with the key HKMetadataKeyFoodType that is the name of the food item",
             "$ref": "#/definitions/hk_metadata"
         }
     },

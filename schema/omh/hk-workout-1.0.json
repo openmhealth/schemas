@@ -1,13 +1,14 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "This schema serves to wrap Apple HealthKit HKWorkout sample data into an omh-compliant form",
+
+    "description": "An Apple HealthKit workout sample that represents a workout or episode of physical activity.",
     "type": "object",
 
-    "references":[
-      {
-        "description":"The class reference for HKWorkout.",
-        "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKWorkout_Class/index.html#//apple_ref/doc/uid/TP40014744"
-      }
+    "references": [
+        {
+            "description": "The class reference for HKWorkout.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKWorkout_Class/index.html"
+        }
     ],
 
     "definitions": {
@@ -20,43 +21,45 @@
         "hk_metadata": {
             "$ref": "hk-metadata-1.0.json"
         },
-        "physical_activity":{
-          "$ref":"physical-activity-1.x.json"
+        "physical_activity": {
+            "$ref": "physical-activity-1.x.json"
         }
     },
-    "properties":{
-      "physical_activity":{
-        "allOf":[
-          {
-            "$ref": "#/definitions/physical_activity"
-          },
-          {
-            "properties": {
-              "activity_name": {
-                "description": "This should correspond to the constant for the desired type of activity, e.g. HKWorkoutActivityTypeCycling, not the integer value associated with that constant"
-              },
-              "effective_time_frame": {
-                "allOf": [
-                  {
-                    "$ref": "#/definitions/time_frame"
-                  },
-                  {
-                    "required": ["time_interval"]
-                  }
-                ]
-              }
-            },
-            "required": ["effective_time_frame"]
-          }
-        ]
-      },
-      "kcal_burned": {
-        "$ref": "#/definitions/kcal_unit_value"
-      },
-      "metadata": {
-        "$ref": "#/definitions/hk_metadata"
-      }
 
+    "properties": {
+        "physical_activity": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/physical_activity"
+                },
+                {
+                    "properties": {
+                        "activity_name": {
+                            "description": "This should correspond to the constant for the desired type of activity, e.g. HKWorkoutActivityTypeCycling, not the integer value associated with that constant"
+                        },
+                        "effective_time_frame": {
+                            "description":"The time_interval property of time_frame is used to capture startdate, enddate, and duration for the HKWorkout object.",
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/time_frame"
+                                },
+                                {
+                                    "required": ["time_interval"]
+                                }
+                            ]
+                        }
+                    },
+                    "required": ["effective_time_frame"]
+                }
+            ]
+        },
+        "kcal_burned": {
+            "description":"The number of calories burned in the workout. Uses kcal as the unit.",
+            "$ref": "#/definitions/kcal_unit_value"
+        },
+        "metadata": {
+            "$ref": "#/definitions/hk_metadata"
+        }
     },
-    "required":["physical_activity"]
+    "required": ["physical_activity"]
 }

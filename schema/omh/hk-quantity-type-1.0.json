@@ -3,12 +3,14 @@
 
     "type": "string",
     "description": "A quantity type identifier defined by the Apple HealthKit framework.",
+
     "references": [
         {
             "description" : "The HealthKit constants reference, which includes descriptions for each constant.",
             "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html"
         }
     ],
+
     "enum": [
         "HKQuantityTypeIdentifierBodyMassIndex",
         "HKQuantityTypeIdentifierBodyFatPercentage",
