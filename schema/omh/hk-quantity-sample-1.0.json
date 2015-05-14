@@ -53,5 +53,6 @@
         "metadata": {
             "$ref": "#/definitions/hk_metadata"
         }
-    }
+    },
+    "required":["effective_time_frame","quantity_value","quantity_type"]
 }

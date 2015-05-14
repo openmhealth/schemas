@@ -57,5 +57,6 @@
         "$ref": "#/definitions/hk_metadata"
       }
 
-    }
+    },
+    "required":["physical_activity"]
 }

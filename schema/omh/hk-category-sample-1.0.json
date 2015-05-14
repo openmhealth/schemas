@@ -37,5 +37,6 @@
         "metadata": {
             "$ref": "#/definitions/hk_metadata"
         }
-    }
+    },
+    "required":["effective_time_frame","category_value","category_type"]
 }

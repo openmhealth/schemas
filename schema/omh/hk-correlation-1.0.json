@@ -23,18 +23,18 @@
         "correlation_type": {
             "$ref": "#/definitions/hk_correlation_type"
         },
-        "objects": {
+        "samples": {
             "type": "array",
             "items": {
                 "oneOf": [
                     {
                         "properties": {
-                            "hk_category_sample": {
+                            "category_sample": {
                                 "$ref": "#/definitions/hk_category_sample"
                             }
                         },
                         "properties": {
-                            "hk_quantity_sample": {
+                            "quantity_sample": {
                                 "$ref": "#/definitions/hk_quantity_sample"
                             }
                         }
@@ -48,5 +48,7 @@
         "metadata": {
             "$ref": "#/definitions/hk_metadata"
         }
-    }
+    },
+    "required":["correlation_type","samples","effective_time_frame"]
+
 }
