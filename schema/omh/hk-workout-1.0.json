@@ -2,6 +2,14 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "description": "This schema serves to wrap Apple HealthKit HKWorkout sample data into an omh-compliant form",
     "type": "object",
+
+    "references":[
+      {
+        "description":"The class reference for HKWorkout.",
+        "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKWorkout_Class/index.html#//apple_ref/doc/uid/TP40014744"
+      }
+    ],
+
     "definitions": {
         "time_frame": {
             "$ref": "time-frame-1.x.json"
