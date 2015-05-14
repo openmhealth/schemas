@@ -1,8 +1,8 @@
 {
   "quantity_type":"HKQuantityTypeIdentifierBodyMassIndex",
   "unit_value":{
-    "value":29.3,
-    "unit":"count"
+      "value":29.3,
+      "unit":"count"
   },
   "effective_time_frame": {
     "time_interval": {

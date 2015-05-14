@@ -10,7 +10,6 @@
             "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKQuantitySample_Class/index.html"
         }
     ],
-
     "definitions": {
         "time_frame": {
             "$ref": "time-frame-1.x.json"
@@ -25,12 +24,28 @@
             "$ref": "hk-metadata-1.0.json"
         }
     },
+
     "properties": {
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
         },
-        "unit_value": {
-            "$ref": "#/definitions/unit_value"
+        "quantity_value":{
+            "oneOf":[
+                {
+                    "properties":{
+                        "unit_value": {
+                            "$ref": "#/definitions/unit_value"
+                        }
+                    }
+                },
+                {
+                    "properties":{
+                        "count":{
+                            "type":"number"
+                        }
+                    }
+                }
+            ]
         },
         "quantity_type": {
             "$ref": "#/definitions/hk_quantity_type"
