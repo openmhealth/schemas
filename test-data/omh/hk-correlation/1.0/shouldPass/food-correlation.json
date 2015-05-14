@@ -1,12 +1,14 @@
 {
     "correlation_type": "HKCorrelationTypeIdentifierFood",
-    "objects": [
+    "samples": [
         {
             "quantity_sample": {
                 "quantity_type": "HKQuantityTypeIdentifierDietaryCarbohydrates",
-                "unit_value": {
-                    "value": 29.3,
-                    "unit": "g"
+                "quantity_value":{
+                    "unit_value": {
+                        "value": 29.3,
+                        "unit": "g"
+                    }
                 },
                 "effective_time_frame": {
                     "time_interval": {
@@ -19,9 +21,11 @@
         {
             "quantity_sample": {
                 "quantity_type": "HKQuantityTypeIdentifierDietaryEnergyConsumed",
-                "unit_value": {
-                    "value": 105,
-                    "unit": "kcal"
+                "quantity_value":{
+                    "unit_value": {
+                        "value": 105,
+                        "unit": "kcal"
+                    }
                 },
                 "effective_time_frame": {
                     "time_interval": {
