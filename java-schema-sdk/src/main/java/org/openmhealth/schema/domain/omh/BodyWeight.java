@@ -35,6 +35,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
 public class BodyWeight extends Measure {
 
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "body-weight", "1.0");
+
     private MassUnitValue bodyWeight;
 
 
@@ -70,6 +72,11 @@ public class BodyWeight extends Measure {
     }
 
     @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    @Override
     public boolean equals(Object object) {
 
         if (this == object) {
@@ -85,7 +92,6 @@ public class BodyWeight extends Measure {
         BodyWeight that = (BodyWeight) object;
 
         return bodyWeight.equals(that.bodyWeight);
-
     }
 
     @Override

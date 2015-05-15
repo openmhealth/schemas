@@ -39,6 +39,8 @@ import static org.openmhealth.schema.domain.omh.DurationUnit.*;
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
 public class SleepDuration extends Measure {
 
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "sleep-duration", "1.0");
+
     private DurationUnitValue sleepDuration;
 
 
@@ -76,6 +78,11 @@ public class SleepDuration extends Measure {
     }
 
     @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    @Override
     public boolean equals(Object object) {
 
         if (this == object) {
@@ -91,7 +98,6 @@ public class SleepDuration extends Measure {
         SleepDuration that = (SleepDuration) object;
 
         return sleepDuration.equals(that.sleepDuration);
-
     }
 
     @Override

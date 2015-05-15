@@ -35,6 +35,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
 public class BloodPressure extends Measure {
 
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "blood-pressure", "1.0");
+
     private SystolicBloodPressure systolicBloodPressure;
     private DiastolicBloodPressure diastolicBloodPressure;
     private PositionDuringMeasurement positionDuringMeasurement;
@@ -90,6 +92,11 @@ public class BloodPressure extends Measure {
         return positionDuringMeasurement;
     }
 
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
     @SuppressWarnings("SimplifiableIfStatement")
     @Override
     public boolean equals(Object object) {
@@ -113,7 +120,6 @@ public class BloodPressure extends Measure {
             return false;
         }
         return positionDuringMeasurement == that.positionDuringMeasurement;
-
     }
 
     @Override
