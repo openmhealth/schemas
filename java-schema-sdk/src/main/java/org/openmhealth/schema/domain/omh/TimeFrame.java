@@ -22,6 +22,8 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -35,10 +37,13 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
-public class TimeFrame {
+public class TimeFrame implements SchemaSupport, AdditionalPropertySupport {
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "time-frame", "1.0");
 
     private TimeInterval timeInterval;
     private OffsetDateTime dateTime;
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
 
     @SerializationConstructor
@@ -74,6 +79,16 @@ public class TimeFrame {
 
     public void setDateTime(OffsetDateTime dateTime) {
         this.dateTime = dateTime;
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    @Override
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
     }
 
     @SuppressWarnings("SimplifiableIfStatement")

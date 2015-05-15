@@ -31,7 +31,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Emerson Farrugia
  */
-public interface AdditionalPropertySupport extends SchemaSupport {
+public interface AdditionalPropertySupport {
 
     /**
      * Sets an additional property.
