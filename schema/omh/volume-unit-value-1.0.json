@@ -21,7 +21,7 @@
                     "references": [
                         {
                             "description": "The unit of measure of the element. Basic unit is liter (L). Allowed values are drawn from the Volume Units and English Volume Units Common Synonyms (non-UCUM). The valid UCUM code is different for fluid ounce ([foz_us]), cubic inch ([cin_i]), cup ([cup_us]), pint ([pt_us]), quart ([qt_us]), gallon ([gal_us]). 1 teaspoon = 5 ml; 1 tablespoon = 3 teaspoons = 15 ml.",
-                            "url": "http://www.hl7.de/download/documents/ucum/ucumdata.html"
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
                         }
                     ],
                     "enum": [
