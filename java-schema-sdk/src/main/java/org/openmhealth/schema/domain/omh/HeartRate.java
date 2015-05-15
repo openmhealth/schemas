@@ -110,7 +110,6 @@ public class HeartRate extends Measure {
             return false;
         }
         return temporalRelationshipToPhysicalActivity == heartRate1.temporalRelationshipToPhysicalActivity;
-
     }
 
     @Override

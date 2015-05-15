@@ -98,7 +98,6 @@ public class SleepDuration extends Measure {
         SleepDuration that = (SleepDuration) object;
 
         return sleepDuration.equals(that.sleepDuration);
-
     }
 
     @Override

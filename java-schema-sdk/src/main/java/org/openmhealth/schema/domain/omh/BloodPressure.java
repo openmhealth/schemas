@@ -120,7 +120,6 @@ public class BloodPressure extends Measure {
             return false;
         }
         return positionDuringMeasurement == that.positionDuringMeasurement;
-
     }
 
     @Override

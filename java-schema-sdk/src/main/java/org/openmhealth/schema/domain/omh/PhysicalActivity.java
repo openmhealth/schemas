@@ -44,6 +44,7 @@ public class PhysicalActivity extends Measure {
 
     public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "physical-activity", "1.0");
 
+
     /**
      * A self-reported intensity of the activity performed.
      */
@@ -167,7 +168,6 @@ public class PhysicalActivity extends Measure {
             return false;
         }
         return reportedActivityIntensity == that.reportedActivityIntensity;
-
     }
 
     @Override

@@ -102,7 +102,6 @@ public class StepCount extends Measure {
         StepCount stepCount1 = (StepCount) object;
 
         return stepCount.equals(stepCount1.stepCount);
-
     }
 
     @Override

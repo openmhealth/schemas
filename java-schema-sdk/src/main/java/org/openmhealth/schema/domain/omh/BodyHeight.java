@@ -92,7 +92,6 @@ public class BodyHeight extends Measure {
         BodyHeight that = (BodyHeight) object;
 
         return bodyHeight.equals(that.bodyHeight);
-
     }
 
     @Override

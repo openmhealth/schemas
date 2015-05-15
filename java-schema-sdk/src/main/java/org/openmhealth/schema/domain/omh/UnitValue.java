@@ -35,7 +35,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @version 1.0
  * @see <a href="http://www.openmhealth.org/developers/schemas/#unit-value">unit-value</a>
  */
-public class UnitValue implements AdditionalPropertySupport {
+public class UnitValue implements SchemaSupport, AdditionalPropertySupport {
 
     public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "unit-value", "1.0");
 
@@ -95,7 +95,6 @@ public class UnitValue implements AdditionalPropertySupport {
         UnitValue unitValue = (UnitValue) object;
 
         return unit.equals(unitValue.unit) && value.equals(unitValue.value);
-
     }
 
     @Override

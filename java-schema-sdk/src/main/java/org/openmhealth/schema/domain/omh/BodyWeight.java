@@ -92,7 +92,6 @@ public class BodyWeight extends Measure {
         BodyWeight that = (BodyWeight) object;
 
         return bodyWeight.equals(that.bodyWeight);
-
     }
 
     @Override

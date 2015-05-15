@@ -28,7 +28,7 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  */
-public abstract class Measure implements AdditionalPropertySupport {
+public abstract class Measure implements SchemaSupport, AdditionalPropertySupport {
 
     // these fields are not final to prevent errors caused by the presence of the default serialization constructor
     private TimeFrame effectiveTimeFrame;
@@ -122,7 +122,6 @@ public abstract class Measure implements AdditionalPropertySupport {
             return false;
         }
         return !(userNotes != null ? !userNotes.equals(measure.userNotes) : measure.userNotes != null);
-
     }
 
     @Override
