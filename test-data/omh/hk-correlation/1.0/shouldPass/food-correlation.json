@@ -4,7 +4,7 @@
         {
             "quantity_sample": {
                 "quantity_type": "HKQuantityTypeIdentifierDietaryCarbohydrates",
-                "quantity_value":{
+                "quantity_value": {
                     "unit_value": {
                         "value": 29.3,
                         "unit": "g"
@@ -21,7 +21,7 @@
         {
             "quantity_sample": {
                 "quantity_type": "HKQuantityTypeIdentifierDietaryEnergyConsumed",
-                "quantity_value":{
+                "quantity_value": {
                     "unit_value": {
                         "value": 105,
                         "unit": "kcal"
