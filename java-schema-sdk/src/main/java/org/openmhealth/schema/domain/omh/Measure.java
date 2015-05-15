@@ -19,6 +19,8 @@ package org.openmhealth.schema.domain.omh;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -26,12 +28,13 @@ import java.time.OffsetDateTime;
  *
  * @author Emerson Farrugia
  */
-public abstract class Measure {
+public abstract class Measure implements AdditionalPropertySupport {
 
     // these fields are not final to prevent errors caused by the presence of the default serialization constructor
     private TimeFrame effectiveTimeFrame;
     private DescriptiveStatistic descriptiveStatistic;
     private String userNotes;
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
 
     @SuppressWarnings("unchecked")
@@ -91,6 +94,11 @@ public abstract class Measure {
 
     public String getUserNotes() {
         return userNotes;
+    }
+
+    @Override
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
     }
 
     @Override

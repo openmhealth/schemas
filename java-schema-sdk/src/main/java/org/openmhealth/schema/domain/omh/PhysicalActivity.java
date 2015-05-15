@@ -42,6 +42,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
 public class PhysicalActivity extends Measure {
 
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "physical-activity", "1.0");
+
     /**
      * A self-reported intensity of the activity performed.
      */
@@ -135,6 +137,11 @@ public class PhysicalActivity extends Measure {
 
     public SelfReportedIntensity getReportedActivityIntensity() {
         return reportedActivityIntensity;
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     @SuppressWarnings("SimplifiableIfStatement")
