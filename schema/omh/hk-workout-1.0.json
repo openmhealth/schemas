@@ -38,7 +38,7 @@
                             "description": "This should correspond to the constant for the desired type of activity, e.g. HKWorkoutActivityTypeCycling, not the integer value associated with that constant"
                         },
                         "effective_time_frame": {
-                            "description":"The time_interval property of time_frame is used to capture startdate, enddate, and duration for the HKWorkout object.",
+                            "description": "The time_interval property of time_frame is used to capture startdate, enddate, and duration for the HKWorkout object.",
                             "allOf": [
                                 {
                                     "$ref": "#/definitions/time_frame"
@@ -54,7 +54,7 @@
             ]
         },
         "kcal_burned": {
-            "description":"The number of calories burned in the workout. Uses kcal as the unit.",
+            "description": "The number of calories burned in the workout. Uses kcal as the unit.",
             "$ref": "#/definitions/kcal_unit_value"
         },
         "metadata": {

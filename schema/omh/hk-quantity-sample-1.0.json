@@ -28,33 +28,33 @@
 
     "properties": {
         "effective_time_frame": {
-            "description":"The date and time range or point when the sample occurred. When startdate and enddate are different, use the time_interval property, and when they are the same, use the date-time property.",
+            "description": "The date and time range or point when the sample occurred. When startdate and enddate are different, use the time_interval property, and when they are the same, use the date-time property.",
             "$ref": "#/definitions/time_frame"
         },
-        "quantity_value":{
+        "quantity_value": {
             "description": "The quantity value for this sample either as a unit_value or unitless number in the case of data points that have 'count' as the unit in HealthKit.",
-            "oneOf":[
+            "oneOf": [
                 {
-                    "properties":{
+                    "properties": {
                         "unit_value": {
                             "$ref": "#/definitions/unit_value",
-                            "references":[
+                            "references": [
                                 {
                                     "description": "The class reference for HKUnit the describes all the units used in HealthKit",
-                                    "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKUnit_Class/index.html"
+                                    "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKUnit_Class/index.html"
                                 }
                             ]
                         }
                     },
-                    "required":["unit_value"]
+                    "required": ["unit_value"]
                 },
                 {
-                    "properties":{
-                        "count":{
-                            "type":"number"
+                    "properties": {
+                        "count": {
+                            "type": "number"
                         }
                     },
-                    "required":["count"]
+                    "required": ["count"]
                 }
             ]
         },
@@ -66,5 +66,9 @@
             "$ref": "#/definitions/hk_metadata"
         }
     },
-    "required":["effective_time_frame","quantity_value","quantity_type"]
+    "required": [
+        "effective_time_frame",
+        "quantity_value",
+        "quantity_type"
+    ]
 }

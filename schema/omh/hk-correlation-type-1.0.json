@@ -6,18 +6,18 @@
 
     "references": [
         {
-            "description":"The reference for HealthKit constants.",
+            "description": "The reference for HealthKit constants.",
             "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html"
         },
         {
             "value": "HKCorrelationTypeIdentifierBloodPressure",
             "description": "Blood pressure correlation types combine a systolic sample and a diastolic sample into a single blood pressure reading.",
-            "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKCorrelationTypeIdentifierBloodPressure"
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKCorrelationTypeIdentifierBloodPressure"
         },
         {
             "value": "HKCorrelationTypeIdentifierFood",
             "description": "Food correlation types combine any number of nutritional samples into a single food object.",
-            "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKCorrelationTypeIdentifierFood"
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKCorrelationTypeIdentifierFood"
         }
     ],
 

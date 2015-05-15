@@ -6,7 +6,7 @@
 
     "references": [
         {
-            "description" : "The HealthKit constants reference, which includes descriptions for each constant.",
+            "description": "The HealthKit constants reference, which includes descriptions for each constant.",
             "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html"
         }
     ],

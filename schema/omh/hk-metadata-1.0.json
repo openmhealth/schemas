@@ -15,7 +15,7 @@
             "key": {
                 "description": "A set of Apple predefined or custom developer defined keys for adding metadata to HealthKit objects. Use Apple defined keys, e.g. HKMetadataKeyDeviceSerialNumber, when possible.",
                 "type": "string",
-                "url":"https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/#//apple_ref/doc/constant_group/Metadata_Keys"
+                "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/#//apple_ref/doc/constant_group/Metadata_Keys"
             },
             "value": {
                 "oneOf": [
