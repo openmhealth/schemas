@@ -31,7 +31,7 @@
             "$ref": "../generic/duration-unit-value-range-1.0.json"
         },
         "time_frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+            "$ref": "../generic/time-frame-2.0.json"
         },
         "temporal_relationship_to_meal": {
             "$ref": "temporal-relationship-to-meal-1.0.json"

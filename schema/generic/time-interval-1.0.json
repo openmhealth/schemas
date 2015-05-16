@@ -6,7 +6,7 @@
 
     "references": [
         {
-            "description": "The NCIT code represents Timespan (synonym: time interval).",
+            "description": "The NCIT codes represent Timespan (synonym: time interval).",
             "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68594"
         }
     ],
@@ -18,11 +18,15 @@
         "duration-unit-value": {
             "$ref": "duration-unit-value-1.0.json"
         },
-        "date": {
-            "$ref": "date-1.0.json"
-        },
-        "utc_offset": {
-            "$ref": "utc-offset-1.0.json"
+        "full_date": {
+            "type": "string",
+            "references": [
+                {
+                    "description": "This schema represents a date. See RFC 3339 5.6 for details.",
+                    "url": "http://tools.ietf.org/html/rfc3339"
+                }
+            ],
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
         },
         "part_of_day": {
             "$ref": "part-of-day-1.0.json"
@@ -66,73 +70,13 @@
         {
             "properties": {
                 "date": {
-                    "$ref": "#/definitions/date"
+                    "$ref": "#/definitions/full_date"
                 },
                 "part_of_day": {
                     "$ref": "#/definitions/part_of_day"
-                },
-                "utc_offset": {
-                    "$ref": "#/definitions/utc_offset"
                 }
             },
-            "required": ["date"]
-        },
-        {
-            "properties": {
-                "start_date": {
-                    "$ref": "#/definitions/date"
-                },
-                "part_of_day": {
-                    "$ref": "#/definitions/part_of_day"
-                },
-                "duration": {
-                    "$ref": "#/definitions/duration-unit-value"
-                },
-                "utc_offset": {
-                    "$ref": "#/definitions/utc_offset"
-                }
-            },
-            "required": ["start_date","duration"]
-        },
-        {
-            "properties": {
-                "end_date": {
-                    "$ref": "#/definitions/date"
-                },
-                "part_of_day": {
-                    "$ref": "#/definitions/part_of_day"
-                },
-                "duration": {
-                    "$ref": "#/definitions/duration-unit-value"
-                },
-                "utc_offset": {
-                    "$ref": "#/definitions/utc_offset"
-                }
-            },
-            "required": ["end_date","duration"]
-        },
-        {
-            "properties": {
-                "start_date": {
-                    "$ref": "#/definitions/date"
-                },
-                "start_part_of_day": {
-                    "$ref": "#/definitions/part_of_day"
-                },
-                "start_date_utc_offset": {
-                    "$ref": "#/definitions/utc_offset"
-                },
-                "end_date": {
-                    "$ref": "#/definitions/date"
-                },
-                "end_part_of_day": {
-                    "$ref": "#/definitions/part_of_day"
-                },
-                "end_date_utc_offset": {
-                    "$ref": "#/definitions/utc_offset"
-                }
-            },
-            "required": ["start_date","end_date"]
+            "required": ["date", "part_of_day"]
         }
     ]
 }

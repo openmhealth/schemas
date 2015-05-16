@@ -1,0 +1,138 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema describes an interval of time. In the absence of a precise start and/or end time, the time interval can be described as a date + a part of the day (morning, afternoon, evening, night). No commitments are made as to whether the start or end time point itself is included in the interval (i.e., whether the defined interval includes the boundary point(s) or not).",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The NCIT code represents Timespan (synonym: time interval).",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68594"
+        }
+    ],
+
+    "definitions": {
+        "date_time": {
+            "$ref": "date-time-1.0.json"
+        },
+        "duration-unit-value": {
+            "$ref": "duration-unit-value-1.0.json"
+        },
+        "date": {
+            "$ref": "date-1.0.json"
+        },
+        "utc_offset": {
+            "$ref": "utc-offset-1.0.json"
+        },
+        "part_of_day": {
+            "$ref": "part-of-day-1.0.json"
+        }
+    },
+
+    "oneOf": [
+        {
+            "properties": {
+                "start_date_time": {
+                    "$ref": "#/definitions/date_time"
+                },
+                "duration": {
+                    "$ref": "#/definitions/duration-unit-value"
+                }
+            },
+            "required": ["start_date_time", "duration"]
+        },
+        {
+            "properties": {
+                "end_date_time": {
+                    "$ref": "#/definitions/date_time"
+                },
+                "duration": {
+                    "$ref": "#/definitions/duration-unit-value"
+                }
+            },
+            "required": ["end_date_time", "duration"]
+        },
+        {
+            "properties": {
+                "start_date_time": {
+                    "$ref": "#/definitions/date_time"
+                },
+                "end_date_time": {
+                    "$ref": "#/definitions/date_time"
+                }
+            },
+            "required": ["start_date_time", "end_date_time"]
+        },
+        {
+            "properties": {
+                "date": {
+                    "$ref": "#/definitions/date"
+                },
+                "part_of_day": {
+                    "$ref": "#/definitions/part_of_day"
+                },
+                "utc_offset": {
+                    "$ref": "#/definitions/utc_offset"
+                }
+            },
+            "required": ["date"]
+        },
+        {
+            "properties": {
+                "start_date": {
+                    "$ref": "#/definitions/date"
+                },
+                "part_of_day": {
+                    "$ref": "#/definitions/part_of_day"
+                },
+                "duration": {
+                    "$ref": "#/definitions/duration-unit-value"
+                },
+                "utc_offset": {
+                    "$ref": "#/definitions/utc_offset"
+                }
+            },
+            "required": ["start_date","duration"]
+        },
+        {
+            "properties": {
+                "end_date": {
+                    "$ref": "#/definitions/date"
+                },
+                "part_of_day": {
+                    "$ref": "#/definitions/part_of_day"
+                },
+                "duration": {
+                    "$ref": "#/definitions/duration-unit-value"
+                },
+                "utc_offset": {
+                    "$ref": "#/definitions/utc_offset"
+                }
+            },
+            "required": ["end_date","duration"]
+        },
+        {
+            "properties": {
+                "start_date": {
+                    "$ref": "#/definitions/date"
+                },
+                "start_part_of_day": {
+                    "$ref": "#/definitions/part_of_day"
+                },
+                "start_date_utc_offset": {
+                    "$ref": "#/definitions/utc_offset"
+                },
+                "end_date": {
+                    "$ref": "#/definitions/date"
+                },
+                "end_part_of_day": {
+                    "$ref": "#/definitions/part_of_day"
+                },
+                "end_date_utc_offset": {
+                    "$ref": "#/definitions/utc_offset"
+                }
+            },
+            "required": ["start_date","end_date"]
+        }
+    ]
+}
