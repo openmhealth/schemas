@@ -1,9 +1,9 @@
 {
-    "quantity_type": "HKQuantityTypeIdentifierBodyMassIndex",
+    "quantity_type": "HKQuantityTypeIdentifierBodyMass",
     "quantity_value": {
         "unit_value": {
-            "value": 29.3,
-            "unit": "g"
+            "value": 80.7,
+            "unit": "kg"
         }
     },
     "effective_time_frame": {

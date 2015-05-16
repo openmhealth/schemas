@@ -1,0 +1,9 @@
+[
+    {
+        "key": "HKMetadataKeyHeartRateSensorLocation",
+        "value": "chest"
+    },
+    {
+        "key": "CustomMetadataKey"
+    }
+]
