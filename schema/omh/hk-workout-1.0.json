@@ -38,18 +38,22 @@
                             "description": "This should correspond to the constant for the desired type of activity, e.g. HKWorkoutActivityTypeCycling, not the integer value associated with that constant"
                         },
                         "effective_time_frame": {
-                            "description": "The time_interval property of time_frame is used to capture startdate, enddate, and duration for the HKWorkout object.",
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/time_frame"
-                                },
-                                {
-                                    "required": ["time_interval"]
-                                }
-                            ]
+                            "description": "The effective_time_frame property is used to capture startdate and enddate for the HKWorkout object where a date_time property can be used when startdate equals enddate.",
+                            "$ref": "#/definitions/time_frame"
                         }
                     },
                     "required": ["effective_time_frame"]
+                }
+            ]
+        },
+        "duration": {
+            "description": "The duration of the workout activity represented only as a time_interval, not a date-time.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": ["time_interval"]
                 }
             ]
         },
