@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "An Apple HealthKit workout sample that represents a workout or episode of physical activity.",
+    "description": "An Apple HealthKit workout sample that represents a workout or episode of physical activity. Open mHealth's HealthKit schemas do not capture the link between HKWorkout objects and samples that is created through the addSamples method.",
     "type": "object",
 
     "references": [
