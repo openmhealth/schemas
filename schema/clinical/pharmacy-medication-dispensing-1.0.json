@@ -1,0 +1,112 @@
+{
+   "$schema":"http://json-schema.org/draft-04/schema#",
+
+    "description":"This schema represents the dispensing by a pharmacy of medication based on a prescription e.g., atenolol 50 mg, 20 tab.",
+
+    "type":"object",
+    "references": [
+        {
+            "description": "The SNOMED code represents XXX",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/XXX"
+        }
+    ],
+
+    "definitions": {
+        "medication": {
+            "$ref": "medication-1.0.json"
+        },
+        "medication_dose_unit_value": {
+            "$ref": "medication-dose-unit-value-1.0.json"
+        },
+        "time_frame": {
+            "$ref": "../generic/time-frame-2.0.json"
+        }
+    },
+
+    "properties": {
+        "medication":{
+            "$ref": "#/definitions/medication"
+        },
+        "amount_dispensed": {
+            "allOf": [
+                {
+                    "$ref": "../generic/unit-value-1.0.json"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "description": "The list of most commonly used units of measure for a medication dispensed. Suggestions for additions are accepted.",
+                            "references": [
+                                {
+                                    "description": "Units are drawn in part from FDA units of measure.",
+                                    "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm"
+                                },
+                                {
+                                    "description": "Units are drawn in part from FDA pharmaceutical dosage form.",
+                                    "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162038.htm"
+                                }
+                            ],
+                            "enum": [
+                                "bead",
+                                "BU",
+                                "capsule",
+                                "cellular sheet",
+                                "Ci",
+                                "cloth",
+                                "cm^2",
+                                "D'ag'U",
+                                "disc",
+                                "dL",
+                                "douche",
+                                "drop",
+                                "FFU",
+                                "g",
+                                "globule",
+                                "granule",
+                                "gum",
+                                "lozenge",
+                                "mL",
+                                "mmol",
+                                "mol",
+                                "mU",
+                                "ng",
+                                "nmol",
+                                "organisms",
+                                "pastille",
+                                "patch",
+                                "pellet",
+                                "pill",
+                                "PNU",
+                                "pouch",
+                                "puff",
+                                "ring",
+                                "salve",
+                                "stick",
+                                "strip",
+                                "suppository",
+                                "swab",
+                                "tablet",
+                                "tampon",
+                                "tape",
+                                "tbsp",
+                                "tsp",
+                                "U",
+                                "uCi",
+                                "ug",
+                                "uL",
+                                "umol",
+                                "unt",
+                                "vial",
+                                "wafer"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "time_frame": {
+            "$ref": "#/definitions/time_frame"
+        }
+    },
+    "required": ["medication","amount_dispensed"]
+}
