@@ -11,5 +11,9 @@
             "unit": "mi"
         },
         "activity_name": "HKWorkoutActivityTypeCycling"
+    },
+    "kcal_burned": {
+        "value": 160,
+        "unit": "kcal"
     }
 }

@@ -8,9 +8,5 @@
             "value": 1.5,
             "unit": "mi"
         }
-    },
-    "kcal_burned": {
-        "value": 160,
-        "unit": "kcal"
     }
 }

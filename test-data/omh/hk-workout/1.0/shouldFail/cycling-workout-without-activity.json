@@ -9,7 +9,10 @@
         "distance": {
             "value": 1.5,
             "unit": "mi"
-        },
-        "activity_name": "HKWorkoutActivityTypeCycling"
+        }
+    },
+    "kcal_burned": {
+        "value": 160,
+        "unit": "kcal"
     }
 }
