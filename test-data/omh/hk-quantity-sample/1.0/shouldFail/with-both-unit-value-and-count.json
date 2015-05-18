@@ -1,11 +1,10 @@
 {
-    "quantity_type": "HKQuantityTypeIdentifierBodyMassIndex",
-    "quantity_value": {
-        "unit_value": {
-            "value": 29.3,
-            "unit": "g"
-        }
+    "quantity_type": "HKQuantityTypeIdentifierDietaryFatTotal",
+    "unit_value": {
+        "value": 29.3,
+        "unit": "g"
     },
+    "count": 29.3,
     "effective_time_frame": {
         "time_interval": {
             "start_date_time": "2013-02-05T06:25:00Z",

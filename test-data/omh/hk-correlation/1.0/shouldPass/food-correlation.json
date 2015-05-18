@@ -4,11 +4,9 @@
         {
             "quantity_sample": {
                 "quantity_type": "HKQuantityTypeIdentifierDietaryCarbohydrates",
-                "quantity_value": {
-                    "unit_value": {
-                        "value": 29.3,
-                        "unit": "g"
-                    }
+                "unit_value": {
+                    "value": 29.3,
+                    "unit": "g"
                 },
                 "effective_time_frame": {
                     "time_interval": {
@@ -21,11 +19,9 @@
         {
             "quantity_sample": {
                 "quantity_type": "HKQuantityTypeIdentifierDietaryEnergyConsumed",
-                "quantity_value": {
-                    "unit_value": {
-                        "value": 105,
-                        "unit": "kcal"
-                    }
+                "unit_value": {
+                    "value": 105,
+                    "unit": "kcal"
                 },
                 "effective_time_frame": {
                     "time_interval": {

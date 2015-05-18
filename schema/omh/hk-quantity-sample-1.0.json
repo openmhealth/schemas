@@ -26,21 +26,36 @@
         }
     },
 
-    "properties": {
-        "effective_time_frame": {
-            "description": "The time frame when this sample occurred. When the HKSample `startDate` and `endDate` values are different, we recommend using the `time_interval` time frame property, and when they are the same, we recommend using the `date_time` time frame property.",
-            "$ref": "#/definitions/time_frame"
+    "allOf": [
+        {
+            "properties": {
+                "effective_time_frame": {
+                    "description": "The time frame when this sample occurred. When the HKSample `startDate` and `endDate` values are different, we recommend using the `time_interval` time frame property, and when they are the same, we recommend using the `date_time` time frame property.",
+                    "$ref": "#/definitions/time_frame"
+                },
+                "quantity_type": {
+                    "description": "The quantity type for this sample.",
+                    "$ref": "#/definitions/hk_quantity_type"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/hk_metadata"
+                }
+            },
+            "required": [
+                "effective_time_frame",
+                "quantity_type"
+            ]
         },
-        "quantity_value": {
-            "description": "The quantity value for this sample either as a unit_value or unitless number in the case of data points that have 'count' as the unit in HealthKit.",
+        {
             "oneOf": [
                 {
                     "properties": {
                         "unit_value": {
+                            "description": "The quantity of this sample, as a unit and value.",
                             "$ref": "#/definitions/unit_value",
                             "references": [
                                 {
-                                    "description": "The class reference for HKUnit the describes all the units used in HealthKit",
+                                    "description": "The class reference for HKUnit that describes all the units used in HealthKit.",
                                     "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKUnit_Class/index.html"
                                 }
                             ]
@@ -51,24 +66,19 @@
                 {
                     "properties": {
                         "count": {
-                            "type": "number"
+                            "description": "The quantity of this sample, as a raw scalar value.",
+                            "type": "number",
+                            "references": [
+                                {
+                                    "description": "The `countUnit` HKUnit this property is typically used for.",
+                                    "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKUnit_Class/index.html#//apple_ref/occ/clm/HKUnit/countUnit"
+                                }
+                            ]
                         }
                     },
                     "required": ["count"]
                 }
             ]
-        },
-        "quantity_type": {
-            "description": "The quantity type for this sample.",
-            "$ref": "#/definitions/hk_quantity_type"
-        },
-        "metadata": {
-            "$ref": "#/definitions/hk_metadata"
         }
-    },
-    "required": [
-        "effective_time_frame",
-        "quantity_value",
-        "quantity_type"
     ]
 }
