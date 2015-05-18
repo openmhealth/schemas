@@ -25,7 +25,7 @@
 
     "properties": {
         "effective_time_frame": {
-            "description": "The interval of time or point in time when this sample occurred. When 'startdate' and 'enddate' are different, we recommend using the time_interval property, and when they are the same, we recommend using the date_time property.",
+            "description": "The time frame when this sample occurred. When the HKSample `startDate` and `endDate` values are different, we recommend using the `time_interval` time frame property, and when they are the same, we recommend using the `date_time` time frame property.",
             "$ref": "#/definitions/time_frame"
         },
         "category_value": {
