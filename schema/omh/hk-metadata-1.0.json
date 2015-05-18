@@ -19,7 +19,7 @@
                 "references": [
                     {
                         "description": "The list of predefined metadata keys in HealthKit.",
-                        "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/#//apple_ref/doc/constant_group/Metadata_Keys",
+                        "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/#//apple_ref/doc/constant_group/Metadata_Keys"
                     }
                 ]
             },
