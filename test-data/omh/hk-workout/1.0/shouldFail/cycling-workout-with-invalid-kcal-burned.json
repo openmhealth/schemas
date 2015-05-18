@@ -10,8 +10,12 @@
         "value": 1.5,
         "unit": "mi"
     },
+    "duration": {
+        "unit": "sec",
+        "value": 1800
+    },
     "kcal_burned": {
         "value": 160,
-        "unit": "kcal"
+        "unit": "kca"
     }
 }

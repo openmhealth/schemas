@@ -29,50 +29,45 @@
         }
     },
 
-    "properties": {
-        "physical_activity": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/physical_activity"
+    "allOf": [
+        {
+            "$ref": "#/definitions/physical_activity"
+        },
+        {
+            "properties": {
+                "activity_name": {
+                    "description": "This should correspond to the constant for the desired type of activity, e.g. HKWorkoutActivityTypeCycling, not the integer value associated with that constant"
                 },
-                {
-                    "properties": {
-                        "activity_name": {
-                            "description": "This should correspond to the constant for the desired type of activity, e.g. HKWorkoutActivityTypeCycling, not the integer value associated with that constant"
+                "effective_time_frame": {
+                    "description": "The time frame when this sample occurred. When the HKSample `startDate` and `endDate` values are different, we recommend using the `time_interval` time frame property, and when they are the same, we recommend using the `date_time` time frame property.",
+                    "$ref": "#/definitions/time_frame"
+                },
+                "duration": {
+                    "description": "The duration of the workout.",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/duration_unit_value"
                         },
-                        "effective_time_frame": {
-                            "description": "The time frame when this sample occurred. When the HKSample 'startDate' and 'endDate' values are different, we recommend using the time_interval time frame property, and when they are the same, we recommend using the date_time time frame property.",
-                            "$ref": "#/definitions/time_frame"
+                        {
+                            "properties": {
+                                "unit": {
+                                    "enum": [
+                                        "sec"
+                                    ]
+                                }
+                            }
                         }
-                    },
-                    "required": ["effective_time_frame"]
-                }
-            ]
-        },
-        "duration": {
-            "description": "The duration of the workout.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/duration_unit_value"
+                    ]
                 },
-                {
-                    "properties": {
-                        "unit": {
-                            "enum": [
-                                "sec"
-                            ]
-                        }
-                    }
+                "kcal_burned": {
+                    "description": "The number of calories burned in the workout.",
+                    "$ref": "#/definitions/kcal_unit_value"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/hk_metadata"
                 }
-            ]
-        },
-        "kcal_burned": {
-            "description": "The number of calories burned in the workout.",
-            "$ref": "#/definitions/kcal_unit_value"
-        },
-        "metadata": {
-            "$ref": "#/definitions/hk_metadata"
+            },
+            "required": ["effective_time_frame"]
         }
-    },
-    "required": ["physical_activity"]
+    ]
 }

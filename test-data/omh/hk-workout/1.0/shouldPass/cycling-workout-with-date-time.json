@@ -1,12 +1,10 @@
 {
-    "physical_activity": {
-        "effective_time_frame": {
-            "date_time": "2013-02-05T06:25:00Z"
-        },
-        "activity_name": "HKWorkoutActivityTypeCycling",
-        "distance": {
-            "value": 1.5,
-            "unit": "mi"
-        }
+    "activity_name": "HKWorkoutActivityTypeCycling",
+    "effective_time_frame": {
+        "date_time": "2013-02-05T06:25:00Z"
+    },
+    "distance": {
+        "value": 2,
+        "unit": "m"
     }
 }
