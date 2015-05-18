@@ -37,6 +37,7 @@
             "$ref": "#/definitions/hk_category_type"
         },
         "metadata": {
+            "description": "An array of extra information describing this sample.",
             "$ref": "#/definitions/hk_metadata"
         }
     },

@@ -3,6 +3,12 @@
 
     "description": "An array of key-value pairs that represent Apple HealthKit metadata information.",
     "type": "array",
+    "references": [
+        {
+            "description": "A general description of metadata in HealthKit.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKObject_Class/index.html#//apple_ref/occ/instp/HKObject/metadata"
+        }
+    ],
 
     "items": {
         "type": "object",
@@ -11,10 +17,6 @@
                 "description": "A predefined or custom metadata key. Use Apple defined keys, e.g. HKMetadataKeyDeviceSerialNumber, when possible.",
                 "type": "string",
                 "references": [
-                    {
-                        "description": "A general description of metadata in HealthKit.",
-                        "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKObject_Class/index.html#//apple_ref/occ/instp/HKObject/metadata"
-                    },
                     {
                         "description": "The list of predefined metadata keys in HealthKit.",
                         "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/#//apple_ref/doc/constant_group/Metadata_Keys",

@@ -64,6 +64,7 @@
                     "$ref": "#/definitions/kcal_unit_value"
                 },
                 "metadata": {
+                    "description": "An array of extra information describing this sample.",
                     "$ref": "#/definitions/hk_metadata"
                 }
             },
