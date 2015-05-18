@@ -8,28 +8,24 @@
         {
             "description": "The class reference for HKCorrelationSample.",
             "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKCorrelation_Class/index.html"
-        },
-        {
-            "description": "The reference for the HKMetadataKeyFoodType metadata key that should be used with correlation samples of type HKCorrelationTypeIdentifierFood.",
-            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKMetadataKeyFoodType"
         }
     ],
 
     "definitions": {
-        "time_frame": {
-            "$ref": "time-frame-1.x.json"
-        },
         "hk_correlation_type": {
             "$ref": "hk-correlation-type-1.0.json"
-        },
-        "hk_metadata": {
-            "$ref": "hk-metadata-1.0.json"
         },
         "hk_category_sample": {
             "$ref": "hk-category-sample-1.0.json"
         },
         "hk_quantity_sample": {
             "$ref": "hk-quantity-sample-1.0.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "hk_metadata": {
+            "$ref": "hk-metadata-1.0.json"
         }
     },
 
@@ -39,9 +35,9 @@
             "$ref": "#/definitions/hk_correlation_type"
         },
         "samples": {
+            "description": "An array of category and quantity samples that represent all the components of the correlation sample.",
             "type": "array",
             "minItems": 1,
-            "description": "An array of category and quantity samples that represent all the components of the correlation sample.",
             "items": {
                 "oneOf": [
                     {
@@ -64,8 +60,14 @@
             "$ref": "#/definitions/time_frame"
         },
         "metadata": {
-            "description": "When the correlation type is HKCorrelationTypeIdentifierFood, include a metadata item with key HKMetadataKeyFoodType and the name of the food item as its value.",
-            "$ref": "#/definitions/hk_metadata"
+            "description": "An array of extra information describing this sample.",
+            "$ref": "#/definitions/hk_metadata",
+            "references": [
+                {
+                    "description": "The reference for the HKMetadataKeyFoodType metadata key that should be included with correlation samples of type HKCorrelationTypeIdentifierFood.",
+                    "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKMetadataKeyFoodType"
+                }
+            ]
         }
     },
     "required": [
@@ -73,5 +75,4 @@
         "samples",
         "effective_time_frame"
     ]
-
 }
