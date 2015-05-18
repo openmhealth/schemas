@@ -122,15 +122,13 @@
             "type":"number"
         }
     },
+    "required": ["strength"],
     "anyOf": [
         {
-            "required": ["generic_name","strength"]
+            "required": ["generic_name"]
         },
         {
-            "required": ["trade_name","strength"]
-        },
-        {
-            "required": ["rxnorm_code"]
+            "required": ["trade_name"]
         }
     ]
 }
