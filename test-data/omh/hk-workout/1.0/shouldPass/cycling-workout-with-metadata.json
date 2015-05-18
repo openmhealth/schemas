@@ -1,0 +1,19 @@
+{
+    "activity_name": "HKWorkoutActivityTypeCycling",
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2013-02-05T06:25:00Z",
+            "end_date_time": "2013-02-05T07:25:00Z"
+        }
+    },
+    "distance": {
+        "value": 1.5,
+        "unit": "mi"
+    },
+    "metadata": [
+        {
+            "key": "HKMetadataKeyExternalUUID",
+            "value": "4b4a3862-1ed4-4d18-8c8e-b9ccc9f0102a"
+        }
+    ]
+}
