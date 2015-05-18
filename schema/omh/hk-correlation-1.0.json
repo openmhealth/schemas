@@ -64,7 +64,7 @@
             "$ref": "#/definitions/time_frame"
         },
         "metadata": {
-            "description": "For HKCorrelationTypeIdentifierFood the data point should contain a metadata item with the key HKMetadataKeyFoodType that is the name of the food item",
+            "description": "When the correlation type is HKCorrelationTypeIdentifierFood, include a metadata item with key HKMetadataKeyFoodType and the name of the food item as its value.",
             "$ref": "#/definitions/hk_metadata"
         }
     },
