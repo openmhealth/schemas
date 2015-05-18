@@ -4,24 +4,28 @@
     "description": "An array of key-value pairs that represent Apple HealthKit metadata information.",
     "type": "array",
 
-    "definitions": {
-        "date_time": {
-            "$ref": "date-time-1.x.json"
-        }
-    },
     "items": {
         "type": "object",
         "properties": {
             "key": {
-                "description": "A set of Apple predefined or custom developer defined keys for adding metadata to HealthKit objects. Use Apple defined keys, e.g. HKMetadataKeyDeviceSerialNumber, when possible.",
+                "description": "A predefined or custom metadata key. Use Apple defined keys, e.g. HKMetadataKeyDeviceSerialNumber, when possible.",
                 "type": "string",
-                "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/#//apple_ref/doc/constant_group/Metadata_Keys"
+                "references": [
+                    {
+                        "description": "A general description of metadata in HealthKit.",
+                        "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKObject_Class/index.html#//apple_ref/occ/instp/HKObject/metadata"
+                    },
+                    {
+                        "description": "The list of predefined metadata keys in HealthKit.",
+                        "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/#//apple_ref/doc/constant_group/Metadata_Keys",
+                    }
+                ]
             },
             "value": {
                 "oneOf": [
                     {"type": "string"},
                     {"type": "number"},
-                    {"$ref": "#/definitions/date_time"}
+                    {"type": "boolean"}
                 ]
             }
         },
