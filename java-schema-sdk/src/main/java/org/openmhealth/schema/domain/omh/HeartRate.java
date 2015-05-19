@@ -59,6 +59,14 @@ public class HeartRate extends Measure {
             this.heartRate = new TypedUnitValue<>(HeartRateUnit.BEATS_PER_MINUTE, heartRateValue);
         }
 
+        public Builder(double heartRateValue) {
+            this(BigDecimal.valueOf(heartRateValue));
+        }
+
+        public Builder(long heartRateValue) {
+            this(BigDecimal.valueOf(heartRateValue));
+        }
+
         public Builder setTemporalRelationshipToPhysicalActivity(TemporalRelationshipToPhysicalActivity relationship) {
             this.temporalRelationshipToPhysicalActivity = relationship;
             return this;

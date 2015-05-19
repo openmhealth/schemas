@@ -56,6 +56,14 @@ public class StepCount extends Measure {
             this.stepCount = stepCount;
         }
 
+        public Builder(double stepCount) {
+            this(BigDecimal.valueOf(stepCount));
+        }
+
+        public Builder(long stepCount) {
+            this(BigDecimal.valueOf(stepCount));
+        }
+
         /**
          * We are working on supporting descriptive statistics for counts, since the semantics of the effective time
          * frame become unclear without additional temporal information.
