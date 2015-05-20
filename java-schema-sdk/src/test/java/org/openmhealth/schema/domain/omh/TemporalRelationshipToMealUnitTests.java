@@ -27,7 +27,7 @@ import static org.openmhealth.schema.domain.omh.TemporalRelationshipToMeal.*;
 /**
  * @author Emerson Farrugia
  */
-public class TemporalRelationshipToMealTest {
+public class TemporalRelationshipToMealUnitTests {
 
     @Test
     public void getSchemaValueShouldPreferSpecifiedValue() {
