@@ -13,19 +13,19 @@
 
     "definitions": {
         "hk_correlation_type": {
-            "$ref": "hk-correlation-type-1.0.json"
+            "$ref": "hk-correlation-type-1.x.json"
         },
         "hk_category_sample": {
-            "$ref": "hk-category-sample-1.0.json"
+            "$ref": "hk-category-sample-1.x.json"
         },
         "hk_quantity_sample": {
-            "$ref": "hk-quantity-sample-1.0.json"
+            "$ref": "hk-quantity-sample-1.x.json"
         },
         "time_frame": {
             "$ref": "../omh/time-frame-1.x.json"
         },
         "hk_metadata": {
-            "$ref": "hk-metadata-1.0.json"
+            "$ref": "hk-metadata-1.x.json"
         }
     },
 

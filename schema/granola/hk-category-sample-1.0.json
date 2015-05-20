@@ -16,10 +16,10 @@
             "$ref": "../omh/time-frame-1.x.json"
         },
         "hk_category_type": {
-            "$ref": "hk-category-type-1.0.json"
+            "$ref": "hk-category-type-1.x.json"
         },
         "hk_metadata": {
-            "$ref": "hk-metadata-1.0.json"
+            "$ref": "hk-metadata-1.x.json"
         }
     },
 

@@ -25,7 +25,7 @@
             "$ref": "../omh/kcal-unit-value-1.x.json"
         },
         "hk_metadata": {
-            "$ref": "hk-metadata-1.0.json"
+            "$ref": "hk-metadata-1.x.json"
         }
     },
 

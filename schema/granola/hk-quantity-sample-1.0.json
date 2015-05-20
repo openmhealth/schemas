@@ -16,13 +16,13 @@
             "$ref": "../omh/time-frame-1.x.json"
         },
         "hk_quantity_type": {
-            "$ref": "hk-quantity-type-1.0.json"
+            "$ref": "hk-quantity-type-1.x.json"
         },
         "unit_value": {
             "$ref": "../omh/unit-value-1.x.json"
         },
         "hk_metadata": {
-            "$ref": "hk-metadata-1.0.json"
+            "$ref": "hk-metadata-1.x.json"
         }
     },
 
