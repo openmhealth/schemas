@@ -23,6 +23,8 @@ import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -37,13 +39,16 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
-public class TimeInterval {
+public class TimeInterval implements SchemaSupport, AdditionalPropertySupport {
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "time-interval", "1.0");
 
     private OffsetDateTime startDateTime;
     private OffsetDateTime endDateTime;
     private DurationUnitValue duration;
     private LocalDate date;
     private PartOfDay partOfDay;
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
 
     @SerializationConstructor
@@ -122,6 +127,16 @@ public class TimeInterval {
 
     public PartOfDay getPartOfDay() {
         return partOfDay;
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    @Override
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
     }
 
     @SuppressWarnings("SimplifiableIfStatement")

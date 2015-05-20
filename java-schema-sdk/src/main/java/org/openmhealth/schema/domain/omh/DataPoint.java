@@ -20,6 +20,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 
@@ -30,11 +33,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @version 1.0
  * @see <a href="http://www.openmhealth.org/developers/schemas/#data-point">data-point</a>
  */
-public class DataPoint<T> {
+public class DataPoint<T> implements SchemaSupport, AdditionalPropertySupport {
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "data-point", "1.0");
 
     private String id; // this is duplicated from the header to make Spring Data happy
     private DataPointHeader header;
     private T body;
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
 
     @SerializationConstructor
@@ -62,6 +68,16 @@ public class DataPoint<T> {
 
     public T getBody() {
         return body;
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    @Override
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
     }
 
     @SuppressWarnings("SimplifiableIfStatement")

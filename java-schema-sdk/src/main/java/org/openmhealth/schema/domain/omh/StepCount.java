@@ -37,6 +37,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
 public class StepCount extends Measure {
 
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "step-count", "1.0");
+
     private BigDecimal stepCount;
 
 
@@ -52,6 +54,14 @@ public class StepCount extends Measure {
 
             checkNotNull(stepCount, "A step count hasn't been specified.");
             this.stepCount = stepCount;
+        }
+
+        public Builder(double stepCount) {
+            this(BigDecimal.valueOf(stepCount));
+        }
+
+        public Builder(long stepCount) {
+            this(BigDecimal.valueOf(stepCount));
         }
 
         /**
@@ -80,6 +90,11 @@ public class StepCount extends Measure {
     }
 
     @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    @Override
     public boolean equals(Object object) {
 
         if (this == object) {
@@ -95,7 +110,6 @@ public class StepCount extends Measure {
         StepCount stepCount1 = (StepCount) object;
 
         return stepCount.equals(stepCount1.stepCount);
-
     }
 
     @Override

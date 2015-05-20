@@ -37,6 +37,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
 public class HeartRate extends Measure {
 
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "heart-rate", "1.0");
+
     private TypedUnitValue<HeartRateUnit> heartRate;
     private TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity;
 
@@ -55,6 +57,14 @@ public class HeartRate extends Measure {
             checkNotNull(heartRateValue, "A heart rate hasn't been specified.");
 
             this.heartRate = new TypedUnitValue<>(HeartRateUnit.BEATS_PER_MINUTE, heartRateValue);
+        }
+
+        public Builder(double heartRateValue) {
+            this(BigDecimal.valueOf(heartRateValue));
+        }
+
+        public Builder(long heartRateValue) {
+            this(BigDecimal.valueOf(heartRateValue));
         }
 
         public Builder setTemporalRelationshipToPhysicalActivity(TemporalRelationshipToPhysicalActivity relationship) {
@@ -83,6 +93,11 @@ public class HeartRate extends Measure {
         return temporalRelationshipToPhysicalActivity;
     }
 
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
     @SuppressWarnings("SimplifiableIfStatement")
     @Override
     public boolean equals(Object object) {
@@ -103,7 +118,6 @@ public class HeartRate extends Measure {
             return false;
         }
         return temporalRelationshipToPhysicalActivity == heartRate1.temporalRelationshipToPhysicalActivity;
-
     }
 
     @Override

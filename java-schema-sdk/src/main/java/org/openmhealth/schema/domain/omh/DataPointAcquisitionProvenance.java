@@ -22,6 +22,8 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -37,11 +39,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
-public class DataPointAcquisitionProvenance {
+public class DataPointAcquisitionProvenance implements AdditionalPropertySupport {
 
     private String sourceName;
     private OffsetDateTime sourceCreationDateTime;
     private DataPointModality modality;
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     @SerializationConstructor
     private DataPointAcquisitionProvenance() {
@@ -104,6 +107,11 @@ public class DataPointAcquisitionProvenance {
 
     public Optional<DataPointModality> getModality() {
         return Optional.ofNullable(modality);
+    }
+
+    @Override
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
     }
 
     @SuppressWarnings("SimplifiableIfStatement")

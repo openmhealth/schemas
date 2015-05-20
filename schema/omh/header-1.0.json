@@ -15,12 +15,15 @@
 
     "properties": {
         "id": {
+            "description": "The identifier of this data point. We strongly recommend this to be a globally unique value.",
             "type": "string"
         },
         "creation_date_time": {
+            "description": "The date time this data point was created.",
             "$ref": "#/definitions/date_time"
         },
         "schema_id": {
+            "description": "The schema identifier of the body of the data point.",
             "$ref": "#/definitions/schema_id"
         },
         "acquisition_provenance": {

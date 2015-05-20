@@ -35,7 +35,9 @@ import static java.util.regex.Pattern.compile;
  * @version 1.0
  * @see <a href="http://www.openmhealth.org/developers/schemas/#schema-id">schema-id</a>
  */
-public class SchemaId implements Comparable<SchemaId> {
+public class SchemaId implements Comparable<SchemaId>, SchemaSupport {
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "schema-id", "1.0");
 
     public static final Pattern NAMESPACE_PATTERN = compile("[a-zA-Z0-9.-]+");
     public static final Pattern NAME_PATTERN = compile("[a-zA-Z0-9-]+");
@@ -90,6 +92,11 @@ public class SchemaId implements Comparable<SchemaId> {
     public String toString() {
 
         return Joiner.on(":").join(namespace, name, version);
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     @Override

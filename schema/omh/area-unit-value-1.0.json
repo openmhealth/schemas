@@ -18,7 +18,7 @@
                     "references": [
                         {
                             "description": "The unit of measure of the element. Basic unit is meter (m). Allowed values are drawn from the SI Area Units and English Area Units Common Synonyms (non-UCUM). The valid UCUM code is different for square inch ([sin_i]), square foot ([sft_i]), square yard ([syd_i]).",
-                            "url": "http://www.hl7.de/download/documents/ucum/ucumdata.html"
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
                         }
                     ],
                     "enum": [
