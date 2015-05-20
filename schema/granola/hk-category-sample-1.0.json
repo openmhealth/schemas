@@ -13,7 +13,7 @@
 
     "definitions": {
         "time_frame": {
-            "$ref": "time-frame-1.x.json"
+            "$ref": "../omh/time-frame-1.x.json"
         },
         "hk_category_type": {
             "$ref": "hk-category-type-1.0.json"

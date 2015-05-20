@@ -13,13 +13,13 @@
 
     "definitions": {
         "time_frame": {
-            "$ref": "time-frame-1.x.json"
+            "$ref": "../omh/time-frame-1.x.json"
         },
         "hk_quantity_type": {
             "$ref": "hk-quantity-type-1.0.json"
         },
         "unit_value": {
-            "$ref": "unit-value-1.x.json"
+            "$ref": "../omh/unit-value-1.x.json"
         },
         "hk_metadata": {
             "$ref": "hk-metadata-1.0.json"

@@ -13,16 +13,16 @@
 
     "definitions": {
         "physical_activity": {
-            "$ref": "physical-activity-1.x.json"
+            "$ref": "../omh/physical-activity-1.x.json"
         },
         "time_frame": {
-            "$ref": "time-frame-1.x.json"
+            "$ref": "../omh/time-frame-1.x.json"
         },
         "duration_unit_value": {
-            "$ref": "duration-unit-value-1.x.json"
+            "$ref": "../omh/duration-unit-value-1.x.json"
         },
         "kcal_unit_value": {
-            "$ref": "kcal-unit-value-1.x.json"
+            "$ref": "../omh/kcal-unit-value-1.x.json"
         },
         "hk_metadata": {
             "$ref": "hk-metadata-1.0.json"
