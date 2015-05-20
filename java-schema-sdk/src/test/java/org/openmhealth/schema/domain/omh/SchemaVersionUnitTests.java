@@ -17,7 +17,6 @@
 package org.openmhealth.schema.domain.omh;
 
 
-import org.openmhealth.schema.domain.omh.SchemaVersion;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;

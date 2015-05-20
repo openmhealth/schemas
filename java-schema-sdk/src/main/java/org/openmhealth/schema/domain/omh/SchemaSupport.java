@@ -16,6 +16,9 @@
 
 package org.openmhealth.schema.domain.omh;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 /**
  * An interface for schema classes.
  *
@@ -28,5 +31,6 @@ public interface SchemaSupport {
     /**
      * @return the schema this class corresponds to
      */
+    @JsonIgnore
     SchemaId getSchemaId();
 }

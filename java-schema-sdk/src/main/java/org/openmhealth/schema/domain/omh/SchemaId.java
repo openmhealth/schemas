@@ -37,10 +37,10 @@ import static java.util.regex.Pattern.compile;
  */
 public class SchemaId implements Comparable<SchemaId>, SchemaSupport {
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "schema-id", "1.0");
-
     public static final Pattern NAMESPACE_PATTERN = compile("[a-zA-Z0-9.-]+");
     public static final Pattern NAME_PATTERN = compile("[a-zA-Z0-9-]+");
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "schema-id", "1.0");
 
     private String namespace;
     private String name;
