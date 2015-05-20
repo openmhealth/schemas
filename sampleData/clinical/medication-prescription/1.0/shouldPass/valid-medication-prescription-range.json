@@ -17,7 +17,8 @@
     "schedule": [
         {
             "dose_duration": {
-                "value": 2,
+                "low_value": 1,
+                "high_value": 2,
                 "unit": "wk"
             },
             "dose": {

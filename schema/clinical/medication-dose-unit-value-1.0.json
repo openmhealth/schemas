@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "description": "This schema represents the dose of a therapeutic agent.",
+  "description": "This schema represents the dose of a therapeutic agent, which can be a number or a range.",
   "references": [
     {
       "description": "The NCIT code represents Dose",
@@ -10,7 +10,14 @@
   ],
   "allOf": [
     {
-      "$ref": "../generic/unit-value-1.0.json"
+        "oneOf": [
+            {
+                "$ref": "../generic/unit-value-1.0.json"
+            },
+            {
+                "$ref": "../generic/unit-value-range-1.0.json"
+            }
+        ]
     },
     {
       "properties": {
