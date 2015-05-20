@@ -135,7 +135,7 @@ public class DataPointUnitTests extends SerializationUnitTests {
 
         serializationShouldCreateValidDocument(dataPoint, document);
 
-        // it's not yet clear whether it's necessary to deserialize into a typed data point. doing is possible
+        // it's not yet clear whether it's necessary to deserialize into a typed data point. doing so is possible
         // but not simple, and requires a @JsonTypeResolver implementation to resolve the type of the body
         // deserializationShouldCreateValidObject(document, dataPoint);
     }
