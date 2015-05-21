@@ -38,12 +38,6 @@ public class HeartRateUnitTests extends SerializationUnitTests {
 
     public static final String SCHEMA_FILENAME = "schema/omh/heart-rate-1.0.json";
 
-    @Test(expectedExceptions = NullPointerException.class)
-    public void constructorShouldThrowExceptionOnUndefinedHeartRateValue() {
-
-        new HeartRate.Builder(null);
-    }
-
     @Test
     public void buildShouldConstructMeasureUsingOnlyRequiredProperties() {
 
