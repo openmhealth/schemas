@@ -107,7 +107,7 @@ public class BloodGlucoseUnitTests extends SerializationUnitTests {
                 OffsetDateTime.of(2013, 6, 5, 7, 25, 0, 0, UTC)
         );
 
-        BloodGlucose bloodGlucose = new BloodGlucose.Builder(new TypedUnitValue<>(MILLIGRAMS_PER_DECILITER, 120))
+        BloodGlucose measure = new BloodGlucose.Builder(new TypedUnitValue<>(MILLIGRAMS_PER_DECILITER, 120))
                 .setBloodSpecimenType(PLASMA)
                 .setTemporalRelationshipToMeal(FASTING)
                 .setTemporalRelationshipToSleep(ON_WAKING)
@@ -134,7 +134,7 @@ public class BloodGlucoseUnitTests extends SerializationUnitTests {
                 "    \"user_notes\": \"feeling fine\"\n" +
                 "}";
 
-        serializationShouldCreateValidDocument(bloodGlucose, document);
-        deserializationShouldCreateValidObject(document, bloodGlucose);
+        serializationShouldCreateValidDocument(measure, document);
+        deserializationShouldCreateValidObject(document, measure);
     }
 }
