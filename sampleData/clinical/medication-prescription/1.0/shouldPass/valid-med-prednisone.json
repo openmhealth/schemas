@@ -73,7 +73,7 @@
             },
             "dose_recurrence": {
                 "frequency": {
-                    "number_of_times": 3,
+                    "number_of_times": 1,
                     "time_window": {
                         "value": 1,
                         "unit": "d"

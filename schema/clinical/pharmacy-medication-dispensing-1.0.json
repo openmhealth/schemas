@@ -24,6 +24,9 @@
         "medication_prescription":{
             "$ref": "#/definitions/medication_prescription"
         },
+        "medication_dispensed": {
+            "description": "NDC code 9 med + 2 package size"
+        },
         "amount_dispensed": {
             "allOf": [
                 {
@@ -89,7 +92,13 @@
         },
         "time_frame_medication_dispensed": {
             "$ref": "#/definitions/time_frame"
+        },
+        "remaining_refills": {
+            "type": "number"
+        },
+        "remaining_amount": {
+            "type": "number"
         }
     },
-    "required": ["medication_prescription","amount_dispensed","time_frame_medication_dispensed"]
+    "required": ["medication_prescription","medication_dispensed","amount_dispensed","time_frame_medication_dispensed"]
 }

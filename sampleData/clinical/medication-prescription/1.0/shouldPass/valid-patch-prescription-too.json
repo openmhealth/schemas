@@ -1,0 +1,45 @@
+{
+    "description": "LidoPatch: Pain (localized): Apply patch to painful area. Patch may remain in place for up to 12 hours in any 24-hour period. No more than 1 patch should be used in a 24-hour period",
+
+    "medication": {
+        "trade_name": "Percocet",
+        "generic_name": "Acetaminophen 325 MG / Oxycodone Hydrochloride 5 MG Oral Tablet",
+        "strength": [
+            {
+                "ingredient_name": "Lidocaine",
+                "value": 0.04,
+                "unit": "mg/mg"
+            },
+            {
+                "ingredient_name": "Menthol",
+                "value": 0.01,
+                "unit": "mg/mg"
+            }
+        ],
+        "rxnorm_code": 1249763
+    },
+
+    "route": "transdermal",
+
+    "schedule": [
+        {
+            "dose_duration": "until pain abates",
+            "dose_administration_duration": {
+                "low_value": 0,
+                "high_value": 12,
+                "unit": "h"
+            },
+            "dose": {
+                "value": 1,
+                "unit": "patch"
+            },
+            "dose_recurrence": {
+                "number_of_times": 1,
+                "time_window": {
+                    "value": 24,
+                    "unit": "h"
+                }
+            }
+        }
+    ]
+}
