@@ -16,13 +16,11 @@
 
 package org.openmhealth.schema.domain.omh;
 
-import org.openmhealth.schema.domain.omh.DataPointAcquisitionProvenance;
 import org.testng.annotations.Test;
 
 import java.time.OffsetDateTime;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DataPointModality.SENSED;
 
@@ -51,8 +49,8 @@ public class DataPointAcquisitionProvenanceUnitTests {
 
         assertThat(provenance, notNullValue());
         assertThat(provenance.getSourceName(), equalTo("chest strap"));
-        assertThat(provenance.getSourceCreationDateTime().isPresent(), equalTo(false));
-        assertThat(provenance.getModality().isPresent(), equalTo(false));
+        assertThat(provenance.getSourceCreationDateTime(), nullValue());
+        assertThat(provenance.getModality(), nullValue());
     }
 
     @Test
@@ -67,9 +65,7 @@ public class DataPointAcquisitionProvenanceUnitTests {
 
         assertThat(provenance, notNullValue());
         assertThat(provenance.getSourceName(), equalTo("chest strap"));
-        assertThat(provenance.getSourceCreationDateTime().isPresent(), equalTo(true));
-        assertThat(provenance.getSourceCreationDateTime().get(), equalTo(sourceCreationDateTime));
-        assertThat(provenance.getModality().isPresent(), equalTo(true));
-        assertThat(provenance.getModality().get(), equalTo(SENSED));
+        assertThat(provenance.getSourceCreationDateTime(), equalTo(sourceCreationDateTime));
+        assertThat(provenance.getModality(), equalTo(SENSED));
     }
 }

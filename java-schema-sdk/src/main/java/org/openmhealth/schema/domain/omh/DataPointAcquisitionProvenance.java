@@ -24,7 +24,6 @@ import org.openmhealth.schema.serializer.SerializationConstructor;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -101,12 +100,12 @@ public class DataPointAcquisitionProvenance implements AdditionalPropertySupport
         return sourceName;
     }
 
-    public Optional<OffsetDateTime> getSourceCreationDateTime() {
-        return Optional.ofNullable(sourceCreationDateTime);
+    public OffsetDateTime getSourceCreationDateTime() {
+        return sourceCreationDateTime;
     }
 
-    public Optional<DataPointModality> getModality() {
-        return Optional.ofNullable(modality);
+    public DataPointModality getModality() {
+        return modality;
     }
 
     @Override

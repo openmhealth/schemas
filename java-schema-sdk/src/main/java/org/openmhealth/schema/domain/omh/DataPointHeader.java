@@ -25,7 +25,6 @@ import org.openmhealth.schema.serializer.SerializationConstructor;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 import static com.google.common.base.Preconditions.checkArgument;
@@ -51,7 +50,6 @@ public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport
     private DataPointAcquisitionProvenance acquisitionProvenance;
     private String userId;
     private Map<String, Object> additionalProperties = new HashMap<>();
-
 
 
     @SerializationConstructor
@@ -138,12 +136,12 @@ public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport
         return creationDateTime;
     }
 
-    public Optional<DataPointAcquisitionProvenance> getAcquisitionProvenance() {
-        return Optional.ofNullable(acquisitionProvenance);
+    public DataPointAcquisitionProvenance getAcquisitionProvenance() {
+        return acquisitionProvenance;
     }
 
-    public Optional<String> getUserId() {
-        return Optional.ofNullable(userId);
+    public String getUserId() {
+        return userId;
     }
 
     @Override
@@ -156,6 +154,7 @@ public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport
         return this.additionalProperties;
     }
 
+    @SuppressWarnings("SimplifiableIfStatement")
     @Override
     public boolean equals(Object object) {
 
@@ -177,9 +176,11 @@ public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport
         if (!bodySchemaId.equals(that.bodySchemaId)) {
             return false;
         }
-        return !(acquisitionProvenance != null ? !acquisitionProvenance.equals(that.acquisitionProvenance)
-                : that.acquisitionProvenance != null);
-
+        if (acquisitionProvenance != null ? !acquisitionProvenance.equals(that.acquisitionProvenance)
+                : that.acquisitionProvenance != null) {
+            return false;
+        }
+        return !(userId != null ? !userId.equals(that.userId) : that.userId != null);
     }
 
     @Override
@@ -189,6 +190,7 @@ public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport
         result = 31 * result + creationDateTime.hashCode();
         result = 31 * result + bodySchemaId.hashCode();
         result = 31 * result + (acquisitionProvenance != null ? acquisitionProvenance.hashCode() : 0);
+        result = 31 * result + (userId != null ? userId.hashCode() : 0);
         return result;
     }
 }
