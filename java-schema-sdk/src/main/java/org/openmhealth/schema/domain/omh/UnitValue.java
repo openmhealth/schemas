@@ -94,7 +94,7 @@ public class UnitValue implements SchemaSupport, AdditionalPropertySupport {
 
         UnitValue unitValue = (UnitValue) object;
 
-        return unit.equals(unitValue.unit) && value.equals(unitValue.value);
+        return unit.equals(unitValue.unit) && value.compareTo(unitValue.value) == 0;
     }
 
     @Override
