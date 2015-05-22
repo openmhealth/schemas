@@ -36,19 +36,20 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * The header of a data point.
  *
  * @author Emerson Farrugia
- * @version 1.0
+ * @version 1.1
  * @see <a href="http://www.openmhealth.org/developers/schemas/#header">header</a>
  */
 @JsonInclude(NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
 public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport {
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "header", "1.0");
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "header", "1.1");
 
     private String id;
     private OffsetDateTime creationDateTime;
     private SchemaId bodySchemaId;
     private DataPointAcquisitionProvenance acquisitionProvenance;
+    private String userId;
     private Map<String, Object> additionalProperties = new HashMap<>();
 
 
@@ -63,6 +64,7 @@ public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport
         private OffsetDateTime creationDateTime;
         private SchemaId bodySchemaId;
         private DataPointAcquisitionProvenance acquisitionProvenance;
+        private String userId;
 
         /**
          * @param id the identifier of the data point
@@ -99,6 +101,15 @@ public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport
             return this;
         }
 
+        /**
+         * @param userId the user this data point belongs to
+         * @return this builder
+         */
+        public Builder setUserId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
         public DataPointHeader build() {
             return new DataPointHeader(this);
         }
@@ -110,6 +121,7 @@ public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport
         this.creationDateTime = builder.creationDateTime;
         this.bodySchemaId = builder.bodySchemaId;
         this.acquisitionProvenance = builder.acquisitionProvenance;
+        this.userId = builder.userId;
     }
 
     public String getId() {
@@ -130,8 +142,8 @@ public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport
         return Optional.ofNullable(acquisitionProvenance);
     }
 
-    public void setAcquisitionProvenance(DataPointAcquisitionProvenance acquisitionProvenance) {
-        this.acquisitionProvenance = acquisitionProvenance;
+    public Optional<String> getUserId() {
+        return Optional.ofNullable(userId);
     }
 
     @Override
