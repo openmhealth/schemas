@@ -44,6 +44,10 @@
                 }
             },
             "required": ["source_name"]
+        },
+        "user_id": {
+            "description": "The user this data point belongs to.",
+            "type": "string"
         }
     },
 
