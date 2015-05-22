@@ -36,27 +36,27 @@ public class DataPointHeaderUnitTests extends SerializationUnitTests {
     public static final String SCHEMA_FILENAME = "schema/omh/header-1.0.json";
 
     private String id;
-    private SchemaId schemaId;
+    private SchemaId bodySchemaId;
     private OffsetDateTime creationDateTime;
 
     @BeforeTest
     public void initializeFixture() {
 
         id = UUID.randomUUID().toString();
-        schemaId = new SchemaId("omh", "body-weight", "1.0");
+        bodySchemaId = new SchemaId("omh", "body-weight", "1.0");
         creationDateTime = OffsetDateTime.now();
     }
 
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedId() {
 
-        new DataPointHeader.Builder(null, schemaId, creationDateTime);
+        new DataPointHeader.Builder(null, bodySchemaId, creationDateTime);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void constructorShouldThrowExceptionOnEmptyId() {
 
-        new DataPointHeader.Builder("", schemaId, creationDateTime);
+        new DataPointHeader.Builder("", bodySchemaId, creationDateTime);
     }
 
     @Test(expectedExceptions = NullPointerException.class)
@@ -68,17 +68,17 @@ public class DataPointHeaderUnitTests extends SerializationUnitTests {
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedCreationDateTime() {
 
-        new DataPointHeader.Builder(id, schemaId, null);
+        new DataPointHeader.Builder(id, bodySchemaId, null);
     }
 
     @Test
     public void buildShouldConstructObjectUsingOnlyRequiredProperties() {
 
-        DataPointHeader header = new DataPointHeader.Builder(id, schemaId, creationDateTime).build();
+        DataPointHeader header = new DataPointHeader.Builder(id, bodySchemaId, creationDateTime).build();
 
         assertThat(header, notNullValue());
         assertThat(header.getId(), equalTo(id));
-        assertThat(header.getSchemaId(), equalTo(schemaId));
+        assertThat(header.getBodySchemaId(), equalTo(bodySchemaId));
         assertThat(header.getCreationDateTime(), equalTo(creationDateTime));
         assertThat(header.getAcquisitionProvenance().isPresent(), equalTo(false));
     }
@@ -89,13 +89,13 @@ public class DataPointHeaderUnitTests extends SerializationUnitTests {
         DataPointAcquisitionProvenance acquisitionProvenance =
                 new DataPointAcquisitionProvenance.Builder("wrist strap").build();
 
-        DataPointHeader header = new DataPointHeader.Builder(id, schemaId, creationDateTime)
+        DataPointHeader header = new DataPointHeader.Builder(id, bodySchemaId, creationDateTime)
                 .setAcquisitionProvenance(acquisitionProvenance)
                 .build();
 
         assertThat(header, notNullValue());
         assertThat(header.getId(), equalTo(id));
-        assertThat(header.getSchemaId(), equalTo(schemaId));
+        assertThat(header.getBodySchemaId(), equalTo(bodySchemaId));
         assertThat(header.getCreationDateTime(), equalTo(creationDateTime));
         assertThat(header.getAcquisitionProvenance().isPresent(), equalTo(true));
         assertThat(header.getAcquisitionProvenance().get(), equalTo(acquisitionProvenance));
