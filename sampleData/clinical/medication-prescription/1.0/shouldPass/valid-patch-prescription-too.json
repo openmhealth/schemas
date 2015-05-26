@@ -2,8 +2,7 @@
     "description": "LidoPatch: Pain (localized): Apply patch to painful area. Patch may remain in place for up to 12 hours in any 24-hour period. No more than 1 patch should be used in a 24-hour period",
 
     "medication": {
-        "trade_name": "Percocet",
-        "generic_name": "Acetaminophen 325 MG / Oxycodone Hydrochloride 5 MG Oral Tablet",
+        "trade_name": "LidoPatch",
         "strength": [
             {
                 "ingredient_name": "Lidocaine",

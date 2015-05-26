@@ -37,8 +37,8 @@
             }
         ]
     },
-    "medication_dispensed": 12345678910,
-    
+    "medication_dispensed": "0067-0143-85",
+
     "time_frame_medication_prepared": {
         "date_time": "2013-02-05T09:25:00.123Z"
 

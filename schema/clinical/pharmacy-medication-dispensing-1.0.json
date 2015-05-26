@@ -25,7 +25,8 @@
             "$ref": "#/definitions/medication_prescription"
         },
         "medication_dispensed": {
-            "description": "NDC code 9 med + 2 package size"
+            "description": "NDC code of the medication dispensed by the pharmacy, e.g., 10882-527-07, where 10882-527 indicates the medication and 07 the package size",
+            "type": "string"
         },
         "amount_dispensed": {
             "allOf": [
