@@ -84,7 +84,7 @@
                         ]
                     },
                     "dose_administration_duration": {
-                        "description": "the administration of a medication dose can last a certain length of time (duration), a certain range of time (duration range), a time frame (one day or a time interval) or as long as a certain condition (e.g., until skin lesion heals).",
+                        "description": "the administration of a medication dose can last a certain length of time (duration), a certain range of time (duration range), a time frame (one day or a time interval) or as long as a certain condition (e.g., until pain abates).",
                         "oneOf": [
                             {
                                 "$ref": "#/definitions/duration_unit_value"
