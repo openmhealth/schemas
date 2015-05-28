@@ -16,31 +16,25 @@
 
 package org.openmhealth.schema.domain.omh;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import com.github.fge.jsonschema.main.JsonSchema;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
-import org.openmhealth.schema.serializer.Rfc3339OffsetDateTimeSerializer;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import javax.annotation.Nullable;
 import java.io.File;
-import java.time.OffsetDateTime;
 import java.util.Collections;
 import java.util.Iterator;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.openmhealth.schema.configuration.JacksonConfiguration.newObjectMapper;
 
 
 /**
@@ -50,31 +44,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public abstract class SerializationUnitTests {
 
-    protected static final ObjectMapper objectMapper = new ObjectMapper();
+    protected static final ObjectMapper objectMapper = newObjectMapper();
     private static final JsonSchemaFactory jsonSchemaFactory = JsonSchemaFactory.byDefault();
 
     protected static JsonSchema schema;
 
-    @BeforeClass
-    public void initializeObjectMapper() {
-
-        // we represent JSON numbers as Java BigDecimals
-        objectMapper.enable(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS);
-
-        // we serialize dates, date times, and times as strings, not numbers
-        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-
-        // we default to the ISO8601 format for JSR-310 and support Optional
-        objectMapper.registerModule(new JSR310Module());
-        objectMapper.registerModule(new Jdk8Module());
-
-        // but we have to explicitly support the RFC3339 format over ISO8601 to make JSON Schema happy, specifically to
-        // prevent the truncation of zero second fields
-        SimpleModule rfc3339Module = new SimpleModule("rfc3339Module");
-        rfc3339Module.addSerializer(new Rfc3339OffsetDateTimeSerializer(OffsetDateTime.class));
-        objectMapper.registerModule(rfc3339Module);
-
-    }
 
     @BeforeClass
     public void loadSchema() throws ProcessingException {
