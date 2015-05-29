@@ -1,0 +1,37 @@
+{
+   "$schema":"http://json-schema.org/draft-04/schema#",
+
+   "description":"This schema represents the given reason for missing a single prescribed dose of a medication.",
+
+   "type":"object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Medication regimen deficit (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/425165004"
+        }
+    ],
+   "definitions": {
+        "medication": {
+            "$ref":"medication-1.0.json"
+        },
+        "time_frame": {
+            "$ref":"../generic/time-frame-2.0.json"
+        }
+    },
+
+   "properties": {
+       "medication": {
+           "$ref": "#/definitions/medication"
+       },
+       "effective_time_frame": {
+           "$ref": "#/definitions/time_frame"
+       },
+       "reason_for_missing_dose": {
+           "type": "string"
+       }
+   },
+   "required": [
+       "medication",
+       "dose",
+       "effective_time_frame"]
+}

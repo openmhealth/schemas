@@ -27,7 +27,17 @@
             "dose_recurrence": {
                 "timing": [
                     {
-                        "time_of_day": "07:00:00"
+                        "time_of_day": "07:00:00",
+                        "acceptable_window": {
+                            "before": {
+                                "value": 30,
+                                "unit": "min"
+                            },
+                            "after": {
+                                "value": 30,
+                                "unit": "min"
+                            }
+                        }
                     }
                 ]
             }
