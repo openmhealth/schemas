@@ -18,7 +18,7 @@
         {
             "dose_duration": "until pain abates",
             "dose_administration_duration": {
-                "low_value": 0,
+                "low_value": 1,
                 "high_value": 12,
                 "unit": "h"
             },

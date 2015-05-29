@@ -27,13 +27,12 @@
                 "unit": "yr"
             },
             "dose_administration_duration": {
-                "low_value": 0,
+                "low_value": 1,
                 "high_value": 12,
                 "unit": "h"
             },
             "dose": {
-                "low_value": 0,
-                "high_value": 1,
+                "value": 1,
                 "unit": "patch"
             },
             "dose_recurrence": {
@@ -42,7 +41,8 @@
                     "value": 24,
                     "unit": "h"
                 }
-            }
+            },
+            "dose_prn_trigger": "pain"
         }
     ]
 }
