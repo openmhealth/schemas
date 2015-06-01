@@ -9,7 +9,10 @@
         ]
     },
     "effective_time_frame": {
-        "date": "2015-02-05",
-        "time_of_day": "08:30:00"
-    }
+        "time_interval": {
+            "date": "2015-02-05",
+            "time_of_day": "08:30:00"
+        }
+    },
+    "reason_for_missing_dose": "I ran out of med."
 }
