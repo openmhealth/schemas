@@ -38,16 +38,6 @@
                         "time_of_day": "08:00:00"
                     }
                 ]
-            },
-            "acceptable_window": {
-                "before": {
-                    "value": 30,
-                    "unit": "min"
-                },
-                "after": {
-                    "value": 30,
-                    "unit": "min"
-                }
             }
         },
         {
@@ -80,5 +70,15 @@
                 ]
             }
         }
-    ]
+    ],
+    "acceptable_window": {
+        "before": {
+            "value": 30,
+            "unit": "min"
+        },
+        "after": {
+            "value": 30,
+            "unit": "min"
+        }
+    }
 }

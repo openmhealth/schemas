@@ -6,8 +6,8 @@
    "type":"object",
     "references": [
         {
-            "description": "The SNOMED code represents Medication regimen deficit (finding)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/425165004"
+            "description": "The SNOMED code represents Medication regimen behavior finding (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/422979000"
         }
     ],
    "definitions": {
@@ -24,6 +24,7 @@
            "$ref": "#/definitions/medication"
        },
        "effective_time_frame": {
+           "description": "The time frame of the dose missed.",
            "$ref": "#/definitions/time_frame"
        },
        "reason_for_missing_dose": {
@@ -32,6 +33,7 @@
    },
    "required": [
        "medication",
-       "dose",
-       "effective_time_frame"]
+       "effective_time_frame",
+       "reason_for_missing_dose"
+   ]
 }

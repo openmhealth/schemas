@@ -1,0 +1,12 @@
+{
+    "medication": {
+        "generic_name": "atenolol 50 mg oral tablet",
+        "strength": [
+            {
+                "value": 50,
+                "unit": "mg"
+            }
+        ]
+    },
+    "reason_for_missing_dose": "I ran out of med."
+}

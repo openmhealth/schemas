@@ -1,16 +1,16 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
 
-   "description":"This schema represents assumption of a single prescribed dose of a medication.",
+   "description":"This schema represents assumption of a single dose of a medication.",
 
    "type":"object",
     "references": [
         {
-            "description": "The SNOMED code represents Adherence to medication regime",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/418633004"
+            "description": "The SNOMED code represents Medication regimen behavior finding (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/422979000"
         }
     ],
-   "definitions": {
+    "definitions": {
         "medication": {
             "$ref":"medication-1.0.json"
         },
@@ -18,23 +18,29 @@
             "$ref": "medication-dose-unit-value-1.0.json"
         },
         "time_frame": {
-            "$ref":"../generic/time-frame-2.0.json"
+            "$ref": "../generic/time-frame-2.0.json"
         }
     },
 
-   "properties": {
-      "medication": {
-          "$ref": "#/definitions/medication"
-      },
-      "dose": {
-          "$ref": "#/definitions/medication_dose_unit_value"
-      },
-      "effective_time_frame": {
-          "$ref": "#/definitions/time_frame"
-      }
-   },
-   "required": [
-       "medication",
-       "dose",
-       "effective_time_frame"]
+    "properties": {
+        "medication": {
+            "$ref": "#/definitions/medication"
+        },
+        "dose": {
+            "description": "This is the dose actually taken, which may differ from the dose prescribed.",
+            "$ref": "#/definitions/medication_dose_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "reason_dose_taken_not_as_prescribed": {
+            "description": "This is to describe cases of under or over-dosing or medication taken outside the prescribed acceptable window",
+            "type": "string"
+        }
+    },
+    "required": [
+        "medication",
+        "dose",
+        "effective_time_frame"
+    ]
 }

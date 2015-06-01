@@ -4,12 +4,6 @@
     "description":"This schema represents the dispensing by a pharmacy of medication based on a prescription e.g., atenolol 50 mg, 20 tab.",
 
     "type":"object",
-    "references": [
-        {
-            "description": "The SNOMED code represents XXX",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/XXX"
-        }
-    ],
 
     "definitions": {
         "medication_prescription": {
@@ -111,9 +105,7 @@
             "$ref": "#/definitions/time_frame"
         },
         "remaining_refills": {
-            "type": "number"
-        },
-        "remaining_amount": {
+            "description": "The number of refills still available in the prescription.",
             "type": "number"
         }
     },

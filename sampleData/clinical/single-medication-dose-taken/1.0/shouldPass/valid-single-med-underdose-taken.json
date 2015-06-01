@@ -1,0 +1,20 @@
+{
+    "medication": {
+        "generic_name": "atenolol 25 mg oral tablet",
+        "strength": [
+            {
+                "value": 25,
+                "unit": "mg"
+            }
+        ]
+    },
+    "dose": {
+        "value": 0.5,
+        "unit": "tablet"
+
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T21:00:00Z"
+    },
+    "reason_dose_taken_not_as_prescribed": "I am almost out of med and took half to make it last until I can refill."
+}
