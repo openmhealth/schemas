@@ -15,7 +15,7 @@
             "$ref":"medication-1.0.json"
         },
         "time_frame": {
-            "$ref":"../generic/time-frame-2.0.json"
+            "$ref":"../generic/time-frame-1.1.json"
         }
     },
 
