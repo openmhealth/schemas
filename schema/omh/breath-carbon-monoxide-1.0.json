@@ -5,20 +5,20 @@
     "type": "object",
     "references": [
         {
-            "description": "The SNOMED code represents XXX",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+            "description": "The SNOMED code represents Expired carbon monoxide concentration",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/251900003"
         }
     ],
 
     "definitions": {
         "unit_value": {
-            "$ref": "../generic/unit-value-1.0.json"
+            "$ref": "unit-value-1.0.json"
         },
         "time_frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+            "$ref": "time-frame-1.0.json"
         },
         "descriptive_statistic": {
-            "$ref": "../generic/descriptive-statistic-1.0.json"
+            "$ref": "descriptive-statistic-1.0.json"
         }
     },
 
