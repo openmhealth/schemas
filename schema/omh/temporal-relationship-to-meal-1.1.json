@@ -57,6 +57,20 @@
         {
             "value": "2 hours postprandial",
             "description": "This value is currently not part of any standard vocabulary, but is needed to describe for ex. 2-hour postprandial blood glucose"
+        },
+        {
+            "value": "not related to meals",
+            "description": "This value is currently not part of any standard vocabulary, but was chosen to describe measurement whose relationship to a meal is not specified, for ex., in the case of so-called random glucose measurement"
+        },
+        {
+            "value": "with meal",
+            "description": "The SNOMED code represents With or after meal",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/311503006"
+        },
+        {
+            "value": "with food",
+            "description": "The SNOMED code represents With or after food",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/311504000"
         }
     ],
     "enum": [
@@ -70,6 +84,9 @@
         "after lunch",
         "before dinner",
         "after dinner",
-        "2 hours postprandial"
+        "2 hours postprandial",
+        "not related to meals",
+        "with meal",
+        "with food"
     ]
 }

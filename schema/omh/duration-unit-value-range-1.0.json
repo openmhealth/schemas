@@ -22,7 +22,7 @@
                     "references": [
                         {
                             "description": "The unit of measure of the element. Basic unit is second (s). Allowed values are drawn from the Time Units Common Synonyms (non-UCUM). The valid UCUM code is different for second (s), month (mo) and year (a).",
-                            "url": "http://www.hl7.de/download/documents/ucum/ucumdata.html"
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
                         }
                     ],
                     "enum": [

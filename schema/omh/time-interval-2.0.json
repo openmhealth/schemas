@@ -19,7 +19,7 @@
             "$ref": "duration-unit-value-1.0.json"
         },
         "date": {
-            "$ref": "date-1.0.json"
+            "$ref": "full-date-1.0.json"
         },
         "utc_offset": {
             "$ref": "utc-offset-1.0.json"
