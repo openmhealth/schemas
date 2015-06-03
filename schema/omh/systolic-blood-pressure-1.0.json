@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description": "This schema represents a person's systolic blood pressure.",
+    "references": [
+        {
+            "description": "The SNOMED code represents systolic blood pressure (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/271649006"
+        }
+    ],
+
+    "definitions": {
+        "unit_value": {
+            "$ref": "unit-value-1.x.json"
+        }
+    },
+
+    "allOf": [
+        {
+            "$ref": "#/definitions/unit_value"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "enum": ["mmHg"]
+                }
+            }
+        }
+    ]
+}

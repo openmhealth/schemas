@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a length or a distance.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Length",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/410668003"
+        }
+    ],
+
+    "allOf": [
+        {
+            "$ref": "unit-value-1.x.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Basic unit is meter (m) [ http://unitsofmeasure.org/ucum.html#para-28 ]. Allowed values are drawn from the SI Length Units and English Length Units Common Synonyms (non-UCUM). The valid UCUM code is different for inch ([in_i]), foot ([ft_i]), yard ([yd_i]) and mile ([mi_i]).",
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
+                        }
+                    ],
+                    "enum": [
+                        "fm",
+                        "pm",
+                        "nm",
+                        "um",
+                        "mm",
+                        "cm",
+                        "m",
+                        "km",
+                        "in",
+                        "ft",
+                        "yd",
+                        "mi"
+                    ]
+                }
+            }
+        }
+    ]
+}

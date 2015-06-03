@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a mass.",
+
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Mass",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/118538004"
+        }
+    ],
+
+    "allOf": [
+        {
+            "$ref": "unit-value-1.x.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Basic unit is gram (g) [ http://unitsofmeasure.org/ucum.html#para-28 ]. Allowed values are drawn from the SI Mass Units and English Mass Units Common Synonyms (non-UCUM) columns of the 'Mass Units' section. The valid UCUM code is different for metric ton (t), grain ([gr]), ounce ([oz_av]), pound ([lb_av]) and Ton ([ston_av]).",
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
+                        }
+                    ],
+                    "enum": [
+                        "fg",
+                        "pg",
+                        "ng",
+                        "ug",
+                        "mg",
+                        "g",
+                        "kg",
+                        "Metric Ton",
+                        "gr",
+                        "oz",
+                        "lb",
+                        "Ton"
+                    ]
+                }
+            }
+        }
+    ]
+}

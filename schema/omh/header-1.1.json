@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the header of a data transaction.",
+    "type": "object",
+
+    "definitions": {
+        "date_time": {
+            "$ref": "date-time-1.x.json"
+        },
+        "schema_id": {
+            "$ref": "schema-id-1.x.json"
+        }
+    },
+
+    "properties": {
+        "id": {
+            "description": "The identifier of this data point. We strongly recommend this to be a globally unique value.",
+            "type": "string"
+        },
+        "creation_date_time": {
+            "description": "The date time this data point was created.",
+            "$ref": "#/definitions/date_time"
+        },
+        "schema_id": {
+            "description": "The schema identifier of the body of the data point.",
+            "$ref": "#/definitions/schema_id"
+        },
+        "acquisition_provenance": {
+            "type": "object",
+            "properties": {
+                "source_name": {
+                    "description": "The name of the source of the data.",
+                    "type": "string"
+                },
+                "source_creation_date_time": {
+                    "description": "The date time (timestamp) of data creation at the source.",
+                    "$ref": "#/definitions/date_time"
+                },
+                "modality": {
+                    "description": "The modality whereby the measure is obtained.",
+                    "type": "string",
+                    "enum": ["sensed","self-reported"]
+                }
+            },
+            "required": ["source_name"]
+        },
+        "user_id": {
+            "description": "The user this data point belongs to.",
+            "type": "string"
+        }
+    },
+
+    "required": [
+        "id",
+        "creation_date_time",
+        "schema_id"
+    ]
+}

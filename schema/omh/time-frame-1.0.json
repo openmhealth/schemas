@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema describes a time frame as a point in time or a time interval.",
+
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED codes represent Time frame (qualifier value).",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/7389001"
+        }
+    ],
+
+    "definitions": {
+        "date_time": {
+            "$ref": "date-time-1.x.json"
+        },
+
+        "time_interval": {
+            "$ref": "time-interval-1.x.json"
+        }
+    },
+
+    "oneOf": [
+        {
+            "properties": {
+                "date_time": {
+                    "$ref": "#/definitions/date_time"
+                }
+            },
+            "required": [ "date_time"]
+        },
+        {
+            "properties": {
+                "time_interval": {
+                    "$ref": "#/definitions/time_interval"
+                }
+            },
+            "required": [ "time_interval"]
+        }
+    ]
+}

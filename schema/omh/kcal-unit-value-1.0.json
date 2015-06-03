@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents an amount (value) of kilocalories (unit of measure).",
+
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents kilocalorie (kcal)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258791007"
+        }
+    ],
+    "allOf": [
+        {
+            "$ref": "unit-value-1.x.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. The allowed value is kcal. This is not a standard (see http://unitsofmeasure.org/ucum.html#para-43), but it is the one commonly and widely used.",
+                            "url": "http://unitsofmeasure.org/ucum.html#datyp2apdxatblxmp"
+                        }
+                    ],
+                    "enum": ["kcal"]
+                }
+            }
+        }
+    ]
+}

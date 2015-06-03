@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description": "This schema represents an area (measure of a surface)",
+    "references": [
+        {
+            "description": "The SNOMED code represents Area",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/42798000"
+        }
+    ],
+    "allOf": [
+        {
+            "$ref": "unit-value-1.x.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Basic unit is meter (m). Allowed values are drawn from the SI Area Units and English Area Units Common Synonyms (non-UCUM). The valid UCUM code is different for square inch ([sin_i]), square foot ([sft_i]), square yard ([syd_i]).",
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
+                        }
+                    ],
+                    "enum": [
+                        "mm^2",
+                        "cm^2",
+                        "m^2",
+                        "km^2",
+                        "in^2",
+                        "ft^2",
+                        "yd^2",
+                        "mi^2"
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description": "This schema represents a single measurement of sleep duration. The ability to represent descriptive statistics (e.g., mean, median) will be added shortly.",
+    "references": [
+        {
+            "description": "The SNOMED code represents Duration of sleep (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/248263006"
+        }
+    ],
+
+    "definitions": {
+        "duration_unit_value": {
+            "$ref": "duration-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        }
+    },
+
+    "properties": {
+        "sleep_duration": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/duration_unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "sec",
+                                "min",
+                                "h"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "user_notes": {
+            "type": "string"
+        }
+    },
+
+    "required": ["sleep_duration"]
+}

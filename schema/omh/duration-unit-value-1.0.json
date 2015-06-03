@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a duration or length of time.",
+
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Duration (qualifier value)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/103335007"
+        }
+    ],
+
+    "allOf": [
+        {
+            "$ref": "unit-value-1.x.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Basic unit is second (s). Allowed values are drawn from the Time Units Common Synonyms (non-UCUM). The valid UCUM code is different for second (s), month (mo) and year (a).",
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
+                        }
+                    ],
+                    "enum": [
+                        "ps",
+                        "ns",
+                        "us",
+                        "ms",
+                        "sec",
+                        "min",
+                        "h",
+                        "d",
+                        "wk",
+                        "Mo",
+                        "yr"
+                    ]
+                }
+            }
+        }
+    ]
+}

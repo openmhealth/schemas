@@ -1,0 +1,11 @@
+{
+    "heart_rate": {
+        "value": 50,
+        "unit": "beats/min"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00Z"
+    },
+    "temporal_relationship_to_physical_activity": "at rest",
+    "user_notes": "I felt quite dizzy"
+}

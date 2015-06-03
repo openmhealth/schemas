@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description": "This schema represents a data point.",
+
+    "definitions": {
+        "header": {
+            "$ref": "header-1.x.json"
+        }
+    },
+
+    "properties": {
+        "header": {
+            "description": "The header of the data point.",
+            "$ref": "#/definitions/header"
+        },
+        "body": {
+            "description": "The body of the data point. This object should conform to the schema identifier in the header property.",
+            "type": "object"
+        }
+    },
+    "required": ["header", "body"]
+}
