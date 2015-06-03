@@ -22,16 +22,16 @@
             "$ref": "medication-dose-unit-value-1.0.json"
         },
         "frequency_unit_value": {
-            "$ref": "../generic/frequency-unit-value-1.0.json"
+            "$ref": "frequency-unit-value-1.0.json"
         },
         "duration_unit_value": {
-            "$ref": "../generic/duration-unit-value-1.0.json"
+            "$ref": "duration-unit-value-1.0.json"
         },
         "duration_unit_value_range": {
-            "$ref": "../generic/duration-unit-value-range-1.0.json"
+            "$ref": "duration-unit-value-range-1.0.json"
         },
         "time_frame": {
-            "$ref": "../generic/time-frame-2.0.json"
+            "$ref": "time-frame-2.0.json"
         },
         "temporal_relationship_to_meal": {
             "$ref": "temporal-relationship-to-meal-1.1.json"
@@ -40,13 +40,13 @@
             "$ref": "temporal-relationship-to-sleep-1.0.json"
         },
         "part_of_day": {
-            "$ref": "../generic/part-of-day-1.0.json"
+            "$ref": "part-of-day-1.0.json"
         },
         "day_of_week": {
-            "$ref": "../generic/day-of-week-1.0.json"
+            "$ref": "day-of-week-1.0.json"
         },
         "time": {
-            "$ref": "../generic/time-1.0.json"
+            "$ref": "time-1.0.json"
         }
     },
 

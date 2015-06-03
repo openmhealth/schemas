@@ -10,7 +10,7 @@
             "$ref": "medication-prescription-1.0.json"
         },
         "time_frame": {
-            "$ref": "../generic/time-frame-2.0.json"
+            "$ref": "time-frame-2.0.json"
         }
     },
 
@@ -25,7 +25,7 @@
         "amount_dispensed": {
             "allOf": [
                 {
-                    "$ref": "../generic/unit-value-1.0.json"
+                    "$ref": "unit-value-1.0.json"
                 },
                 {
                     "properties": {

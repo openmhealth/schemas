@@ -12,10 +12,10 @@
     {
         "oneOf": [
             {
-                "$ref": "../generic/unit-value-1.0.json"
+                "$ref": "unit-value-1.0.json"
             },
             {
-                "$ref": "../generic/unit-value-range-1.0.json"
+                "$ref": "unit-value-range-1.0.json"
             }
         ]
     },

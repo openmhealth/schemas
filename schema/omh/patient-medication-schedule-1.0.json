@@ -16,19 +16,19 @@
             "$ref": "medication-dose-unit-value-1.0.json"
         },
         "duration_unit_value": {
-            "$ref": "../generic/duration-unit-value-1.0.json"
+            "$ref": "duration-unit-value-1.0.json"
         },
         "duration_unit_value_range": {
-            "$ref": "../generic/duration-unit-value-range-1.0.json"
+            "$ref": "duration-unit-value-range-1.0.json"
         },
         "time_frame": {
-            "$ref": "../generic/time-frame-2.0.json"
+            "$ref": "time-frame-2.0.json"
         },
         "day_of_week": {
-            "$ref": "../generic/day-of-week-1.0.json"
+            "$ref": "day-of-week-1.0.json"
         },
         "time": {
-            "$ref": "../generic/time-1.0.json"
+            "$ref": "time-1.0.json"
         }
     },
 
