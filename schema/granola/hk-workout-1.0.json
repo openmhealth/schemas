@@ -68,7 +68,7 @@
                     "$ref": "#/definitions/hk_metadata"
                 }
             },
-            "required": ["effective_time_frame"]
+            "required": ["effective_time_frame","activity_name"]
         }
     ]
 }
