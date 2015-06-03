@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a person's respiratory rate (inhalation and exhalation), either a single respiratory rate measurement, or the result of aggregating several measurements made over time (see Numeric descriptor schema for a list of aggregate measures)",
+    "description": "This schema represents a person's respiratory rate (inhalation and exhalation), either a single respiratory rate measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures)",
     "type": "object",
     "references": [
         {
@@ -12,13 +12,13 @@
 
     "definitions": {
         "unit_value": {
-            "$ref": "../generic/unit-value-1.0.json"
+            "$ref": "unit-value-1.0.json"
         },
         "time_frame": {
-            "$ref": "../generic/time-frame-1.0.json"
+            "$ref": "time-frame-1.0.json"
         },
         "descriptive_statistic": {
-            "$ref": "../generic/descriptive-statistic-1.0.json"
+            "$ref": "descriptive-statistic-1.0.json"
         },
         "temporal_relationship_to_physical_activity": {
             "$ref": "temporal-relationship-to-physical-activity-1.0.json"
