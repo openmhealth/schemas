@@ -18,7 +18,7 @@
                     "references": [
                         {
                             "description": "The unit of measure of the element. Basic unit is degree Kelvin (K). Allowed values are drawn from the Temperature Units Common Synonyms (non-UCUM). The valid UCUM code is different for Celsius (C) and Fahrenheit ([degF]).",
-                            "url": "http://www.hl7.de/download/documents/ucum/ucumdata.html"
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
                         },
                         {
                             "description": "The SNOMED code represents Degrees Celsius",
