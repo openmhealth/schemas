@@ -1,0 +1,13 @@
+{
+    "body_temperature": {
+        "value": 96.5,
+        "unit": "F"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2015-02-05T06:00:00Z",
+            "end_date_time": "2015-02-06T06:00:00Z"
+        }
+    },
+    "descriptive_statistic": "average"
+}

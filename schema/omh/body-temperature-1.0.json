@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a person's body temperature, either a single measurement, or the result of aggregating several measurements made over time (see Numeric descriptor schema for a list of aggregate measures)",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents body temperature (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/386725007"
+        }
+    ],
+
+    "definitions": {
+        "temperature_unit_value": {
+            "$ref": "../generic/temperature-unit-value-1.0.json"
+        },
+        "time_frame": {
+            "$ref": "../generic/time-frame-1.0.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "../generic/descriptive-statistic-1.0.json"
+        },
+        "measurement_location": {
+            "type": "string",
+            "enum": [
+                "oral",
+                "rectal",
+                "vaginal",
+                "axillary",
+                "otic",
+                "wrist",
+                "chest"
+            ]
+        }
+    },
+
+    "properties": {
+        "body_temperature": {
+            "$ref": "#/definitions/temperature_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "measurement_location": {
+            "$ref": "#/definitions/measurement_location"
+        }
+    },
+
+    "required": ["body_temperature"]
+}
