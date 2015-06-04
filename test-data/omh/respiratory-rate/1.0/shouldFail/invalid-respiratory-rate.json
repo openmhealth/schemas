@@ -1,0 +1,6 @@
+{
+    "respiratory_rate": {
+        "value": 12,
+        "unit": "breath/min"
+    }
+}
