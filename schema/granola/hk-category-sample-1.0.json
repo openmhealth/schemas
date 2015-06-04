@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "An Apple HealthKit category sample, describing categorical values.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The class reference for HKCategorySample.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKCategorySample_Class/index.html"
+        }
+    ],
+
+    "definitions": {
+        "time_frame": {
+            "$ref": "../omh/time-frame-1.x.json"
+        },
+        "hk_category_type": {
+            "$ref": "hk-category-type-1.x.json"
+        },
+        "hk_metadata": {
+            "$ref": "hk-metadata-1.x.json"
+        }
+    },
+
+    "properties": {
+        "effective_time_frame": {
+            "description": "The time frame when this sample occurred. When the HKSample `startDate` and `endDate` values are different, we recommend using the `time_interval` time frame property, and when they are the same, we recommend using the `date_time` time frame property.",
+            "$ref": "#/definitions/time_frame"
+        },
+        "category_value": {
+            "description": "The category value for this sample.",
+            "type": "string"
+        },
+        "category_type": {
+            "description": "The category type for this sample.",
+            "$ref": "#/definitions/hk_category_type"
+        },
+        "metadata": {
+            "description": "An array of extra information describing this sample.",
+            "$ref": "#/definitions/hk_metadata"
+        }
+    },
+    "required": [
+        "effective_time_frame",
+        "category_value",
+        "category_type"
+    ]
+}

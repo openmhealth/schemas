@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "type": "string",
+    "description": "The constants for the types of HKCorrelation data as defined by the Apple HealthKit Framework",
+
+    "references": [
+        {
+            "description": "The reference for HealthKit constants.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html"
+        },
+        {
+            "value": "HKCorrelationTypeIdentifierBloodPressure",
+            "description": "Blood pressure correlation types combine a systolic sample and a diastolic sample into a single blood pressure reading.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKCorrelationTypeIdentifierBloodPressure"
+        },
+        {
+            "value": "HKCorrelationTypeIdentifierFood",
+            "description": "Food correlation types combine any number of nutritional samples into a single food object.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKCorrelationTypeIdentifierFood"
+        }
+    ],
+
+    "enum": [
+        "HKCorrelationTypeIdentifierBloodPressure",
+        "HKCorrelationTypeIdentifierFood"
+    ]
+}

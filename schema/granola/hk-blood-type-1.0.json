@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "type": "string",
+    "description": "The blood type of the individual.",
+
+    "references": [
+        {
+            "description": "The reference to the HKBloodType enumeration.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/tdef/HKBloodType"
+        },
+        {
+            "description": "The class reference for HKBloodTypeObject.",
+            "url": "https://developer.apple.com/library/ios/help/HKBloodTypeObject_Class/index.html"
+        }
+    ],
+
+    "enum": [
+        "A+",
+        "A-",
+        "B+",
+        "B-",
+        "AB+",
+        "O+",
+        "O-"
+    ]
+}
