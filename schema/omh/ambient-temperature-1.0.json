@@ -5,8 +5,8 @@
     "type": "object",
     "references": [
         {
-            "description": "The SNOMED code represents room temperature (observable entity)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+            "description": "The SNOMED code represents Ambient temperature (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/250825003"
         }
     ],
 

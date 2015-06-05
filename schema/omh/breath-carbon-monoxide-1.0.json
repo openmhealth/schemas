@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents the concentration of carbon monoxide (CO) in a person's breath, either a single respiratory rate measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures)",
+    "description": "This schema represents the concentration of carbon monoxide (CO) in a person's expired breath, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures)",
     "type": "object",
     "references": [
         {

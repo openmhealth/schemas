@@ -21,16 +21,16 @@
                             "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
                         },
                         {
-                            "description": "The SNOMED code represents Degrees Celsius",
-                            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258710007"
-                        },
-                        {
                             "description": "The SNOMED code represents Degrees Kelvin",
                             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258713009"
                         },
                         {
                             "description": "The SNOMED code represents Degrees Fahrenheit",
                             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258712004"
+                        },
+                        {
+                            "description": "The SNOMED code represents Degrees Celsius",
+                            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258710007"
                         }
                     ],
                     "enum": [
