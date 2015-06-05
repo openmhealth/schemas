@@ -1,5 +1,5 @@
 {
-    "inhalation_duration": {
+    "inspiratory_time": {
         "value": 2,
         "unit": "sec"
     }

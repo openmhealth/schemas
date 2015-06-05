@@ -1,8 +1,14 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents the duration of a person's inhalation, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures)",
+    "description": "This schema represents the duration of a person's expiration (the time interval between the initiation of exhalation and the time at which no further lung volume reduction occurs), either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures)",
     "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Expiratory time",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/250820008"
+        }
+    ],
 
     "definitions": {
         "duration_unit_value": {
@@ -20,7 +26,7 @@
     },
 
     "properties": {
-        "inhalation_duration": {
+        "expiratory_time": {
             "allOf": [
                 {
                     "$ref": "#/definitions/duration_unit_value"
@@ -47,5 +53,5 @@
         }
     },
 
-    "required": ["inhalation_duration"]
+    "required": ["expiratory_time"]
 }

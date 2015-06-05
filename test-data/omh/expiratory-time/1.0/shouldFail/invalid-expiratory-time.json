@@ -1,5 +1,5 @@
 {
-    "exhalation_duration": {
+    "expiratory_time": {
         "value": 0.2,
         "unit": "min"
     }
