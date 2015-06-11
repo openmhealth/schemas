@@ -7,10 +7,10 @@
 
     "definitions": {
         "medication_prescription": {
-            "$ref": "medication-prescription-1.0.json"
+            "$ref": "medication-prescription-1.x.json"
         },
         "time_frame": {
-            "$ref": "time-frame-2.0.json"
+            "$ref": "time-frame-1.x.json"
         }
     },
 
@@ -25,7 +25,7 @@
         "amount_dispensed": {
             "allOf": [
                 {
-                    "$ref": "unit-value-1.0.json"
+                    "$ref": "unit-value-1.x.json"
                 },
                 {
                     "properties": {
@@ -97,9 +97,6 @@
                     }
                 }
             ]
-        },
-        "time_frame_medication_prepared": {
-            "$ref": "#/definitions/time_frame"
         },
         "time_frame_medication_dispensed": {
             "$ref": "#/definitions/time_frame"

@@ -13,40 +13,40 @@
 
     "definitions": {
         "medication": {
-            "$ref": "medication-1.0.json"
+            "$ref": "medication-1.x.json"
         },
-        "medication_route": {
-            "$ref": "medication-route-1.0.json"
+        "intervention_administration_route": {
+            "$ref": "intervention-administration-route-1.0.json"
         },
         "medication_dose_unit_value": {
-            "$ref": "medication-dose-unit-value-1.0.json"
+            "$ref": "medication-dose-unit-value-1.x.json"
         },
         "frequency_unit_value": {
-            "$ref": "frequency-unit-value-1.0.json"
+            "$ref": "frequency-unit-value-1.x.json"
         },
         "duration_unit_value": {
-            "$ref": "duration-unit-value-1.0.json"
+            "$ref": "duration-unit-value-1.x.json"
         },
         "duration_unit_value_range": {
-            "$ref": "duration-unit-value-range-1.0.json"
+            "$ref": "duration-unit-value-range-1.x.json"
         },
         "time_frame": {
-            "$ref": "time-frame-2.0.json"
+            "$ref": "time-frame-1.x.json"
         },
         "temporal_relationship_to_meal": {
-            "$ref": "temporal-relationship-to-meal-1.1.json"
+            "$ref": "temporal-relationship-to-meal-1.x.json"
         },
         "temporal_relationship_to_sleep": {
-            "$ref": "temporal-relationship-to-sleep-1.0.json"
+            "$ref": "temporal-relationship-to-sleep-1.x.json"
         },
         "part_of_day": {
-            "$ref": "part-of-day-1.0.json"
+            "$ref": "part-of-day-1.x.json"
         },
         "day_of_week": {
-            "$ref": "day-of-week-1.0.json"
+            "$ref": "day-of-week-1.x.json"
         },
         "time": {
-            "$ref": "time-1.0.json"
+            "$ref": "time-1.x.json"
         }
     },
 
@@ -55,7 +55,7 @@
             "$ref": "#/definitions/medication"
         },
         "route": {
-            "$ref": "#/definitions/medication_route"
+            "$ref": "#/definitions/intervention_administration_route"
         },
         "prescription_trigger": {
             "type": "string"

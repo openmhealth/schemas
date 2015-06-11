@@ -3,7 +3,6 @@
 
     "medication": {
         "trade_name": "Lantus 300 UNT per 3 ML OptiClik Pen",
-        "generic_name": "3 ML Insulin Glargine 100 UNT/ML Prefilled Syringe",
         "strength": [
             {
                 "value": 100,

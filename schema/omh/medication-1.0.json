@@ -11,9 +11,9 @@
     "type":"object",
 
     "definitions": {
-        "medication_strength_unit_value": {
+        "ingredient_strength_unit_value": {
             "type": "array",
-            "description": "A therapeutic agent can be the combination of more than one active ingredient, hence this isn an array.",
+            "description": "A therapeutic agent can be the combination of more than one active ingredients, hence this isn an array.",
             "items": {
                 "type": "object",
                 "description": "This property represents the strength of a therapeutic agent. The value set covers the most common values. Suggestions for additions are accepted.",
@@ -30,7 +30,7 @@
                         }
                     },
                     {
-                        "$ref": "unit-value-1.0.json"
+                        "$ref": "unit-value-1.x.json"
                     },
                     {
                         "properties": {
@@ -115,7 +115,7 @@
             "type":"string"
         },
         "strength": {
-            "$ref": "#/definitions/medication_strength_unit_value"
+            "$ref": "#/definitions/ingredient_strength_unit_value"
         },
         "rxnorm_code": {
             "description":"The RxNORM CUI of the drug, which includes drug name, strength (if applicable), formulation, manufacturer.",

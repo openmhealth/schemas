@@ -1,18 +1,17 @@
 {
-    "description": " Percocet (oxycodone 5 mg/ acetaminophen 325 mg) every 6 hours prn pain",
+    "description": " Percocet (oxycodone 5 mg / acetaminophen 325 mg) every 6 hours prn pain",
 
     "medication": {
         "trade_name": "Percocet",
-        "generic_name": "Acetaminophen 325 MG / Oxycodone Hydrochloride 5 MG Oral Tablet",
         "strength": [
-            {
-                "ingredient_name": "Oxycodone Hydrochloride",
-                "value": 5,
-                "unit": "mg"
-            },
             {
                 "ingredient_name": "Acetaminophen",
                 "value": 325,
+                "unit": "mg"
+            },
+            {
+                "ingredient_name": "Oxycodone Hydrochloride",
+                "value": 5,
                 "unit": "mg"
             }
         ],

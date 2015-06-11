@@ -13,10 +13,10 @@
     ],
     "definitions": {
         "duration": {
-            "$ref": "duration-unit-value-1.0.json"
+            "$ref": "duration-unit-value-1.x.json"
         },
         "duration_range": {
-            "$ref": "duration-unit-value-range-1.0.json"
+            "$ref": "duration-unit-value-range-1.x.json"
         }
     },
 

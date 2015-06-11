@@ -1,11 +1,10 @@
 {
 
-
     "medication_prescription": {
         "description": "Ascriptin 500 mg 1 tab every 6 hours for 2 weeks",
 
         "medication": {
-            "generic_name": "Aspirin [Ascriptin]",
+            "generic_name": "Ascriptin",
             "strength": [
                 {
                     "value": 500,
@@ -39,10 +38,6 @@
     },
     "medication_dispensed": "0067-0143-85",
 
-    "time_frame_medication_prepared": {
-        "date_time": "2013-02-05T09:25:00.123Z"
-
-    },
     "time_frame_medication_dispensed": {
         "date_time": "2013-02-05T17:25:00.123Z"
 

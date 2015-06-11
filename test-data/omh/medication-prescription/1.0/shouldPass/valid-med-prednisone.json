@@ -2,14 +2,15 @@
     "description": "Prednisone 20 mg tabs: take 1 tablet three times daily for 2 days, then 1 tablet twice daily for 2 days, then 1 tablet one daily for 2 days. Take with food.",
 
     "medication": {
-        "generic_name": "Prednisone 20 MG Oral Tablet",
+        "trade_name": "Prednicot",
+        "generic_name": "prednisone",
         "strength": [
             {
                 "value": 20,
                 "unit": "mg"
             }
         ],
-        "rxnorm_code": 312615
+        "rxnorm_code": 351401
     },
 
     "route": "oral",

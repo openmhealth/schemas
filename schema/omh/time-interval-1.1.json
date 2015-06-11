@@ -13,10 +13,10 @@
 
     "definitions": {
         "date_time": {
-            "$ref": "date-time-1.0.json"
+            "$ref": "date-time-1.x.json"
         },
         "duration-unit-value": {
-            "$ref": "duration-unit-value-1.0.json"
+            "$ref": "duration-unit-value-1.x.json"
         },
         "full_date": {
             "type": "string",
@@ -29,10 +29,10 @@
             "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
         },
         "time": {
-            "$ref": "time-1.0.json"
+            "$ref": "time-1.x.json"
         },
         "part_of_day": {
-            "$ref": "part-of-day-1.0.json"
+            "$ref": "part-of-day-1.x.json"
         }
     },
 

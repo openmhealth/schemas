@@ -12,10 +12,10 @@
     ],
    "definitions": {
         "medication": {
-            "$ref":"medication-1.0.json"
+            "$ref":"medication-1.x.json"
         },
         "time_frame": {
-            "$ref":"time-frame-1.1.json"
+            "$ref":"time-frame-1.x.json"
         }
     },
 

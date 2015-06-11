@@ -1,5 +1,5 @@
 {
-    "description": "Tenormin 50 MG 1 tab daily 30 minutes before breakfast",
+    "description": "Take Tenormin 50 MG 1 tab every day 30 minutes before breakfast",
 
     "medication": {
         "trade_name": "Tenormin",
@@ -25,23 +25,22 @@
                 "unit": "tablet"
             },
             "dose_recurrence": {
-                "frequency": {
-                    "number_of_times": 1,
-                    "time_window": {
-                        "value": 1,
-                        "unit": "d"
-                    }
-                },
                 "timing": [
                     {
-                        "temporal_relationship_to_meal": "before breakfast",
-                        "time_frame_of_temporal_relationship_to_meal": {
-                            "value": 30,
-                            "unit": "min"
-                        }
+                        "time_of_day": "07:00:00"
                     }
                 ]
             }
         }
-    ]
+    ],
+    "acceptable_window": {
+        "before": {
+            "value": 30,
+            "unit": "min"
+        },
+        "after": {
+            "value": 30,
+            "unit": "min"
+        }
+    }
 }

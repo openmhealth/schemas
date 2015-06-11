@@ -2,14 +2,14 @@
     "description": "Coumadin 2 mg 1 tab 2 times (day 1 and 3) every 5 days ",
 
     "medication": {
-        "trade_name": "Warfarin Sodium 2 MG [Coumadin]",
+        "trade_name": "Coumadin",
         "strength": [
             {
                 "value": 2,
                 "unit": "mg"
             }
         ],
-        "rxnorm_code": 855303
+        "rxnorm_code": 855304
     },
     "route": "oral",
 

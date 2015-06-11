@@ -2,7 +2,7 @@
     "description": "Tenormin 50 MG 1 tab daily 30 minutes before breakfast + 0.5 tab every other day before going to sleep",
 
     "medication": {
-        "trade_name": "Tenormin 50 MG Oral Tablet",
+        "trade_name": "Tenormin",
         "strength": [
             {
                 "value": 50,

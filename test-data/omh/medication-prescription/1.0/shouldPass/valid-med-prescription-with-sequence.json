@@ -2,7 +2,7 @@
     "description": "Tenormin 50 mg 1 tab and 1/2 tab alternating every other day after breakfast",
 
     "medication": {
-        "trade_name": "Tenormin 50 MG Oral Tablet",
+        "trade_name": "Tenormin",
         "strength": [
             {
                 "value": 50,

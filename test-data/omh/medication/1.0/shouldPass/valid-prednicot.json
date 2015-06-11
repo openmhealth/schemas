@@ -1,0 +1,11 @@
+{
+    "trade_name": "Prednicot",
+    "generic_name": "prednisone",
+    "strength": [
+        {
+            "value": 20,
+            "unit": "mg"
+        }
+    ],
+   "rxnorm_code": 351401
+}

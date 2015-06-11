@@ -1,15 +1,16 @@
 {
-    "description": "Take Tenormin 50 MG 1 tab every day 30 minutes before breakfast",
+    "description": "Prednisone 20 mg daily",
 
     "medication": {
-        "trade_name": "Tenormin 50 MG Oral Tablet",
+        "trade_name": "Prednicot",
+        "generic_name": "prednisone",
         "strength": [
             {
-                "value": 50,
+                "value": 20,
                 "unit": "mg"
             }
         ],
-        "rxnorm_code": 152414
+        "rxnorm_code": 351401
     },
 
     "route": "oral",
@@ -27,7 +28,7 @@
             "dose_recurrence": {
                 "timing": [
                     {
-                        "time_of_day": "07:00:00"
+                        "time_of_day": "08:00:00"
                     }
                 ]
             }
@@ -35,12 +36,12 @@
     ],
     "acceptable_window": {
         "before": {
-            "value": 30,
-            "unit": "min"
+            "value": 12,
+            "unit": "hr"
         },
         "after": {
-            "value": 30,
-            "unit": "min"
+            "value": 12,
+            "unit": "hr"
         }
     }
 }

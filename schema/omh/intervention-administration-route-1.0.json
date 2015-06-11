@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
 
     "type": "string",
-    "description": "The route of administration of a therapeutic agent.",
+    "description": "The route of administration of a therapeutic agent or other intevention (e.g., a device).",
     "references": [
         {
             "description": "The SNOMED code represents Drug administration route",

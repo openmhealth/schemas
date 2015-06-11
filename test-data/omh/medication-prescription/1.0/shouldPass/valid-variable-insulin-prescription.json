@@ -2,20 +2,14 @@
     "description": "Regular insulin (Novolin R, 100 units/ml): if BG < 200: no insulin ; if BG 200-250: 2 units; if BG 251-300: 4 units; if BG 301-350: 6 units; if BG >351: 8 units, call care coordinator.",
 
     "medication": {
-        "trade_name": "NovoLIN 70/30 Injectable Suspension",
+        "trade_name": "NovoLIN R",
         "strength": [
             {
-                "ingredient_name": "insulin human, isophane",
-                "value": 70,
-                "unit": "unt/mL"
-            },
-            {
-                "ingredient_name": "Regular Insulin, Human",
-                "value": 30,
+                "value": 100,
                 "unit": "unt/mL"
             }
         ],
-        "rxnorm_code": 311048
+        "rxnorm_code": 311033
     },
 
     "route": "subcutaneous",

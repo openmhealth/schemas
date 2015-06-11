@@ -1,7 +1,7 @@
 {
     "medication_prescription": {
         "medication": {
-            "trade_name": "Tenormin 50 MG Oral Tablet",
+            "trade_name": "Tenormin",
             "strength": [
                 {
                     "value": 50,
@@ -53,5 +53,8 @@
             }
         }
     },
-    "medication_adherence_percent": 93
+    "medication_adherence_percent": {
+        "value": 93,
+        "unit": "%"
+    }
 }

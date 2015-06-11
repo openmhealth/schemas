@@ -12,10 +12,13 @@
     ],
    "definitions": {
         "medication_prescription": {
-            "$ref": "medication-prescription-1.0.json"
+            "$ref": "medication-prescription-1.x.json"
+        },
+        "unit_value": {
+            "$ref": "unit-value-1.x.json"
         },
         "time_frame": {
-            "$ref": "time-frame-1.1.json"
+            "$ref": "time-frame-1.x.json"
         }
    },
    "properties": {
@@ -26,9 +29,20 @@
           "$ref": "#/definitions/time_frame"
       },
       "medication_adherence_percent": {
-         "type":"number",
-         "minimum": 0,
-         "maximum": 100
+          "allOf": [
+              {
+                  "$ref": "#/definitions/unit_value"
+              },
+              {
+                  "properties": {
+                      "unit": {
+                          "enum": [
+                              "%"
+                          ]
+                      }
+                  }
+              }
+          ]
       }
    },
    "required": ["medication_prescription","medication_adherence_percent"]

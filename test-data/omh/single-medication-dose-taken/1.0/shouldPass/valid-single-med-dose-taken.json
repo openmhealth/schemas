@@ -1,9 +1,9 @@
 {
     "medication": {
-        "generic_name": "atenolol 25 mg oral tablet",
+        "trade_name": "Tenormin",
         "strength": [
             {
-                "value": 25,
+                "value": 50,
                 "unit": "mg"
             }
         ]
@@ -14,6 +14,6 @@
 
     },
     "effective_time_frame": {
-        "date_time": "2013-02-05T21:00:00Z"
+        "date_time": "2013-02-05T07:10:00Z"
     }
 }
