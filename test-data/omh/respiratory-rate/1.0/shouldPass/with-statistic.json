@@ -1,6 +1,6 @@
 {
     "respiratory_rate": {
-        "value": 12,
+        "value": 10,
         "unit": "breaths/min"
     },
     "effective_time_frame": {
