@@ -15,6 +15,9 @@
         "medication_dose_unit_value": {
             "$ref": "medication-dose-unit-value-1.x.json"
         },
+        "medication_dose_unit_value_range": {
+            "$ref": "medication-dose-unit-value-range-1.x.json"
+        },
         "duration_unit_value": {
             "$ref": "duration-unit-value-1.x.json"
         },
@@ -89,8 +92,34 @@
                             }
                         ]
                     },
-                    "dose": {
-                        "$ref": "#/definitions/medication_dose_unit_value"
+                    "medication_dose": {
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "dose": {
+                                        "$ref": "#/definitions/medication_dose_unit_value"
+                                    },
+                                    "dose_range": {
+                                        "$ref": "#/definitions/medication_dose_unit_value_range"
+                                    },
+                                    "dose_array": {
+                                        "type": "array",
+                                        "description": "A medication dose can differ based on a condition, hence this is an array.",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "dose_option": {
+                                                    "$ref": "#/definitions/medication_dose_unit_value"
+                                                },
+                                                "dose_trigger": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
                     },
                     "dose_recurrence": {
                         "anyOf": [

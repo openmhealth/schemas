@@ -16,7 +16,7 @@
 
     "allOf": [
         {
-            "$ref": "unit-value-1.x.json"
+            "$ref": "unit-value-range-1.x.json"
         },
         {
             "properties": {

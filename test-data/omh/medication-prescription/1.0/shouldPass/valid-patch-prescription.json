@@ -27,7 +27,7 @@
                 }
             },
             "medication_dose": {
-                "dose": {
+                "dose_range": {
                     "low_value": 1,
                     "high_value": 3,
                     "unit": "patch"

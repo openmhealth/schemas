@@ -21,6 +21,9 @@
         "medication_dose_unit_value": {
             "$ref": "medication-dose-unit-value-1.x.json"
         },
+        "medication_dose_unit_value_range": {
+            "$ref": "medication-dose-unit-value-range-1.x.json"
+        },
         "frequency_unit_value": {
             "$ref": "frequency-unit-value-1.x.json"
         },
@@ -116,6 +119,9 @@
                                 "properties": {
                                     "dose": {
                                         "$ref": "#/definitions/medication_dose_unit_value"
+                                    },
+                                    "dose_range": {
+                                        "$ref": "#/definitions/medication_dose_unit_value_range"
                                     },
                                     "dose_array": {
                                         "type": "array",
