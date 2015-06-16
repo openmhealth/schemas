@@ -17,7 +17,7 @@ Javadoc artifacts.
 If you use Gradle, add the following dependency to your build script to use it
  
 ```groovy
-compile 'org.openmhealth.schema:omh-schema-sdk:1.0.0'
+compile 'org.openmhealth.schema:omh-schema-sdk:1.0.1'
 ```
 
 If you use Maven, add the following dependency to your POM file to use it 
