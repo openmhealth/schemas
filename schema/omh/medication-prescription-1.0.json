@@ -54,7 +54,6 @@
     },
 
     "properties": {
-        "description": { "type": "string"},
         "medication":{
             "$ref": "#/definitions/medication"
         },
@@ -218,7 +217,5 @@
             }
         }
     },
-    "additionalProperties": false,
-
     "required": ["medication","schedule"]
 }

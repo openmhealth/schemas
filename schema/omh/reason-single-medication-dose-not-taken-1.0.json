@@ -10,7 +10,7 @@
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/422979000"
         }
     ],
-   "definitions": {
+    "definitions": {
         "medication": {
             "$ref":"medication-1.x.json"
         },
@@ -19,7 +19,7 @@
         }
     },
 
-   "properties": {
+    "properties": {
        "medication": {
            "$ref": "#/definitions/medication"
        },
@@ -30,9 +30,7 @@
        "reason_for_missing_dose": {
            "type": "string"
        }
-   },
-    "additionalProperties": false,
-
+    },
     "required": [
        "medication",
        "effective_time_frame",
