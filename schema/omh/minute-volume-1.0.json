@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents the minute volume of a person's respiration, i.e., the volume of air inhaled (inhaled minute volume) or exhaled (exhaled minute volume) from a person’s lungs in one minute, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures). Note that although its name implies that it is a volume, minute volume is actually a flow (it represents a volume change over time).",
+    "description": "This schema represents the minute volume of a person's respiration, i.e., the volume of air inhaled (inhaled minute volume) and/or exhaled (exhaled minute volume) from a person’s lungs in one minute, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures). Note that although its name implies that it is a volume, minute volume is actually a flow (it represents a volume change over time).",
     "type": "object",
     "references": [
         {
