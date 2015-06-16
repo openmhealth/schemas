@@ -45,7 +45,7 @@ public class ValidationSummary {
     }
 
     public void incrementFailed() {
-        succeeded.incrementAndGet();
+        failed.incrementAndGet();
     }
 
     public int getFailed() {
