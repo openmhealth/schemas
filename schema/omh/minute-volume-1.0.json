@@ -1,0 +1,66 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the minute volume of a person's respiration, i.e., the volume of air inhaled (inhaled minute volume) or exhaled (exhaled minute volume) from a person’s lungs in one minute, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures). Note that although its name implies that it is a volume, minute volume is actually a flow (it represents a volume change over time).",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Minute volume",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/250811004"
+        }
+    ],
+
+    "definitions": {
+        "unit_value": {
+            "$ref": "unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        },
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "temporal-relationship-to-physical-activity-1.x.json"
+        }
+    },
+
+    "properties": {
+        "minute_volume": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "mL/min",
+                                "L/min"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "#/definitions/temporal_relationship_to_physical_activity"
+        },
+        "minute_volume_type": {
+            "type": "string",
+            "enum": [
+                "inspiratory",
+                "expiratory",
+                "total"
+            ]
+        }
+    },
+
+    "required": ["minute_volume"]
+}

@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "An Apple HealthKit quantity sample that represents data using a single numerical value.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The class reference for HKQuantitySample.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKQuantitySample_Class/index.html"
+        }
+    ],
+
+    "definitions": {
+        "time_frame": {
+            "$ref": "../omh/time-frame-1.x.json"
+        },
+        "hk_quantity_type": {
+            "$ref": "hk-quantity-type-1.x.json"
+        },
+        "unit_value": {
+            "$ref": "../omh/unit-value-1.x.json"
+        },
+        "hk_metadata": {
+            "$ref": "hk-metadata-1.x.json"
+        }
+    },
+
+    "allOf": [
+        {
+            "properties": {
+                "effective_time_frame": {
+                    "description": "The time frame when this sample occurred. When the HKSample `startDate` and `endDate` values are different, we recommend using the `time_interval` time frame property, and when they are the same, we recommend using the `date_time` time frame property.",
+                    "$ref": "#/definitions/time_frame"
+                },
+                "quantity_type": {
+                    "description": "The quantity type for this sample.",
+                    "$ref": "#/definitions/hk_quantity_type"
+                },
+                "metadata": {
+                    "description": "An array of extra information describing this sample.",
+                    "$ref": "#/definitions/hk_metadata"
+                }
+            },
+            "required": [
+                "effective_time_frame",
+                "quantity_type"
+            ]
+        },
+        {
+            "oneOf": [
+                {
+                    "properties": {
+                        "unit_value": {
+                            "description": "The quantity of this sample, as a unit and value.",
+                            "$ref": "#/definitions/unit_value",
+                            "references": [
+                                {
+                                    "description": "The class reference for HKUnit that describes all the units used in HealthKit.",
+                                    "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKUnit_Class/index.html"
+                                }
+                            ]
+                        }
+                    },
+                    "required": ["unit_value"]
+                },
+                {
+                    "properties": {
+                        "count": {
+                            "description": "The quantity of this sample, as a raw scalar value.",
+                            "type": "number",
+                            "references": [
+                                {
+                                    "description": "The `countUnit` HKUnit this property is typically used for.",
+                                    "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKUnit_Class/index.html#//apple_ref/occ/clm/HKUnit/countUnit"
+                                }
+                            ]
+                        }
+                    },
+                    "required": ["count"]
+                }
+            ]
+        }
+    ]
+}

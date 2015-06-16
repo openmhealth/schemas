@@ -1,0 +1,74 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "An Apple HealthKit workout sample that represents a workout or episode of physical activity. This schema does not capture links created using the `addSamples` method of HKWorkout.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The class reference for HKWorkout.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKWorkout_Class/index.html"
+        }
+    ],
+
+    "definitions": {
+        "physical_activity": {
+            "$ref": "../omh/physical-activity-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "../omh/time-frame-1.x.json"
+        },
+        "duration_unit_value": {
+            "$ref": "../omh/duration-unit-value-1.x.json"
+        },
+        "kcal_unit_value": {
+            "$ref": "../omh/kcal-unit-value-1.x.json"
+        },
+        "hk_metadata": {
+            "$ref": "hk-metadata-1.x.json"
+        }
+    },
+
+    "allOf": [
+        {
+            "$ref": "#/definitions/physical_activity"
+        },
+        {
+            "properties": {
+                "activity_name": {
+                    "description": "This should correspond to the constant for the desired type of activity, e.g. HKWorkoutActivityTypeCycling, not the integer value associated with that constant"
+                },
+                "effective_time_frame": {
+                    "description": "The time frame when this sample occurred. When the HKSample `startDate` and `endDate` values are different, we recommend using the `time_interval` time frame property, and when they are the same, we recommend using the `date_time` time frame property.",
+                    "$ref": "#/definitions/time_frame"
+                },
+                "duration": {
+                    "description": "The duration of the workout.",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/duration_unit_value"
+                        },
+                        {
+                            "properties": {
+                                "unit": {
+                                    "enum": [
+                                        "sec"
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                "kcal_burned": {
+                    "description": "The number of calories burned in the workout.",
+                    "$ref": "#/definitions/kcal_unit_value"
+                },
+                "metadata": {
+                    "description": "An array of extra information describing this sample.",
+                    "$ref": "#/definitions/hk_metadata"
+                }
+            },
+            "required": ["effective_time_frame","activity_name"]
+        }
+    ]
+}

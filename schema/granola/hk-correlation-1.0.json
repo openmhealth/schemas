@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "An Apple HealthKit correlation sample that represents data using multiple quantity and category samples.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The class reference for HKCorrelationSample.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HKCorrelation_Class/index.html"
+        }
+    ],
+
+    "definitions": {
+        "hk_correlation_type": {
+            "$ref": "hk-correlation-type-1.x.json"
+        },
+        "hk_category_sample": {
+            "$ref": "hk-category-sample-1.x.json"
+        },
+        "hk_quantity_sample": {
+            "$ref": "hk-quantity-sample-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "../omh/time-frame-1.x.json"
+        },
+        "hk_metadata": {
+            "$ref": "hk-metadata-1.x.json"
+        }
+    },
+
+    "allOf": [
+        {
+            "properties": {
+                "correlation_type": {
+                    "description": "The correlation type for this sample.",
+                    "$ref": "#/definitions/hk_correlation_type"
+                },
+                "effective_time_frame": {
+                    "description": "The time frame when this sample occurred. When the HKSample `startDate` and `endDate` values are different, we recommend using the `time_interval` time frame property, and when they are the same, we recommend using the `date_time` time frame property.",
+                    "$ref": "#/definitions/time_frame"
+                },
+                "metadata": {
+                    "description": "An array of extra information describing this sample.",
+                    "$ref": "#/definitions/hk_metadata",
+                    "references": [
+                        {
+                            "description": "The reference for the HKMetadataKeyFoodType metadata key that should be included with correlation samples of type HKCorrelationTypeIdentifierFood.",
+                            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKMetadataKeyFoodType"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "correlation_type",
+                "effective_time_frame"
+            ]
+        },
+        {
+            "description": "The HealthKit `objects` array is split into `quantity_samples` and `category_samples` to simplify deserialization.",
+            "anyOf": [
+                {
+                    "properties": {
+                        "quantity_samples": {
+                            "description": "An array of the quantity samples in this correlation.",
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "$ref": "#/definitions/hk_quantity_sample"
+                            }
+                        }
+                    },
+                    "required": [
+                        "quantity_samples"
+                    ]
+                },
+                {
+                    "properties": {
+                        "category_samples": {
+                            "description": "An array of the category samples in this correlation.",
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "$ref": "#/definitions/hk_category_sample"
+                            }
+                        }
+                    },
+                    "required": [
+                        "category_samples"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description": "This schema represents a temperature (intensity of heat)",
+    "references": [
+        {
+            "description": "The SNOMED code represents Temperature (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/703421000"
+        }
+    ],
+    "allOf": [
+        {
+            "$ref": "unit-value-1.x.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Basic unit is degree Kelvin (K). Allowed values are drawn from the Temperature Units Common Synonyms (non-UCUM). The valid UCUM code is different for Celsius (C) and Fahrenheit ([degF]).",
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
+                        },
+                        {
+                            "description": "The SNOMED code represents Degrees Kelvin",
+                            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258713009"
+                        },
+                        {
+                            "description": "The SNOMED code represents Degrees Fahrenheit",
+                            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258712004"
+                        },
+                        {
+                            "description": "The SNOMED code represents Degrees Celsius",
+                            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258710007"
+                        }
+                    ],
+                    "enum": [
+                        "K",
+                        "F",
+                        "C"
+                    ]
+                }
+            }
+        }
+    ]
+}

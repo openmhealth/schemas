@@ -1,0 +1,13 @@
+{
+    "breath_carbon_monoxide": {
+        "value": 20,
+        "unit": "ppm"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2013-02-05T07:25:00Z",
+            "end_date_time": "2013-02-12T07:25:00Z"
+        }
+    },
+    "descriptive_statistic": "average"
+}

@@ -1,0 +1,10 @@
+{
+    "body_temperature": {
+        "value": 97,
+        "unit": "F"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00Z"
+    },
+    "measurement_location": "oral"
+}

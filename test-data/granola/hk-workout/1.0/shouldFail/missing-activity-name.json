@@ -1,0 +1,16 @@
+{
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2013-02-05T06:25:00Z",
+            "end_date_time": "2013-02-05T07:25:00Z"
+        }
+    },
+    "distance": {
+        "value": 1.5,
+        "unit": "mi"
+    },
+    "kcal_burned": {
+        "value": 160,
+        "unit": "kcal"
+    }
+}

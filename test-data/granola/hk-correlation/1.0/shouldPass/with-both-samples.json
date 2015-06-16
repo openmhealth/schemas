@@ -1,0 +1,42 @@
+{
+    "correlation_type": "HKCorrelationTypeIdentifierFood",
+    "quantity_samples": [
+        {
+            "quantity_type": "HKQuantityTypeIdentifierDietaryCarbohydrates",
+            "unit_value": {
+                "value": 29.3,
+                "unit": "g"
+            },
+            "effective_time_frame": {
+                "time_interval": {
+                    "start_date_time": "2013-02-05T06:25:00Z",
+                    "end_date_time": "2013-02-05T07:25:00Z"
+                }
+            }
+        }
+    ],
+    "category_samples": [
+        {
+            "category_type": "HKCategoryTypeIdentifierSleepAnalysis",
+            "category_value": "InBed",
+            "effective_time_frame": {
+                "time_interval": {
+                    "start_date_time": "2013-02-05T06:25:00Z",
+                    "end_date_time": "2013-02-05T07:25:00Z"
+                }
+            }
+        }
+    ],
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2013-02-05T06:25:00Z",
+            "end_date_time": "2013-02-05T07:25:00Z"
+        }
+    },
+    "metadata": [
+        {
+            "key": "HKMetadataKeyFoodType",
+            "value": "Apple"
+        }
+    ]
+}
