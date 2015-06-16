@@ -31,7 +31,9 @@
            "type": "string"
        }
    },
-   "required": [
+    "additionalProperties": false,
+
+    "required": [
        "medication",
        "effective_time_frame",
        "reason_for_missing_dose"

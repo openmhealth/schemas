@@ -11,7 +11,6 @@
     "dose": {
         "value": 0.5,
         "unit": "tablet"
-
     },
     "effective_time_frame": {
         "date_time": "2013-02-05T07:10:00Z"

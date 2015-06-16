@@ -16,16 +16,22 @@
 
     "schedule": [
         {
-            "dose_duration": "until pain abates",
-            "dose_administration_duration": {
-                "low_value": 1,
-                "high_value": 12,
-                "unit": "h"
+            "dose_duration": {
+                "duration_string": "until pain abates"
             },
-            "dose": {
-                "low_value": 1,
-                "high_value": 3,
-                "unit": "patch"
+            "dose_administration_duration": {
+                "duration_range":{
+                    "low_value": 1,
+                    "high_value": 12,
+                    "unit": "h"
+                }
+            },
+            "medication_dose": {
+                "dose": {
+                    "low_value": 1,
+                    "high_value": 3,
+                    "unit": "patch"
+                }
             },
             "dose_recurrence": {
                 "number_of_times": 1,

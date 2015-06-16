@@ -17,14 +17,20 @@
     "schedule": [
         {
             "dose_duration": {
-                "value": 2,
-                "unit": "wk"
+                "duration": {
+                    "value": 2,
+                    "unit": "wk"
+                }
             },
             "dose": {
 
-                "low_value": 1,
-                "high_value": 2,
-                "unit": "tablet"
+            },
+            "medication_dose": {
+                "dose": {
+                    "low_value": 1,
+                    "high_value": 2,
+                    "unit": "tablet"
+                }
             },
             "dose_recurrence": {
                 "number_of_times": 1,

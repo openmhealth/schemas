@@ -23,17 +23,24 @@
     "schedule": [
         {
             "dose_duration": {
-                "value": 99,
-                "unit": "yr"
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
             },
             "dose_administration_duration": {
-                "low_value": 1,
-                "high_value": 12,
-                "unit": "h"
+                "duration_range":{
+                    "low_value": 1,
+                    "high_value": 12,
+                    "unit": "h"
+                }
             },
-            "dose": {
-                "value": 1,
-                "unit": "patch"
+
+            "medication_dose": {
+                "dose": {
+                    "value": 1,
+                    "unit": "patch"
+                }
             },
             "dose_recurrence": {
                 "number_of_times": 1,

@@ -6,12 +6,16 @@
     "schedule": [
         {
             "dose_duration": {
-                "value": 99,
-                "unit": "yr"
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
             },
-            "dose": {
-                "value": 1,
-                "unit": "tablet"
+            "medication_dose": {
+                "dose": {
+                    "value": 1,
+                    "unit": "tablet"
+                }
             },
             "dose_recurrence": {
                 "frequency": {
@@ -47,9 +51,11 @@
                 "value": 99,
                 "unit": "yr"
             },
-            "dose": {
-                "value": 0.5,
-                "unit": "tablet"
+            "medication_dose": {
+                "dose": {
+                    "value": 0.5,
+                    "unit": "tablet"
+                }
             },
             "dose_recurrence": {
                 "frequency": {

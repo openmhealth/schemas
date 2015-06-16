@@ -17,13 +17,18 @@
     "schedule": [
         {
             "dose_duration": {
-                "value": 2,
-                "unit": "d"
+                "duration": {
+                    "value": 2,
+                    "unit": "d"
+                }
             },
-            "dose": {
-                "value": 1,
-                "unit": "tablet"
+            "medication_dose": {
+                "dose": {
+                    "value": 1,
+                    "unit": "tablet"
+                }
             },
+
             "dose_recurrence": {
                 "frequency": {
                     "number_of_times": 3,
@@ -41,12 +46,16 @@
         },
         {
             "dose_duration": {
-                "value": 2,
-                "unit": "d"
+                "duration": {
+                    "value": 2,
+                    "unit": "d"
+                }
             },
-            "dose": {
-                "value": 1,
-                "unit": "tablet"
+            "medication_dose": {
+                "dose": {
+                    "value": 1,
+                    "unit": "tablet"
+                }
             },
             "dose_recurrence": {
                 "frequency": {
@@ -65,12 +74,16 @@
         },
         {
             "dose_duration": {
-                "value": 2,
-                "unit": "d"
+                "duration": {
+                    "value": 2,
+                    "unit": "d"
+                }
             },
-            "dose": {
-                "value": 1,
-                "unit": "tablet"
+            "medication_dose": {
+                "dose": {
+                    "value": 1,
+                    "unit": "tablet"
+                }
             },
             "dose_recurrence": {
                 "frequency": {

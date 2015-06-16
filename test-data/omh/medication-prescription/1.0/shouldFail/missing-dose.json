@@ -17,8 +17,10 @@
     "schedule": [
         {
             "dose_duration": {
-                "value": 5,
-                "unit": "d"
+                "duration": {
+                    "value": 5,
+                    "unit": "d"
+                }
             },
             "dose_recurrence": {
                 "frequency": {

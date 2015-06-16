@@ -17,12 +17,16 @@
     "schedule": [
         {
             "dose_duration": {
-                "value": 5,
-                "unit": "d"
+                "duration": {
+                    "value": 5,
+                    "unit": "d"
+                }
             },
-            "dose": {
-                "value": 3.675,
-                "unit": "mL"
+            "medication_dose": {
+                "dose": {
+                    "value": 3.675,
+                    "unit": "mL"
+                }
             },
             "dose_recurrence": {
                 "frequency": {

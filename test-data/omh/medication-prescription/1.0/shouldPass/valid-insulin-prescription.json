@@ -17,12 +17,16 @@
     "schedule": [
         {
             "dose_duration": {
-                "value": 99,
-                "unit": "yr"
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
             },
-            "dose": {
-                "value": 4,
-                "unit": "unt"
+            "medication_dose": {
+                "dose": {
+                    "value": 4,
+                    "unit": "unt"
+                }
             },
             "dose_recurrence": {
                 "timing": [
@@ -30,14 +34,20 @@
                         "part_of_day": "morning"
                     }
                 ]
-            },
+            }
+        },
+        {
             "dose_duration": {
-                "value": 99,
-                "unit": "yr"
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
             },
-            "dose": {
-                "value": 10,
-                "unit": "unt"
+            "medication_dose": {
+                "dose": {
+                    "value": 10,
+                    "unit": "unt"
+                }
             },
             "dose_recurrence": {
                 "timing": [

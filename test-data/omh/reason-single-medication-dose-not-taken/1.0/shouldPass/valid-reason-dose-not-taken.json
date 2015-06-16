@@ -11,7 +11,7 @@
     "effective_time_frame": {
         "time_interval": {
             "date": "2015-02-05",
-            "time_of_day": "08:30:00"
+            "part_of_day": "morning"
         }
     },
     "reason_for_missing_dose": "I ran out of med."
