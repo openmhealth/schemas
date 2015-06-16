@@ -25,35 +25,35 @@
             "medication_dose": {
                 "dose_array": [
                     {
-                        "dose_option" : {
+                        "dose" : {
                             "value": 0,
                             "unit": "unt"
                         },
                         "dose_trigger": "if blood glucose < 200 mg/dL"
                     },
                     {
-                        "dose_option" : {
+                        "dose" : {
                             "value": 2,
                             "unit": "unt"
                         },
                         "dose_trigger": "if blood glucose >= 200 mg/dL AND blood glucose <= 250 mg/dL"
                     },
                     {
-                        "dose_option" : {
+                        "dose" : {
                             "value": 4,
                             "unit": "unt"
                         },
                         "dose_trigger": "if blood glucose >= 251 mg/dL AND blood glucose <= 300 mg/dL"
                     },
                     {
-                        "dose_option" : {
+                        "dose" : {
                             "value": 6,
                             "unit": "unt"
                         },
                         "dose_trigger": "if blood glucose >= 301 mg/dL AND blood glucose <= 350 mg/dL"
                     },
                     {
-                        "dose_option" : {
+                        "dose" : {
                             "value": 8,
                             "unit": "unt"
                         },

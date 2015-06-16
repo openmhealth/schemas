@@ -105,12 +105,12 @@
                             },
                             {
                                 "properties": {
-                                    "duration_string": {
+                                    "free_text": {
                                         "type": "string"
                                     }
                                 },
                                 "required": [
-                                    "duration_string"
+                                    "free_text"
                                 ]
                             }
                         ]
@@ -152,12 +152,12 @@
                             },
                             {
                                 "properties": {
-                                    "duration_string": {
+                                    "free_text": {
                                         "type": "string"
                                     }
                                 },
                                 "required": [
-                                    "duration_string"
+                                    "free_text"
                                 ]
                             }
                         ]
@@ -199,7 +199,11 @@
                                                 "dose_trigger": {
                                                     "type": "string"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "dose",
+                                                "dose_trigger"
+                                            ]
                                         }
                                     }
                                 },

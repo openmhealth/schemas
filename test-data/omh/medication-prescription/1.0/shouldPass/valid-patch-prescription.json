@@ -17,7 +17,7 @@
     "schedule": [
         {
             "dose_duration": {
-                "duration_string": "until pain abates"
+                "free_text": "until pain abates"
             },
             "dose_administration_duration": {
                 "duration_range":{
