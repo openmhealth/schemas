@@ -16,7 +16,7 @@
             "$ref": "medication-1.x.json"
         },
         "intervention_administration_route": {
-            "$ref": "intervention-administration-route-1.0.json"
+            "$ref": "intervention-administration-route-1.x.json"
         },
         "medication_dose_unit_value": {
             "$ref": "medication-dose-unit-value-1.x.json"
