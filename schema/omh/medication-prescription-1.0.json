@@ -51,6 +51,7 @@
     },
 
     "properties": {
+        "description": { "type": "string"},
         "medication":{
             "$ref": "#/definitions/medication"
         },
@@ -70,63 +71,77 @@
                         "description": "A medication prescription can last a certain length of time (duration), a certain range of time (duration range), a time frame (one day or a time interval) or as long as a certain condition (e.g., until skin lesion heals). The prescription for a chronic condition continues indeterminately and to indicate this 99 years is used.",
                         "oneOf": [
                             {
-                                "$ref": "#/definitions/duration_unit_value"
-                            },
-                            {
-                                "$ref": "#/definitions/duration_unit_value_range"
-                            },
-                            {
-                                "$ref": "#/definitions/time_frame"
-                            },
-                            {
-                                "type": "string"
+                                "properties": {
+                                    "duration": {
+                                        "$ref": "#/definitions/duration_unit_value"
+                                    },
+                                    "duration_range": {
+                                        "$ref": "#/definitions/duration_unit_value_range"
+                                    },
+                                    "time_frame": {
+                                        "$ref": "#/definitions/time_frame"
+                                    },
+                                    "duration_string": {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         ]
                     },
+
                     "dose_administration_duration": {
                         "description": "the administration of a medication dose can last a certain length of time (duration), a certain range of time (duration range), a time frame (one day or a time interval) or as long as a certain condition (e.g., until pain abates).",
                         "oneOf": [
                             {
-                                "$ref": "#/definitions/duration_unit_value"
-                            },
-                            {
-                                "$ref": "#/definitions/duration_unit_value_range"
-                            },
-                            {
-                                "$ref": "#/definitions/time_frame"
-                            },
-                            {
-                                "type": "string"
+                                "properties": {
+                                    "duration": {
+                                        "$ref": "#/definitions/duration_unit_value"
+                                    },
+                                    "duration_range": {
+                                        "$ref": "#/definitions/duration_unit_value_range"
+                                    },
+                                    "time_frame": {
+                                        "$ref": "#/definitions/time_frame"
+                                    },
+                                    "duration_string": {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         ]
                     },
-                    "dose": {
+                    "medication_dose": {
                         "oneOf": [
                             {
-                                "$ref": "#/definitions/medication_dose_unit_value"
-                            },
-                            {
-                                "type": "array",
-                                "description": "A medication dose can differ based on a condition, hence this is an array.",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "dose_option": {
-                                            "$ref": "#/definitions/medication_dose_unit_value"
-                                        },
-                                        "dose_trigger": {
-                                            "type": "string"
+                                "properties": {
+                                    "dose": {
+                                        "$ref": "#/definitions/medication_dose_unit_value"
+                                    },
+                                    "dose_array": {
+                                        "type": "array",
+                                        "description": "A medication dose can differ based on a condition, hence this is an array.",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "dose_option": {
+                                                    "$ref": "#/definitions/medication_dose_unit_value"
+                                                },
+                                                "dose_trigger": {
+                                                    "type": "string"
+                                                }
+                                            }
                                         }
                                     }
                                 }
                             }
                         ]
-
                     },
                     "dose_recurrence": {
                         "anyOf": [
                             {
-                                "frequency": "#/definitions/frequency_unit_value"
+                                "frequency": {
+                                    "ref": "#/definitions/frequency_unit_value"
+                                }
                             },
                             {
                                 "dose_prn_trigger": {
@@ -193,10 +208,11 @@
                     }
 
                 },
-                "required": ["dose_duration","dose"]
+                "required": ["dose_duration","medication_dose","dose_recurrence"]
             }
         }
     },
+    "additionalProperties": false,
 
     "required": ["medication","schedule"]
 }

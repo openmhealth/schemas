@@ -45,5 +45,6 @@
           ]
       }
    },
-   "required": ["medication_prescription","medication_adherence_percent"]
+   "required": ["medication_prescription","medication_adherence_percent"],
+    "additionalProperties": false
 }

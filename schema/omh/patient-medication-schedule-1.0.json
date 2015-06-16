@@ -33,6 +33,8 @@
     },
 
     "properties": {
+        "description": { "type": "string"},
+
         "medication":{
             "$ref": "#/definitions/medication"
         },
@@ -49,13 +51,20 @@
                         "description": "A medication prescription can last a certain length of time (duration), a certain range of time (duration range), a time frame (one day or a time interval) or as long as a certain condition (e.g., until skin lesion heals). The prescription for a chronic condition continues indeterminately and to indicate this 99 years is used.",
                         "oneOf": [
                             {
-                                "$ref": "#/definitions/duration_unit_value"
-                            },
-                            {
-                                "$ref": "#/definitions/duration_unit_value_range"
-                            },
-                            {
-                                "$ref": "#/definitions/time_frame"
+                                "properties": {
+                                    "duration": {
+                                        "$ref": "#/definitions/duration_unit_value"
+                                    },
+                                    "duration_range": {
+                                        "$ref": "#/definitions/duration_unit_value_range"
+                                    },
+                                    "time_frame": {
+                                        "$ref": "#/definitions/time_frame"
+                                    },
+                                    "duration_string": {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         ]
                     },
@@ -63,16 +72,20 @@
                         "description": "the administration of a medication dose can last a certain length of time (duration), a certain range of time (duration range), a time frame (one day or a time interval) or as long as a certain condition (e.g., until skin lesion heals).",
                         "oneOf": [
                             {
-                                "$ref": "#/definitions/duration_unit_value"
-                            },
-                            {
-                                "$ref": "#/definitions/duration_unit_value_range"
-                            },
-                            {
-                                "$ref": "#/definitions/time_frame"
-                            },
-                            {
-                                "type": "string"
+                                "properties": {
+                                    "duration": {
+                                        "$ref": "#/definitions/duration_unit_value"
+                                    },
+                                    "duration_range": {
+                                        "$ref": "#/definitions/duration_unit_value_range"
+                                    },
+                                    "time_frame": {
+                                        "$ref": "#/definitions/time_frame"
+                                    },
+                                    "duration_string": {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         ]
                     },
@@ -126,7 +139,7 @@
                         ]
                     }
                 },
-                "required": ["dose_duration","dose","dose_recurrence"]
+                "required": ["dose_duration","medication_dose","dose_recurrence"]
             }
         },
         "acceptable_window": {
@@ -140,6 +153,7 @@
             }
         }
     },
+    "additionalProperties": false,
 
     "required": ["medication","schedule"]
 }

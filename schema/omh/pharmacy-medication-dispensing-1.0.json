@@ -15,6 +15,7 @@
     },
 
     "properties": {
+
         "medication_prescription":{
             "$ref": "#/definitions/medication_prescription"
         },
@@ -106,5 +107,7 @@
             "type": "number"
         }
     },
+    "additionalProperties": false,
+
     "required": ["medication_prescription","medication_dispensed","amount_dispensed","time_frame_medication_dispensed"]
 }

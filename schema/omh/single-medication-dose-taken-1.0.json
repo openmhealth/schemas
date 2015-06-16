@@ -38,6 +38,8 @@
             "type": "string"
         }
     },
+    "additionalProperties": false,
+
     "required": [
         "medication",
         "dose",
