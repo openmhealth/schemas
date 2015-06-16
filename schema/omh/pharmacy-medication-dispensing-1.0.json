@@ -1,9 +1,9 @@
 {
-   "$schema":"http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description":"This schema represents the dispensing by a pharmacy of medication based on a prescription e.g., atenolol 50 mg, 20 tab.",
+    "description": "This schema represents the dispensing by a pharmacy of medication based on a prescription e.g., atenolol 50 mg, 20 tab.",
 
-    "type":"object",
+    "type": "object",
 
     "definitions": {
         "medication_prescription": {
@@ -15,7 +15,7 @@
     },
 
     "properties": {
-        "medication_prescription":{
+        "medication_prescription": {
             "$ref": "#/definitions/medication_prescription"
         },
         "medication_dispensed": {
@@ -106,5 +106,10 @@
             "type": "number"
         }
     },
-    "required": ["medication_prescription","medication_dispensed","amount_dispensed","time_frame_medication_dispensed"]
+    "required": [
+        "medication_prescription",
+        "medication_dispensed",
+        "amount_dispensed",
+        "time_frame_medication_dispensed"
+    ]
 }

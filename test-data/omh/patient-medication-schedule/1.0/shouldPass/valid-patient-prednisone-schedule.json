@@ -41,11 +41,11 @@
     "acceptable_window": {
         "before": {
             "value": 12,
-            "unit": "hr"
+            "unit": "h"
         },
         "after": {
             "value": 12,
-            "unit": "hr"
+            "unit": "h"
         }
     }
 }

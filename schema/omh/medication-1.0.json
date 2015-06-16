@@ -1,14 +1,14 @@
 {
-    "$schema":"http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description":"This schema represents a therapeutic agent, single-active ingredient or combination.",
+    "description": "This schema represents a therapeutic agent, single-active ingredient or combination.",
     "references": [
         {
             "description": "The SNOMED code represents Drug or medicament",
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/410942007"
         }
     ],
-    "type":"object",
+    "type": "object",
 
     "definitions": {
         "ingredient_strength_unit_value": {
@@ -25,15 +25,13 @@
                 ],
                 "allOf": [
                     {
-                        "ingredient_name": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "$ref": "unit-value-1.x.json"
                     },
                     {
                         "properties": {
+                            "ingredient_name": {
+                                "type": "string"
+                            },
                             "unit": {
                                 "description": "The list of most commonly used units of measure for a medication's strength. Suggestions for additions are accepted.",
                                 "references": [
@@ -107,28 +105,34 @@
 
     "properties": {
         "generic_name": {
-            "description":"The generic name of the drug.",
-            "type":"string"
+            "description": "The generic name of the drug.",
+            "type": "string"
         },
         "trade_name": {
-            "description":"The trade (brand) name of the drug.",
-            "type":"string"
+            "description": "The trade (brand) name of the drug.",
+            "type": "string"
         },
         "strength": {
             "$ref": "#/definitions/ingredient_strength_unit_value"
         },
         "rxnorm_code": {
-            "description":"The RxNORM CUI of the drug, which includes drug name, strength (if applicable), formulation, manufacturer.",
-            "type":"number"
+            "description": "The RxNORM CUI of the drug, which includes drug name, strength (if applicable), formulation, manufacturer.",
+            "type": "number"
         }
     },
-    "required": ["strength"],
+    "required": [
+        "strength"
+    ],
     "anyOf": [
         {
-            "required": ["generic_name"]
+            "required": [
+                "generic_name"
+            ]
         },
         {
-            "required": ["trade_name"]
+            "required": [
+                "trade_name"
+            ]
         }
     ]
 }

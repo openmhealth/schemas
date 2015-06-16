@@ -1,9 +1,9 @@
 {
-   "$schema":"http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
 
-   "description":"This schema represents the given reason for missing a single prescribed dose of a medication.",
+    "description": "This schema represents the given reason for missing a single prescribed dose of a medication.",
 
-   "type":"object",
+    "type": "object",
     "references": [
         {
             "description": "The SNOMED code represents Medication regimen behavior finding (finding)",
@@ -12,28 +12,28 @@
     ],
     "definitions": {
         "medication": {
-            "$ref":"medication-1.x.json"
+            "$ref": "medication-1.x.json"
         },
         "time_frame": {
-            "$ref":"time-frame-1.x.json"
+            "$ref": "time-frame-1.x.json"
         }
     },
 
     "properties": {
-       "medication": {
-           "$ref": "#/definitions/medication"
-       },
-       "effective_time_frame": {
-           "description": "The time frame of the dose missed.",
-           "$ref": "#/definitions/time_frame"
-       },
-       "reason_for_missing_dose": {
-           "type": "string"
-       }
+        "medication": {
+            "$ref": "#/definitions/medication"
+        },
+        "effective_time_frame": {
+            "description": "The time frame of the dose missed.",
+            "$ref": "#/definitions/time_frame"
+        },
+        "reason_for_missing_dose": {
+            "type": "string"
+        }
     },
     "required": [
-       "medication",
-       "effective_time_frame",
-       "reason_for_missing_dose"
-   ]
+        "medication",
+        "effective_time_frame",
+        "reason_for_missing_dose"
+    ]
 }

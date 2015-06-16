@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "string",
-    "description": "This schema describes time in a 24-hour clock format (with optional milliseconds).",
+    "description": "This schema describes local time in a 24-hour clock format (with optional milliseconds).",
     "references": [
         {
             "description": "Reference RFC 3339 5.6 for details.",

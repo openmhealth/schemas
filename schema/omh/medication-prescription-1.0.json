@@ -48,8 +48,8 @@
         "day_of_week": {
             "$ref": "day-of-week-1.x.json"
         },
-        "time": {
-            "$ref": "time-1.x.json"
+        "local_time": {
+            "$ref": "local-time-1.x.json"
         }
     },
 
@@ -235,7 +235,7 @@
                                             "$ref": "#/definitions/day_of_week"
                                         },
                                         "time_of_day": {
-                                            "$ref": "#/definitions/time"
+                                            "$ref": "#/definitions/local_time"
                                         },
                                         "temporal_relationship_to_meal": {
                                             "$ref": "#/definitions/temporal_relationship_to_meal"

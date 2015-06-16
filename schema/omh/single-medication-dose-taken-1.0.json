@@ -1,9 +1,9 @@
 {
-   "$schema":"http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
 
-   "description":"This schema represents assumption of a single dose of a medication.",
+    "description": "This schema represents assumption of a single dose of a medication.",
 
-   "type":"object",
+    "type": "object",
     "references": [
         {
             "description": "The SNOMED code represents Medication regimen behavior finding (finding)",
@@ -12,7 +12,7 @@
     ],
     "definitions": {
         "medication": {
-            "$ref":"medication-1.x.json"
+            "$ref": "medication-1.x.json"
         },
         "medication_dose_unit_value": {
             "$ref": "medication-dose-unit-value-1.x.json"
@@ -34,7 +34,7 @@
             "$ref": "#/definitions/time_frame"
         },
         "reason_dose_taken_not_as_prescribed": {
-            "description": "This is to describe cases of under or over-dosing or medication taken outside the prescribed acceptable window",
+            "description": "This is to describe cases of under or over-dosing or medication taken outside the prescribed acceptable window.",
             "type": "string"
         }
     },
