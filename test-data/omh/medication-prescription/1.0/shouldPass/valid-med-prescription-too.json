@@ -59,8 +59,10 @@
         },
         {
             "dose_duration": {
-                "value": 99,
-                "unit": "yr"
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
             },
             "medication_dose": {
                 "dose": {

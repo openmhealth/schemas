@@ -85,8 +85,10 @@
         },
         {
             "dose_duration": {
-                "value": 2,
-                "unit": "wk"
+                "duration": {
+                    "value": 2,
+                    "unit": "wk"
+                }
             },
 
             "medication_dose": {
