@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 /**
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#diastolic-blood-pressure">diastolic-blood-pressure</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_diastolic-blood-pressure">diastolic-blood-pressure</a>
  */
 public class DiastolicBloodPressure extends TypedUnitValue<BloodPressureUnit> {
 

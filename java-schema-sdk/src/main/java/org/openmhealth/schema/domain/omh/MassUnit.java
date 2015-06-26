@@ -29,7 +29,7 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#mass-unit-value">mass-unit-value</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_mass-unit-value">mass-unit-value</a>
  */
 public enum MassUnit implements Unit {
 

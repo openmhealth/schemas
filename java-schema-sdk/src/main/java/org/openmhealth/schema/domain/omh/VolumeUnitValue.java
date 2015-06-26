@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 /**
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#volume-unit-value">volume-unit-value</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_volume-unit-value">volume-unit-value</a>
  */
 public class VolumeUnitValue extends TypedUnitValue<VolumeUnit> {
 

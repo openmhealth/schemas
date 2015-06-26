@@ -33,7 +33,7 @@ import static org.openmhealth.schema.domain.omh.DurationUnit.MINUTE;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#minutes-moderate-activity">minutes-moderate-activity</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_minutes-moderate-activity">minutes-moderate-activity</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)

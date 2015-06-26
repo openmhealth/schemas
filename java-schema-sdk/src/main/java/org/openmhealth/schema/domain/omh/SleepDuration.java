@@ -33,7 +33,7 @@ import static org.openmhealth.schema.domain.omh.DurationUnit.*;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#sleep-duration">sleep-duration</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_sleep-duration">sleep-duration</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)

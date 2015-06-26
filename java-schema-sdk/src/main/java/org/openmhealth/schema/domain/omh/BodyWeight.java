@@ -29,7 +29,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#body-weight">body-weight</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_body-weight">body-weight</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
