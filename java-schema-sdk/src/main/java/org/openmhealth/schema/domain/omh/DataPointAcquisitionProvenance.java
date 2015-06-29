@@ -45,8 +45,9 @@ public class DataPointAcquisitionProvenance implements AdditionalPropertySupport
     private DataPointModality modality;
     private Map<String, Object> additionalProperties = new HashMap<>();
 
+
     @SerializationConstructor
-    private DataPointAcquisitionProvenance() {
+    protected DataPointAcquisitionProvenance() {
     }
 
     public static class Builder {

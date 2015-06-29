@@ -45,7 +45,7 @@ public class SleepDuration extends Measure {
 
 
     @SerializationConstructor
-    private SleepDuration() {
+    protected SleepDuration() {
     }
 
     public static class Builder extends Measure.Builder<Builder> {

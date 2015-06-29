@@ -87,7 +87,7 @@ public class PhysicalActivity extends Measure {
 
 
     @SerializationConstructor
-    private PhysicalActivity() {
+    protected PhysicalActivity() {
     }
 
     public static class Builder extends Measure.Builder<Builder> {

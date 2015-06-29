@@ -47,7 +47,7 @@ public class TimeFrame implements SchemaSupport, AdditionalPropertySupport {
 
 
     @SerializationConstructor
-    private TimeFrame() {
+    protected TimeFrame() {
 
     }
 

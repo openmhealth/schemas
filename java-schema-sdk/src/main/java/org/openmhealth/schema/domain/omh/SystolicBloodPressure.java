@@ -18,6 +18,7 @@ package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.math.BigDecimal;
 
@@ -28,6 +29,10 @@ import java.math.BigDecimal;
  * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_systolic-blood-pressure">systolic-blood-pressure</a>
  */
 public class SystolicBloodPressure extends TypedUnitValue<BloodPressureUnit> {
+
+    @SerializationConstructor
+    protected SystolicBloodPressure() {
+    }
 
     @JsonCreator
     public SystolicBloodPressure(@JsonProperty("unit") BloodPressureUnit unit,

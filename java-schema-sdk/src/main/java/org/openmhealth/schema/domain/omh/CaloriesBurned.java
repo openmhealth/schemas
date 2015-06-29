@@ -43,7 +43,7 @@ public class CaloriesBurned extends Measure {
 
 
     @SerializationConstructor
-    private CaloriesBurned() {
+    protected CaloriesBurned() {
     }
 
     public static class Builder extends Measure.Builder<Builder> {

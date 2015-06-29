@@ -46,7 +46,7 @@ public class SchemaVersion implements Comparable<SchemaVersion> {
 
 
     @SerializationConstructor
-    private SchemaVersion() {
+    protected SchemaVersion() {
     }
 
     @JsonCreator

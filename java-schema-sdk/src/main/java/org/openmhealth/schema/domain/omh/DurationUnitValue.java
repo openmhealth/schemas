@@ -18,6 +18,7 @@ package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.math.BigDecimal;
 
@@ -28,6 +29,10 @@ import java.math.BigDecimal;
  * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_duration-unit-value">duration-unit-value</a>
  */
 public class DurationUnitValue extends TypedUnitValue<DurationUnit> {
+
+    @SerializationConstructor
+    protected DurationUnitValue() {
+    }
 
     @JsonCreator
     public DurationUnitValue(@JsonProperty("unit") DurationUnit unit, @JsonProperty("value") BigDecimal value) {

@@ -53,7 +53,7 @@ public class DataPointHeader implements SchemaSupport, AdditionalPropertySupport
 
 
     @SerializationConstructor
-    private DataPointHeader() {
+    protected DataPointHeader() {
     }
 
     public static class Builder {

@@ -43,7 +43,7 @@ public class BloodPressure extends Measure {
 
 
     @SerializationConstructor
-    private BloodPressure() {
+    protected BloodPressure() {
     }
 
     public static class Builder extends Measure.Builder<Builder> {

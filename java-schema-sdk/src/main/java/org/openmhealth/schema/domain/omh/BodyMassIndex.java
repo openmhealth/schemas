@@ -42,7 +42,7 @@ public class BodyMassIndex extends Measure {
 
 
     @SerializationConstructor
-    private BodyMassIndex() {
+    protected BodyMassIndex() {
     }
 
     public static class Builder extends Measure.Builder<Builder> {

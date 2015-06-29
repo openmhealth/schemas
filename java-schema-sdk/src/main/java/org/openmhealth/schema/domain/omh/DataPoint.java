@@ -44,7 +44,7 @@ public class DataPoint<T> implements SchemaSupport, AdditionalPropertySupport {
 
 
     @SerializationConstructor
-    private DataPoint() {
+    protected DataPoint() {
     }
 
     /**

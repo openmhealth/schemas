@@ -43,7 +43,7 @@ public class StepCount extends Measure {
 
 
     @SerializationConstructor
-    private StepCount() {
+    protected StepCount() {
     }
 
     public static class Builder extends Measure.Builder<Builder> {

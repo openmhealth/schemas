@@ -52,7 +52,7 @@ public class TimeInterval implements SchemaSupport, AdditionalPropertySupport {
 
 
     @SerializationConstructor
-    private TimeInterval() {
+    protected TimeInterval() {
 
     }
 

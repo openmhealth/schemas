@@ -46,8 +46,9 @@ public class SchemaId implements Comparable<SchemaId>, SchemaSupport {
     private String name;
     private SchemaVersion version;
 
+
     @SerializationConstructor
-    private SchemaId() {
+    protected SchemaId() {
     }
 
     public SchemaId(String namespace, String name, String version) {

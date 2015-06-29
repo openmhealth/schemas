@@ -41,7 +41,7 @@ public class BodyHeight extends Measure {
 
 
     @SerializationConstructor
-    private BodyHeight() {
+    protected BodyHeight() {
     }
 
     public static class Builder extends Measure.Builder<Builder> {

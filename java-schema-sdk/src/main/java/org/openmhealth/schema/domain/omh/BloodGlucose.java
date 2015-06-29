@@ -44,7 +44,7 @@ public class BloodGlucose extends Measure {
 
 
     @SerializationConstructor
-    private BloodGlucose() {
+    protected BloodGlucose() {
     }
 
     public static class Builder extends Measure.Builder<Builder> {

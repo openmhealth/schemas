@@ -44,7 +44,7 @@ public class HeartRate extends Measure {
 
 
     @SerializationConstructor
-    private HeartRate() {
+    protected HeartRate() {
     }
 
     public static class Builder extends Measure.Builder<Builder> {

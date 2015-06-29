@@ -45,7 +45,7 @@ public class MinutesModerateActivity extends Measure {
 
 
     @SerializationConstructor
-    private MinutesModerateActivity() {
+    protected MinutesModerateActivity() {
     }
 
     public static class Builder extends Measure.Builder<Builder> {
