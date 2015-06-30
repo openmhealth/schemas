@@ -81,4 +81,9 @@ dependencies {
     testCompile 'junit:junit'
     testCompile 'org.mockito:mockito-core'
     testCompile 'org.springframework:spring-test'
+    testCompile 'org.testng:testng:6.8.21'
+}
+
+test {
+    useTestNG()
 }
