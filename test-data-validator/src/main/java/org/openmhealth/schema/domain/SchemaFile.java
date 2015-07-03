@@ -71,4 +71,10 @@ public class SchemaFile {
     public JsonSchema getJsonSchema() {
         return jsonSchema;
     }
+
+
+    @Override
+    public String toString() {
+        return getSchemaId().toString();
+    }
 }

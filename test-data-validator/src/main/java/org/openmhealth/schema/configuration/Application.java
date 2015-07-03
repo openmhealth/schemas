@@ -67,6 +67,7 @@ public class Application {
     @Autowired
     private ValidationService validationService;
 
+
     public static void main(String[] args) throws IOException, ProcessingException {
 
         ConfigurableApplicationContext applicationContext = SpringApplication.run(Application.class, args);

@@ -25,7 +25,7 @@ buildscript {
     }
 
     ext {
-        springBootVersion = '1.2.4.RELEASE'
+        springBootVersion = '1.2.5.RELEASE'
     }
 
     dependencies {
@@ -81,4 +81,9 @@ dependencies {
     testCompile 'junit:junit'
     testCompile 'org.mockito:mockito-core'
     testCompile 'org.springframework:spring-test'
+    testCompile 'org.testng:testng:6.8.21'
+}
+
+test {
+    useTestNG()
 }
