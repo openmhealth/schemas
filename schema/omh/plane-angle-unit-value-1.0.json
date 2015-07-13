@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description": "This schema represents an angle on a plane.",
+
+    "allOf": [
+        {
+            "$ref": "unit-value-1.0.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Basic unit is Degree of arc.",
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
+                        },
+                        {
+                            "description": "The SNOMED code represents Degree of arc",
+                            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/259046004"
+                        }
+                    ],
+                    "enum": [
+                        "Deg"
+                    ]
+                }
+            }
+        }
+    ]
+}

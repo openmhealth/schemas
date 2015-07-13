@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a speed (length divided by time).",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Speed",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+        }
+    ],
+
+    "allOf": [
+        {
+            "$ref": "unit-value-1.0.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Basic unit is meter per second.",
+                            "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
+                        }
+                    ],
+                    "enum": [
+                        "m/s",
+                        "km/h",
+                        "mph"
+                    ]
+                }
+            }
+        }
+    ]
+}

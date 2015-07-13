@@ -1,0 +1,84 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a tracking.",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents XXX",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+        }
+    ],
+    "definitions": {
+        "plane_angle_unit_value": {
+            "$ref": "plane_angle_unit-value-1.x.json"
+        },
+        "length_unit_value": {
+            "$ref": "length_unit-value-1.x.json"
+        },
+        "speed_unit_value": {
+            "$ref": "speed_unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "latitude": {
+            "references": [
+                {
+                    "description": "The ?? code represents Latitude. Negative numbers indicate South.",
+                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+                }
+            ],
+            "$ref": "#/definitions/plane_angle_unit_value"
+        },
+        "longitude": {
+            "references": [
+                {
+                    "description": "The ?? code represents Longitude. Negative numbers indicate West.",
+                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+                }
+            ],
+            "$ref": "#/definitions/plane_angle_unit_value"
+        },
+        "elevation": {
+            "$ref": "#/definitions/length_unit_value"
+        },
+        "speed": {
+            "$ref": "#/definitions/speed_unit_value"
+        },
+        "bearing": {
+            "references": [
+                {
+                    "description": "The ?? code represents Bearing. ???",
+                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+                }
+            ],
+            "$ref": "#/definitions/plane_angle_unit_value"
+        },
+        "accuracy": {
+            "references": [
+                {
+                    "description": "The ?? code represents Horizontal Accuracy. ??? m, cm: is it worth restricting?",
+                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+                }
+            ],
+            "$ref": "#/definitions/length_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+    "required": [
+        "latitude",
+        "longitude"
+    ]
+}
