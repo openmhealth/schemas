@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the acccuracy, in meters, of a GPS measurement.",
+    "type": "object",
+
+    "definitions": {
+        "length_unit_value": {
+            "$ref": "length-unit-value-1.x.json"
+        }
+    },
+
+    "properties": {
+        "accuracy": {
+            "references": [
+                {
+                    "description": "The HL7 code represents position accuracy.",
+                    "url": "http://purl.bioontology.org/ontology/HL7/C3244100"
+                },
+                {
+                    "description": "The various measures of GPS accuracy.",
+                    "url": "http://inventeksys.com/GPS_Facts_GPS_accuracy_measures.pdf"
+                }
+            ],
+            "allOf": [
+                {
+                    "$ref": "#/definitions/length_unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "m"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "method": {
+            "type": "string",
+            "enum": ["rms", "CEP"]
+        },
+        "dimension": {
+            "type": "string",
+            "enum": ["horizontal", "vertical", "3-D"]
+        }
+    },
+    "required": [
+        "accuracy"
+    ]
+}

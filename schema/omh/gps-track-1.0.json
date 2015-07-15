@@ -3,12 +3,7 @@
 
     "description": "This schema represents a tracking.",
     "type": "object",
-    "references": [
-        {
-            "description": "The SNOMED code represents XXX",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
-        }
-    ],
+
     "definitions": {
         "plane_angle_unit_value": {
             "$ref": "plane-angle-unit-value-1.x.json"
@@ -18,6 +13,9 @@
         },
         "speed_unit_value": {
             "$ref": "speed-unit-value-1.x.json"
+        },
+        "gps_accuracy_unit_value": {
+            "$ref": "gps-accuracy-unit-value-1.x.json"
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
@@ -31,8 +29,8 @@
         "latitude": {
             "references": [
                 {
-                    "description": "The ?? code represents Latitude. Negative numbers indicate South.",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+                    "description": "The NCIT code represents Latitude. Negative numbers indicate South.",
+                    "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C6864"
                 }
             ],
             "$ref": "#/definitions/plane_angle_unit_value"
@@ -40,35 +38,42 @@
         "longitude": {
             "references": [
                 {
-                    "description": "The ?? code represents Longitude. Negative numbers indicate West.",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+                    "description": "The NCIT code represents Longitude. Negative numbers indicate South.",
+                    "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68643"
                 }
             ],
             "$ref": "#/definitions/plane_angle_unit_value"
         },
         "elevation": {
+            "references": [
+                {
+                    "description": "The LOINC code represents Altitude (Length:Point in time:^Patient:Quantitative).",
+                    "description": "Although the term altitude is commonly used to mean the height above sea level of a location, in geography the term elevation is often preferred for this usage.",
+                    "url": "http://purl.bioontology.org/ontology/LNC/41905-1"
+                }
+            ],
             "$ref": "#/definitions/length_unit_value"
         },
         "speed": {
+            "references": [
+                {
+                    "description": "The NCIT code represents Speed.",
+                    "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C41146"
+                }
+            ],
             "$ref": "#/definitions/speed_unit_value"
         },
         "bearing": {
             "references": [
                 {
-                    "description": "The ?? code represents Bearing. ???",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+                    "description": "The compass direction from your current position to your intended destination. Bearing is used to describe the direction of a destination or object.",
+                    "url": "http://gps.about.com/od/glossary/g/bearing.htm"
                 }
             ],
             "$ref": "#/definitions/plane_angle_unit_value"
         },
         "accuracy": {
-            "references": [
-                {
-                    "description": "The ?? code represents Horizontal Accuracy. ??? m, cm: is it worth restricting?",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
-                }
-            ],
-            "$ref": "#/definitions/length_unit_value"
+            "$ref": "#/definitions/gps_accuracy_unit_value"
         },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
