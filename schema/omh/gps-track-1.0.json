@@ -11,13 +11,13 @@
     ],
     "definitions": {
         "plane_angle_unit_value": {
-            "$ref": "plane_angle_unit-value-1.x.json"
+            "$ref": "plane-angle-unit-value-1.x.json"
         },
         "length_unit_value": {
-            "$ref": "length_unit-value-1.x.json"
+            "$ref": "length-unit-value-1.x.json"
         },
         "speed_unit_value": {
-            "$ref": "speed_unit-value-1.x.json"
+            "$ref": "speed-unit-value-1.x.json"
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
