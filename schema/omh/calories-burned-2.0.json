@@ -48,8 +48,7 @@
             "$ref": "#/definitions/descriptive_statistic"
         },
         "statistic_time_denominator": {
-            "description": "As a measure of a duration, sleep duration cannot be associated to a date time time frame. Hence, effective time frame is restricted to be a time interval.",
-            "allOf": [
+            "description": "An aggregated result of a phenomenon that occurs over a period of time may need a time denominator of the descriptive statistic to specify its meaning. For example, an average calories burned value over a month time frame without further specification does not have an unambiguous meaning. A statistic time denominator value of d specifies that the value is the average daily calories burned.",            "allOf": [
                 {
                     "$ref": "#/definitions/duration_unit_value"
                 },
