@@ -1,20 +1,25 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a single measurement of amount of calories burned in kilocalories (kcal)either as a single measurement, or as the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures) median).",
     "type": "object",
-    "description": "This schema represents a single measurement of sleep duration, either as a single measurement, or as the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures) median).",
+
     "references": [
         {
-            "description": "The SNOMED code represents Duration of sleep (observable entity)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/248263006"
+            "description": "The LOINC code represents Calories burned:Power = Energy/Time:Point in time:^Patient:Quantitative, that is, a Quantitative measure of Calories burned by a Patient at a Point in time",
+            "url": "http://purl.bioontology.org/ontology/LNC/41981-2"
         }
     ],
 
     "definitions": {
-        "duration_unit_value": {
-            "$ref": "duration-unit-value-1.x.json"
+        "kcal_unit_value": {
+                "$ref": "kcal-unit-value-1.x.json"
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
+        },
+        "activity_name": {
+            "$ref": "activity-name-1.x.json"
         },
         "descriptive_statistic": {
             "$ref": "../generic/descriptive-statistic-1.0.json"
@@ -22,26 +27,14 @@
     },
 
     "properties": {
-        "sleep_duration": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/duration_unit_value"
-                },
-                {
-                    "properties": {
-                        "unit": {
-                            "enum": [
-                                "sec",
-                                "min",
-                                "h"
-                            ]
-                        }
-                    }
-                }
-            ]
+        "kcal_burned": {
+            "$ref": "#/definitions/kcal_unit_value"
+        },
+        "activity_name": {
+            "$ref": "#/definitions/activity_name"
         },
         "effective_time_frame": {
-            "description": "As a measure of a duration, sleep duration should not be associated to a date time time frame. Hence, effective time frame is restricted to be a time interval.",
+            "description": "As a measure of a phenomenon that occurs over a period of time, calories burned should not be associated to a date time time frame. Hence, effective time frame is restricted to be a time interval.",
             "allOf": [
                 {
                     "$ref": "#/definitions/time_frame"
@@ -73,11 +66,8 @@
                     }
                 }
             ]
-        },
-        "user_notes": {
-            "type": "string"
         }
     },
 
-    "required": ["sleep_duration"]
+    "required": ["kcal_burned"]
 }
