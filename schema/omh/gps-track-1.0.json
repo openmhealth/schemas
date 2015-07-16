@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a tracking.",
+    "description": "This schema represents a global-positioning system tracking.",
     "type": "object",
 
     "definitions": {
@@ -35,7 +35,7 @@
         "longitude": {
             "references": [
                 {
-                    "description": "The NCIT code represents Longitude. Negative numbers indicate South.",
+                    "description": "The NCIT code represents Longitude. Negative numbers indicate West.",
                     "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68643"
                 }
             ],
@@ -45,8 +45,11 @@
             "references": [
                 {
                     "description": "The LOINC code represents Altitude (Length:Point in time:^Patient:Quantitative).",
-                    "description": "Although the term altitude is commonly used to mean the height above sea level of a location, in geography the term elevation is often preferred for this usage.",
                     "url": "http://purl.bioontology.org/ontology/LNC/41905-1"
+                },
+                {
+                    "description": "Although the term altitude is commonly used to mean the height above sea level of a location, in geography the term elevation is often preferred for this usage.",
+                    "url": "https://en.wikipedia.org/wiki/Altitude"
                 }
             ],
             "$ref": "#/definitions/length_unit_value"
@@ -96,9 +99,9 @@
                     }
                 }
             ],
-            "method": {
+            "accuracy_measure": {
                 "type": "string",
-                "enum": ["rms", "CEP"]
+                "enum": ["rms", "CEP", "R95", "2drms", "SEP"]
             },
             "dimension": {
                 "type": "string",

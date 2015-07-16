@@ -18,7 +18,7 @@
     "accuracy": {
         "value": 5,
         "unit": "m",
-        "method": "CEP",
+        "accuracy_measure": "CEP",
         "dimension": "horizontal"
     },
     "speed": {
