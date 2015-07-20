@@ -16,9 +16,6 @@
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
-        },
-        "descriptive_statistic": {
-            "$ref": "descriptive-statistic-1.x.json"
         }
     },
 
@@ -111,8 +108,9 @@
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
         },
-        "descriptive_statistic": {
-            "$ref": "#/definitions/descriptive_statistic"
+        "number_of_satellites": {
+            "description": "The number of satellites used to determine location.",
+            "type": "integer"
         }
     },
     "required": [
