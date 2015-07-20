@@ -106,7 +106,15 @@
             }
         },
         "effective_time_frame": {
-            "$ref": "#/definitions/time_frame"
+            "description": "As a measure of a duration, sleep duration should not be associated to a date time time frame. Hence, effective time frame is restricted to be a time interval.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": ["date_time"]
+                }
+            ]
         },
         "number_of_satellites": {
             "description": "The number of satellites used to determine location.",
