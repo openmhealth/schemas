@@ -52,7 +52,7 @@
             "$ref": "#/definitions/length_unit_value"
         },
         "accuracy": {
-            "description": "This represents the acccuracy, in meters, of a GPS measurement.",
+            "description": "This represents the accuracy, in meters, of a GPS measurement.",
             "type": "object",
             "references": [
                 {
@@ -88,12 +88,6 @@
             }
         },
         "speed": {
-            "references": [
-                {
-                    "description": "The NCIT code represents Speed.",
-                    "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C41146"
-                }
-            ],
             "$ref": "#/definitions/speed_unit_value"
         },
         "bearing": {
@@ -106,7 +100,7 @@
             "$ref": "#/definitions/plane_angle_unit_value"
         },
         "effective_time_frame": {
-            "description": "As a measure of a duration, sleep duration should not be associated to a date time time frame. Hence, effective time frame is restricted to be a time interval.",
+            "description": "A GPS measure should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
             "allOf": [
                 {
                     "$ref": "#/definitions/time_frame"

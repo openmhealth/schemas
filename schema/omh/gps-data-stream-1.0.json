@@ -1,37 +1,24 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "description": "This schema represents a data stream (time series).",
+    "type": "array",
+    "description": "This schema represents a time series of gps measurements.",
 
     "definitions": {
-        "header": {
-            "$ref": "header-1.x.json"
-        },
         "gps_measure": {
             "$ref": "gps-measure-1.x.json"
-        },
-        "time_frame": {
-            "$ref": "time-frame-1.x.json"
         }
     },
 
-    "properties": {
-        "header": {
-            "description": "The header of the data stream.",
-            "$ref": "#/definitions/header"
-        },
-        "body": {
-            "description": "The body of the data stream is an array.",
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "gps_measure": {
-                        "$ref": "#/definitions/gps_measure"
-                    }
-                }
+    "items": {
+        "allOf": [
+            {
+                "$ref": "#/definitions/gps_measure"
+            },
+            {
+                "required": ["effective_time_frame"]
             }
-        }
+        ]
+
     },
-    "required": ["header", "body"]
+    "additionalProperties": false
 }

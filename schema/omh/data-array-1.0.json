@@ -1,21 +1,21 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "description": "This schema represents a data stream (time series).",
+    "description": "This schema represents an array of data points.",
 
     "definitions": {
-        "header": {
-            "$ref": "header-1.x.json"
+        "array_header": {
+            "$ref": "array-header-1.x.json"
         }
     },
 
     "properties": {
         "header": {
             "description": "The header of the data stream.",
-            "$ref": "#/definitions/header"
+            "$ref": "#/definitions/array_header"
         },
         "body": {
-            "description": "The body of the data stream is an array.",
+            "description": "The body of the data array is an array of data points.",
             "type": "array"
         }
     },

@@ -1,22 +1,22 @@
 {
     "latitude": {
-        "value": 60,
+        "value": 40.0596923828125,
         "unit": "Deg"
     },
     "longitude": {
-        "value": 136,
+        "value": -105.21440124511719,
         "unit": "Deg"
     },
     "altitude": {
-        "value": 130,
+        "value": 1548.5,
         "unit": "m"
     },
     "bearing": {
-        "value": 50,
+        "value": 41,
         "unit": "Deg"
     },
     "accuracy": {
-        "value": 5,
+        "value": 5.0,
         "unit": "m",
         "accuracy_measure": "CEP",
         "dimension": "horizontal"
@@ -24,5 +24,8 @@
     "speed": {
         "value": 10,
         "unit": "km/h"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00Z"
     }
 }
