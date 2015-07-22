@@ -51,24 +51,6 @@
             ],
             "$ref": "#/definitions/length_unit_value"
         },
-        "speed": {
-            "references": [
-                {
-                    "description": "The NCIT code represents Speed.",
-                    "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C41146"
-                }
-            ],
-            "$ref": "#/definitions/speed_unit_value"
-        },
-        "bearing": {
-            "references": [
-                {
-                    "description": "The compass direction from your current position to your intended destination. Bearing is used to describe the direction of a destination or object.",
-                    "url": "http://gps.about.com/od/glossary/g/bearing.htm"
-                }
-            ],
-            "$ref": "#/definitions/plane_angle_unit_value"
-        },
         "accuracy": {
             "description": "This represents the acccuracy, in meters, of a GPS measurement.",
             "type": "object",
@@ -104,6 +86,24 @@
                 "type": "string",
                 "enum": ["horizontal", "vertical", "3-D"]
             }
+        },
+        "speed": {
+            "references": [
+                {
+                    "description": "The NCIT code represents Speed.",
+                    "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C41146"
+                }
+            ],
+            "$ref": "#/definitions/speed_unit_value"
+        },
+        "bearing": {
+            "references": [
+                {
+                    "description": "The compass direction from your current position to your intended destination. Bearing is used to describe the direction of a destination or object.",
+                    "url": "http://gps.about.com/od/glossary/g/bearing.htm"
+                }
+            ],
+            "$ref": "#/definitions/plane_angle_unit_value"
         },
         "effective_time_frame": {
             "description": "As a measure of a duration, sleep duration should not be associated to a date time time frame. Hence, effective time frame is restricted to be a time interval.",

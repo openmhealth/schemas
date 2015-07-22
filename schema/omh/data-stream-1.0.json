@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description": "This schema represents a data stream (time series).",
+
+    "definitions": {
+        "header": {
+            "$ref": "header-1.x.json"
+        }
+    },
+
+    "properties": {
+        "header": {
+            "description": "The header of the data stream.",
+            "$ref": "#/definitions/header"
+        },
+        "body": {
+            "description": "The body of the data stream is an array.",
+            "type": "array"
+        }
+    },
+    "required": ["header", "body"]
+}
