@@ -52,7 +52,7 @@
             "$ref": "#/definitions/length_unit_value"
         },
         "accuracy": {
-            "description": "This represents the accuracy, in meters, of a GPS measurement.",
+            "description": "This represents the accuracy, in meters, of a position measurement.",
             "type": "object",
             "references": [
                 {
@@ -100,7 +100,7 @@
             "$ref": "#/definitions/plane_angle_unit_value"
         },
         "effective_time_frame": {
-            "description": "A GPS measure should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
+            "description": "A position measure should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
             "allOf": [
                 {
                     "$ref": "#/definitions/time_frame"
@@ -111,7 +111,7 @@
             ]
         },
         "number_of_satellites": {
-            "description": "The number of satellites used to determine location.",
+            "description": "The number of satellites used to determine position.",
             "type": "integer"
         }
     },

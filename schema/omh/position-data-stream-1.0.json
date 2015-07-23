@@ -1,18 +1,18 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "array",
-    "description": "This schema represents a time series of gps measurements.",
+    "description": "This schema represents a time series of position measurements.",
 
     "definitions": {
         "gps_measure": {
-            "$ref": "gps-measure-1.x.json"
+            "$ref": "position-measure-1.x.json"
         }
     },
 
     "items": {
         "allOf": [
             {
-                "$ref": "#/definitions/gps_measure"
+                "$ref": "#/definitions/position_measure"
             },
             {
                 "required": ["effective_time_frame"]
