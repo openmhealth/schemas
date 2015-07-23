@@ -4,7 +4,7 @@
     "description": "This schema represents a time series of position measurements.",
 
     "definitions": {
-        "gps_measure": {
+        "position_measure": {
             "$ref": "position-measure-1.x.json"
         }
     },
