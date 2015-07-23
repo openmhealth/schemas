@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a global-positioning system tracking.",
+    "description": "This schema represents a geographic position measurement.",
     "type": "object",
 
     "definitions": {
