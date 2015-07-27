@@ -113,6 +113,10 @@
         "number_of_satellites": {
             "description": "The number of satellites used to determine position.",
             "type": "integer"
+        },
+        "positioning_system": {
+            "type": "string",
+            "enum": ["GPS", "GLONASS", "GALILEO"]
         }
     },
     "required": [
