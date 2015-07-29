@@ -79,12 +79,24 @@
                 }
             ],
             "accuracy_measure": {
-                "type": "string",
-                "enum": ["rms", "CEP", "R95", "2drms", "SEP"]
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "enum": ["rms", "CEP", "R95", "2drms", "SEP"]
+                    }
+                ]
             },
             "dimension": {
-                "type": "string",
-                "enum": ["horizontal", "vertical", "3-D"]
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "enum": ["horizontal", "vertical", "3-D"]
+                    }
+                ]
             }
         },
         "speed": {
@@ -115,9 +127,14 @@
             "type": "integer"
         },
         "positioning_system": {
-            "type": "string",
-            "enum": ["GPS", "GLONASS", "Galileo","Beidou","COMPASS","IRNSS","QZSS","Other"]
-
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "enum": ["GPS", "GLONASS", "Galileo","Beidou","COMPASS","IRNSS","QZSS"]
+                }
+            ]
         }
     },
     "required": [
