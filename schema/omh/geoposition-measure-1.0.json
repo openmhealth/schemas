@@ -52,7 +52,7 @@
             "$ref": "#/definitions/length_unit_value"
         },
         "accuracy": {
-            "description": "This represents the accuracy, in meters, of a position measurement.",
+            "description": "This represents the accuracy, in meters, of a geoposition measurement.",
             "type": "object",
             "references": [
                 {
@@ -116,7 +116,8 @@
         },
         "positioning_system": {
             "type": "string",
-            "enum": ["GPS", "GLONASS", "GALILEO"]
+            "enum": ["GPS", "GLONASS", "Galileo","Beidou","COMPASS","IRNSS","QZSS","Other"]
+
         }
     },
     "required": [

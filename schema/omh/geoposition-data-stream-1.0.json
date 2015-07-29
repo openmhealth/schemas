@@ -1,11 +1,11 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "array",
-    "description": "This schema represents a time series of position measurements.",
+    "description": "This schema represents a time series of geoposition measurements.",
 
     "definitions": {
         "position_measure": {
-            "$ref": "position-measure-1.x.json"
+            "$ref": "geoposition-measure-1.x.json"
         }
     },
 
@@ -19,6 +19,5 @@
             }
         ]
 
-    },
-    "additionalProperties": false
+    }
 }
