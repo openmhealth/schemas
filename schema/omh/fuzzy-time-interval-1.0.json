@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema describes an interval of time where a precise start and/or end time is missing and therefore the time interval is described as a date + a part of the day (morning, afternoon, evening, night).",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The NCIT codes represent Timespan (synonym: time interval).",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68594"
+        }
+    ],
+
+    "definitions": {
+        "full_date": {
+            "type": "string",
+            "references": [
+                {
+                    "description": "This schema represents a date. See RFC 3339 5.6 for details.",
+                    "url": "http://tools.ietf.org/html/rfc3339"
+                }
+            ],
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "part_of_day": {
+            "$ref": "part-of-day-1.x.json"
+        }
+    },
+    "properties": {
+        "date": {
+            "$ref": "#/definitions/full_date"
+        },
+        "part_of_day": {
+            "$ref": "#/definitions/part_of_day"
+        }
+    },
+    "required": ["date", "part_of_day"],
+    "additionalProperties": false
+}
