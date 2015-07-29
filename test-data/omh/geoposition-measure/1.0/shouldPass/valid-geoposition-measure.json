@@ -10,5 +10,5 @@
     "effective_time_frame": {
         "date_time": "2013-02-05T07:25:00Z"
     },
-    "positioning_system": "GPS"
+    "positioning_system": ["GPS","GLONASS"]
 }

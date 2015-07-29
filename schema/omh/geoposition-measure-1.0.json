@@ -127,18 +127,22 @@
             "type": "integer"
         },
         "positioning_system": {
-            "anyOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "enum": ["GPS", "GLONASS", "Galileo","Beidou","COMPASS","IRNSS","QZSS"]
-                }
-            ]
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "enum": ["GPS", "GLONASS", "Galileo","Beidou","COMPASS","IRNSS","QZSS"]
+                    }
+                ]
+            }
         }
     },
     "required": [
         "latitude",
         "longitude"
-    ]
+    ],
+    "additionalProperties": false
 }
