@@ -4,7 +4,7 @@
     "description": "This schema represents a time series of geoposition measurements.",
 
     "definitions": {
-        "position_measure": {
+        "geoposition_measure": {
             "$ref": "geoposition-measure-1.x.json"
         }
     },
@@ -12,12 +12,11 @@
     "items": {
         "allOf": [
             {
-                "$ref": "#/definitions/position_measure"
+                "$ref": "#/definitions/geoposition_measure"
             },
             {
                 "required": ["effective_time_frame"]
             }
         ]
-
     }
 }
