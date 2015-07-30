@@ -22,10 +22,6 @@
             "accuracy_measure": "CEP",
             "dimension": "horizontal"
         },
-        "speed": {
-            "value": 10,
-            "unit": "km/h"
-        },
         "effective_time_frame": {
             "date_time": "2013-02-05T07:25:00Z"
         }
@@ -52,10 +48,6 @@
             "unit": "m",
             "accuracy_measure": "CEP",
             "dimension": "horizontal"
-        },
-        "speed": {
-            "value": 10,
-            "unit": "km/h"
         },
         "effective_time_frame": {
             "date_time": "2013-02-05T07:26:00Z"
