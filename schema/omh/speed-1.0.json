@@ -3,12 +3,6 @@
 
     "description": "This schema represents speed, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures).",
     "type": "object",
-    "references": [
-        {
-            "description": "The SNOMED code represents Speed",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/250811004"
-        }
-    ],
 
     "definitions": {
         "speed_unit_value": {
@@ -34,6 +28,6 @@
         }
     },
 
-    "required": ["speed"],
-    "additionalProperties": false
+    "required": ["speed"]
+
 }
