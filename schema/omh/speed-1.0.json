@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents speed, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures).",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Speed",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/250811004"
+        }
+    ],
+
+    "definitions": {
+        "speed_unit_value": {
+            "$ref": "speed-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "speed": {
+            "$ref": "#/definitions/speed_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+
+    "required": ["speed"],
+    "additionalProperties": false
+}
