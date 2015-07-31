@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a gyroscope measurement.",
+    "type": "object",
+
+    "definitions": {
+        "angular_velocity_unit_value": {
+            "$ref": "angular-velocity-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        }
+    },
+
+    "properties": {
+        "angular_velocity_x": {
+            "$ref": "#/definitions/angular_velocity_unit_value"
+        },
+        "angular_velocity_y": {
+            "$ref": "#/definitions/angular_velocity_unit_value"
+        },
+        "angular_velocity_z": {
+            "$ref": "#/definitions/angular_velocity_unit_value"
+        },
+
+        "effective_time_frame": {
+            "description": "A gyroscope measurement should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": ["date_time"]
+                }
+            ]
+        }
+    },
+    "required": [
+        "angular_velocity_x",
+        "angular_velocity_y",
+        "angular_velocity_z"
+    ]
+}

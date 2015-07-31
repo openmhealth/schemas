@@ -1,19 +1,15 @@
 {
     "latitude": {
         "value": 40.0596923828125,
-        "unit": "deg"
+        "unit": "decimal degrees"
     },
     "longitude": {
         "value": -105.21440124511719,
-        "unit": "deg"
+        "unit": "decimal degrees"
     },
     "elevation": {
         "value": 1548.5,
         "unit": "m"
-    },
-    "bearing": {
-        "value": 41,
-        "unit": "deg"
     },
     "accuracy": {
         "value": 5.0,
@@ -21,6 +17,7 @@
         "accuracy_measure": "CEP",
         "dimension": "horizontal"
     },
+    "number_of_satellites_in_fix": 3,
     "positioning_system": ["GPS"],
     "effective_time_frame": {
         "date_time": "2013-02-05T07:25:00Z"

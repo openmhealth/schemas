@@ -117,8 +117,12 @@
                 }
             ]
         },
-        "number_of_satellites": {
-            "description": "The number of satellites used to determine position.",
+        "number_of_satellites_in_view": {
+            "description": "The number of satellites hat can potentially be used to determine position.",
+            "type": "integer"
+        },
+        "number_of_satellites_in_fix": {
+            "description": "The number of satellites actually used to determine position.",
             "type": "integer"
         },
         "positioning_system": {

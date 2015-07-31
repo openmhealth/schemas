@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents an accelerometer measurement.",
+    "type": "object",
+
+    "definitions": {
+        "acceleration_unit_value": {
+            "$ref": "acceleration-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        }
+    },
+
+    "properties": {
+        "acceleration_x": {
+            "$ref": "#/definitions/acceleration_unit_value"
+        },
+        "acceleration_y": {
+            "$ref": "#/definitions/acceleration_unit_value"
+        },
+        "acceleration_z": {
+            "$ref": "#/definitions/acceleration_unit_value"
+        },
+
+        "effective_time_frame": {
+            "description": "An accelerometer measurement should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": ["date_time"]
+                }
+            ]
+        }
+    },
+    "required": [
+        "acceleration_x",
+        "acceleration_y",
+        "acceleration_z"
+    ]
+}

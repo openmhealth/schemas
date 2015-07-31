@@ -1,18 +1,12 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a single measurement of bearing.",
+    "description": "This schema represents a single measurement of bearing, which is the direction of travel. WHAT OTHER DATA ELEMENTS?",
     "type": "object",
-    "references": [
-        {
-            "description": "The compass direction from your current position to your intended destination. Bearing is used to describe the direction of a destination or object.",
-            "url": "http://gps.about.com/od/glossary/g/bearing.htm"
-        }
-    ],
 
     "definitions": {
         "plane_angle_unit_value": {
-            "$ref": "plan-angle-unit-value-1.x.json"
+            "$ref": "plane-angle-unit-value-1.x.json"
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
