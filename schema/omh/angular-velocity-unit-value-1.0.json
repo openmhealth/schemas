@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a speed (length divided by time).",
+    "type": "object",
+    "references": [
+        {
+            "description": "The NCIT code represents Speed.",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C41146"
+        }
+    ],
+
+    "allOf": [
+        {
+            "$ref": "unit-value-1.0.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. SI unit is radians per second.",
+                            "url": "http://unitsofmeasure.org/ucum.html#datyp2apdxatblxmp"
+                        }
+                    ],
+                    "enum": [
+                        "rad/s",
+                        "deg/s"
+                    ]
+                }
+            }
+        }
+    ]
+}
