@@ -1,14 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a speed (length divided by time).",
+    "description": "This schema represents an angular velocity.",
     "type": "object",
-    "references": [
-        {
-            "description": "The NCIT code represents Speed.",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C41146"
-        }
-    ],
 
     "allOf": [
         {
