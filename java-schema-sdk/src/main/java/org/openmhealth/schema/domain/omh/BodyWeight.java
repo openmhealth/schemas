@@ -44,7 +44,7 @@ public class BodyWeight extends Measure {
     protected BodyWeight() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<BodyWeight, Builder> {
 
         private MassUnitValue bodyWeight;
 

@@ -48,7 +48,7 @@ public class SleepDuration extends Measure {
     protected SleepDuration() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<SleepDuration, Builder> {
 
         private DurationUnitValue sleepDuration;
 

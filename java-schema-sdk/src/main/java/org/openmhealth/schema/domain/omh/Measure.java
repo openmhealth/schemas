@@ -38,38 +38,38 @@ public abstract class Measure implements SchemaSupport, AdditionalPropertySuppor
 
 
     @SuppressWarnings("unchecked")
-    public static abstract class Builder<T extends Builder<?>> {
+    public static abstract class Builder<M extends Measure, B extends Builder<M,B>> {
 
         private TimeFrame effectiveTimeFrame;
         private DescriptiveStatistic descriptiveStatistic;
         private String userNotes;
 
-        public T setEffectiveTimeFrame(TimeFrame effectiveTimeFrame) {
+        public B setEffectiveTimeFrame(TimeFrame effectiveTimeFrame) {
             this.effectiveTimeFrame = effectiveTimeFrame;
-            return (T) this;
+            return (B) this;
         }
 
-        public T setEffectiveTimeFrame(TimeInterval timeInterval) {
+        public B setEffectiveTimeFrame(TimeInterval timeInterval) {
             this.effectiveTimeFrame = new TimeFrame(timeInterval);
-            return (T) this;
+            return (B) this;
         }
 
-        public T setEffectiveTimeFrame(OffsetDateTime dateTime) {
+        public B setEffectiveTimeFrame(OffsetDateTime dateTime) {
             this.effectiveTimeFrame = new TimeFrame(dateTime);
-            return (T) this;
+            return (B) this;
         }
 
-        public T setDescriptiveStatistic(DescriptiveStatistic descriptiveStatistic) {
+        public B setDescriptiveStatistic(DescriptiveStatistic descriptiveStatistic) {
             this.descriptiveStatistic = descriptiveStatistic;
-            return (T) this;
+            return (B) this;
         }
 
-        public T setUserNotes(String userNotes) {
+        public B setUserNotes(String userNotes) {
             this.userNotes = userNotes;
-            return (T) this;
+            return (B) this;
         }
 
-        public abstract Measure build();
+        public abstract M build();
     }
 
     @SerializationConstructor

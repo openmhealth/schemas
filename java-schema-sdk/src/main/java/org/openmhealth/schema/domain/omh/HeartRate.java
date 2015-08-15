@@ -47,7 +47,7 @@ public class HeartRate extends Measure {
     protected HeartRate() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<HeartRate, Builder> {
 
         private TypedUnitValue<HeartRateUnit> heartRate;
         private TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity;

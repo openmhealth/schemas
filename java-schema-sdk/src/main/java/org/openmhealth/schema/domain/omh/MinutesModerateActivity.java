@@ -48,7 +48,7 @@ public class MinutesModerateActivity extends Measure {
     protected MinutesModerateActivity() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<MinutesModerateActivity, Builder> {
 
         private DurationUnitValue minutesModerateActivity;
 
