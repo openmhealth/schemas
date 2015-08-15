@@ -90,7 +90,7 @@ public class PhysicalActivity extends Measure {
     protected PhysicalActivity() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<PhysicalActivity, Builder> {
 
         private String activityName;
         private LengthUnitValue distance;
