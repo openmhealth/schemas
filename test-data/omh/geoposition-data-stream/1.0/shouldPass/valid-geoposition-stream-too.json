@@ -2,19 +2,18 @@
     {
         "latitude": {
             "value": 40.0596923828125,
-            "unit": "decimal degrees"
+            "unit": "degree-decimal"
         },
         "longitude": {
             "value": -105.21440124511719,
-            "unit": "decimal degrees"
+            "unit": "degree-decimal"
+        },
+        "effective_time_frame": {
+            "date_time": "2013-02-05T07:25:00Z"
         },
         "elevation": {
             "value": 1548.5,
             "unit": "m"
-        },
-        "bearing": {
-            "value": 41,
-            "unit": "decimal degrees"
         },
         "accuracy": {
             "value": 5.0,
@@ -22,22 +21,24 @@
             "accuracy_measure": "CEP",
             "dimension": "horizontal"
         },
-        "effective_time_frame": {
-            "date_time": "2013-02-05T07:25:00Z"
-        }
+        "number_of_satellites_in_fix": 3,
+        "positioning_system": ["GPS"]
     },
     {
         "latitude": {
             "value": 40.0596923828125,
-            "unit": "decimal degrees"
+            "unit": "degree-decimal"
         },
         "longitude": {
             "value": -105.21440124511719,
-            "unit": "decimal degrees"
+            "unit": "degree-decimal"
         },
         "elevation": {
-            "value": 1548.5,
+            "value": 1558.5,
             "unit": "m"
+        },
+        "effective_time_frame": {
+            "date_time": "2013-02-05T07:26:00Z"
         },
         "accuracy": {
             "value": 5.0,
@@ -45,8 +46,8 @@
             "accuracy_measure": "CEP",
             "dimension": "horizontal"
         },
-        "effective_time_frame": {
-            "date_time": "2013-02-05T07:26:00Z"
-        }
+        "number_of_satellites_in_fix": 3,
+        "positioning_system": ["GPS"]
+
     }
 ]

@@ -97,15 +97,6 @@
                 ]
             }
         },
-        "bearing": {
-            "references": [
-                {
-                    "description": "The compass direction from your current position to your intended destination. Bearing is used to describe the direction of a destination or object.",
-                    "url": "http://gps.about.com/od/glossary/g/bearing.htm"
-                }
-            ],
-            "$ref": "#/definitions/plane_angle_unit_value"
-        },
         "effective_time_frame": {
             "description": "A position measure should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
             "allOf": [
@@ -118,7 +109,7 @@
             ]
         },
         "number_of_satellites_in_view": {
-            "description": "The number of satellites hat can potentially be used to determine position.",
+            "description": "The number of satellites that can potentially be used to determine position.",
             "type": "integer"
         },
         "number_of_satellites_in_fix": {

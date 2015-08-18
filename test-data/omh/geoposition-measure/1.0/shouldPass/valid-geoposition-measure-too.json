@@ -1,11 +1,11 @@
 {
     "latitude": {
         "value": 40.0596923828125,
-        "unit": "decimal degrees"
+        "unit": "degree-decimal"
     },
     "longitude": {
         "value": -105.21440124511719,
-        "unit": "decimal degrees"
+        "unit": "degree-decimal"
     },
     "elevation": {
         "value": 1548.5,
