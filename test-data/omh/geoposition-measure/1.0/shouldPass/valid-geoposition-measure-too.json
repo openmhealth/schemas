@@ -17,6 +17,7 @@
         "accuracy_measure": "CEP",
         "dimension": "horizontal"
     },
+    "number_of_satellites_in_view": 5,
     "number_of_satellites_in_fix": 3,
     "positioning_system": ["GPS"],
     "effective_time_frame": {
