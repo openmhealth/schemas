@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a geographic location identified by a geographic position measurement and an optional label identifying it as a point of interest.",
+    "type": "object",
+
+    "definitions": {
+        "geoposition_measure": {
+            "$ref": "geoposition-measure-1.x.json"
+        }
+    },
+
+    "properties": {
+        "geoposition": {
+            "$ref": "#/definitions/geoposition_measure"
+        },
+        "geolocation_name": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "geoposition"
+    ],
+    "additionalProperties": false
+}
