@@ -21,7 +21,7 @@
                         }
                     ],
                     "enum": [
-                        "degree-decimal"
+                        "decimal degrees"
                     ]
                 }
             }

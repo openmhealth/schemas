@@ -2,17 +2,17 @@
     {
         "latitude": {
             "value": 40.0596923828125,
-            "unit": "degree-decimal"
+            "unit": "decimal degrees"
         }
     },
     {
         "latitude": {
             "value": 40.0596923828125,
-            "unit": "degree-decimal"
+            "unit": "decimal degrees"
         },
         "longitude": {
             "value": -105.21440124511719,
-            "unit": "degree-decimal"
+            "unit": "decimal degrees"
         }
     }
 ]
