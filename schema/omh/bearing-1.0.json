@@ -15,7 +15,6 @@
 
     "properties": {
         "bearing": {
-
             "$ref": "#/definitions/plane_angle_unit_value"
         },
         "effective_time_frame": {

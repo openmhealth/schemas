@@ -8,10 +8,6 @@
             "value": -124.2158586,
             "unit": "decimal degrees"
         },
-        "elevation": {
-            "value": 0,
-            "unit": "m"
-        },
         "accuracy": {
             "value": 5.0,
             "unit": "m",
