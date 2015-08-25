@@ -7,6 +7,12 @@
     "definitions": {
         "geoposition_measure": {
             "$ref": "geoposition-measure-1.x.json"
+        },
+        "address": {
+            "$ref": "address-1.x.json"
+        },
+        "length_unit_value": {
+            "$ref": "length-unit-value-1.x.json"
         }
     },
 
@@ -14,8 +20,14 @@
         "geoposition": {
             "$ref": "#/definitions/geoposition_measure"
         },
+        "radius": {
+            "$ref": "#/definitions/length_unit_value"
+        },
         "geolocation_name": {
             "type": "string"
+        },
+        "geolocation_address": {
+            "$ref": "#/definitions/address"
         }
     },
     "required": [

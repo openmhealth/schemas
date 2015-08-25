@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "An Address following the convention of http://microformats.org/wiki/hcard",
+    "type": "object",
+    "properties": {
+        "post-office-box": {
+            "type": "string",
+            "description": "post office mailbox"
+        },
+        "extended-address": {
+            "type": "string",
+            "description": "additional street details"
+        },
+        "street-address": {
+            "type": "string",
+            "descriptin": "house/apartment number, floor, street name"
+        },
+        "locality":{
+            "type": "string",
+            "description": "city/town/village"
+        },
+        "region": {
+            "type": "string",
+            "description": "state/county/province"
+        },
+        "postal-code": {
+            "type": "string",
+            "description": "postal code, e.g. ZIP in the US"
+        },
+        "country-name": {
+            "type": "string",
+            "description": "should be full name of country, country code ok"
+        }
+    },
+    "required": ["locality", "region", "country-name"],
+    "dependencies": {
+        "post-office-box": ["street-address"],
+        "extended-address": ["street-address"]
+    }
+}
