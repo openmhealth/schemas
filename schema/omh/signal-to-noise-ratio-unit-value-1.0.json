@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents signal-to-noise ratio (SNR) expressed in decibels (dB).",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents ",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+        }
+    ],
+
+    "allOf": [
+        {
+            "$ref": "unit-value-1.0.json"
+        },
+        {
+            "properties": {
+                "value": {
+                    "description": "The Signal to Noise Ratio (SNR) of each satellite, expressed in decibels (dB). The higher the number, the stronger the signal. Typical value for a good fix is 20-40.",
+                    "type": "integer",
+                    "minimumValue": 0,
+                    "maximumValue":99
+                },
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element.",
+                            "url": "http://unitsofmeasure.org/ucum.html#datyp2apdxatblxmp"
+                        }
+                    ],
+                    "enum": [
+                        "dB"
+                    ]
+                }
+            }
+        }
+    ]
+}

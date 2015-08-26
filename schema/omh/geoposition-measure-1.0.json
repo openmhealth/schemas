@@ -13,6 +13,9 @@
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
+        },
+        "signal_to_noise_ratio_unit_value": {
+            "$ref": "signal-to-noise-ratio-unit-value-1.x.json"
         }
     },
 
@@ -111,6 +114,12 @@
         "number_of_satellites_in_view": {
             "description": "The number of satellites that can potentially be used to determine position.",
             "type": "integer"
+        },
+        "satellite_signal_strength": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/signal_to_noise_ratio_unit_value"
+            }
         },
         "number_of_satellites_in_fix": {
             "description": "The number of satellites actually used to determine position.",
