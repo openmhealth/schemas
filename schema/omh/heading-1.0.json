@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a single measurement of bearing, which is the direction of travel. WHAT OTHER DATA ELEMENTS?",
+    "description": "This schema represents a single measurement of heading, which is the direction of travel.",
     "type": "object",
 
     "definitions": {
@@ -14,7 +14,7 @@
     },
 
     "properties": {
-        "bearing": {
+        "heading": {
             "$ref": "#/definitions/plane_angle_unit_value"
         },
         "effective_time_frame": {
@@ -22,6 +22,6 @@
         }
     },
 
-    "required": ["bearing"]
+    "required": ["heading"]
 }
 
