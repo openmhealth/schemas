@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a magnetometer measurement. Probably need another schema for value.",
+    "type": "object",
+
+    "definitions": {
+        "magnetic_flux_strength_unit_value": {
+            "$ref": "magnetic-flux-strength-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        }
+    },
+
+    "properties": {
+        "magnetic_field_strength_x": {
+            "$ref": "#/definitions/magnetic_flux_strength_unit_value"
+        },
+        "magnetic_field_strength_y": {
+            "$ref": "#/definitions/magnetic_flux_strength_unit_value"
+        },
+        "magnetic_field_strength_z": {
+            "$ref": "#/definitions/magnetic_flux_strength_unit_value"
+        },
+
+        "magnetometer_type": {
+            "type": "string",
+            "enum": [
+                "scalar", "vector"
+            ]
+        },
+
+        "effective_time_frame": {
+            "description": "An accelerometer measurement should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": ["date_time"]
+                }
+            ]
+        }
+    },
+    "required": [
+        "magnetic_field_strength_x",
+        "magnetic_field_strength_y",
+        "magnetic_field_strength_z"
+    ]
+}
