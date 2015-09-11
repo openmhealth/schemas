@@ -26,7 +26,6 @@
             "description": "represents the magnetic field strength in the local nadir direction (vertically down).",
             "$ref": "#/definitions/magnetic_flux_strength_unit_value"
         },
-
         "magnetometer_type": {
             "type": "string",
             "enum": [
@@ -35,7 +34,7 @@
         },
 
         "effective_time_frame": {
-            "description": "An accelerometer measurement should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
+            "description": "A magnetometer measurement should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
             "allOf": [
                 {
                     "$ref": "#/definitions/time_frame"
@@ -48,7 +47,7 @@
     },
     "required": [
         "magnetic_field_strength_x",
-        "magnetic_field_strength_y",
-        "magnetic_field_strength_z"
-    ]
+        "magnetic_field_strength_y"
+    ],
+    "additionalProperties": false
 }

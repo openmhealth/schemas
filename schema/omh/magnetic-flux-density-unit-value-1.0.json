@@ -6,8 +6,8 @@
 
     "references": [
         {
-            "description": "The SNOMED code represents ??",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
+            "description": "The SNOMED code represents Magnetic field (physical force)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/285651005"
         }
     ],
 
