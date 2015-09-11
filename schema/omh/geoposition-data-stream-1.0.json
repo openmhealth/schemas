@@ -8,7 +8,6 @@
             "$ref": "geoposition-measure-1.x.json"
         }
     },
-
     "items": {
         "allOf": [
             {
