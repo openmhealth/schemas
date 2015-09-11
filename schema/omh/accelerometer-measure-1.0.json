@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents an accelerometer measurement. The assumption is a 2-axis accelerometer. For a 3-axis one, the z measurement should also be required.",
+    "description": "This schema represents an accelerometer measurement. The assumption is a 2-axis accelerometer. For a 3-axis accelerometer, the z measurement should also be required.",
     "type": "object",
 
     "definitions": {
@@ -45,5 +45,6 @@
     "required": [
         "acceleration_x",
         "acceleration_y"
-    ]
+    ],
+    "additionalProperties": false
 }
