@@ -5,19 +5,19 @@
     "properties": {
         "post-office-box": {
             "type": "string",
-            "description": "post office mailbox"
+            "description": "The post office mailbox."
         },
         "extended-address": {
             "type": "string",
-            "description": "additional street details"
+            "description": "Additional street details."
         },
         "street-address": {
             "type": "string",
-            "descriptin": "house/apartment number, floor, street name"
+            "descriptin": "The house/apartment number, floor, street name."
         },
         "locality":{
             "type": "string",
-            "description": "city/town/village"
+            "description": "The city/town/village."
         },
         "region": {
             "type": "string",
@@ -25,16 +25,13 @@
         },
         "postal-code": {
             "type": "string",
-            "description": "postal code, e.g. ZIP in the US"
+            "description": "The postal code, e.g. ZIP in the US."
         },
         "country-name": {
-            "type": "string",
-            "description": "should be full name of country, country code ok"
+            "type": "string"
         }
     },
     "required": ["locality", "region", "country-name"],
-    "dependencies": {
-        "post-office-box": ["street-address"],
-        "extended-address": ["street-address"]
-    }
+    "additionalProperties": false
+
 }
