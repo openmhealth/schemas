@@ -4,13 +4,6 @@
     "description": "This schema represents signal-to-noise ratio (SNR) expressed in decibels (dB).",
     "type": "object",
 
-    "references": [
-        {
-            "description": "The SNOMED code represents ",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/"
-        }
-    ],
-
     "allOf": [
         {
             "$ref": "unit-value-1.0.json"
