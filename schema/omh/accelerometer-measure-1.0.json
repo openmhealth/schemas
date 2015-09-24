@@ -23,13 +23,18 @@
         "acceleration_z": {
             "$ref": "#/definitions/acceleration_unit_value"
         },
-        "accelerometer_location": {
+        "accelerometer_site": {
             "type": "string",
             "enum": [
                 "hip", "wrist", "ankle"
             ]
         },
-
+        "accelerometer_side": {
+            "type": "string",
+            "enum": [
+                "left", "right"
+            ]
+        },
         "effective_time_frame": {
             "description": "An accelerometer measurement should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
             "allOf": [
