@@ -130,7 +130,7 @@
             "enum": [
                 "pulse oximetry",
                 "arterial blood gas analyzer",
-                "near-infrared spectroscopy (NIRS)"
+                "near-infrared spectroscopy"
             ]
         },
         "effective_time_frame": {
