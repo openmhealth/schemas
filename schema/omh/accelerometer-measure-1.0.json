@@ -23,7 +23,7 @@
         "acceleration_z": {
             "$ref": "#/definitions/acceleration_unit_value"
         },
-        "accelerometer_site": {
+        "accelerometer_location": {
             "type": "string",
             "enum": [
                 "hip", "wrist", "ankle"
@@ -33,6 +33,12 @@
             "type": "string",
             "enum": [
                 "left", "right"
+            ]
+        },
+        "handedness": {
+            "type": "string",
+            "enum": [
+                "right", "left"
             ]
         },
         "effective_time_frame": {
