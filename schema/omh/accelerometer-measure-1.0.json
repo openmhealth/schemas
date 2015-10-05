@@ -26,7 +26,7 @@
         "accelerometer_location": {
             "type": "string",
             "enum": [
-                "hip", "wrist", "ankle"
+                "ankle", "back", "chest", "head", "hip", "thigh", "upper arm", "wrist"
             ]
         },
         "accelerometer_side": {
