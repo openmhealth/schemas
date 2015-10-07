@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "type": "string",
+    "description": "The source of the specimen analyzed.",
+    "references": [
+        {
+            "description": "The SNOMED code represents Body substance sample (specimen)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/309050000"
+        }
+    ],
+
+    "enum": [
+        "whole blood",
+        "plasma",
+        "serum",
+        "interstitial fluid"
+    ]
+}
