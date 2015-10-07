@@ -1,0 +1,10 @@
+{
+    "blood_glucose": {
+        "unit": "mg/dL",
+        "value": 95
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T20:25:00Z"
+    },
+    "temporal_relationship_to_sleep": "before sleeping"
+}
