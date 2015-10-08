@@ -3,5 +3,5 @@
         "unit": "mg/dL",
         "value": 95
     },
-    "specimen_source": "fluid"
+    "blood_glucose_specimen_source": "fluid"
 }
