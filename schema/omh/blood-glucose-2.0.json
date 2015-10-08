@@ -50,8 +50,25 @@
                 }
             ]
         },
-        "specimen_source": {
-            "$ref": "#/definitions/specimen_source"
+        "blood_glucose_specimen_source": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/specimen_source"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "interstitial fluid",
+                                "capillary blood",
+                                "plasma",
+                                "serum",
+                                "whole blood"
+                            ]
+                        }
+                    }
+                }
+            ]
         },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
