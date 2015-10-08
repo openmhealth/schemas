@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
 
     "type": "string",
-    "description": "The source of the specimen analyzed. This is only a stub value set. More values will be added soon.",
+    "description": "The source of the specimen analyzed. This is an incomplete value set. More values will be added soon.",
     "references": [
         {
             "description": "The SNOMED code represents Body substance sample (specimen)",
@@ -11,9 +11,10 @@
     ],
 
     "enum": [
-        "whole blood",
+        "interstitial fluid",
+        "capillary blood",
         "plasma",
         "serum",
-        "interstitial fluid"
+        "whole blood"
     ]
 }
