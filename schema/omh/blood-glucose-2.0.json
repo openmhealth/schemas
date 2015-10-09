@@ -50,7 +50,7 @@
                 }
             ]
         },
-        "blood_glucose_specimen_source": {
+        "specimen_source": {
             "allOf": [
                 {
                     "$ref": "#/definitions/specimen_source"
@@ -63,6 +63,7 @@
                                 "capillary blood",
                                 "plasma",
                                 "serum",
+                                "tears",
                                 "whole blood"
                             ]
                         }
