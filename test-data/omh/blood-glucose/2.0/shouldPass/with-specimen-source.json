@@ -3,5 +3,5 @@
         "unit": "mg/dL",
         "value": 95
     },
-    "blood_glucose_specimen_source": "serum"
+    "specimen_source": "serum"
 }

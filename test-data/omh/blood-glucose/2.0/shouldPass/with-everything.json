@@ -9,7 +9,7 @@
             "end_date_time": "2013-06-05T07:25:00Z"
         }
     },
-    "blood_glucose_specimen_source": "interstitial fluid",
+    "specimen_source": "interstitial fluid",
     "temporal_relationship_to_meal": "fasting",
     "temporal_relationship_to_sleep": "on waking",
     "descriptive_statistic": "minimum"
