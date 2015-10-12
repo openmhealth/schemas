@@ -1,0 +1,292 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a medication prescription e.g., atenolol 50 mg, 1 tablet in the morning and 0.5 tablet in the evening for 30 days.",
+
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Drug prescription",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/182817000"
+        }
+    ],
+
+    "definitions": {
+        "medication": {
+            "$ref": "medication-1.x.json"
+        },
+        "intervention_administration_route": {
+            "$ref": "intervention-administration-route-2.x.json"
+        },
+        "medication_dose_unit_value": {
+            "$ref": "medication-dose-unit-value-1.x.json"
+        },
+        "medication_dose_unit_value_range": {
+            "$ref": "medication-dose-unit-value-range-1.x.json"
+        },
+        "frequency_unit_value": {
+            "$ref": "frequency-unit-value-1.x.json"
+        },
+        "duration_unit_value": {
+            "$ref": "duration-unit-value-1.x.json"
+        },
+        "duration_unit_value_range": {
+            "$ref": "duration-unit-value-range-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "temporal_relationship_to_meal": {
+            "$ref": "temporal-relationship-to-meal-1.x.json"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "temporal-relationship-to-sleep-1.x.json"
+        },
+        "part_of_day": {
+            "$ref": "part-of-day-1.x.json"
+        },
+        "day_of_week": {
+            "$ref": "day-of-week-1.x.json"
+        },
+        "local_time": {
+            "$ref": "local-time-1.x.json"
+        }
+    },
+
+    "properties": {
+        "medication": {
+            "$ref": "#/definitions/medication"
+        },
+        "route": {
+            "$ref": "#/definitions/intervention_administration_route"
+        },
+        "prescription_trigger": {
+            "type": "string"
+        },
+        "schedule": {
+            "type": "array",
+            "description": "A medication can have different schedules (dose and dose recurrence) for different times, hence this is an array.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "dose_duration": {
+                        "type": "object",
+                        "description": "A medication prescription can last a certain length of time (duration), a certain range of time (duration range), a time frame (one day or a time interval) or as long as a certain condition (e.g., until skin lesion heals). The prescription for a chronic condition continues indeterminately and to indicate this 99 years is used.",
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "duration": {
+                                        "$ref": "#/definitions/duration_unit_value"
+                                    }
+                                },
+                                "required": [
+                                    "duration"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "duration_range": {
+                                        "$ref": "#/definitions/duration_unit_value_range"
+                                    }
+                                },
+                                "required": [
+                                    "duration_range"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "time_frame": {
+                                        "$ref": "#/definitions/time_frame"
+                                    }
+                                },
+                                "required": [
+                                    "time_frame"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "free_text": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "free_text"
+                                ]
+                            }
+                        ]
+                    },
+
+                    "dose_administration_duration": {
+                        "type": "object",
+                        "description": "The administration of a medication dose can last a certain length of time (duration), a certain range of time (duration range), a time frame (one day or a time interval) or as long as a certain condition (e.g., until pain abates).",
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "duration": {
+                                        "$ref": "#/definitions/duration_unit_value"
+                                    }
+                                },
+                                "required": [
+                                    "duration"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "duration_range": {
+                                        "$ref": "#/definitions/duration_unit_value_range"
+                                    }
+                                },
+                                "required": [
+                                    "duration_range"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "time_frame": {
+                                        "$ref": "#/definitions/time_frame"
+                                    }
+                                },
+                                "required": [
+                                    "time_frame"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "free_text": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "free_text"
+                                ]
+                            }
+                        ]
+                    },
+                    "medication_dose": {
+                        "type": "object",
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "dose": {
+                                        "$ref": "#/definitions/medication_dose_unit_value"
+                                    }
+                                },
+                                "required": [
+                                    "dose"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "dose_range": {
+                                        "$ref": "#/definitions/medication_dose_unit_value_range"
+                                    }
+                                },
+                                "required": [
+                                    "dose_range"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "dose_array": {
+                                        "type": "array",
+                                        "description": "A medication dose can differ based on a condition, hence this is an array.",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "dose": {
+                                                    "$ref": "#/definitions/medication_dose_unit_value"
+                                                },
+                                                "dose_trigger": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "dose",
+                                                "dose_trigger"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "dose_array"
+                                ]
+                            }
+                        ]
+                    },
+                    "dose_recurrence": {
+                        "type": "object",
+                        "properties": {
+                            "frequency": {
+                                "$ref": "#/definitions/frequency_unit_value"
+                            },
+                            "dose_prn_trigger": {
+                                "type": "string"
+                            },
+                            "timing": {
+                                "type": "array",
+                                "description": "A medication dose can have different schedules (dose recurrence), hence this is an array.",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "part_of_day": {
+                                            "$ref": "#/definitions/part_of_day"
+                                        },
+                                        "day_of_week": {
+                                            "$ref": "#/definitions/day_of_week"
+                                        },
+                                        "time_of_day": {
+                                            "$ref": "#/definitions/local_time"
+                                        },
+                                        "temporal_relationship_to_meal": {
+                                            "$ref": "#/definitions/temporal_relationship_to_meal"
+                                        },
+                                        "temporal_relationship_to_sleep": {
+                                            "$ref": "#/definitions/temporal_relationship_to_sleep"
+                                        },
+                                        "time_frame_of_temporal_relationship_to_meal": {
+                                            "$ref": "#/definitions/duration_unit_value"
+                                        },
+                                        "time_frame_of_temporal_relationship_to_sleep": {
+                                            "$ref": "#/definitions/duration_unit_value"
+                                        }
+                                    }
+                                }
+                            },
+                            "sequence": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "unit": {
+                                            "enum": [
+                                                "min",
+                                                "h",
+                                                "d",
+                                                "wk",
+                                                "Mo",
+                                                "yr"
+                                            ]
+                                        },
+
+                                        "value": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "dose_duration",
+                    "medication_dose",
+                    "dose_recurrence"
+                ]
+            }
+        }
+    },
+    "required": [
+        "medication",
+        "schedule"
+    ]
+}
