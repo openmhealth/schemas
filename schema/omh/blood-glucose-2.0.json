@@ -77,7 +77,6 @@
         "temporal_relationship_to_meal": {
             "$ref": "#/definitions/temporal_relationship_to_meal"
         },
-
         "temporal_relationship_to_sleep": {
             "$ref": "#/definitions/temporal_relationship_to_sleep"
         },
