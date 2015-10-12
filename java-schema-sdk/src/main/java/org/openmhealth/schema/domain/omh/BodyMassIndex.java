@@ -30,7 +30,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#body-mass-index">body-mass-index</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_body-mass-index">body-mass-index</a>
  */
 @JsonInclude(NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
@@ -42,10 +42,10 @@ public class BodyMassIndex extends Measure {
 
 
     @SerializationConstructor
-    private BodyMassIndex() {
+    protected BodyMassIndex() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<BodyMassIndex, Builder> {
 
         private TypedUnitValue<BodyMassIndexUnit> bodyMassIndex;
 

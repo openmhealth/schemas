@@ -18,6 +18,7 @@ package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.util.Optional;
 import java.util.regex.Matcher;
@@ -42,6 +43,11 @@ public class SchemaVersion implements Comparable<SchemaVersion> {
     private int major;
     private int minor;
     private String qualifier;
+
+
+    @SerializationConstructor
+    protected SchemaVersion() {
+    }
 
     @JsonCreator
     public SchemaVersion(String version) {

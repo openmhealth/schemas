@@ -36,7 +36,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#physical-activity">physical-activity</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_physical-activity">physical-activity</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
@@ -87,10 +87,10 @@ public class PhysicalActivity extends Measure {
 
 
     @SerializationConstructor
-    private PhysicalActivity() {
+    protected PhysicalActivity() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<PhysicalActivity, Builder> {
 
         private String activityName;
         private LengthUnitValue distance;

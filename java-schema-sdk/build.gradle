@@ -28,7 +28,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray' // see https://github.com/bintray/gradle-bintray-plugin for details
 
 archivesBaseName = 'omh-schema-sdk'
-version = '1.0.1'
+version = '1.0.3'
 
 ext {
     jacksonVersion = '2.5.3'
@@ -45,6 +45,11 @@ dependencies {
     testCompile 'com.github.fge:json-schema-validator:2.2.6'
     testCompile 'org.testng:testng:6.8.21'
     testCompile 'org.hamcrest:hamcrest-library:1.3'
+}
+
+test {
+    useTestNG()
+    workingDir = '..'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
@@ -75,8 +80,8 @@ publishing {
 }
 
 bintray {
-    user = bintray_user
-    key = bintray_api_key
+    user = project.hasProperty('bintray_user') ? bintray_user : ''
+    key = project.hasProperty('bintray_api_key') ? bintray_api_key : ''
 
     publications = ['jar', 'sources', 'javadoc']
     dryRun = false

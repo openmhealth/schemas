@@ -2,7 +2,12 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "description": "This schema represents a single measurement of minutes of moderate-intensity activity performed. The ability to represent descriptive statistics (e.g., mean, median) will be added shortly.",
-
+    "references": [
+        {
+            "description": "The SNOMED code represents Physical activity target moderate exercise (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/408581006"
+        }
+    ],
     "definitions": {
         "duration_unit_value": {
             "$ref": "duration-unit-value-1.x.json"

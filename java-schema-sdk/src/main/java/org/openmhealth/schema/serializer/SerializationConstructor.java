@@ -16,11 +16,20 @@
 
 package org.openmhealth.schema.serializer;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+
 /**
- * An annotation used to mark a constructor as necessary for serialization.
+ * An annotation used to mark a default constructor that shouldn't be used directly as useful for serialization or
+ * persistence.
  *
  * @author Emerson Farrugia
  */
+@Target(ElementType.CONSTRUCTOR)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface SerializationConstructor {
 
 }

@@ -31,7 +31,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#heart-rate">heart-rate</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_heart-rate">heart-rate</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
@@ -44,10 +44,10 @@ public class HeartRate extends Measure {
 
 
     @SerializationConstructor
-    private HeartRate() {
+    protected HeartRate() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<HeartRate, Builder> {
 
         private TypedUnitValue<HeartRateUnit> heartRate;
         private TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity;

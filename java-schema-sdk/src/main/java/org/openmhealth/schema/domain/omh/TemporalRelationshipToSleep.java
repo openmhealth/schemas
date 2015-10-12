@@ -29,7 +29,7 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#temporal-relationship-to-sleep">temporal-relationship
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temporal-relationship-to-sleep">temporal-relationship
  * -to-sleep</a>
  */
 public enum TemporalRelationshipToSleep implements SchemaEnumValue {

@@ -31,7 +31,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#data-point">data-point</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_data-point">data-point</a>
  */
 public class DataPoint<T> implements SchemaSupport, AdditionalPropertySupport {
 
@@ -44,7 +44,7 @@ public class DataPoint<T> implements SchemaSupport, AdditionalPropertySupport {
 
 
     @SerializationConstructor
-    private DataPoint() {
+    protected DataPoint() {
     }
 
     /**
