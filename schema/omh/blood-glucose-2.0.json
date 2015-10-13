@@ -56,18 +56,14 @@
                     "$ref": "#/definitions/specimen_source"
                 },
                 {
-                    "properties": {
-                        "unit": {
-                            "enum": [
-                                "interstitial fluid",
-                                "capillary blood",
-                                "plasma",
-                                "serum",
-                                "tears",
-                                "whole blood"
-                            ]
-                        }
-                    }
+                    "enum": [
+                        "interstitial fluid",
+                        "capillary blood",
+                        "plasma",
+                        "serum",
+                        "tears",
+                        "whole blood"
+                    ]
                 }
             ]
         },
