@@ -12,7 +12,7 @@
     "system": "capillary",
     "supplemental_oxygen_flow_rate": {
         "value": 5,
-        "unit": "LPM"
+        "unit": "L/min"
     },
     "oxygen_therapy_mode_of_administration": "face mask",
     "measurement_method": "near-infrared spectroscopy",

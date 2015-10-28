@@ -43,65 +43,23 @@
             "type": "string",
             "references": [
                 {
-                    "value": "arterial",
-                    "description": "The SNOMED code represents Arterial oxygen saturation (observable entity) [SaO2]",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442476006"
-                },
-                {
                     "value": "capillary",
                     "description": "The SNOMED code represents Capillary oxygen saturation (observable entity) [ScO2]",
                     "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442440005"
                 },
                 {
-                    "value": "intracardiac",
-                    "description": "The SNOMED code represents Intracardiac oxygen saturation (observable entity)",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442381003"
-                },
-                {
-                    "value": "jugular bulb",
-                    "description": "The SNOMED code represents Jugular bulb oxygen saturation (observable entity)",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442386008"
-                },
-                {
                     "value": "peripheral",
                     "description": "The SNOMED code represents Peripheral oxygen saturation (observable entity) [SpO2]",
                     "url": "http://purl.bioontology.org/ontology/SNOMEDCT/431314004"
-                },
-                {
-                    "value": "conjunctival",
-                    "description": "The SNOMED code represents Conjunctival oxygen saturation (observable entity)",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/373638005"
-                },
-                {
-                    "value": "venous",
-                    "description": "The SNOMED code represents Venous oxygen saturation (observable entity) [SvO2]",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442349007"
-                },
-                {
-                    "value": "mixed venous",
-                    "description": "The SNOMED code represents Mixed venous oxygen saturation (observable entity) [SvO2]",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442734002"
-                },
-                {
-                    "value": "superior vena cava",
-                    "description": "The SNOMED code represents Superior vena cava oxygen saturation (observable entity)",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442694009"
                 }
             ],
             "enum": [
-                "arterial",
                 "capillary",
-                "intracardiac",
-                "jugular bulb",
-                "peripheral",
-                "conjunctival",
-                "venous",
-                "mixed venous",
-                "superior vena cava"
+                "peripheral"
             ]
         },
         "supplemental_oxygen_flow_rate": {
-            "description": "0 LPM means room air",
+            "description": "0 L/min means room air",
             "allOf": [
                 {
                     "$ref": "#/definitions/unit_value"
@@ -110,7 +68,7 @@
                     "properties": {
                         "unit": {
                             "enum": [
-                                "LPM"
+                                "L/min"
                             ]
                         }
                     }
@@ -129,7 +87,6 @@
             "type": "string",
             "enum": [
                 "pulse oximetry",
-                "arterial blood gas analyzer",
                 "near-infrared spectroscopy"
             ]
         },
