@@ -1,8 +1,12 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-
+    "deprecation": {
+        "reason": "This schema is now deprecated, in favor of the more generic specimen-source, which can be subset for specific usage.",
+        "supersededBy": "omh:specimen-source:1.x",
+        "date": "2015-10-13"
+    },
     "type": "string",
-    "description": "The type of blood specimen analyzed. ",
+    "description": "The type of blood specimen analyzed.",
     "references": [
         {
             "value": "whole blood",

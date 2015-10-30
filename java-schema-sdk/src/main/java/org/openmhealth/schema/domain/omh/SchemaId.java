@@ -33,7 +33,7 @@ import static java.util.regex.Pattern.compile;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#schema-id">schema-id</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_schema-id">schema-id</a>
  */
 public class SchemaId implements Comparable<SchemaId>, SchemaSupport {
 
@@ -46,8 +46,9 @@ public class SchemaId implements Comparable<SchemaId>, SchemaSupport {
     private String name;
     private SchemaVersion version;
 
+
     @SerializationConstructor
-    private SchemaId() {
+    protected SchemaId() {
     }
 
     public SchemaId(String namespace, String name, String version) {

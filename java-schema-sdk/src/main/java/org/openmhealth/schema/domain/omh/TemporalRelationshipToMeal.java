@@ -29,7 +29,7 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#temporal-relationship-to-meal">temporal-relationship
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temporal-relationship-to-meal">temporal-relationship
  * -to-meal</a>
  */
 public enum TemporalRelationshipToMeal implements SchemaEnumValue {

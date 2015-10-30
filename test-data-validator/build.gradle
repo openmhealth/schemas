@@ -25,11 +25,11 @@ buildscript {
     }
 
     ext {
-        springBootVersion = '1.2.4.RELEASE'
+        springBootVersion = '1.2.5.RELEASE'
     }
 
     dependencies {
-        classpath 'io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE'
+        classpath 'io.spring.gradle:dependency-management-plugin:0.5.3.RELEASE'
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
     }
 }
@@ -81,4 +81,9 @@ dependencies {
     testCompile 'junit:junit'
     testCompile 'org.mockito:mockito-core'
     testCompile 'org.springframework:spring-test'
+    testCompile 'org.testng:testng:6.8.21'
+}
+
+test {
+    useTestNG()
 }

@@ -29,7 +29,7 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#heart-rate">heart-rate</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_heart-rate">heart-rate</a>
  */
 public enum HeartRateUnit implements Unit {
 

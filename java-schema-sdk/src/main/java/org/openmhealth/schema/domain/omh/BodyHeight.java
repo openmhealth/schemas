@@ -29,7 +29,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#body-height">body-height</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_body-height">body-height</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
@@ -41,10 +41,10 @@ public class BodyHeight extends Measure {
 
 
     @SerializationConstructor
-    private BodyHeight() {
+    protected BodyHeight() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<BodyHeight, Builder> {
 
         private LengthUnitValue bodyHeight;
 

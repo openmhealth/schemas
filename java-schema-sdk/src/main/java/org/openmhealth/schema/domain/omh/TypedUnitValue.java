@@ -19,6 +19,7 @@ package org.openmhealth.schema.domain.omh;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.math.BigDecimal;
 
@@ -31,6 +32,11 @@ import java.math.BigDecimal;
 public class TypedUnitValue<T extends Unit> extends UnitValue {
 
     private T typedUnit;
+
+
+    @SerializationConstructor
+    protected TypedUnitValue() {
+    }
 
     @JsonCreator
     public TypedUnitValue(@JsonProperty("unit") T typedUnit, @JsonProperty("value") BigDecimal value) {

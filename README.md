@@ -1,5 +1,8 @@
 # Open mHealth Schema Repository
+
 A repository of Open mHealth [schemas](http://www.openmhealth.org/developers/schemas/). This repository also includes sample test data, a validator for that data, and a Java schema SDK.
+
+[![Build Status](https://travis-ci.org/openmhealth/schemas.svg?branch=develop)](https://travis-ci.org/openmhealth/schemas)
 
 ## Schemas
 The schemas are located in the [schema](schema) directory.
@@ -8,7 +11,7 @@ The schemas are located in the [schema](schema) directory.
 The [validator](test-data-validator) is a simple application that validates test data against schemas. The test data 
 that it uses is located in the [test-data](test-data) directory.  
 
-## Java SDK
+## Java SDK 
 The [Java SDK](java-schema-sdk) helps you produce and consume Open mHealth compliant data in your Java, Groovy, and Scala applications. 
 
 ## Tooling

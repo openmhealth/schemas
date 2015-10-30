@@ -19,6 +19,7 @@ package org.openmhealth.schema.domain.omh;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -33,7 +34,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#unit-value">unit-value</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_unit-value">unit-value</a>
  */
 public class UnitValue implements SchemaSupport, AdditionalPropertySupport {
 
@@ -43,6 +44,10 @@ public class UnitValue implements SchemaSupport, AdditionalPropertySupport {
     private BigDecimal value;
     private Map<String, Object> additionalProperties = new HashMap<>();
 
+
+    @SerializationConstructor
+    protected UnitValue() {
+    }
 
     @JsonCreator
     public UnitValue(@JsonProperty("unit") String unit, @JsonProperty("value") BigDecimal value) {

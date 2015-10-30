@@ -30,7 +30,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#calories-burned">calories-burned</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_calories-burned">calories-burned</a>
  */
 @JsonInclude(NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
@@ -43,10 +43,10 @@ public class CaloriesBurned extends Measure {
 
 
     @SerializationConstructor
-    private CaloriesBurned() {
+    protected CaloriesBurned() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<CaloriesBurned, Builder> {
 
         private KcalUnitValue kcalBurned;
         private String activityName;

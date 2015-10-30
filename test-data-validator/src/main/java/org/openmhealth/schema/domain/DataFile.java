@@ -42,6 +42,7 @@ public class DataFile {
 
     private String name;
     private URI location;
+    private String path;
     private SchemaId schemaId;
     private DataFileValidationResult expectedValidationResult;
     private JsonNode data;
@@ -55,6 +56,7 @@ public class DataFile {
 
         this.name = matcher.group(5);
         this.location = location;
+        this.path = matcher.group(0);
         this.schemaId = new SchemaId(matcher.group(1), matcher.group(2), new SchemaVersion(matcher.group(3)));
         this.expectedValidationResult = matcher.group(4).equals("shouldPass") ? PASS : FAIL;
         this.data = data;
@@ -68,6 +70,10 @@ public class DataFile {
         return location;
     }
 
+    public String getPath() {
+        return path;
+    }
+
     public SchemaId getSchemaId() {
         return schemaId;
     }
@@ -78,5 +84,10 @@ public class DataFile {
 
     public JsonNode getData() {
         return data;
+    }
+
+    @Override
+    public String toString() {
+        return getPath();
     }
 }

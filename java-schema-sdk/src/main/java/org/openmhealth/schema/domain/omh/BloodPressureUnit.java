@@ -29,7 +29,7 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/developers/schemas/#blood-pressure">blood-pressure</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_blood-pressure">blood-pressure</a>
  */
 public enum BloodPressureUnit implements Unit {
 
