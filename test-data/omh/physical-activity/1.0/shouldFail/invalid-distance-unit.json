@@ -2,7 +2,7 @@
     "activity_name": "walking",
     "distance": {
         "value": 3.2,
-        "unit": "mi"
+        "unit": "miles"
     },
     "effective_time_frame": {
         "time_interval": {
