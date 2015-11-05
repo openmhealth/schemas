@@ -36,6 +36,7 @@
             "$ref": "#/definitions/length_unit_value"
         },
         "kcal_burned": {
+            "description": "The calories burned during the activity.",
             "$ref": "#/definitions/kcal_unit_value"
         },
         "reported_activity_intensity": {
