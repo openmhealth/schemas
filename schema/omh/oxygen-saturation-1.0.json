@@ -1,0 +1,102 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the oxygen saturation, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures)",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Hemoglobin saturation with oxygen (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/431314004"
+        }
+    ],
+
+    "definitions": {
+        "unit_value": {
+            "$ref": "unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "oxygen_saturation": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "%"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "system": {
+            "type": "string",
+            "references": [
+                {
+                    "value": "capillary",
+                    "description": "The SNOMED code represents Capillary oxygen saturation (observable entity) [ScO2]",
+                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442440005"
+                },
+                {
+                    "value": "peripheral",
+                    "description": "The SNOMED code represents Peripheral oxygen saturation (observable entity) [SpO2]",
+                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/431314004"
+                }
+            ],
+            "enum": [
+                "capillary",
+                "peripheral"
+            ]
+        },
+        "supplemental_oxygen_flow_rate": {
+            "description": "0 L/min means room air",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "L/min"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "oxygen_therapy_mode_of_administration": {
+            "type": "string",
+            "enum": [
+                "face mask",
+                "nasal cannula",
+                "Venturi mask"
+            ]
+        },
+        "measurement_method": {
+            "type": "string",
+            "enum": [
+                "pulse oximetry",
+                "near-infrared spectroscopy"
+            ]
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+    "required": ["oxygen_saturation"],
+    "additionalProperties": false
+}
