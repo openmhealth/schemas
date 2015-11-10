@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents the oxygen saturation, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures)",
+    "description": "This schema represents the oxygen saturation, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures).",
     "type": "object",
     "references": [
         {
@@ -41,18 +41,6 @@
         },
         "system": {
             "type": "string",
-            "references": [
-                {
-                    "value": "capillary",
-                    "description": "The SNOMED code represents Capillary oxygen saturation (observable entity) [ScO2]",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442440005"
-                },
-                {
-                    "value": "peripheral",
-                    "description": "The SNOMED code represents Peripheral oxygen saturation (observable entity) [SpO2]",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/431314004"
-                }
-            ],
             "enum": [
                 "capillary",
                 "peripheral"
@@ -63,9 +51,13 @@
             "allOf": [
                 {
                     "$ref": "#/definitions/unit_value"
+
                 },
                 {
                     "properties": {
+                        "value": {
+                            "minimum": 0
+                        },
                         "unit": {
                             "enum": [
                                 "L/min"
@@ -78,9 +70,7 @@
         "oxygen_therapy_mode_of_administration": {
             "type": "string",
             "enum": [
-                "face mask",
-                "nasal cannula",
-                "Venturi mask"
+                "nasal cannula"
             ]
         },
         "measurement_method": {
