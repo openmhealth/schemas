@@ -39,6 +39,12 @@
                 }
             ]
         },
+        "system": {
+            "type": "string",
+            "enum": [
+                "peripheral capillary"
+            ]
+        },
         "supplemental_oxygen_flow_rate": {
             "description": "0 L/min means room air",
             "allOf": [

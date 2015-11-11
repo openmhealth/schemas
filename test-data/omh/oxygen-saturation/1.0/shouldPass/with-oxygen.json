@@ -11,5 +11,6 @@
         "unit": "L/min"
     },
     "oxygen_therapy_mode_of_administration": "nasal cannula",
+    "system": "peripheral capillary",
     "measurement_method": "pulse oximetry"
 }
