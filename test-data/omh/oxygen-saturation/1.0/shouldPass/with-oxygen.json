@@ -6,7 +6,6 @@
     "effective_time_frame": {
         "date_time": "2013-02-05T07:25:00Z"
     },
-    "system": "capillary",
     "supplemental_oxygen_flow_rate": {
         "value": 2.5,
         "unit": "L/min"

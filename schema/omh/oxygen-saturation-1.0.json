@@ -39,13 +39,6 @@
                 }
             ]
         },
-        "system": {
-            "type": "string",
-            "enum": [
-                "capillary",
-                "peripheral"
-            ]
-        },
         "supplemental_oxygen_flow_rate": {
             "description": "0 L/min means room air",
             "allOf": [
@@ -74,10 +67,10 @@
             ]
         },
         "measurement_method": {
+            "description": "Currently pulse oximetry is the only method used for measuring oxygen saturation in a non-hospital setting.",
             "type": "string",
             "enum": [
-                "pulse oximetry",
-                "near-infrared spectroscopy"
+                "pulse oximetry"
             ]
         },
         "effective_time_frame": {
@@ -87,6 +80,5 @@
             "$ref": "#/definitions/descriptive_statistic"
         }
     },
-    "required": ["oxygen_saturation"],
-    "additionalProperties": false
+    "required": ["oxygen_saturation"]
 }
