@@ -48,6 +48,5 @@
         }
     },
 
-    "required": ["systolic_blood_pressure", "diastolic_blood_pressure"],
-    "additionalProperties": false
+    "required": ["systolic_blood_pressure", "diastolic_blood_pressure"]
 }
