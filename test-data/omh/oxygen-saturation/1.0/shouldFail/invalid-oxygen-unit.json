@@ -1,0 +1,16 @@
+{
+    "oxygen_saturation": {
+        "value": 95,
+        "unit": "%"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00Z"
+    },
+    "supplemental_oxygen_flow_rate": {
+        "value": 2.5,
+        "unit": "dL/min"
+    },
+    "oxygen_therapy_mode_of_administration": "nasal cannula",
+    "system": "peripheral capillary",
+    "measurement_method": "pulse oximetry"
+}
