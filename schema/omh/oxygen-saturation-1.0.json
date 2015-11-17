@@ -54,9 +54,6 @@
                 },
                 {
                     "properties": {
-                        "value": {
-                            "minimum": 0
-                        },
                         "unit": {
                             "enum": [
                                 "L/min"
