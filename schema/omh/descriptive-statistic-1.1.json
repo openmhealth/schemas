@@ -65,16 +65,20 @@
             "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C87306"
         },
         {
-            "value": "1st quintile"
+            "value": "1st quintile",
+            "description": "One of the four values that divide the items of a frequency distribution into five classes with each containing one fifth of the total population."
         },
         {
-            "value": "2nd quintile"
+            "value": "2nd quintile",
+            "description": "One of the four values that divide the items of a frequency distribution into five classes with each containing one fifth of the total population."
         },
         {
-            "value": "3rd quintile"
+            "value": "3rd quintile",
+            "description": "One of the four values that divide the items of a frequency distribution into five classes with each containing one fifth of the total population."
         },
         {
-            "value": "4th quintile"
+            "value": "4th quintile",
+            "description": "One of the four values that divide the items of a frequency distribution into five classes with each containing one fifth of the total population."
         }
     ],
     "enum": [
