@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a person's blood pressure as a combination of systolic and diastolic blood pressure.",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED codes represents Blood pressure (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/75367002"
+        }
+    ],
+    "definitions": {
+        "systolic_blood_pressure": {
+            "$ref": "systolic-blood-pressure-1.x.json"
+        },
+        "diastolic_blood_pressure": {
+            "$ref": "diastolic-blood-pressure-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "body_posture": {
+            "$ref": "body-posture-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "systolic_blood_pressure": {
+            "$ref": "#/definitions/systolic_blood_pressure"
+        },
+        "diastolic_blood_pressure": {
+            "$ref": "#/definitions/diastolic_blood_pressure"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "body_posture": {
+            "$ref": "#/definitions/body_posture"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "user_notes": {
+            "type": "string"
+        }
+    },
+
+    "required": ["systolic_blood_pressure", "diastolic_blood_pressure"]
+}

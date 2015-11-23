@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "type": "string",
+    "description": "The posture of the subject (for example, during a clinical measurement).",
+    "references": [
+        {
+            "description": "The SNOMED code represents Body position",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/9851009"
+        }
+    ],
+    "enum": [
+        "sitting",
+        "lying down",
+        "standing",
+        "semi-recumbent"
+    ]
+}
