@@ -14,15 +14,7 @@
  * limitations under the License.
  */
 
-apply plugin: 'java'
-apply plugin: 'spring-boot'
-
 buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
-
     ext {
         springBootVersion = '1.3.0.RELEASE'
     }
@@ -32,20 +24,9 @@ buildscript {
     }
 }
 
-ext {
-    javaVersion = 1.8
-}
+apply plugin: 'spring-boot'
 
-group = 'org.openmhealth.schema'
 version = '1.0.0'
-
-sourceCompatibility = javaVersion
-targetCompatibility = javaVersion
-
-repositories {
-    mavenLocal()
-    jcenter()
-}
 
 dependencyManagement {
     imports {
