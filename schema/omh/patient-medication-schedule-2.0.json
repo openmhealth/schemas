@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a medication schedule, based on the prescription e.g., atenolol 50 mg, 1 tablet at 8:00 and and 0.5 tablet at 8 pm for 30 days, with a window of +/- 1 hour.",
+
+    "type": "object",
+
+    "definitions": {
+        "medication_prescription": {
+            "$ref": "medication-prescription-2.x.json"
+        },
+        "duration_unit_value": {
+            "$ref": "duration-unit-value-1.x.json"
+        }
+    },
+
+    "allOf": [
+        {
+            "$ref": "#/definitions/medication_prescription"
+        },
+        {
+            "properties": {
+                "acceptable_window": {
+                    "type": "object",
+                    "description": "The amount of time before and after the set time during which it is still acceptable to take a dose of the medication. If missing, the dose must be taken at the exact time.",
+                    "properties": {
+                        "before": {
+                            "$ref": "#/definitions/duration_unit_value"
+                        },
+                        "after": {
+                            "$ref": "#/definitions/duration_unit_value"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
