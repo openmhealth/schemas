@@ -48,6 +48,7 @@ dependencies {
     compile 'com.github.fge:json-schema-validator:2.2.6'
     compile 'org.slf4j:log4j-over-slf4j'
     compile 'ch.qos.logback:logback-classic'
+    compile 'org.reflections:reflections:0.9.10'
     compile 'org.slf4j:slf4j-api'
     compile 'org.springframework:spring-beans'
     compile "org.springframework.boot:spring-boot-autoconfigure"
