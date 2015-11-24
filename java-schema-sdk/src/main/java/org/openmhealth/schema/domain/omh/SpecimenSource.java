@@ -25,33 +25,34 @@ import java.util.Map;
 
 
 /**
- * The type of blood specimen analyzed.
+ * The set of allowable values describing the source of a specimen analyzed.
  *
  * @author Emerson Farrugia
- * @deprecated in favour of {@link SpecimenSource}
  * @version 1.0
  * @see
- * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_blood-specimen-type">blood-specimen-type</a>
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_specimen-source">specimen-source</a>
  */
-@Deprecated
-public enum BloodSpecimenType implements SchemaEnumValue, SchemaSupport {
+public enum SpecimenSource implements SchemaEnumValue, SchemaSupport {
 
-    WHOLE_BLOOD,
+    INTERSTITIAL_FLUID,
+    CAPILLARY_BLOOD,
     PLASMA,
-    SERUM;
+    SERUM,
+    TEARS,
+    WHOLE_BLOOD;
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "blood-specimen-type", "1.0");
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "specimen-source", "1.0");
 
     private String schemaValue;
-    private static final Map<String, BloodSpecimenType> constantsBySchemaValue = new HashMap<>();
+    private static final Map<String, SpecimenSource> constantsBySchemaValue = new HashMap<>();
 
     static {
-        for (BloodSpecimenType constant : values()) {
+        for (SpecimenSource constant : values()) {
             constantsBySchemaValue.put(constant.getSchemaValue(), constant);
         }
     }
 
-    BloodSpecimenType() {
+    SpecimenSource() {
         this.schemaValue = name().toLowerCase().replace('_', ' ');
     }
 
@@ -68,7 +69,7 @@ public enum BloodSpecimenType implements SchemaEnumValue, SchemaSupport {
 
     @Nullable
     @JsonCreator
-    public static BloodSpecimenType findBySchemaValue(String schemaValue) {
+    public static SpecimenSource findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
     }
 }
