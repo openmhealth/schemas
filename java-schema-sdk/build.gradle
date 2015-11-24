@@ -19,7 +19,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
     }
 }
 
@@ -28,10 +28,10 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray' // see https://github.com/bintray/gradle-bintray-plugin for details
 
 archivesBaseName = 'omh-schema-sdk'
-version = '1.0.3'
+version = '1.0.4-SNAPSHOT'
 
 ext {
-    jacksonVersion = '2.5.3'
+    jacksonVersion = '2.6.3'
 }
 
 dependencies {
