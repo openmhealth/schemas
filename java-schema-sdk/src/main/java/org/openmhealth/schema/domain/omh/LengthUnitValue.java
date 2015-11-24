@@ -26,9 +26,12 @@ import java.math.BigDecimal;
 /**
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_length-unit-value">length-unit-value</a>
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_length-unit-value">length-unit-value</a>
  */
 public class LengthUnitValue extends TypedUnitValue<LengthUnit> {
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "length-unit-value", "1.0");
 
     @SerializationConstructor
     protected LengthUnitValue() {
@@ -37,6 +40,11 @@ public class LengthUnitValue extends TypedUnitValue<LengthUnit> {
     @JsonCreator
     public LengthUnitValue(@JsonProperty("unit") LengthUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     public LengthUnitValue(LengthUnit unit, double value) {

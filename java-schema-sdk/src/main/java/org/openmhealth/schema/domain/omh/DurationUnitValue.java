@@ -26,9 +26,12 @@ import java.math.BigDecimal;
 /**
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_duration-unit-value">duration-unit-value</a>
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_duration-unit-value">duration-unit-value</a>
  */
 public class DurationUnitValue extends TypedUnitValue<DurationUnit> {
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "duration-unit-value", "1.0");
 
     @SerializationConstructor
     protected DurationUnitValue() {
@@ -37,6 +40,11 @@ public class DurationUnitValue extends TypedUnitValue<DurationUnit> {
     @JsonCreator
     public DurationUnitValue(@JsonProperty("unit") DurationUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     public DurationUnitValue(DurationUnit unit, double value) {

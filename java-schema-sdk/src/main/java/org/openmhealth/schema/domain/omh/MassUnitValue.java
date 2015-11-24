@@ -26,9 +26,12 @@ import java.math.BigDecimal;
 /**
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_mass-unit-value">mass-unit-value</a>
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_mass-unit-value">mass-unit-value</a>
  */
 public class MassUnitValue extends TypedUnitValue<MassUnit> {
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "mass-unit-value", "1.0");
 
     @SerializationConstructor
     protected MassUnitValue() {
@@ -37,6 +40,11 @@ public class MassUnitValue extends TypedUnitValue<MassUnit> {
     @JsonCreator
     public MassUnitValue(@JsonProperty("unit") MassUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     public MassUnitValue(MassUnit unit, double value) {

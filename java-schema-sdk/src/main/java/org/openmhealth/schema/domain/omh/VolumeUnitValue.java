@@ -30,6 +30,8 @@ import java.math.BigDecimal;
  */
 public class VolumeUnitValue extends TypedUnitValue<VolumeUnit> {
 
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "volume-unit-value", "1.0");
+
     @SerializationConstructor
     protected VolumeUnitValue() {
     }
@@ -37,6 +39,11 @@ public class VolumeUnitValue extends TypedUnitValue<VolumeUnit> {
     @JsonCreator
     public VolumeUnitValue(@JsonProperty("unit") VolumeUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     public VolumeUnitValue(VolumeUnit unit, double value) {
