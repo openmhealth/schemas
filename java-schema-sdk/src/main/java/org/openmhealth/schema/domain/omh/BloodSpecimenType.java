@@ -29,13 +29,16 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_blood-specimen-type">blood-specimen-type</a>
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_blood-specimen-type">blood-specimen-type</a>
  */
-public enum BloodSpecimenType implements SchemaEnumValue {
+public enum BloodSpecimenType implements SchemaEnumValue, SchemaSupport {
 
     WHOLE_BLOOD,
     PLASMA,
     SERUM;
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "blood-specimen-type", "1.0");
 
     private String schemaValue;
     private static final Map<String, BloodSpecimenType> constantsBySchemaValue = new HashMap<>();
@@ -48,6 +51,11 @@ public enum BloodSpecimenType implements SchemaEnumValue {
 
     BloodSpecimenType() {
         this.schemaValue = name().toLowerCase().replace('_', ' ');
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     @Override

@@ -29,14 +29,17 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_part-of-day">part-of-day</a>
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_part-of-day">part-of-day</a>
  */
-public enum PartOfDay implements SchemaEnumValue {
+public enum PartOfDay implements SchemaEnumValue, SchemaSupport {
 
     MORNING,
     AFTERNOON,
     EVENING,
     NIGHT;
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "part-of-day", "1.0");
 
     private String schemaValue;
     private static final Map<String, PartOfDay> constantsBySchemaValue = new HashMap<>();
@@ -49,6 +52,11 @@ public enum PartOfDay implements SchemaEnumValue {
 
     PartOfDay() {
         this.schemaValue = name().toLowerCase().replace('_', ' ');
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     @Override

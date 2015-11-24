@@ -29,9 +29,10 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_descriptive-statistic">descriptive-statistic</a>
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_descriptive-statistic">descriptive-statistic</a>
  */
-public enum DescriptiveStatistic implements SchemaEnumValue {
+public enum DescriptiveStatistic implements SchemaEnumValue, SchemaSupport {
 
     AVERAGE,
     MAXIMUM,
@@ -40,6 +41,8 @@ public enum DescriptiveStatistic implements SchemaEnumValue {
     VARIANCE,
     SUM,
     MEDIAN;
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "descriptive-statistic", "1.0");
 
     private String schemaValue;
     private static final Map<String, DescriptiveStatistic> constantsBySchemaValue = new HashMap<>();
@@ -52,6 +55,11 @@ public enum DescriptiveStatistic implements SchemaEnumValue {
 
     DescriptiveStatistic() {
         this.schemaValue = name().toLowerCase().replace('_', ' ');
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     @Override

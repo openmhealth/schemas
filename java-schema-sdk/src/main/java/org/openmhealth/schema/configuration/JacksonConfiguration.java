@@ -54,7 +54,6 @@ public class JacksonConfiguration {
         rfc3339Module.addSerializer(new Rfc3339OffsetDateTimeSerializer(OffsetDateTime.class));
         objectMapper.registerModule(rfc3339Module);
 
-
         return objectMapper;
     }
 }
