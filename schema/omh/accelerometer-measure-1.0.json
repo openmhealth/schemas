@@ -56,6 +56,5 @@
     "required": [
         "acceleration_x",
         "acceleration_y"
-    ],
-    "additionalProperties": false
+    ]
 }
