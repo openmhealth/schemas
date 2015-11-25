@@ -1,0 +1,53 @@
+{
+
+    "medication_prescription": {
+        "description": "Ascriptin 500 mg 1 tab every 6 hours for 2 weeks",
+
+        "medication": {
+            "generic_name": "Ascriptin",
+            "strength": [
+                {
+                    "value": 500,
+                    "unit": "mg"
+                }
+            ],
+            "rxnorm_code": 830525
+        },
+
+        "route": "oral",
+
+        "schedule": [
+            {
+                "dose_duration": {
+                    "duration": {
+                        "value": 2,
+                        "unit": "wk"
+                    }
+                },
+                "medication_dose": {
+                    "dose": {
+                        "value": 1,
+                        "unit": "tablet"
+                    }
+                },
+                "dose_recurrence": {
+                    "number_of_times": 1,
+                    "time_window": {
+                        "value": 6,
+                        "unit": "h"
+                    }
+                }
+            }
+        ]
+    },
+    "medication_dispensed": "0067-0143-85",
+
+    "time_frame_medication_dispensed": {
+        "date_time": "2013-02-05T17:25:00.123Z"
+
+    },
+    "amount_dispensed": {
+        "value": 56,
+        "unit": "tablet"
+    }
+}

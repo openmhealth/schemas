@@ -1,0 +1,51 @@
+{
+    "description": "Prednisone 20 mg daily",
+
+    "medication": {
+        "trade_name": "Prednicot",
+        "generic_name": "prednisone",
+        "strength": [
+            {
+                "value": 20,
+                "unit": "mg"
+            }
+        ],
+        "rxnorm_code": 351401
+    },
+
+    "route": "oral",
+
+    "schedule": [
+        {
+            "dose_duration": {
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
+            },
+            "medication_dose": {
+                "dose": {
+                    "value": 1,
+                    "unit": "tablet"
+                }
+            },
+            "dose_recurrence": {
+                "timing": [
+                    {
+                        "time_of_day": "08:00:00"
+                    }
+                ]
+            }
+        }
+    ],
+    "acceptable_window": {
+        "before": {
+            "value": 12,
+            "unit": "h"
+        },
+        "after": {
+            "value": 12,
+            "unit": "h"
+        }
+    }
+}
