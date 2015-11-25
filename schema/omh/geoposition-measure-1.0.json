@@ -14,8 +14,8 @@
         "time_frame": {
             "$ref": "time-frame-1.x.json"
         },
-        "unit_value": {
-            "$ref": "unit-value-1.x.json"
+        "signal_to_noise_ratio_unit_value": {
+            "$ref": "signal-to-noise-ratio-unit-value-1.x.json"
         }
     },
 
@@ -119,32 +119,7 @@
             "description": "The Signal to Noise Ratio (SNR) of each satellite, expressed in decibels (dB). The higher the number, the stronger the signal. Typical value for a good fix is 20-40.",
             "type": "array",
             "items": {
-                "type": "object",
-
-                "allOf": [
-                    {
-                        "$ref": "unit-value-1.0.json"
-                    },
-                    {
-                        "properties": {
-                            "value": {
-                                "description": "The Signal to Noise Ratio (SNR) of each satellite, expressed in decibels (dB). The higher the number, the stronger the signal. Typical value for a good fix is 20-40.",
-                                "type": "integer"
-                            },
-                            "unit": {
-                                "references": [
-                                    {
-                                        "description": "The unit of measure of the element.",
-                                        "url": "http://unitsofmeasure.org/ucum.html#datyp2apdxatblxmp"
-                                    }
-                                ],
-                                "enum": [
-                                    "dB"
-                                ]
-                            }
-                        }
-                    }
-                ]
+                "$ref": "#/definitions/signal_to_noise_ratio_unit_value"
             }
         },
         "number_of_satellites_in_fix": {
