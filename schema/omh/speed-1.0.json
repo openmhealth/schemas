@@ -1,9 +1,14 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents speed, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures).",
+    "description": "This schema represents a speed measurement.",
     "type": "object",
-
+    "references": [
+        {
+            "description": "The NCIT code represents Speed.",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C41146"
+        }
+    ],
     "definitions": {
         "speed_unit_value": {
             "$ref": "speed-unit-value-1.x.json"

@@ -12,12 +12,15 @@
                 "unit": {
                     "references": [
                         {
-                            "description": "The unit of measure of the element. Basic unit is Degrees of arc.",
+                            "description": "The unit of measure of the element. Basic unit is Degrees of arc. (The SI unit for angles is radian.)",
                             "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
                         },
                         {
                             "description": "The SNOMED code represents Degrees of arc.",
                             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/259046004"
+                        },
+                        {
+                            "description": "Decimal degrees (DD) express latitude and longitude geographic coordinates as decimal fractions and are used in many geographic information systems (GIS), web mapping applications and GPS devices. Decimal degrees are an alternative to using degrees, minutes, and seconds (DMS). In most systems the degree symbol ° is omitted."
                         }
                     ],
                     "enum": [

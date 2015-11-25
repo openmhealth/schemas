@@ -12,9 +12,7 @@
             "properties": {
                 "value": {
                     "description": "The Signal to Noise Ratio (SNR) of each satellite, expressed in decibels (dB). The higher the number, the stronger the signal. Typical value for a good fix is 20-40.",
-                    "type": "integer",
-                    "minimumValue": 0,
-                    "maximumValue":99
+                    "type": "integer"
                 },
                 "unit": {
                     "references": [
