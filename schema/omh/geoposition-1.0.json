@@ -14,6 +14,9 @@
         "time_frame": {
             "$ref": "time-frame-1.x.json"
         },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        },
         "signal_to_noise_ratio_unit_value": {
             "$ref": "signal-to-noise-ratio-unit-value-1.x.json"
         }
@@ -21,6 +24,7 @@
 
     "properties": {
         "latitude": {
+            "description": "The angular distance of a place north or south of the earth's equator expressed in degrees.",
             "references": [
                 {
                     "description": "The NCIT code represents Latitude. Negative numbers indicate South.",
@@ -30,6 +34,7 @@
             "$ref": "#/definitions/plane_angle_unit_value"
         },
         "longitude": {
+            "description": "The angular distance of a place east or west of the meridian at Greenwich, England, expressed in degrees.",
             "references": [
                 {
                     "description": "The NCIT code represents Longitude. Negative numbers indicate West.",
@@ -39,20 +44,17 @@
             "$ref": "#/definitions/plane_angle_unit_value"
         },
         "elevation": {
+            "description": "The height above or below a fixed reference point, most commonly a reference geoid, a mathematical model of the Earth's sea level as an equipotential gravitational surface.",
             "references": [
                 {
                     "description": "The LOINC code represents Altitude (Length:Point in time:^Patient:Quantitative).",
                     "url": "http://purl.bioontology.org/ontology/LNC/41905-1"
-                },
-                {
-                    "description": "Although the term altitude is commonly used to mean the height above sea level of a location, in geography the term elevation is often preferred for this usage.",
-                    "url": "https://en.wikipedia.org/wiki/Altitude"
                 }
             ],
             "$ref": "#/definitions/length_unit_value"
         },
         "accuracy": {
-            "description": "This represents the accuracy, in meters, of a geoposition measurement.",
+            "description": "The radius of a circle or sphere in which a certain % of the values occur (the percentage being measure-specific).",
             "type": "object",
             "references": [
                 {
@@ -61,7 +63,7 @@
                 },
                 {
                     "description": "The various measures of GPS accuracy.",
-                    "url": "http://inventeksys.com/GPS_Facts_GPS_accuracy_measures.pdf"
+                    "url": "http://www.novatel.com/assets/Documents/Bulletins/apn029.pdf"
                 }
             ],
             "allOf": [
@@ -90,6 +92,7 @@
                 ]
             },
             "dimension": {
+                "description": "The dimension of the accuracy measure.",
                 "anyOf": [
                     {
                         "type": "string"
@@ -101,15 +104,10 @@
             }
         },
         "effective_time_frame": {
-            "description": "A position measure should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/time_frame"
-                },
-                {
-                    "required": ["date_time"]
-                }
-            ]
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
         },
         "number_of_satellites_in_view": {
             "description": "The number of satellites that can potentially be used to determine position.",
@@ -128,21 +126,13 @@
         },
         "positioning_system": {
             "description": "Known systems are listed. Others can be added, if needed. More than one can be used at the same time, hence this is an array",
-            "type": "array",
-            "items": {
-                "anyOf": [
-                    {
-                        "type": "string"
-                    },
-                    {
-                        "enum": ["GPS", "GLONASS", "Galileo","Beidou","COMPASS","IRNSS","QZSS"]
-                    }
-                ]
-            }
+            "type": "string",
+            "enum": ["GPS", "GLONASS", "Galileo","Beidou","COMPASS","IRNSS","QZSS"]
         }
     },
     "required": [
         "latitude",
         "longitude"
-    ]
+    ],
+    "additionalProperties": false
 }
