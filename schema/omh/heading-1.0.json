@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents heading, which is the direction of travel.",
+    "description": "This schema represents the direction of travel (the angle between the direction in which the vehicle's nose is pointing and the North reference).",
     "type": "object",
 
     "definitions": {
@@ -10,6 +10,9 @@
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
         }
     },
 
@@ -19,6 +22,9 @@
         },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
         }
     },
 
