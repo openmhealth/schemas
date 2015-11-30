@@ -5,8 +5,8 @@
     "type": "object",
 
     "definitions": {
-        "geoposition_measure": {
-            "$ref": "geoposition-measure-1.x.json"
+        "geoposition": {
+            "$ref": "geoposition-1.x.json"
         },
         "address": {
             "$ref": "address-1.x.json"
@@ -18,7 +18,7 @@
 
     "properties": {
         "geoposition": {
-            "$ref": "#/definitions/geoposition_measure"
+            "$ref": "#/definitions/geoposition"
         },
         "radius": {
             "$ref": "#/definitions/length_unit_value"

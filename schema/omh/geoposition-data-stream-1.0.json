@@ -4,14 +4,14 @@
     "description": "This schema represents a time series of geoposition measurements.",
 
     "definitions": {
-        "geoposition_measure": {
-            "$ref": "geoposition-measure-1.x.json"
+        "geoposition": {
+            "$ref": "geoposition-1.x.json"
         }
     },
     "items": {
         "allOf": [
             {
-                "$ref": "#/definitions/geoposition_measure"
+                "$ref": "#/definitions/geoposition"
             },
             {
                 "required": ["effective_time_frame"]
