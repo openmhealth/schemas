@@ -1,12 +1,12 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a speed measurement.",
+    "description": "This schema represents speed measurements.",
     "type": "object",
     "references": [
         {
             "description": "The NCIT code represents Speed.",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C41146"
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0678536"
         }
     ],
     "definitions": {
