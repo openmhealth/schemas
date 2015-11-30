@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a gyroscope measurement. The assumption is a 2-axis gyroscope. For a 3-axis gyroscope, the z measurement should also be required.",
+    "description": "This schema represents gyroscope measurements. The assumption is a 2-axis gyroscope. For a 3-axis gyroscope, the z measurement should also be required.",
     "type": "object",
 
     "definitions": {
@@ -10,6 +10,9 @@
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
         }
     },
 
@@ -26,17 +29,11 @@
             "description": "Also called azimuth.",
             "$ref": "#/definitions/angular_velocity_unit_value"
         },
-
         "effective_time_frame": {
-            "description": "A gyroscope measurement should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/time_frame"
-                },
-                {
-                    "required": ["date_time"]
-                }
-            ]
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
         }
     },
     "required": [
