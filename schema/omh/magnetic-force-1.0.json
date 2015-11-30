@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a magnetometer measurement.",
+    "description": "This schema represents magnetometer measurements.",
     "type": "object",
 
     "definitions": {
@@ -10,6 +10,9 @@
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
         }
     },
 
@@ -27,15 +30,10 @@
             "$ref": "#/definitions/magnetic_flux_density_unit_value"
         },
         "effective_time_frame": {
-            "description": "A magnetometer measurement should not be associated to a time interval. Hence, effective time frame is restricted to be a date time.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/time_frame"
-                },
-                {
-                    "required": ["date_time"]
-                }
-            ]
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
         }
     },
     "required": [
