@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a single measurement of heading, which is the direction of travel.",
+    "description": "This schema represents heading, which is the direction of travel.",
     "type": "object",
 
     "definitions": {

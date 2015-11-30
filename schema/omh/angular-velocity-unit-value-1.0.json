@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents an angular velocity.",
+    "description": "This schema represents angular velocity.",
     "type": "object",
 
     "allOf": [
