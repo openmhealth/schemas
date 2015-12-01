@@ -8,6 +8,9 @@
         "plane_angle_unit_value": {
             "$ref": "plane-angle-unit-value-1.x.json"
         },
+        "elevation": {
+            "$ref": "elevation-1.x.json"
+        },
         "length_unit_value": {
             "$ref": "length-unit-value-1.x.json"
         },
@@ -51,7 +54,7 @@
                     "url": "http://purl.bioontology.org/ontology/LNC/41905-1"
                 }
             ],
-            "$ref": "#/definitions/length_unit_value"
+            "$ref": "#/definitions/elevation"
         },
         "accuracy": {
             "description": "The radius of a circle or sphere in which a certain % of the values occur (the percentage being measure-specific).",
