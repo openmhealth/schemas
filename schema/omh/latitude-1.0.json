@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents latitude, the angular distance of a place north or south of the earth's equator expressed in degrees.",
+    "type": "object",
+    "references": [
+        {
+            "description": "The NCIT code represents Latitude. Negative numbers indicate South.",
+            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C6864"
+        }
+    ],
+
+    "definitions": {
+        "plane_angle_unit_value": {
+            "$ref": "plane-angle-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "latitude": {
+            "$ref": "#/definitions/plane_angle_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+    "required": ["latitude"]
+}

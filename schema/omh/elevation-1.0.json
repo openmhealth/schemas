@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "The schema represents the height above or below a fixed reference point, most commonly a reference geoid, a mathematical model of the Earth's sea level as an equipotential gravitational surface.",
+    "references": [
+        {
+            "description": "The LOINC code represents Altitude (Length:Point in time:^Patient:Quantitative).",
+            "url": "http://purl.bioontology.org/ontology/LNC/41905-1"
+        }
+    ],
+    "allOf": [
+        {
+            "$ref": "length-unit-value-1.x.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Basic unit is Tesla (T)",
+                            "url": "http://unitsofmeasure.org/ucum.html#datyp2apdxatblxmp"
+                        }
+                    ],
+                    "enum": [
+                        "m",
+                        "ft"
+                    ]
+                }
+            }
+        }
+    ]
+}
