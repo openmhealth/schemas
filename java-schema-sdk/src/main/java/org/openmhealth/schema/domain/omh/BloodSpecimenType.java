@@ -28,12 +28,10 @@ import java.util.Map;
  * The type of blood specimen analyzed.
  *
  * @author Emerson Farrugia
- * @deprecated in favour of {@link SpecimenSource}
  * @version 1.0
  * @see
  * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_blood-specimen-type">blood-specimen-type</a>
  */
-@Deprecated
 public enum BloodSpecimenType implements SchemaEnumValue, SchemaSupport {
 
     WHOLE_BLOOD,
