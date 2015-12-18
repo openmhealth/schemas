@@ -28,6 +28,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MINIMUM;
 import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
+import static org.openmhealth.schema.domain.omh.KcalUnit.*;
 import static org.openmhealth.schema.domain.omh.LengthUnit.KILOMETER;
 import static org.openmhealth.schema.domain.omh.LengthUnit.MILE;
 import static org.openmhealth.schema.domain.omh.PartOfDay.MORNING;
@@ -66,6 +67,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
         assertThat(physicalActivity.getEffectiveTimeFrame(), nullValue());
         assertThat(physicalActivity.getDescriptiveStatistic(), nullValue());
         assertThat(physicalActivity.getUserNotes(), nullValue());
+        assertThat(physicalActivity.getKcalBurned(), nullValue());
     }
 
     @Test
@@ -83,6 +85,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
                 .setEffectiveTimeFrame(effectiveTimeInterval)
                 .setDescriptiveStatistic(MINIMUM)
                 .setUserNotes("feeling fine")
+                .setKcalBurned(new KcalUnitValue(KILOCALORIE, 15.7))
                 .build();
 
         assertThat(physicalActivity, notNullValue());
@@ -92,6 +95,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
         assertThat(physicalActivity.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
         assertThat(physicalActivity.getDescriptiveStatistic(), equalTo(MINIMUM));
         assertThat(physicalActivity.getUserNotes(), equalTo("feeling fine"));
+        assertThat(physicalActivity.getKcalBurned(), equalTo(new KcalUnitValue(KILOCALORIE, 15.7)));
     }
 
     @Override
@@ -106,6 +110,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
                 .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
                 .setReportedActivityIntensity(MODERATE)
                 .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
+                .setKcalBurned(new KcalUnitValue(KILOCALORIE, 25.1))
                 .build();
 
         String document = "{\n" +
@@ -120,10 +125,43 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
                 "            \"date\": \"2013-02-05\",\n" +
                 "            \"part_of_day\": \"morning\"\n" +
                 "        }\n" +
+                "    },\n" +
+                "    \"kcal_burned\": {\n" +
+                "        \"value\": 25.1,\n" +
+                "        \"unit\": \"kcal\"\n" +
                 "    }\n" +
                 "}";
 
         serializationShouldCreateValidDocument(physicalActivity, document);
         deserializationShouldCreateValidObject(document, physicalActivity);
+    }
+
+    @Test
+    public void equalsShouldReturnCorrectComparison() {
+
+        PhysicalActivity physicalActivity = new PhysicalActivity.Builder("walking")
+                .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
+                .setReportedActivityIntensity(MODERATE)
+                .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
+                .setKcalBurned(new KcalUnitValue(KILOCALORIE, 25.1))
+                .build();
+
+        PhysicalActivity samePhysicalActivity = new PhysicalActivity.Builder("walking")
+                .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
+                .setReportedActivityIntensity(MODERATE)
+                .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
+                .setKcalBurned(new KcalUnitValue(KILOCALORIE, 25.1))
+                .build();
+
+        assertThat(physicalActivity.equals(samePhysicalActivity), is(true));
+
+        PhysicalActivity differentPhysicalActivity = new PhysicalActivity.Builder("running")
+                .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(2.5)))
+                .setReportedActivityIntensity(LIGHT)
+                .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2014, 2, 5), MORNING))
+                .setKcalBurned(new KcalUnitValue(KILOCALORIE, 100))
+                .build();
+
+        assertThat(physicalActivity.equals(differentPhysicalActivity), is(false));
     }
 }

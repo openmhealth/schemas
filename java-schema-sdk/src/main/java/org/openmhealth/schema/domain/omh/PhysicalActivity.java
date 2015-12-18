@@ -84,7 +84,7 @@ public class PhysicalActivity extends Measure {
     private String activityName;
     private LengthUnitValue distance;
     private SelfReportedIntensity reportedActivityIntensity;
-
+    private KcalUnitValue kcalBurned;
 
     @SerializationConstructor
     protected PhysicalActivity() {
@@ -95,6 +95,7 @@ public class PhysicalActivity extends Measure {
         private String activityName;
         private LengthUnitValue distance;
         private SelfReportedIntensity reportedActivityIntensity;
+        private KcalUnitValue kcalBurned;
 
         public Builder(String activityName) {
 
@@ -114,6 +115,11 @@ public class PhysicalActivity extends Measure {
             return this;
         }
 
+        public Builder setKcalBurned(KcalUnitValue kcalBurned) {
+            this.kcalBurned = kcalBurned;
+            return this;
+        }
+
         @Override
         public PhysicalActivity build() {
             return new PhysicalActivity(this);
@@ -126,6 +132,7 @@ public class PhysicalActivity extends Measure {
         this.activityName = builder.activityName;
         this.distance = builder.distance;
         this.reportedActivityIntensity = builder.reportedActivityIntensity;
+        this.kcalBurned = builder.kcalBurned;
     }
 
     public String getActivityName() {
@@ -138,6 +145,10 @@ public class PhysicalActivity extends Measure {
 
     public SelfReportedIntensity getReportedActivityIntensity() {
         return reportedActivityIntensity;
+    }
+
+    public KcalUnitValue getKcalBurned() {
+        return kcalBurned;
     }
 
     @Override
@@ -167,6 +178,9 @@ public class PhysicalActivity extends Measure {
         if (distance != null ? !distance.equals(that.distance) : that.distance != null) {
             return false;
         }
+        if (kcalBurned != null ? !kcalBurned.equals(that.kcalBurned) : that.kcalBurned != null) {
+            return false;
+        }
         return reportedActivityIntensity == that.reportedActivityIntensity;
     }
 
@@ -177,6 +191,7 @@ public class PhysicalActivity extends Measure {
         result = 31 * result + activityName.hashCode();
         result = 31 * result + (distance != null ? distance.hashCode() : 0);
         result = 31 * result + (reportedActivityIntensity != null ? reportedActivityIntensity.hashCode() : 0);
+        result = 31 * result + (kcalBurned != null ? kcalBurned.hashCode() : 0);
         return result;
     }
 }
