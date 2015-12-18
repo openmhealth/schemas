@@ -1,0 +1,92 @@
+{
+    "description": "Coumadin 6 mg: 1.5 tabs on Mondays, Wednesdays, Fridays at 8:00 am and 1 tab on all other days at 8:30 am",
+
+    "medication": {
+        "trade_name": "Coumadin",
+        "strength": [
+            {
+                "value": 6,
+                "unit": "mg"
+            }
+        ],
+        "rxnorm_code": 855340
+    },
+    "route": "oral",
+
+    "schedule": [
+        {
+            "dose_duration": {
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
+            },
+            "medication_dose": {
+                "dose": {
+                    "value": 1.5,
+                    "unit": "tablet"
+                }
+            },
+            "dose_recurrence": {
+                "timing": [
+                    {
+                        "day_of_week": "Monday",
+                        "time_of_day": "08:00:00"
+                    },
+                    {
+                        "day_of_week": "Wednesday",
+                        "time_of_day": "08:00:00"
+                    },
+                    {
+                        "day_of_week": "Friday",
+                        "time_of_day": "08:00:00"
+                    }
+                ]
+            }
+        },
+        {
+            "dose_duration": {
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
+            },
+            "medication_dose": {
+                "dose": {
+                    "value": 1,
+                    "unit": "tablet"
+                }
+            },
+            "dose_recurrence": {
+                "timing": [
+                    {
+                        "day_of_week": "Tuesday",
+                        "time_of_day": "08:30:00"
+                    },
+                    {
+                        "day_of_week": "Thursday",
+                        "time_of_day": "08:30:00"
+                    },
+                    {
+                        "day_of_week": "Saturday",
+                        "time_of_day": "08:30:00"
+                    },
+                    {
+                        "day_of_week": "Sunday",
+                        "time_of_day": "08:30:00"
+                    }
+                ]
+            }
+        }
+    ],
+    "acceptable_window": {
+        "before": {
+            "value": 30,
+            "unit": "min"
+        },
+        "after": {
+            "value": 30,
+            "unit": "min"
+        }
+    }
+}

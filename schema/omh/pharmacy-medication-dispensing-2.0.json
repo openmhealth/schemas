@@ -1,0 +1,115 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the dispensing by a pharmacy of medication based on a prescription e.g., atenolol 50 mg, 20 tab.",
+
+    "type": "object",
+
+    "definitions": {
+        "medication_prescription": {
+            "$ref": "medication-prescription-2.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        }
+    },
+
+    "properties": {
+        "medication_prescription": {
+            "$ref": "#/definitions/medication_prescription"
+        },
+        "medication_dispensed": {
+            "description": "NDC code of the medication dispensed by the pharmacy, e.g., 10882-527-07, where 10882-527 indicates the medication and 07 the package size",
+            "type": "string"
+        },
+        "amount_dispensed": {
+            "allOf": [
+                {
+                    "$ref": "unit-value-1.x.json"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "description": "The list of most commonly used units of measure for a medication dispensed. Suggestions for additions are accepted.",
+                            "references": [
+                                {
+                                    "description": "Units are drawn in part from FDA units of presentation.",
+                                    "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162049.htm"
+                                },
+                                {
+                                    "description": "Units are drawn in part from FDA pharmaceutical dosage form.",
+                                    "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162038.htm"
+                                }
+                            ],
+                            "enum": [
+                                "ampule",
+                                "applicator",
+                                "bag",
+                                "bar",
+                                "bead",
+                                "blister",
+                                "bottle",
+                                "box",
+                                "can",
+                                "canister",
+                                "capsule",
+                                "carton",
+                                "cartridge",
+                                "cellular sheet",
+                                "cloth",
+                                "container",
+                                "cup",
+                                "cylinder",
+                                "disc",
+                                "dose pack",
+                                "globule",
+                                "granule",
+                                "gum",
+                                "inhaler",
+                                "jar",
+                                "jug",
+                                "kit",
+                                "lozenge",
+                                "package",
+                                "packet",
+                                "pastille",
+                                "patch",
+                                "pellet",
+                                "piece",
+                                "pill",
+                                "pouch",
+                                "ring",
+                                "salve",
+                                "stick",
+                                "strip",
+                                "suppository",
+                                "swab",
+                                "syringe",
+                                "tablet",
+                                "tampon",
+                                "tape",
+                                "troche",
+                                "tube",
+                                "vial",
+                                "wafer"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "time_frame_medication_dispensed": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "remaining_refills": {
+            "description": "The number of refills still available in the prescription.",
+            "type": "number"
+        }
+    },
+    "required": [
+        "medication_prescription",
+        "medication_dispensed",
+        "amount_dispensed",
+        "time_frame_medication_dispensed"
+    ]
+}
