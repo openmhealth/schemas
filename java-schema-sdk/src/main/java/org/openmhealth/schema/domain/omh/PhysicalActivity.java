@@ -35,6 +35,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * A single episode of physical activity.
  *
  * @author Emerson Farrugia
+ * @author Chris Schaefbauer
  * @version 1.2
  * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_physical-activity">physical-activity</a>
  */

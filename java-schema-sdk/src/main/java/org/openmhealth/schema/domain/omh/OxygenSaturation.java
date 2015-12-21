@@ -1,0 +1,281 @@
+package org.openmhealth.schema.domain.omh;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.google.common.collect.Maps;
+import org.openmhealth.schema.serializer.SerializationConstructor;
+
+import javax.annotation.Nullable;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+
+
+/**
+ * A single measurement of blood oxygen saturation.
+ *
+ * @author Chris Schaefbauer
+ * @version 1.0
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
+public class OxygenSaturation extends Measure {
+
+    private static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "oxygen-saturation", "1.0");
+
+    private TypedUnitValue<PercentUnit> oxygenSaturation;
+    private MeasurementSystem system;
+    private TypedUnitValue<OxygenFlowRateUnit> supplementalOxygenFlowRate;
+    private SupplementalOxygenAdministrationMode oxygenTherapyModeOfAdministration;
+    private MeasurementMethod measurementMethod;
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+
+    @SerializationConstructor
+    protected OxygenSaturation() {
+
+    }
+
+    private OxygenSaturation(Builder builder) {
+
+        super(builder);
+
+        this.oxygenSaturation = builder.oxygenSaturation;
+        this.system = builder.system;
+        this.supplementalOxygenFlowRate = builder.supplementalOxygenFlowRate;
+        this.oxygenTherapyModeOfAdministration = builder.oxygenTherapyModeOfAdministration;
+        this.measurementMethod = builder.measurementMethod;
+    }
+
+
+    public TypedUnitValue<PercentUnit> getOxygenSaturation() {
+        return oxygenSaturation;
+    }
+
+    public TypedUnitValue<OxygenFlowRateUnit> getSupplementalOxygenFlowRate() {
+        return supplementalOxygenFlowRate;
+    }
+
+    public MeasurementSystem getSystem() {
+        return system;
+    }
+
+    public SupplementalOxygenAdministrationMode getOxygenTherapyModeOfAdministration() {
+        return oxygenTherapyModeOfAdministration;
+    }
+
+    public MeasurementMethod getMeasurementMethod() {
+        return measurementMethod;
+    }
+
+
+    public static class Builder extends Measure.Builder<OxygenSaturation, Builder> {
+
+        private final TypedUnitValue<PercentUnit> oxygenSaturation;
+        private MeasurementSystem system;
+        private TypedUnitValue<OxygenFlowRateUnit> supplementalOxygenFlowRate;
+        private SupplementalOxygenAdministrationMode oxygenTherapyModeOfAdministration;
+        private MeasurementMethod measurementMethod;
+
+        public Builder(TypedUnitValue<PercentUnit> oxygenSaturation) {
+
+            checkNotNull(oxygenSaturation, "An oxygen saturation value hasn't been specified.");
+
+            this.oxygenSaturation = oxygenSaturation;
+        }
+
+        @Override
+        public OxygenSaturation build() {
+            return new OxygenSaturation(this);
+        }
+
+        public Builder setSystem(MeasurementSystem system) {
+            this.system = system;
+            return this;
+        }
+
+        public Builder setSupplementalOxygenFlowRate(TypedUnitValue<OxygenFlowRateUnit> supplementalOxygenFlowRate) {
+            this.supplementalOxygenFlowRate = supplementalOxygenFlowRate;
+            return this;
+        }
+
+        public Builder setOxygenTherapyModeOfAdministration(
+                SupplementalOxygenAdministrationMode oxygenTherapyModeOfAdministration) {
+            this.oxygenTherapyModeOfAdministration = oxygenTherapyModeOfAdministration;
+            return this;
+        }
+
+        public Builder setMeasurementMethod(MeasurementMethod measurementMethod) {
+            this.measurementMethod = measurementMethod;
+            return this;
+        }
+    }
+
+    @Override
+    public boolean equals(Object object) {
+
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        if (!super.equals(object)) {
+            return false;
+        }
+
+        OxygenSaturation that = (OxygenSaturation) object;
+
+        if (!oxygenSaturation.equals(that.oxygenSaturation)) {
+            return false;
+        }
+        if (system != null ? !system.equals(that.system) : that.system != null) {
+            return false;
+        }
+        if (supplementalOxygenFlowRate != null ? !supplementalOxygenFlowRate.equals(that.supplementalOxygenFlowRate)
+                : that.supplementalOxygenFlowRate != null) {
+
+            return false;
+        }
+        if (oxygenTherapyModeOfAdministration != null
+                ? !oxygenTherapyModeOfAdministration.equals(that.oxygenTherapyModeOfAdministration)
+                : that.oxygenTherapyModeOfAdministration != null) {
+
+            return false;
+        }
+
+        return measurementMethod == that.measurementMethod;
+    }
+
+    @Override
+    public int hashCode() {
+
+        int result = super.hashCode();
+
+        result = 31 * result + oxygenSaturation.hashCode();
+        result = 31 * result + (system != null ? system.hashCode() : 0);
+        result = 31 * result + (supplementalOxygenFlowRate != null ? supplementalOxygenFlowRate.hashCode() : 0);
+        result = 31 * result +
+                (oxygenTherapyModeOfAdministration != null ? oxygenTherapyModeOfAdministration.hashCode() : 0);
+        result = 31 * result + (measurementMethod != null ? measurementMethod.hashCode() : 0);
+
+        return result;
+    }
+
+    /**
+     * A route by which supplemental oxygen is being administered.
+     */
+    public enum SupplementalOxygenAdministrationMode implements SchemaEnumValue {
+
+        NASAL_CANNULA;
+
+        private String schemaValue;
+        private static final Map<String, SupplementalOxygenAdministrationMode> constantsBySchemaValue =
+                Maps.newHashMap();
+
+        static {
+            for (SupplementalOxygenAdministrationMode mode : values()) {
+                constantsBySchemaValue.put(mode.getSchemaValue(), mode);
+            }
+        }
+
+        SupplementalOxygenAdministrationMode() {
+            this.schemaValue = name().toLowerCase().replace('_', ' ');
+        }
+
+        @JsonValue
+        @Override
+        public String getSchemaValue() {
+            return schemaValue;
+        }
+
+        @Nullable
+        @JsonCreator
+        public static SupplementalOxygenAdministrationMode findBySchemaValue(String schemaValue) {
+
+            return constantsBySchemaValue.get(schemaValue);
+        }
+    }
+
+
+    /**
+     * A body system used to measure oxygen saturation.
+     */
+    public enum MeasurementSystem implements SchemaEnumValue {
+
+        PERIPHERAL_CAPILLARY;
+
+        private String schemaValue;
+        private static final Map<String, MeasurementSystem> constantsBySchemaValue = Maps.newHashMap();
+
+        static {
+            for (MeasurementSystem system : values()) {
+                constantsBySchemaValue.put(system.getSchemaValue(), system);
+            }
+        }
+
+        MeasurementSystem() {
+            this.schemaValue = name().toLowerCase().replace('_', ' ');
+        }
+
+        @JsonValue
+        @Override
+        public String getSchemaValue() {
+            return schemaValue;
+        }
+
+        @Nullable
+        @JsonCreator
+        public static MeasurementSystem findBySchemaValue(String schemaValue) {
+
+            return constantsBySchemaValue.get(schemaValue);
+        }
+    }
+
+
+    /**
+     * A method used to measure the oxygen saturation value.
+     * <p>
+     * Currently pulse oximetry is the only method used for measuring oxygen saturation in a non-hospital setting.
+     */
+    public enum MeasurementMethod implements SchemaEnumValue {
+
+        PULSE_OXIMETRY;
+
+        private String schemaValue;
+
+        private static final Map<String, MeasurementMethod> constantsBySchemaValue = new HashMap<>();
+
+        static {
+            for (MeasurementMethod constant : values()) {
+                constantsBySchemaValue.put(constant.getSchemaValue(), constant);
+            }
+        }
+
+        MeasurementMethod() {
+            this.schemaValue = name().toLowerCase().replace('_', ' ');
+        }
+
+        @JsonValue
+        @Override
+        public String getSchemaValue() {
+            return schemaValue;
+        }
+
+        @Nullable
+        @JsonCreator
+        public static MeasurementMethod findBySchemaValue(String schemaValue) {
+
+            return constantsBySchemaValue.get(schemaValue);
+        }
+    }
+}
