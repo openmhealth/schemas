@@ -43,7 +43,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
 public class PhysicalActivity extends Measure {
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "physical-activity", "1.0");
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "physical-activity", "1.2");
 
 
     /**

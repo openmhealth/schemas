@@ -41,7 +41,7 @@ import static org.openmhealth.schema.domain.omh.PhysicalActivity.SelfReportedInt
  */
 public class PhysicalActivityUnitTests extends SerializationUnitTests {
 
-    public static final String SCHEMA_FILENAME = "schema/omh/physical-activity-1.0.json";
+    public static final String SCHEMA_FILENAME = "schema/omh/physical-activity-1.2.json";
 
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedActivityName() {
