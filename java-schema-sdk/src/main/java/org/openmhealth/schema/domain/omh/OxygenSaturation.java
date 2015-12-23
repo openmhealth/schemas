@@ -33,7 +33,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
- * A single measurement of blood oxygen saturation.
+ * Measurement of blood oxygen saturation.
  *
  * @author Chris Schaefbauer
  * @version 1.0

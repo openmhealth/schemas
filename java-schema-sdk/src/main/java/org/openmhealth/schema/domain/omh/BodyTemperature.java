@@ -31,7 +31,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
- * A single body temperature measurement.
+ * Measure capturing a person's body temperature.
  *
  * @author Chris Schaefbauer
  * @version 1.0
