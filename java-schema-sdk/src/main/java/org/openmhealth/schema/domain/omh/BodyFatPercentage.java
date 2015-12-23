@@ -25,6 +25,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
+ * Measurement of a person's body fat percentage.
+ *
  * @author Chris Schaefbauer
  * @version 1.0
  * @see <a href=" http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_body-fat
