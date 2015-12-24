@@ -44,6 +44,9 @@ public class JacksonConfiguration {
         // we serialize dates, date times, and times as strings, not numbers
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
+        // we preserve time zone offsets when deserializing
+        objectMapper.disable(DeserializationFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE);
+
         // we default to the ISO8601 format for JSR-310 and support Optional
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.registerModule(new Jdk8Module());
