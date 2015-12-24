@@ -46,148 +46,6 @@ public class OxygenSaturation extends Measure {
 
     private static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "oxygen-saturation", "1.0");
 
-    private TypedUnitValue<PercentUnit> oxygenSaturation;
-    private MeasurementSystem measurementSystem;
-    private MeasurementMethod measurementMethod;
-    private TypedUnitValue<OxygenFlowRateUnit> supplementalOxygenFlowRate;
-    private SupplementalOxygenAdministrationMode supplementalOxygenAdministrationMode;
-
-    @Override
-    public SchemaId getSchemaId() {
-        return SCHEMA_ID;
-    }
-
-    @SerializationConstructor
-    protected OxygenSaturation() {
-
-    }
-
-    private OxygenSaturation(Builder builder) {
-
-        super(builder);
-
-        this.oxygenSaturation = builder.oxygenSaturation;
-        this.measurementSystem = builder.measurementSystem;
-        this.supplementalOxygenFlowRate = builder.supplementalOxygenFlowRate;
-        this.supplementalOxygenAdministrationMode = builder.supplementalOxygenAdministrationMode;
-        this.measurementMethod = builder.measurementMethod;
-    }
-
-    public TypedUnitValue<PercentUnit> getOxygenSaturation() {
-        return oxygenSaturation;
-    }
-
-    public TypedUnitValue<OxygenFlowRateUnit> getSupplementalOxygenFlowRate() {
-        return supplementalOxygenFlowRate;
-    }
-
-    @JsonProperty("system")
-    public MeasurementSystem getMeasurementSystem() {
-        return measurementSystem;
-    }
-
-    @JsonProperty("oxygen_therapy_mode_of_administration")
-    public SupplementalOxygenAdministrationMode getSupplementalOxygenAdministrationMode() {
-        return supplementalOxygenAdministrationMode;
-    }
-
-    public MeasurementMethod getMeasurementMethod() {
-        return measurementMethod;
-    }
-
-
-    public static class Builder extends Measure.Builder<OxygenSaturation, Builder> {
-
-        private final TypedUnitValue<PercentUnit> oxygenSaturation;
-        private MeasurementSystem measurementSystem;
-        private MeasurementMethod measurementMethod;
-        private TypedUnitValue<OxygenFlowRateUnit> supplementalOxygenFlowRate;
-        private SupplementalOxygenAdministrationMode supplementalOxygenAdministrationMode;
-
-        public Builder(TypedUnitValue<PercentUnit> oxygenSaturation) {
-
-            checkNotNull(oxygenSaturation, "An oxygen saturation value hasn't been specified.");
-
-            this.oxygenSaturation = oxygenSaturation;
-        }
-
-        @Override
-        public OxygenSaturation build() {
-            return new OxygenSaturation(this);
-        }
-
-        public Builder setMeasurementSystem(MeasurementSystem measurementSystem) {
-            this.measurementSystem = measurementSystem;
-            return this;
-        }
-
-        public Builder setMeasurementMethod(MeasurementMethod measurementMethod) {
-            this.measurementMethod = measurementMethod;
-            return this;
-        }
-
-        public Builder setSupplementalOxygenFlowRate(TypedUnitValue<OxygenFlowRateUnit> supplementalOxygenFlowRate) {
-            this.supplementalOxygenFlowRate = supplementalOxygenFlowRate;
-            return this;
-        }
-
-        public Builder setSupplementalOxygenAdministrationMode(
-                SupplementalOxygenAdministrationMode administrationMode) {
-            this.supplementalOxygenAdministrationMode = administrationMode;
-            return this;
-        }
-    }
-
-    @Override
-    public boolean equals(Object object) {
-
-        if (this == object) {
-            return true;
-        }
-        if (object == null || getClass() != object.getClass()) {
-            return false;
-        }
-        if (!super.equals(object)) {
-            return false;
-        }
-
-        OxygenSaturation that = (OxygenSaturation) object;
-
-        if (!oxygenSaturation.equals(that.oxygenSaturation)) {
-            return false;
-        }
-        if (measurementSystem != null ? !measurementSystem.equals(that.measurementSystem) : that.measurementSystem != null) {
-            return false;
-        }
-        if (supplementalOxygenFlowRate != null ? !supplementalOxygenFlowRate.equals(that.supplementalOxygenFlowRate)
-                : that.supplementalOxygenFlowRate != null) {
-
-            return false;
-        }
-        if (supplementalOxygenAdministrationMode != null
-                ? !supplementalOxygenAdministrationMode.equals(that.supplementalOxygenAdministrationMode)
-                : that.supplementalOxygenAdministrationMode != null) {
-
-            return false;
-        }
-
-        return measurementMethod == that.measurementMethod;
-    }
-
-    @Override
-    public int hashCode() {
-
-        int result = super.hashCode();
-
-        result = 31 * result + oxygenSaturation.hashCode();
-        result = 31 * result + (measurementSystem != null ? measurementSystem.hashCode() : 0);
-        result = 31 * result + (supplementalOxygenFlowRate != null ? supplementalOxygenFlowRate.hashCode() : 0);
-        result = 31 * result +
-                (supplementalOxygenAdministrationMode != null ? supplementalOxygenAdministrationMode.hashCode() : 0);
-        result = 31 * result + (measurementMethod != null ? measurementMethod.hashCode() : 0);
-
-        return result;
-    }
 
     /**
      * A route by which supplemental oxygen is being administered.
@@ -295,5 +153,149 @@ public class OxygenSaturation extends Measure {
 
             return constantsBySchemaValue.get(schemaValue);
         }
+    }
+
+
+    private TypedUnitValue<PercentUnit> oxygenSaturation;
+    private MeasurementSystem measurementSystem;
+    private MeasurementMethod measurementMethod;
+    private TypedUnitValue<OxygenFlowRateUnit> supplementalOxygenFlowRate;
+    private SupplementalOxygenAdministrationMode supplementalOxygenAdministrationMode;
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    @SerializationConstructor
+    protected OxygenSaturation() {
+
+    }
+
+    public static class Builder extends Measure.Builder<OxygenSaturation, Builder> {
+
+        private final TypedUnitValue<PercentUnit> oxygenSaturation;
+        private MeasurementSystem measurementSystem;
+        private MeasurementMethod measurementMethod;
+        private TypedUnitValue<OxygenFlowRateUnit> supplementalOxygenFlowRate;
+        private SupplementalOxygenAdministrationMode supplementalOxygenAdministrationMode;
+
+        public Builder(TypedUnitValue<PercentUnit> oxygenSaturation) {
+
+            checkNotNull(oxygenSaturation, "An oxygen saturation value hasn't been specified.");
+
+            this.oxygenSaturation = oxygenSaturation;
+        }
+
+        @Override
+        public OxygenSaturation build() {
+            return new OxygenSaturation(this);
+        }
+
+        public Builder setMeasurementSystem(MeasurementSystem measurementSystem) {
+            this.measurementSystem = measurementSystem;
+            return this;
+        }
+
+        public Builder setMeasurementMethod(MeasurementMethod measurementMethod) {
+            this.measurementMethod = measurementMethod;
+            return this;
+        }
+
+        public Builder setSupplementalOxygenFlowRate(TypedUnitValue<OxygenFlowRateUnit> supplementalOxygenFlowRate) {
+            this.supplementalOxygenFlowRate = supplementalOxygenFlowRate;
+            return this;
+        }
+
+        public Builder setSupplementalOxygenAdministrationMode(
+                SupplementalOxygenAdministrationMode administrationMode) {
+            this.supplementalOxygenAdministrationMode = administrationMode;
+            return this;
+        }
+    }
+
+    private OxygenSaturation(Builder builder) {
+
+        super(builder);
+
+        this.oxygenSaturation = builder.oxygenSaturation;
+        this.measurementSystem = builder.measurementSystem;
+        this.supplementalOxygenFlowRate = builder.supplementalOxygenFlowRate;
+        this.supplementalOxygenAdministrationMode = builder.supplementalOxygenAdministrationMode;
+        this.measurementMethod = builder.measurementMethod;
+    }
+
+    public TypedUnitValue<PercentUnit> getOxygenSaturation() {
+        return oxygenSaturation;
+    }
+
+    public TypedUnitValue<OxygenFlowRateUnit> getSupplementalOxygenFlowRate() {
+        return supplementalOxygenFlowRate;
+    }
+
+    @JsonProperty("system")
+    public MeasurementSystem getMeasurementSystem() {
+        return measurementSystem;
+    }
+
+    @JsonProperty("oxygen_therapy_mode_of_administration")
+    public SupplementalOxygenAdministrationMode getSupplementalOxygenAdministrationMode() {
+        return supplementalOxygenAdministrationMode;
+    }
+
+    public MeasurementMethod getMeasurementMethod() {
+        return measurementMethod;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        if (!super.equals(object)) {
+            return false;
+        }
+
+        OxygenSaturation that = (OxygenSaturation) object;
+
+        if (!oxygenSaturation.equals(that.oxygenSaturation)) {
+            return false;
+        }
+        if (measurementSystem != null ? !measurementSystem.equals(that.measurementSystem)
+                : that.measurementSystem != null) {
+            return false;
+        }
+        if (supplementalOxygenFlowRate != null ? !supplementalOxygenFlowRate.equals(that.supplementalOxygenFlowRate)
+                : that.supplementalOxygenFlowRate != null) {
+
+            return false;
+        }
+        if (supplementalOxygenAdministrationMode != null
+                ? !supplementalOxygenAdministrationMode.equals(that.supplementalOxygenAdministrationMode)
+                : that.supplementalOxygenAdministrationMode != null) {
+
+            return false;
+        }
+
+        return measurementMethod == that.measurementMethod;
+    }
+
+    @Override
+    public int hashCode() {
+
+        int result = super.hashCode();
+
+        result = 31 * result + oxygenSaturation.hashCode();
+        result = 31 * result + (measurementSystem != null ? measurementSystem.hashCode() : 0);
+        result = 31 * result + (supplementalOxygenFlowRate != null ? supplementalOxygenFlowRate.hashCode() : 0);
+        result = 31 * result +
+                (supplementalOxygenAdministrationMode != null ? supplementalOxygenAdministrationMode.hashCode() : 0);
+        result = 31 * result + (measurementMethod != null ? measurementMethod.hashCode() : 0);
+
+        return result;
     }
 }
