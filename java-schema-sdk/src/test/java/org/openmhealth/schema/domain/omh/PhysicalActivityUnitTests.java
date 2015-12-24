@@ -65,13 +65,14 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
         assertThat(physicalActivity.getEffectiveTimeFrame(), nullValue());
         assertThat(physicalActivity.getDescriptiveStatistic(), nullValue());
         assertThat(physicalActivity.getUserNotes(), nullValue());
-        assertThat(physicalActivity.getKcalBurned(), nullValue());
+        assertThat(physicalActivity.getCaloriesBurned(), nullValue());
     }
 
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
         LengthUnitValue distance = new LengthUnitValue(KILOMETER, ONE);
+        KcalUnitValue caloriesBurned = new KcalUnitValue(KILOCALORIE, 15.7);
 
         PhysicalActivity physicalActivity = new PhysicalActivity.Builder("walking")
                 .setDistance(distance)
@@ -79,7 +80,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
                 .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MINIMUM)
                 .setUserNotes("feeling fine")
-                .setKcalBurned(new KcalUnitValue(KILOCALORIE, 15.7))
+                .setCaloriesBurned(caloriesBurned)
                 .build();
 
         assertThat(physicalActivity, notNullValue());
@@ -89,7 +90,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
         assertThat(physicalActivity.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(physicalActivity.getDescriptiveStatistic(), equalTo(MINIMUM));
         assertThat(physicalActivity.getUserNotes(), equalTo("feeling fine"));
-        assertThat(physicalActivity.getKcalBurned(), equalTo(new KcalUnitValue(KILOCALORIE, 15.7)));
+        assertThat(physicalActivity.getCaloriesBurned(), equalTo(caloriesBurned));
     }
 
     @Override
@@ -104,7 +105,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
                 .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
                 .setReportedActivityIntensity(MODERATE)
                 .setEffectiveTimeFrame(FIXED_MONTH)
-                .setKcalBurned(new KcalUnitValue(KILOCALORIE, 25.1))
+                .setCaloriesBurned(new KcalUnitValue(KILOCALORIE, 25.1))
                 .build();
 
         String document = "{\n" +
@@ -137,14 +138,14 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
                 .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
                 .setReportedActivityIntensity(MODERATE)
                 .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
-                .setKcalBurned(new KcalUnitValue(KILOCALORIE, 25.1))
+                .setCaloriesBurned(new KcalUnitValue(KILOCALORIE, 25.1))
                 .build();
 
         PhysicalActivity samePhysicalActivity = new PhysicalActivity.Builder("walking")
                 .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
                 .setReportedActivityIntensity(MODERATE)
                 .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
-                .setKcalBurned(new KcalUnitValue(KILOCALORIE, 25.1))
+                .setCaloriesBurned(new KcalUnitValue(KILOCALORIE, 25.1))
                 .build();
 
         assertThat(physicalActivity.equals(samePhysicalActivity), is(true));
@@ -153,7 +154,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
                 .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(2.5)))
                 .setReportedActivityIntensity(LIGHT)
                 .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2014, 2, 5), MORNING))
-                .setKcalBurned(new KcalUnitValue(KILOCALORIE, 100))
+                .setCaloriesBurned(new KcalUnitValue(KILOCALORIE, 100))
                 .build();
 
         assertThat(physicalActivity.equals(differentPhysicalActivity), is(false));

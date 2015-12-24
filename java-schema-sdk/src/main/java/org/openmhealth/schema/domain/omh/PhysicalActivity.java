@@ -18,6 +18,7 @@ package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -85,7 +86,7 @@ public class PhysicalActivity extends Measure {
     private String activityName;
     private LengthUnitValue distance;
     private SelfReportedIntensity reportedActivityIntensity;
-    private KcalUnitValue kcalBurned;
+    private KcalUnitValue caloriesBurned;
 
     @SerializationConstructor
     protected PhysicalActivity() {
@@ -96,7 +97,7 @@ public class PhysicalActivity extends Measure {
         private String activityName;
         private LengthUnitValue distance;
         private SelfReportedIntensity reportedActivityIntensity;
-        private KcalUnitValue kcalBurned;
+        private KcalUnitValue caloriesBurned;
 
         public Builder(String activityName) {
 
@@ -116,8 +117,8 @@ public class PhysicalActivity extends Measure {
             return this;
         }
 
-        public Builder setKcalBurned(KcalUnitValue kcalBurned) {
-            this.kcalBurned = kcalBurned;
+        public Builder setCaloriesBurned(KcalUnitValue caloriesBurned) {
+            this.caloriesBurned = caloriesBurned;
             return this;
         }
 
@@ -133,7 +134,7 @@ public class PhysicalActivity extends Measure {
         this.activityName = builder.activityName;
         this.distance = builder.distance;
         this.reportedActivityIntensity = builder.reportedActivityIntensity;
-        this.kcalBurned = builder.kcalBurned;
+        this.caloriesBurned = builder.caloriesBurned;
     }
 
     public String getActivityName() {
@@ -148,8 +149,9 @@ public class PhysicalActivity extends Measure {
         return reportedActivityIntensity;
     }
 
-    public KcalUnitValue getKcalBurned() {
-        return kcalBurned;
+    @JsonProperty("kcal_burned")
+    public KcalUnitValue getCaloriesBurned() {
+        return caloriesBurned;
     }
 
     @Override
@@ -179,7 +181,7 @@ public class PhysicalActivity extends Measure {
         if (distance != null ? !distance.equals(that.distance) : that.distance != null) {
             return false;
         }
-        if (kcalBurned != null ? !kcalBurned.equals(that.kcalBurned) : that.kcalBurned != null) {
+        if (caloriesBurned != null ? !caloriesBurned.equals(that.caloriesBurned) : that.caloriesBurned != null) {
             return false;
         }
         return reportedActivityIntensity == that.reportedActivityIntensity;
@@ -192,7 +194,7 @@ public class PhysicalActivity extends Measure {
         result = 31 * result + activityName.hashCode();
         result = 31 * result + (distance != null ? distance.hashCode() : 0);
         result = 31 * result + (reportedActivityIntensity != null ? reportedActivityIntensity.hashCode() : 0);
-        result = 31 * result + (kcalBurned != null ? kcalBurned.hashCode() : 0);
+        result = 31 * result + (caloriesBurned != null ? caloriesBurned.hashCode() : 0);
         return result;
     }
 }
