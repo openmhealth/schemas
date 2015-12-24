@@ -2,7 +2,7 @@
 
 A repository of Open mHealth [schemas](http://www.openmhealth.org/documentation/#/schema-docs/overview). This repository also includes sample test data, a validator for that data, and a Java schema SDK.
 
-[![Build Status](https://travis-ci.org/openmhealth/schemas.svg?branch=develop)](https://travis-ci.org/openmhealth/schemas)
+[![Build Status](https://travis-ci.org/openmhealth/schemas.svg?branch=master)](https://travis-ci.org/openmhealth/schemas)
 
 ## Schemas
 The schemas are located in the [schema](schema) directory.
