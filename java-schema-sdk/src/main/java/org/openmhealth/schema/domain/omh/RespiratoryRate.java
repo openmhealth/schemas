@@ -35,8 +35,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author Chris Schaefbauer
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_respiratory-rate
- * ">respiratory-rate</a>
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_respiratory-rate">respiratory-rate</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
