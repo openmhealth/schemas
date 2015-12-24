@@ -26,6 +26,7 @@ import static org.openmhealth.schema.domain.omh.BodyTemperature.MeasurementLocat
 import static org.openmhealth.schema.domain.omh.BodyTemperature.MeasurementLocation.RECTAL;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
 import static org.openmhealth.schema.domain.omh.TemperatureUnit.*;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_POINT_IN_TIME;
 
 
 /**
@@ -66,7 +67,7 @@ public class BodyTemperatureUnitTests extends SerializationUnitTests {
 
         BodyTemperature bodyTemperature = new BodyTemperature.Builder(new TemperatureUnitValue(FAHRENHEIT, 99.8))
                 .setDescriptiveStatistic(MAXIMUM)
-                .setEffectiveTimeFrame(OffsetDateTime.parse("2015-11-10T14:16:01-06:00"))
+                .setEffectiveTimeFrame(FIXED_POINT_IN_TIME)
                 .setUserNotes("Body temperature high")
                 .setMeasurementLocation(ORAL)
                 .build();
@@ -74,8 +75,7 @@ public class BodyTemperatureUnitTests extends SerializationUnitTests {
         assertThat(bodyTemperature.getBodyTemperature(), notNullValue());
         assertThat(bodyTemperature.getBodyTemperature(), equalTo(new TemperatureUnitValue(FAHRENHEIT, 99.8)));
         assertThat(bodyTemperature.getDescriptiveStatistic(), equalTo(MAXIMUM));
-        assertThat(bodyTemperature.getEffectiveTimeFrame(),
-                equalTo(new TimeFrame(OffsetDateTime.parse("2015-11-10T14:16:01-06:00"))));
+        assertThat(bodyTemperature.getEffectiveTimeFrame(), equalTo(FIXED_POINT_IN_TIME));
         assertThat(bodyTemperature.getUserNotes(), equalTo("Body temperature high"));
         assertThat(bodyTemperature.getMeasurementLocation(), equalTo(ORAL));
     }
@@ -85,7 +85,7 @@ public class BodyTemperatureUnitTests extends SerializationUnitTests {
 
         BodyTemperature bodyTemperature = new BodyTemperature.Builder(new TemperatureUnitValue(KELVIN, 310L))
                 .setDescriptiveStatistic(MAXIMUM)
-                .setEffectiveTimeFrame(OffsetDateTime.parse("2015-11-10T14:16:01Z"))
+                .setEffectiveTimeFrame(FIXED_POINT_IN_TIME)
                 .setMeasurementLocation(RECTAL)
                 .build();
 
@@ -95,7 +95,7 @@ public class BodyTemperatureUnitTests extends SerializationUnitTests {
                 "        \"unit\": \"K\"\n" +
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
-                "        \"date_time\": \"2015-11-10T14:16:01Z\"\n" +
+                "        \"date_time\": \"2015-10-21T16:29:00-07:00\"\n" +
                 "    },\n" +
                 "    \"measurement_location\": \"rectal\",\n" +
                 "    \"descriptive_statistic\": \"maximum\"\n" +

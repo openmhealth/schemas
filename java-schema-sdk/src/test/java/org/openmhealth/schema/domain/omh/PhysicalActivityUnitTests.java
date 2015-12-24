@@ -31,7 +31,7 @@ import static org.openmhealth.schema.domain.omh.LengthUnit.MILE;
 import static org.openmhealth.schema.domain.omh.PartOfDay.MORNING;
 import static org.openmhealth.schema.domain.omh.PhysicalActivity.SelfReportedIntensity.LIGHT;
 import static org.openmhealth.schema.domain.omh.PhysicalActivity.SelfReportedIntensity.MODERATE;
-import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -76,7 +76,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
         PhysicalActivity physicalActivity = new PhysicalActivity.Builder("walking")
                 .setDistance(distance)
                 .setReportedActivityIntensity(LIGHT)
-                .setEffectiveTimeFrame(OCTOBER)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MINIMUM)
                 .setUserNotes("feeling fine")
                 .setKcalBurned(new KcalUnitValue(KILOCALORIE, 15.7))
@@ -86,7 +86,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
         assertThat(physicalActivity.getActivityName(), equalTo("walking"));
         assertThat(physicalActivity.getDistance(), equalTo(distance));
         assertThat(physicalActivity.getReportedActivityIntensity(), equalTo(LIGHT));
-        assertThat(physicalActivity.getEffectiveTimeFrame(), equalTo(OCTOBER));
+        assertThat(physicalActivity.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(physicalActivity.getDescriptiveStatistic(), equalTo(MINIMUM));
         assertThat(physicalActivity.getUserNotes(), equalTo("feeling fine"));
         assertThat(physicalActivity.getKcalBurned(), equalTo(new KcalUnitValue(KILOCALORIE, 15.7)));
@@ -103,7 +103,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
         PhysicalActivity physicalActivity = new PhysicalActivity.Builder("walking")
                 .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
                 .setReportedActivityIntensity(MODERATE)
-                .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setKcalBurned(new KcalUnitValue(KILOCALORIE, 25.1))
                 .build();
 
@@ -116,8 +116,8 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
                 "    \"reported_activity_intensity\": \"moderate\",\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"date\": \"2013-02-05\",\n" +
-                "            \"part_of_day\": \"morning\"\n" +
+                "            \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    },\n" +
                 "    \"kcal_burned\": {\n" +

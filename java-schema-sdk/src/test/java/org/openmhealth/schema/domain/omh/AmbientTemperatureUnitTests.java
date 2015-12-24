@@ -25,8 +25,11 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
-import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.*;
-import static org.openmhealth.schema.domain.omh.TemperatureUnit.*;
+import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
+import static org.openmhealth.schema.domain.omh.TemperatureUnit.CELSIUS;
+import static org.openmhealth.schema.domain.omh.TemperatureUnit.FAHRENHEIT;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_POINT_IN_TIME;
 
 
 /**
@@ -68,19 +71,14 @@ public class AmbientTemperatureUnitTests extends SerializationUnitTests {
         AmbientTemperature ambientTemperature =
                 new AmbientTemperature.Builder(new TemperatureUnitValue(FAHRENHEIT, 87L))
                         .setDescriptiveStatistic(MEDIAN)
-                        .setEffectiveTimeFrame(
-                                TimeInterval.ofStartDateTimeAndEndDateTime(OffsetDateTime.parse("2015-10-11T14:11:10Z"),
-                                        OffsetDateTime.parse("2015-10-11T15:01:00Z")))
+                        .setEffectiveTimeFrame(FIXED_MONTH)
                         .setUserNotes("Temp is fine")
                         .build();
 
         assertThat(ambientTemperature.getAmbientTemperature().getTypedUnit(), equalTo(FAHRENHEIT));
         assertThat(ambientTemperature.getAmbientTemperature().getValue().intValue(), equalTo(87));
         assertThat(ambientTemperature.getUserNotes(), equalTo("Temp is fine"));
-        assertThat(ambientTemperature.getEffectiveTimeFrame().getTimeInterval().getStartDateTime(),
-                equalTo(OffsetDateTime.parse("2015-10-11T14:11:10Z")));
-        assertThat(ambientTemperature.getEffectiveTimeFrame().getTimeInterval().getEndDateTime(), equalTo(
-                OffsetDateTime.parse("2015-10-11T15:01:00Z")));
+        assertThat(ambientTemperature.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(ambientTemperature.getDescriptiveStatistic(), equalTo(MEDIAN));
     }
 
@@ -88,7 +86,7 @@ public class AmbientTemperatureUnitTests extends SerializationUnitTests {
     public void measureShouldSerializeCorrectly() throws Exception {
 
         AmbientTemperature ambientTemperature = new AmbientTemperature.Builder(new TemperatureUnitValue(CELSIUS, 34L))
-                .setEffectiveTimeFrame(OffsetDateTime.parse("2013-02-05T07:25:00Z"))
+                .setEffectiveTimeFrame(FIXED_POINT_IN_TIME)
                 .build();
 
         String expectedDocument = "{\n" +
@@ -97,7 +95,7 @@ public class AmbientTemperatureUnitTests extends SerializationUnitTests {
                 "        \"unit\": \"C\"\n" +
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
-                "        \"date_time\": \"2013-02-05T07:25:00Z\"\n" +
+                "        \"date_time\": \"2015-10-21T16:29:00-07:00\"\n" +
                 "    }\n" +
                 "}";
 

@@ -28,6 +28,8 @@ import static org.openmhealth.schema.domain.omh.OxygenSaturation.MeasurementMeth
 import static org.openmhealth.schema.domain.omh.OxygenSaturation.MeasurementSystem.PERIPHERAL_CAPILLARY;
 import static org.openmhealth.schema.domain.omh.OxygenSaturation.SupplementalOxygenAdministrationMode.NASAL_CANNULA;
 import static org.openmhealth.schema.domain.omh.PercentUnit.PERCENT;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_POINT_IN_TIME;
 
 
 /**
@@ -69,7 +71,7 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
         OxygenSaturation oxygenSaturation = new OxygenSaturation.Builder(new TypedUnitValue<>(PERCENT, 93.5))
-                .setEffectiveTimeFrame(OffsetDateTime.parse("2015-04-01T12:34:01+04:00"))
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setUserNotes("a note about oxygen sat")
                 .setDescriptiveStatistic(MAXIMUM)
                 .setMeasurementSystem(PERIPHERAL_CAPILLARY)
@@ -81,8 +83,7 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
         assertThat(oxygenSaturation, notNullValue());
         assertThat(oxygenSaturation.getOxygenSaturation(), equalTo(new TypedUnitValue<>(PERCENT, 93.5)));
         assertThat(oxygenSaturation.getUserNotes(), equalTo("a note about oxygen sat"));
-        assertThat(oxygenSaturation.getEffectiveTimeFrame(),
-                equalTo(new TimeFrame(OffsetDateTime.parse("2015-04-01T12:34:01+04:00"))));
+        assertThat(oxygenSaturation.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(oxygenSaturation.getDescriptiveStatistic(), equalTo(MAXIMUM));
         assertThat(oxygenSaturation.getMeasurementSystem(), equalTo(PERIPHERAL_CAPILLARY));
         assertThat(oxygenSaturation.getSupplementalOxygenFlowRate(),
@@ -95,7 +96,7 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
     public void measureShouldSerializeCorrectly() throws Exception {
 
         OxygenSaturation oxygenSaturation = new OxygenSaturation.Builder(new TypedUnitValue<>(PERCENT, 96.5))
-                .setEffectiveTimeFrame(OffsetDateTime.parse("2013-02-05T07:25:00Z"))
+                .setEffectiveTimeFrame(FIXED_POINT_IN_TIME)
                 .setSupplementalOxygenAdministrationMode(NASAL_CANNULA)
                 .setSupplementalOxygenFlowRate(new TypedUnitValue<>(LITERS_PER_MINUTE, 2.5))
                 .setMeasurementMethod(PULSE_OXIMETRY)
@@ -108,7 +109,7 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
                 "        \"unit\": \"%\"\n" +
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
-                "        \"date_time\": \"2013-02-05T07:25:00Z\"\n" +
+                "        \"date_time\": \"2015-10-21T16:29:00-07:00\"\n" +
                 "    },\n" +
                 "    \"supplemental_oxygen_flow_rate\": {\n" +
                 "        \"value\": 2.5,\n" +
@@ -160,7 +161,5 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
                         .build();
 
         assertThat(oxygenSaturation.equals(withSameValueDifferentOptionalParameters), is(false));
-
     }
-
 }

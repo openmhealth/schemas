@@ -17,10 +17,11 @@
 package org.openmhealth.schema.domain.omh;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
+import static java.time.Month.NOVEMBER;
+import static java.time.Month.OCTOBER;
 import static org.openmhealth.schema.domain.omh.TimeInterval.ofStartDateTimeAndEndDateTime;
 
 
@@ -33,13 +34,19 @@ public class TimeFrameFactory {
 
     public static final ZoneId PT = ZoneId.of("America/Los_Angeles");
 
-    public static final TimeFrame OCTOBER =
+    public static final TimeFrame FIXED_MONTH =
             new TimeFrame(ofStartDateTimeAndEndDateTime(
-                    LocalDate.of(2015, Month.OCTOBER, 1).atStartOfDay(PT).toOffsetDateTime(),
-                    LocalDate.of(2015, Month.NOVEMBER, 1).atStartOfDay(PT).toOffsetDateTime()
+                    LocalDate.of(2015, OCTOBER, 1).atStartOfDay(PT).toOffsetDateTime(),
+                    LocalDate.of(2015, NOVEMBER, 1).atStartOfDay(PT).toOffsetDateTime()
+            ));
+
+    public static final TimeFrame FIXED_DAY =
+            new TimeFrame(ofStartDateTimeAndEndDateTime(
+                    LocalDate.of(2015, OCTOBER, 21).atStartOfDay(PT).toOffsetDateTime(),
+                    LocalDate.of(2015, OCTOBER, 22).atStartOfDay(PT).toOffsetDateTime()
             ));
 
     // which isn't arbitrary at all, of course, but we'll limit the Back to the Future references to this comment
     public static final TimeFrame FIXED_POINT_IN_TIME =
-            new TimeFrame(ZonedDateTime.of(2015, Month.OCTOBER.getValue(), 21, 16, 29, 0, 0, PT).toOffsetDateTime());
+            new TimeFrame(ZonedDateTime.of(2015, OCTOBER.getValue(), 21, 16, 29, 0, 0, PT).toOffsetDateTime());
 }

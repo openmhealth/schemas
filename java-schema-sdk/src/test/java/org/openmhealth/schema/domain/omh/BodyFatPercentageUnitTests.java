@@ -25,9 +25,11 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
-import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.*;
+import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
 import static org.openmhealth.schema.domain.omh.PercentUnit.PERCENT;
-import static org.openmhealth.schema.domain.omh.TimeInterval.*;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_POINT_IN_TIME;
+import static org.openmhealth.schema.domain.omh.TimeInterval.ofStartDateTimeAndEndDateTime;
 
 
 /**
@@ -68,17 +70,16 @@ public class BodyFatPercentageUnitTests extends SerializationUnitTests {
 
         BodyFatPercentage bodyFatPercentage = new BodyFatPercentage.Builder(new TypedUnitValue<>(PERCENT, 31))
                 .setDescriptiveStatistic(MAXIMUM)
-                .setEffectiveTimeFrame(OffsetDateTime.parse("2015-11-12T11:10:43Z"))
-                .setUserNotes("Body fat percentage")
+                .setEffectiveTimeFrame(FIXED_POINT_IN_TIME)
+                .setUserNotes("some note")
                 .build();
 
         assertThat(bodyFatPercentage, notNullValue());
         assertThat(bodyFatPercentage.getBodyFatPercentage().getTypedUnit(), equalTo(PERCENT));
         assertThat(bodyFatPercentage.getBodyFatPercentage().getValue().intValue(), equalTo(31));
         assertThat(bodyFatPercentage.getDescriptiveStatistic(), equalTo(MAXIMUM));
-        assertThat(bodyFatPercentage.getEffectiveTimeFrame().getDateTime(), equalTo(
-                OffsetDateTime.parse("2015-11-12T11:10:43Z")));
-        assertThat(bodyFatPercentage.getUserNotes(), equalTo("Body fat percentage"));
+        assertThat(bodyFatPercentage.getEffectiveTimeFrame(), equalTo(FIXED_POINT_IN_TIME));
+        assertThat(bodyFatPercentage.getUserNotes(), equalTo("some note"));
     }
 
     @Test
@@ -86,8 +87,7 @@ public class BodyFatPercentageUnitTests extends SerializationUnitTests {
 
         BodyFatPercentage bodyFatPercentage = new BodyFatPercentage.Builder(new TypedUnitValue<>(PERCENT, 16))
                 .setDescriptiveStatistic(MAXIMUM)
-                .setEffectiveTimeFrame(ofStartDateTimeAndEndDateTime(OffsetDateTime.parse("2013-01-01T00:00:00Z"),
-                        OffsetDateTime.parse("2013-12-31T23:59:59Z")))
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .build();
 
         String expectedDocument = "{\n" +
@@ -97,8 +97,8 @@ public class BodyFatPercentageUnitTests extends SerializationUnitTests {
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"start_date_time\": \"2013-01-01T00:00:00Z\",\n" +
-                "            \"end_date_time\": \"2013-12-31T23:59:59Z\"\n" +
+                "            \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    },\n" +
                 "    \"descriptive_statistic\": \"maximum\"\n" +
