@@ -18,56 +18,48 @@ package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.common.collect.Maps;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
 import java.util.Map;
 
 
 /**
- * The period of time in which a day is commonly divided.
+ * A unit of temperature.
  *
- * @author Emerson Farrugia
+ * @author Chris Schaefbauer
  * @version 1.0
- * @see
- * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_part-of-day">part-of-day</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temperature-unit
+ * -value">temperature-unit-value</a>
  */
-public enum PartOfDay implements SchemaEnumValue, SchemaSupport {
+public enum TemperatureUnit implements Unit {
 
-    MORNING,
-    AFTERNOON,
-    EVENING,
-    NIGHT;
+    KELVIN("K"),
+    CELSIUS("C"),
+    FAHRENHEIT("F");
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "part-of-day", "1.0");
-
-    private String schemaValue;
-    private static final Map<String, PartOfDay> constantsBySchemaValue = new HashMap<>();
+    private static Map<String, TemperatureUnit> constantsBySchemaValue = Maps.newHashMap();
+    private final String schemaValue;
 
     static {
-        for (PartOfDay constant : values()) {
-            constantsBySchemaValue.put(constant.getSchemaValue(), constant);
+        for (TemperatureUnit unit : values()) {
+            constantsBySchemaValue.put(unit.getSchemaValue(), unit);
         }
     }
 
-    PartOfDay() {
-        this.schemaValue = name().toLowerCase().replace('_', ' ');
-    }
-
-    @Override
-    public SchemaId getSchemaId() {
-        return SCHEMA_ID;
+    TemperatureUnit(String schemaValue) {
+        this.schemaValue = schemaValue;
     }
 
     @Override
     @JsonValue
     public String getSchemaValue() {
-        return this.schemaValue;
+        return schemaValue;
     }
 
     @Nullable
     @JsonCreator
-    public static PartOfDay findBySchemaValue(String schemaValue) {
+    public static TemperatureUnit findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
     }
 }

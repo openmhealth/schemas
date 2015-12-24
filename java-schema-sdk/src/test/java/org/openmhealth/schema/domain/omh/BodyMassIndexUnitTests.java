@@ -18,16 +18,12 @@ package org.openmhealth.schema.domain.omh;
 
 import org.testng.annotations.Test;
 
-import java.time.OffsetDateTime;
-
-import static java.math.BigDecimal.TEN;
-import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.BodyMassIndexUnit.KILOGRAMS_PER_SQUARE_METER;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -56,19 +52,15 @@ public class BodyMassIndexUnitTests extends SerializationUnitTests {
 
         TypedUnitValue<BodyMassIndexUnit> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         BodyMassIndex bmi = new BodyMassIndex.Builder(bmiValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(bmi, notNullValue());
         assertThat(bmi.getBodyMassIndex(), equalTo(bmiValue));
-        assertThat(bmi.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(bmi.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(bmi.getDescriptiveStatistic(), equalTo(AVERAGE));
         assertThat(bmi.getUserNotes(), equalTo("feeling fine"));
     }
@@ -81,13 +73,8 @@ public class BodyMassIndexUnitTests extends SerializationUnitTests {
     @Test
     public void measureShouldSerializeCorrectly() throws Exception {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofStartDateTimeAndEndDateTime(
-                OffsetDateTime.of(2013, 1, 1, 0, 0, 0, 0, UTC),
-                OffsetDateTime.of(2013, 12, 31, 23, 59, 59, 0, UTC)
-        );
-
         BodyMassIndex bmi = new BodyMassIndex.Builder(new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 16))
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MAXIMUM)
                 .setUserNotes("I felt fine")
                 .build();
@@ -99,8 +86,8 @@ public class BodyMassIndexUnitTests extends SerializationUnitTests {
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"start_date_time\": \"2013-01-01T00:00:00Z\",\n" +
-                "            \"end_date_time\": \"2013-12-31T23:59:59Z\"\n" +
+                "            \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    },\n" +
                 "    \"descriptive_statistic\": \"maximum\",\n" +

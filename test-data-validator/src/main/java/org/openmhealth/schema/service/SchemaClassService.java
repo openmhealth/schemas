@@ -14,31 +14,20 @@
  * limitations under the License.
  */
 
-subprojects {
-    buildscript {
-        repositories {
-            mavenLocal()
-            jcenter()
-        }
-    }
+package org.openmhealth.schema.service;
 
-    apply plugin: 'java'
+import org.openmhealth.schema.domain.omh.SchemaId;
 
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
+import java.util.Set;
 
-    group = 'org.openmhealth.schema'
 
-    ext {
-        javaVersion = 1.8
-    }
+/**
+ * @author Emerson Farrugia
+ */
+public interface SchemaClassService {
 
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.6'
+    /**
+     * @return the schema identifiers of all available schema classes
+     */
+    Set<SchemaId> getSchemaIds();
 }

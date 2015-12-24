@@ -19,16 +19,14 @@ package org.openmhealth.schema.domain.omh;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
-import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.HeartRateUnit.BEATS_PER_MINUTE;
 import static org.openmhealth.schema.domain.omh.TemporalRelationshipToPhysicalActivity.AT_REST;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_POINT_IN_TIME;
 
 
 /**
@@ -57,19 +55,15 @@ public class HeartRateUnitTests extends SerializationUnitTests {
 
         BigDecimal heartRateValue = BigDecimal.valueOf(60);
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         HeartRate heartRate = new HeartRate.Builder(heartRateValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(heartRate, notNullValue());
         assertThat(heartRate.getHeartRate(), equalTo(new TypedUnitValue<>(BEATS_PER_MINUTE, heartRateValue)));
-        assertThat(heartRate.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(heartRate.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(heartRate.getDescriptiveStatistic(), equalTo(AVERAGE));
         assertThat(heartRate.getUserNotes(), equalTo("feeling fine"));
     }
@@ -83,7 +77,7 @@ public class HeartRateUnitTests extends SerializationUnitTests {
     public void measureShouldSerializeCorrectly() throws Exception {
 
         HeartRate heartRate = new HeartRate.Builder(BigDecimal.valueOf(50))
-                .setEffectiveTimeFrame(OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, UTC))
+                .setEffectiveTimeFrame(FIXED_POINT_IN_TIME)
                 .setTemporalRelationshipToPhysicalActivity(AT_REST)
                 .setUserNotes("I felt quite dizzy")
                 .build();
@@ -94,7 +88,7 @@ public class HeartRateUnitTests extends SerializationUnitTests {
                 "        \"unit\": \"beats/min\"\n" +
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
-                "        \"date_time\": \"2013-02-05T07:25:00Z\"\n" +
+                "        \"date_time\": \"2015-10-21T16:29:00-07:00\"\n" +
                 "    },\n" +
                 "    \"temporal_relationship_to_physical_activity\": \"at rest\",\n" +
                 "    \"user_notes\": \"I felt quite dizzy\"\n" +

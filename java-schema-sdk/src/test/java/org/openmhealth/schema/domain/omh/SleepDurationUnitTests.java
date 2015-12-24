@@ -19,15 +19,16 @@ package org.openmhealth.schema.domain.omh;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 
 import static java.math.BigDecimal.ONE;
 import static java.math.BigDecimal.TEN;
-import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.*;
+import static org.openmhealth.schema.domain.omh.DurationUnit.HOUR;
+import static org.openmhealth.schema.domain.omh.DurationUnit.WEEK;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_DAY;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -68,19 +69,15 @@ public class SleepDurationUnitTests extends SerializationUnitTests {
 
         DurationUnitValue durationUnitValue = new DurationUnitValue(HOUR, TEN);
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         SleepDuration sleepDuration = new SleepDuration.Builder(durationUnitValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MAXIMUM)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(sleepDuration, notNullValue());
         assertThat(sleepDuration.getSleepDuration(), equalTo(durationUnitValue));
-        assertThat(sleepDuration.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(sleepDuration.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(sleepDuration.getDescriptiveStatistic(), equalTo(MAXIMUM));
         assertThat(sleepDuration.getUserNotes(), equalTo("feeling fine"));
     }
@@ -94,10 +91,7 @@ public class SleepDurationUnitTests extends SerializationUnitTests {
     public void measureShouldSerializeCorrectly() throws Exception {
 
         SleepDuration sleepDuration = new SleepDuration.Builder(new DurationUnitValue(HOUR, BigDecimal.valueOf(6)))
-                .setEffectiveTimeFrame(TimeInterval.ofStartDateTimeAndEndDateTime(
-                        OffsetDateTime.of(2013, 2, 5, 20, 35, 0, 0, UTC),
-                        OffsetDateTime.of(2013, 2, 6, 6, 35, 0, 0, UTC)
-                ))
+                .setEffectiveTimeFrame(FIXED_DAY)
                 .setUserNotes("slept well")
                 .build();
 
@@ -108,8 +102,8 @@ public class SleepDurationUnitTests extends SerializationUnitTests {
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"start_date_time\": \"2013-02-05T20:35:00Z\",\n" +
-                "            \"end_date_time\": \"2013-02-06T06:35:00Z\"\n" +
+                "            \"start_date_time\": \"2015-10-21T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-10-22T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    },\n" +
                 "    \"user_notes\": \"slept well\"\n" +

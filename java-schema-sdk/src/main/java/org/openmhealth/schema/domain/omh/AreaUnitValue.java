@@ -26,9 +26,12 @@ import java.math.BigDecimal;
 /**
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_area-unit-value">area-unit-value</a>
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_area-unit-value">area-unit-value</a>
  */
 public class AreaUnitValue extends TypedUnitValue<AreaUnit> {
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "area-unit-value", "1.0");
 
     @SerializationConstructor
     protected AreaUnitValue() {
@@ -37,6 +40,11 @@ public class AreaUnitValue extends TypedUnitValue<AreaUnit> {
     @JsonCreator
     public AreaUnitValue(@JsonProperty("unit") AreaUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     public AreaUnitValue(AreaUnit unit, double value) {

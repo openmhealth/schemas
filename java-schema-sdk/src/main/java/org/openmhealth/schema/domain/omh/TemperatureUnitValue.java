@@ -24,21 +24,21 @@ import java.math.BigDecimal;
 
 
 /**
- * @author Emerson Farrugia
+ * @author Chris Schaefbauer
  * @version 1.0
- * @see
- * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_kcal-unit-value">kcal-unit-value</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temperature-unit
+ * -value">temperature-unit-value</a>
  */
-public class KcalUnitValue extends TypedUnitValue<KcalUnit> {
+public class TemperatureUnitValue extends TypedUnitValue<TemperatureUnit> {
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "kcal-unit-value", "1.0");
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "temperature-unit-value", "1.0");
 
     @SerializationConstructor
-    protected KcalUnitValue() {
+    protected TemperatureUnitValue() {
     }
 
     @JsonCreator
-    public KcalUnitValue(@JsonProperty("unit") KcalUnit unit, @JsonProperty("value") BigDecimal value) {
+    public TemperatureUnitValue(@JsonProperty("unit") TemperatureUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
     }
 
@@ -47,11 +47,11 @@ public class KcalUnitValue extends TypedUnitValue<KcalUnit> {
         return SCHEMA_ID;
     }
 
-    public KcalUnitValue(KcalUnit unit, double value) {
+    public TemperatureUnitValue(TemperatureUnit unit, Long value) {
         super(unit, value);
     }
 
-    public KcalUnitValue(KcalUnit unit, long value) {
+    public TemperatureUnitValue(TemperatureUnit unit, Double value) {
         super(unit, value);
     }
 }
