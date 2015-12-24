@@ -24,9 +24,9 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
 import static org.openmhealth.schema.domain.omh.OxygenFlowRateUnit.LITERS_PER_MINUTE;
-import static org.openmhealth.schema.domain.omh.OxygenSaturation.SupplementalOxygenAdministrationMode.NASAL_CANNULA;
-import static org.openmhealth.schema.domain.omh.OxygenSaturation.MeasurementMethod.*;
+import static org.openmhealth.schema.domain.omh.OxygenSaturation.MeasurementMethod.PULSE_OXIMETRY;
 import static org.openmhealth.schema.domain.omh.OxygenSaturation.MeasurementSystem.PERIPHERAL_CAPILLARY;
+import static org.openmhealth.schema.domain.omh.OxygenSaturation.SupplementalOxygenAdministrationMode.NASAL_CANNULA;
 import static org.openmhealth.schema.domain.omh.PercentUnit.PERCENT;
 
 
@@ -60,8 +60,8 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
         assertThat(oxygenSaturation.getUserNotes(), nullValue());
         assertThat(oxygenSaturation.getDescriptiveStatistic(), nullValue());
         assertThat(oxygenSaturation.getSupplementalOxygenFlowRate(), nullValue());
-        assertThat(oxygenSaturation.getSystem(), nullValue());
-        assertThat(oxygenSaturation.getOxygenTherapyModeOfAdministration(), nullValue());
+        assertThat(oxygenSaturation.getMeasurementSystem(), nullValue());
+        assertThat(oxygenSaturation.getSupplementalOxygenAdministrationMode(), nullValue());
         assertThat(oxygenSaturation.getMeasurementMethod(), nullValue());
     }
 
@@ -72,9 +72,9 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
                 .setEffectiveTimeFrame(OffsetDateTime.parse("2015-04-01T12:34:01+04:00"))
                 .setUserNotes("a note about oxygen sat")
                 .setDescriptiveStatistic(MAXIMUM)
-                .setSystem(PERIPHERAL_CAPILLARY)
+                .setMeasurementSystem(PERIPHERAL_CAPILLARY)
                 .setSupplementalOxygenFlowRate(new TypedUnitValue<>(LITERS_PER_MINUTE, 3.2))
-                .setOxygenTherapyModeOfAdministration(NASAL_CANNULA)
+                .setSupplementalOxygenAdministrationMode(NASAL_CANNULA)
                 .setMeasurementMethod(PULSE_OXIMETRY)
                 .build();
 
@@ -84,10 +84,10 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
         assertThat(oxygenSaturation.getEffectiveTimeFrame(),
                 equalTo(new TimeFrame(OffsetDateTime.parse("2015-04-01T12:34:01+04:00"))));
         assertThat(oxygenSaturation.getDescriptiveStatistic(), equalTo(MAXIMUM));
-        assertThat(oxygenSaturation.getSystem(), equalTo(PERIPHERAL_CAPILLARY));
+        assertThat(oxygenSaturation.getMeasurementSystem(), equalTo(PERIPHERAL_CAPILLARY));
         assertThat(oxygenSaturation.getSupplementalOxygenFlowRate(),
                 equalTo(new TypedUnitValue<>(LITERS_PER_MINUTE, 3.2)));
-        assertThat(oxygenSaturation.getOxygenTherapyModeOfAdministration(), equalTo(NASAL_CANNULA));
+        assertThat(oxygenSaturation.getSupplementalOxygenAdministrationMode(), equalTo(NASAL_CANNULA));
         assertThat(oxygenSaturation.getMeasurementMethod(), equalTo(PULSE_OXIMETRY));
     }
 
@@ -96,10 +96,10 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
 
         OxygenSaturation oxygenSaturation = new OxygenSaturation.Builder(new TypedUnitValue<>(PERCENT, 96.5))
                 .setEffectiveTimeFrame(OffsetDateTime.parse("2013-02-05T07:25:00Z"))
-                .setOxygenTherapyModeOfAdministration(NASAL_CANNULA)
+                .setSupplementalOxygenAdministrationMode(NASAL_CANNULA)
                 .setSupplementalOxygenFlowRate(new TypedUnitValue<>(LITERS_PER_MINUTE, 2.5))
                 .setMeasurementMethod(PULSE_OXIMETRY)
-                .setSystem(PERIPHERAL_CAPILLARY)
+                .setMeasurementSystem(PERIPHERAL_CAPILLARY)
                 .build();
 
         String expectedDocument = "{\n" +
@@ -128,28 +128,28 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
 
         OxygenSaturation oxygenSaturation = new OxygenSaturation.Builder(new TypedUnitValue<>(PERCENT, 96.5))
                 .setEffectiveTimeFrame(OffsetDateTime.parse("2013-02-05T07:25:00Z"))
-                .setOxygenTherapyModeOfAdministration(NASAL_CANNULA)
+                .setSupplementalOxygenAdministrationMode(NASAL_CANNULA)
                 .setSupplementalOxygenFlowRate(new TypedUnitValue<>(LITERS_PER_MINUTE, 2.5))
                 .setMeasurementMethod(PULSE_OXIMETRY)
-                .setSystem(PERIPHERAL_CAPILLARY)
+                .setMeasurementSystem(PERIPHERAL_CAPILLARY)
                 .build();
 
         OxygenSaturation sameOxygenSaturation = new OxygenSaturation.Builder(new TypedUnitValue<>(PERCENT, 96.5))
                 .setEffectiveTimeFrame(OffsetDateTime.parse("2013-02-05T07:25:00Z"))
-                .setOxygenTherapyModeOfAdministration(NASAL_CANNULA)
+                .setSupplementalOxygenAdministrationMode(NASAL_CANNULA)
                 .setSupplementalOxygenFlowRate(new TypedUnitValue<>(LITERS_PER_MINUTE, 2.5))
                 .setMeasurementMethod(PULSE_OXIMETRY)
-                .setSystem(PERIPHERAL_CAPILLARY)
+                .setMeasurementSystem(PERIPHERAL_CAPILLARY)
                 .build();
 
         assertThat(oxygenSaturation.equals(sameOxygenSaturation), is(true));
 
         OxygenSaturation withDifferentValue = new OxygenSaturation.Builder(new TypedUnitValue<>(PERCENT, 90))
                 .setEffectiveTimeFrame(OffsetDateTime.parse("2013-02-05T07:25:00Z"))
-                .setOxygenTherapyModeOfAdministration(NASAL_CANNULA)
+                .setSupplementalOxygenAdministrationMode(NASAL_CANNULA)
                 .setSupplementalOxygenFlowRate(new TypedUnitValue<>(LITERS_PER_MINUTE, 2.5))
                 .setMeasurementMethod(PULSE_OXIMETRY)
-                .setSystem(PERIPHERAL_CAPILLARY)
+                .setMeasurementSystem(PERIPHERAL_CAPILLARY)
                 .build();
 
         assertThat(oxygenSaturation.equals(withDifferentValue), is(false));
