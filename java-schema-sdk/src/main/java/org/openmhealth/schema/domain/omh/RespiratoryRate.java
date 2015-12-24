@@ -31,7 +31,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
- * A single respiratory rate measurement.
+ * A measurement of respiratory rate.
  *
  * @author Chris Schaefbauer
  * @version 1.0
@@ -44,96 +44,6 @@ public class RespiratoryRate extends Measure {
 
     private static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "respiratory-rate", "1.0");
 
-    private TypedUnitValue<RespirationUnit> respiratoryRate;
-    private TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity;
-
-    @Override
-    public SchemaId getSchemaId() {
-        return SCHEMA_ID;
-    }
-
-
-    @SerializationConstructor
-    protected RespiratoryRate() {
-
-    }
-
-    private RespiratoryRate(Builder builder) {
-
-        super(builder);
-
-        this.respiratoryRate = builder.respiratoryRate;
-        this.temporalRelationshipToPhysicalActivity = builder.temporalRelationshipToPhysicalActivity;
-    }
-
-
-    public TypedUnitValue<RespirationUnit> getRespiratoryRate() {
-        return respiratoryRate;
-    }
-
-    public TemporalRelationshipToPhysicalActivity getTemporalRelationshipToPhysicalActivity() {
-        return temporalRelationshipToPhysicalActivity;
-    }
-
-    public static class Builder extends Measure.Builder<org.openmhealth.schema.domain.omh.RespiratoryRate, Builder> {
-
-        private final TypedUnitValue<RespirationUnit> respiratoryRate;
-        private TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity;
-
-        public Builder(TypedUnitValue<RespirationUnit> respiratoryRate) {
-
-            checkNotNull(respiratoryRate, "The respiratory rate value hasn't been specified.");
-
-            this.respiratoryRate = respiratoryRate;
-        }
-
-        @Override
-        public RespiratoryRate build() {
-            return new RespiratoryRate(this);
-        }
-
-        public Builder setTemporalRelationshipToPhysicalActivity(
-                TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity) {
-
-            this.temporalRelationshipToPhysicalActivity = temporalRelationshipToPhysicalActivity;
-            return this;
-        }
-    }
-
-
-    @Override
-    public boolean equals(Object object) {
-
-        if (this == object) {
-            return true;
-        }
-        if (object == null || getClass() != object.getClass()) {
-            return false;
-        }
-        if (!super.equals(object)) {
-            return false;
-        }
-
-        RespiratoryRate that = (RespiratoryRate) object;
-
-        if (!this.respiratoryRate.equals(that.respiratoryRate)) {
-            return false;
-        }
-
-        return temporalRelationshipToPhysicalActivity == that.temporalRelationshipToPhysicalActivity;
-    }
-
-    @Override
-    public int hashCode() {
-
-        int result = super.hashCode();
-
-        result = 31 * result + respiratoryRate.hashCode();
-        result = 31 * result + (temporalRelationshipToPhysicalActivity != null
-                ? temporalRelationshipToPhysicalActivity.hashCode() : 0);
-
-        return result;
-    }
 
     /**
      * A unit for the rate at which respiration occurs.
@@ -166,5 +76,95 @@ public class RespiratoryRate extends Measure {
         public RespirationUnit findBySchemaValue(String schemaValue) {
             return constantsBySchemaValue.get(schemaValue);
         }
+    }
+
+
+    private TypedUnitValue<RespirationUnit> respiratoryRate;
+    private TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity;
+
+    @SerializationConstructor
+    protected RespiratoryRate() {
+
+    }
+
+    public static class Builder extends Measure.Builder<org.openmhealth.schema.domain.omh.RespiratoryRate, Builder> {
+
+        private final TypedUnitValue<RespirationUnit> respiratoryRate;
+        private TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity;
+
+        public Builder(TypedUnitValue<RespirationUnit> respiratoryRate) {
+
+            checkNotNull(respiratoryRate, "The respiratory rate value hasn't been specified.");
+
+            this.respiratoryRate = respiratoryRate;
+        }
+
+        public Builder setTemporalRelationshipToPhysicalActivity(
+                TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity) {
+
+            this.temporalRelationshipToPhysicalActivity = temporalRelationshipToPhysicalActivity;
+            return this;
+        }
+
+        @Override
+        public RespiratoryRate build() {
+            return new RespiratoryRate(this);
+        }
+    }
+
+    private RespiratoryRate(Builder builder) {
+
+        super(builder);
+
+        this.respiratoryRate = builder.respiratoryRate;
+        this.temporalRelationshipToPhysicalActivity = builder.temporalRelationshipToPhysicalActivity;
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    public TypedUnitValue<RespirationUnit> getRespiratoryRate() {
+        return respiratoryRate;
+    }
+
+    public TemporalRelationshipToPhysicalActivity getTemporalRelationshipToPhysicalActivity() {
+        return temporalRelationshipToPhysicalActivity;
+    }
+
+    @SuppressWarnings("SimplifiableIfStatement")
+    @Override
+    public boolean equals(Object object) {
+
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        if (!super.equals(object)) {
+            return false;
+        }
+
+        RespiratoryRate that = (RespiratoryRate) object;
+
+        if (!this.respiratoryRate.equals(that.respiratoryRate)) {
+            return false;
+        }
+
+        return temporalRelationshipToPhysicalActivity == that.temporalRelationshipToPhysicalActivity;
+    }
+
+    @Override
+    public int hashCode() {
+
+        int result = super.hashCode();
+
+        result = 31 * result + respiratoryRate.hashCode();
+        result = 31 * result + (temporalRelationshipToPhysicalActivity != null
+                ? temporalRelationshipToPhysicalActivity.hashCode() : 0);
+
+        return result;
     }
 }

@@ -25,7 +25,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
- * Measurement of the ambient temperature.
+ * A measurement of the ambient temperature.
  *
  * @author Chris Schaefbauer
  * @version 1.0
@@ -37,31 +37,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class AmbientTemperature extends Measure {
 
     private static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "ambient-temperature", "1.0");
-    private TemperatureUnitValue ambientTemperature;
 
+    private TemperatureUnitValue ambientTemperature;
 
     @SerializationConstructor
     protected AmbientTemperature() {
-
     }
-
-    private AmbientTemperature(Builder builder) {
-
-        super(builder);
-
-        this.ambientTemperature = builder.ambientTemperature;
-    }
-
-
-    @Override
-    public SchemaId getSchemaId() {
-        return SCHEMA_ID;
-    }
-
-    public TemperatureUnitValue getAmbientTemperature() {
-        return ambientTemperature;
-    }
-
 
     public static class Builder extends Measure.Builder<AmbientTemperature, Builder> {
 
@@ -78,6 +59,22 @@ public class AmbientTemperature extends Measure {
         public AmbientTemperature build() {
             return new AmbientTemperature(this);
         }
+    }
+
+    private AmbientTemperature(Builder builder) {
+
+        super(builder);
+
+        this.ambientTemperature = builder.ambientTemperature;
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    public TemperatureUnitValue getAmbientTemperature() {
+        return ambientTemperature;
     }
 
     @Override
@@ -107,5 +104,4 @@ public class AmbientTemperature extends Measure {
 
         return result;
     }
-
 }

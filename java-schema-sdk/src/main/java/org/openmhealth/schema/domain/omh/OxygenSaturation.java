@@ -33,7 +33,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
- * Measurement of blood oxygen saturation.
+ * A measurement of blood oxygen saturation.
  *
  * @author Chris Schaefbauer
  * @version 1.0
@@ -119,9 +119,8 @@ public class OxygenSaturation extends Measure {
 
 
     /**
-     * A method used to measure the oxygen saturation value.
-     * <p>
-     * Currently pulse oximetry is the only method used for measuring oxygen saturation in a non-hospital setting.
+     * A method used to measure the oxygen saturation value. Pulse oximetry is currently the only method used for
+     * measuring oxygen saturation in a non-hospital setting.
      */
     public enum MeasurementMethod implements SchemaEnumValue {
 
@@ -162,14 +161,8 @@ public class OxygenSaturation extends Measure {
     private TypedUnitValue<OxygenFlowRateUnit> supplementalOxygenFlowRate;
     private SupplementalOxygenAdministrationMode supplementalOxygenAdministrationMode;
 
-    @Override
-    public SchemaId getSchemaId() {
-        return SCHEMA_ID;
-    }
-
     @SerializationConstructor
     protected OxygenSaturation() {
-
     }
 
     public static class Builder extends Measure.Builder<OxygenSaturation, Builder> {
@@ -185,11 +178,6 @@ public class OxygenSaturation extends Measure {
             checkNotNull(oxygenSaturation, "An oxygen saturation value hasn't been specified.");
 
             this.oxygenSaturation = oxygenSaturation;
-        }
-
-        @Override
-        public OxygenSaturation build() {
-            return new OxygenSaturation(this);
         }
 
         public Builder setMeasurementSystem(MeasurementSystem measurementSystem) {
@@ -212,6 +200,11 @@ public class OxygenSaturation extends Measure {
             this.supplementalOxygenAdministrationMode = administrationMode;
             return this;
         }
+
+        @Override
+        public OxygenSaturation build() {
+            return new OxygenSaturation(this);
+        }
     }
 
     private OxygenSaturation(Builder builder) {
@@ -223,6 +216,11 @@ public class OxygenSaturation extends Measure {
         this.supplementalOxygenFlowRate = builder.supplementalOxygenFlowRate;
         this.supplementalOxygenAdministrationMode = builder.supplementalOxygenAdministrationMode;
         this.measurementMethod = builder.measurementMethod;
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     public TypedUnitValue<PercentUnit> getOxygenSaturation() {
@@ -247,6 +245,7 @@ public class OxygenSaturation extends Measure {
         return measurementMethod;
     }
 
+    @SuppressWarnings("SimplifiableIfStatement")
     @Override
     public boolean equals(Object object) {
 

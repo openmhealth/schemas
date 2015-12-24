@@ -25,7 +25,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
- * Measurement of a person's body fat percentage.
+ * A measurement of body fat percentage.
  *
  * @author Chris Schaefbauer
  * @version 1.0
@@ -37,26 +37,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class BodyFatPercentage extends Measure {
 
     private static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "body-fat-percentage", "1.0");
+
     private TypedUnitValue<PercentUnit> bodyFatPercentage;
 
     @SerializationConstructor
     protected BodyFatPercentage() {
-    }
-
-    private BodyFatPercentage(Builder builder) {
-
-        super(builder);
-
-        this.bodyFatPercentage = builder.bodyFatPercentage;
-    }
-
-    @Override
-    public SchemaId getSchemaId() {
-        return SCHEMA_ID;
-    }
-
-    public TypedUnitValue<PercentUnit> getBodyFatPercentage() {
-        return bodyFatPercentage;
     }
 
     public static class Builder extends Measure.Builder<BodyFatPercentage, Builder> {
@@ -75,6 +60,23 @@ public class BodyFatPercentage extends Measure {
             return new BodyFatPercentage(this);
         }
     }
+
+    private BodyFatPercentage(Builder builder) {
+
+        super(builder);
+
+        this.bodyFatPercentage = builder.bodyFatPercentage;
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    public TypedUnitValue<PercentUnit> getBodyFatPercentage() {
+        return bodyFatPercentage;
+    }
+
 
     @Override
     public boolean equals(Object object) {
@@ -102,6 +104,5 @@ public class BodyFatPercentage extends Measure {
         result = 31 * result + bodyFatPercentage.hashCode();
 
         return result;
-
     }
 }

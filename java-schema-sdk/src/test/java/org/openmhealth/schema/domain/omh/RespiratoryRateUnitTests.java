@@ -72,7 +72,7 @@ public class RespiratoryRateUnitTests extends SerializationUnitTests {
         RespiratoryRate respiratoryRate = new RespiratoryRate.Builder(new TypedUnitValue<>(BREATHS_PER_MINUTE, 15.5))
                 .setDescriptiveStatistic(MAXIMUM)
                 .setEffectiveTimeFrame(FIXED_POINT_IN_TIME)
-                .setUserNotes("Respiratory rate")
+                .setUserNotes("some note")
                 .setTemporalRelationshipToPhysicalActivity(AFTER_EXERCISE)
                 .build();
 
@@ -82,7 +82,7 @@ public class RespiratoryRateUnitTests extends SerializationUnitTests {
         assertThat(respiratoryRate.getRespiratoryRate().getValue().doubleValue(), equalTo(15.5));
         assertThat(respiratoryRate.getEffectiveTimeFrame(), equalTo(FIXED_POINT_IN_TIME));
         assertThat(respiratoryRate.getDescriptiveStatistic(), equalTo(MAXIMUM));
-        assertThat(respiratoryRate.getUserNotes(), equalTo("Respiratory rate"));
+        assertThat(respiratoryRate.getUserNotes(), equalTo("some note"));
         assertThat(respiratoryRate.getTemporalRelationshipToPhysicalActivity(), equalTo(AFTER_EXERCISE));
     }
 

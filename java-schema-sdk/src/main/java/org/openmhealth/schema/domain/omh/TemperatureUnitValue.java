@@ -31,12 +31,7 @@ import java.math.BigDecimal;
  */
 public class TemperatureUnitValue extends TypedUnitValue<TemperatureUnit> {
 
-    public static final SchemaId schemaId = new SchemaId(OMH_NAMESPACE, "temperature-unit-value", "1.0");
-
-    @Override
-    public SchemaId getSchemaId() {
-        return schemaId;
-    }
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "temperature-unit-value", "1.0");
 
     @SerializationConstructor
     protected TemperatureUnitValue() {
@@ -45,6 +40,11 @@ public class TemperatureUnitValue extends TypedUnitValue<TemperatureUnit> {
     @JsonCreator
     public TemperatureUnitValue(@JsonProperty("unit") TemperatureUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     public TemperatureUnitValue(TemperatureUnit unit, Long value) {

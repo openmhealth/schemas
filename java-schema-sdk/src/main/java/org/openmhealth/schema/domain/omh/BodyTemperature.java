@@ -31,7 +31,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
- * A person's body temperature.
+ * A measurement of body temperature.
  *
  * @author Chris Schaefbauer
  * @version 1.0
@@ -105,14 +105,14 @@ public class BodyTemperature extends Measure {
             this.bodyTemperature = bodyTemperature;
         }
 
-        @Override
-        public BodyTemperature build() {
-            return new BodyTemperature(this);
-        }
-
         public Builder setMeasurementLocation(MeasurementLocation measurementLocation) {
             this.measurementLocation = measurementLocation;
             return this;
+        }
+
+        @Override
+        public BodyTemperature build() {
+            return new BodyTemperature(this);
         }
     }
 
@@ -137,6 +137,7 @@ public class BodyTemperature extends Measure {
     }
 
 
+    @SuppressWarnings("SimplifiableIfStatement")
     @Override
     public boolean equals(Object object) {
 

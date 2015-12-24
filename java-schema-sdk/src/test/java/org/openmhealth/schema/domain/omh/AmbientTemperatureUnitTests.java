@@ -132,5 +132,4 @@ public class AmbientTemperatureUnitTests extends SerializationUnitTests {
 
         assertThat(ambientTemperature.equals(withDifferentRequiredValue), is(false));
     }
-
 }
