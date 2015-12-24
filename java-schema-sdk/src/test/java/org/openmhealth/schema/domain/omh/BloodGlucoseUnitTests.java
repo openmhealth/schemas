@@ -18,10 +18,6 @@ package org.openmhealth.schema.domain.omh;
 
 import org.testng.annotations.Test;
 
-import java.time.OffsetDateTime;
-
-import static java.math.BigDecimal.TEN;
-import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.BloodGlucoseUnit.MILLIGRAMS_PER_DECILITER;
@@ -29,10 +25,10 @@ import static org.openmhealth.schema.domain.omh.BloodSpecimenType.PLASMA;
 import static org.openmhealth.schema.domain.omh.BloodSpecimenType.WHOLE_BLOOD;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MINIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.TemporalRelationshipToMeal.FASTING;
 import static org.openmhealth.schema.domain.omh.TemporalRelationshipToSleep.BEFORE_SLEEPING;
 import static org.openmhealth.schema.domain.omh.TemporalRelationshipToSleep.ON_WAKING;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -69,17 +65,13 @@ public class BloodGlucoseUnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         TypedUnitValue<BloodGlucoseUnit> bloodGlucoseLevel = new TypedUnitValue<>(MILLIGRAMS_PER_DECILITER, 110);
 
         BloodGlucose bloodGlucose = new BloodGlucose.Builder(bloodGlucoseLevel)
                 .setBloodSpecimenType(WHOLE_BLOOD)
                 .setTemporalRelationshipToMeal(FASTING)
                 .setTemporalRelationshipToSleep(BEFORE_SLEEPING)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MEDIAN)
                 .setUserNotes("feeling fine")
                 .build();
@@ -89,7 +81,7 @@ public class BloodGlucoseUnitTests extends SerializationUnitTests {
         assertThat(bloodGlucose.getBloodSpecimenType(), equalTo(WHOLE_BLOOD));
         assertThat(bloodGlucose.getTemporalRelationshipToMeal(), equalTo(FASTING));
         assertThat(bloodGlucose.getTemporalRelationshipToSleep(), equalTo(BEFORE_SLEEPING));
-        assertThat(bloodGlucose.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(bloodGlucose.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(bloodGlucose.getDescriptiveStatistic(), equalTo(MEDIAN));
         assertThat(bloodGlucose.getUserNotes(), equalTo("feeling fine"));
     }
@@ -102,16 +94,11 @@ public class BloodGlucoseUnitTests extends SerializationUnitTests {
     @Test
     public void measureShouldSerializeCorrectly() throws Exception {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofStartDateTimeAndEndDateTime(
-                OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, UTC),
-                OffsetDateTime.of(2013, 6, 5, 7, 25, 0, 0, UTC)
-        );
-
         BloodGlucose measure = new BloodGlucose.Builder(new TypedUnitValue<>(MILLIGRAMS_PER_DECILITER, 120))
                 .setBloodSpecimenType(PLASMA)
                 .setTemporalRelationshipToMeal(FASTING)
                 .setTemporalRelationshipToSleep(ON_WAKING)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MINIMUM)
                 .setUserNotes("feeling fine")
                 .build();
@@ -123,8 +110,8 @@ public class BloodGlucoseUnitTests extends SerializationUnitTests {
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"start_date_time\": \"2013-02-05T07:25:00Z\",\n" +
-                "            \"end_date_time\": \"2013-06-05T07:25:00Z\"\n" +
+                "            \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    },\n" +
                 "    \"blood_specimen_type\": \"plasma\",\n" +

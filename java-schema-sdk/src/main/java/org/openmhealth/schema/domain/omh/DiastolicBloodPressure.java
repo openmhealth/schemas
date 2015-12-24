@@ -26,9 +26,12 @@ import java.math.BigDecimal;
 /**
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_diastolic-blood-pressure">diastolic-blood-pressure</a>
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_diastolic-blood-pressure">diastolic-blood-pressure</a>
  */
 public class DiastolicBloodPressure extends TypedUnitValue<BloodPressureUnit> {
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "diastolic-blood-pressure", "1.0");
 
     @SerializationConstructor
     protected DiastolicBloodPressure() {
@@ -39,6 +42,11 @@ public class DiastolicBloodPressure extends TypedUnitValue<BloodPressureUnit> {
             @JsonProperty("value") BigDecimal value) {
 
         super(unit, value);
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     public DiastolicBloodPressure(BloodPressureUnit unit, double value) {

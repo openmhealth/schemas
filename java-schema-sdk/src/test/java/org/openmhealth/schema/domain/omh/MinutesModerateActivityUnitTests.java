@@ -19,15 +19,15 @@ package org.openmhealth.schema.domain.omh;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 
 import static java.math.BigDecimal.ONE;
 import static java.math.BigDecimal.TEN;
-import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.*;
+import static org.openmhealth.schema.domain.omh.DurationUnit.HOUR;
+import static org.openmhealth.schema.domain.omh.DurationUnit.MINUTE;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -63,19 +63,15 @@ public class MinutesModerateActivityUnitTests extends SerializationUnitTests {
 
         DurationUnitValue durationUnitValue = new DurationUnitValue(MINUTE, TEN);
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         MinutesModerateActivity minutesModerateActivity = new MinutesModerateActivity.Builder(durationUnitValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MAXIMUM)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(minutesModerateActivity, notNullValue());
         assertThat(minutesModerateActivity.getMinutesModerateActivity(), equalTo(durationUnitValue));
-        assertThat(minutesModerateActivity.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(minutesModerateActivity.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(minutesModerateActivity.getDescriptiveStatistic(), equalTo(MAXIMUM));
         assertThat(minutesModerateActivity.getUserNotes(), equalTo("feeling fine"));
     }
@@ -90,10 +86,7 @@ public class MinutesModerateActivityUnitTests extends SerializationUnitTests {
 
         MinutesModerateActivity measure =
                 new MinutesModerateActivity.Builder(new DurationUnitValue(MINUTE, BigDecimal.valueOf(60)))
-                        .setEffectiveTimeFrame(TimeInterval.ofStartDateTimeAndEndDateTime(
-                                OffsetDateTime.of(2013, 2, 5, 6, 25, 0, 0, UTC),
-                                OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, UTC)
-                        ))
+                        .setEffectiveTimeFrame(FIXED_MONTH)
                         .build();
 
         String document = "{\n" +
@@ -103,8 +96,8 @@ public class MinutesModerateActivityUnitTests extends SerializationUnitTests {
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"start_date_time\": \"2013-02-05T06:25:00Z\",\n" +
-                "            \"end_date_time\": \"2013-02-05T07:25:00Z\"\n" +
+                "            \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    }\n" +
                 "}";

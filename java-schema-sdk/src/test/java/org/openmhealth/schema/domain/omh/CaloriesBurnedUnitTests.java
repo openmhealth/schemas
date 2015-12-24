@@ -18,15 +18,11 @@ package org.openmhealth.schema.domain.omh;
 
 import org.testng.annotations.Test;
 
-import java.time.OffsetDateTime;
-
-import static java.math.BigDecimal.TEN;
-import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.KcalUnit.KILOCALORIE;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -61,15 +57,11 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         KcalUnitValue kcalBurned = new KcalUnitValue(KILOCALORIE, 800);
 
         CaloriesBurned caloriesBurned = new CaloriesBurned.Builder(kcalBurned)
                 .setActivityName("swimming")
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MEDIAN)
                 .setUserNotes("feeling fine")
                 .build();
@@ -77,7 +69,7 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
         assertThat(caloriesBurned, notNullValue());
         assertThat(caloriesBurned.getKcalBurned(), equalTo(kcalBurned));
         assertThat(caloriesBurned.getActivityName(), equalTo("swimming"));
-        assertThat(caloriesBurned.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(caloriesBurned.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(caloriesBurned.getDescriptiveStatistic(), equalTo(MEDIAN));
         assertThat(caloriesBurned.getUserNotes(), equalTo("feeling fine"));
     }
@@ -90,14 +82,9 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
     @Test
     public void measureShouldSerializeCorrectly() throws Exception {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofStartDateTimeAndEndDateTime(
-                OffsetDateTime.of(2013, 2, 5, 6, 25, 0, 0, UTC),
-                OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, UTC)
-        );
-
         CaloriesBurned measure = new CaloriesBurned.Builder(new KcalUnitValue(KILOCALORIE, 160))
                 .setActivityName("walking")
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .build();
 
         String document = "{\n" +
@@ -107,8 +94,8 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"start_date_time\": \"2013-02-05T06:25:00Z\",\n" +
-                "            \"end_date_time\": \"2013-02-05T07:25:00Z\"\n" +
+                "            \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    },\n" +
                 "    \"activity_name\": \"walking\"\n" +

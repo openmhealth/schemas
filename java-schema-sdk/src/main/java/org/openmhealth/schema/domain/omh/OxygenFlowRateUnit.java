@@ -25,52 +25,35 @@ import java.util.Map;
 
 
 /**
- * A descriptive statistic of a set of measurements.
- *
- * @author Emerson Farrugia
- * @version 1.0
- * @see
- * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_descriptive-statistic">descriptive-statistic</a>
+ * @author Chris Schaefbauer
  */
-public enum DescriptiveStatistic implements SchemaEnumValue, SchemaSupport {
+public enum OxygenFlowRateUnit implements Unit {
 
-    AVERAGE,
-    MAXIMUM,
-    MINIMUM,
-    STANDARD_DEVIATION,
-    VARIANCE,
-    SUM,
-    MEDIAN;
+    LITERS_PER_MINUTE("L/min");
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "descriptive-statistic", "1.0");
+    private final String schemaValue;
 
-    private String schemaValue;
-    private static final Map<String, DescriptiveStatistic> constantsBySchemaValue = new HashMap<>();
+    private static final Map<String, OxygenFlowRateUnit> constantsBySchemaValue = new HashMap<>();
 
     static {
-        for (DescriptiveStatistic constant : values()) {
+        for (OxygenFlowRateUnit constant : values()) {
             constantsBySchemaValue.put(constant.getSchemaValue(), constant);
         }
     }
 
-    DescriptiveStatistic() {
-        this.schemaValue = name().toLowerCase().replace('_', ' ');
-    }
-
-    @Override
-    public SchemaId getSchemaId() {
-        return SCHEMA_ID;
+    OxygenFlowRateUnit(String schemaValue) {
+        this.schemaValue = schemaValue;
     }
 
     @Override
     @JsonValue
     public String getSchemaValue() {
-        return this.schemaValue;
+        return schemaValue;
     }
 
     @Nullable
     @JsonCreator
-    public static DescriptiveStatistic findBySchemaValue(String schemaValue) {
+    public static OxygenFlowRateUnit findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
     }
 }

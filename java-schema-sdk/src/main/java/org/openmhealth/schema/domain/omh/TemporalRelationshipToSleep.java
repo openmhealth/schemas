@@ -29,14 +29,17 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temporal-relationship-to-sleep">temporal-relationship
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temporal-relationship-to-sleep">temporal-relationship
  * -to-sleep</a>
  */
-public enum TemporalRelationshipToSleep implements SchemaEnumValue {
+public enum TemporalRelationshipToSleep implements SchemaEnumValue, SchemaSupport {
 
     BEFORE_SLEEPING,
     DURING_SLEEP,
     ON_WAKING;
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "temporal-relationship-to-sleep", "1.0");
 
     private String schemaValue;
     private static final Map<String, TemporalRelationshipToSleep> constantsBySchemaValue = new HashMap<>();
@@ -49,6 +52,11 @@ public enum TemporalRelationshipToSleep implements SchemaEnumValue {
 
     TemporalRelationshipToSleep() {
         this.schemaValue = name().toLowerCase().replace('_', ' ');
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     @Override

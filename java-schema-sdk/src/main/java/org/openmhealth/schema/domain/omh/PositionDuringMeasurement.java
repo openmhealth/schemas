@@ -29,14 +29,17 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_position-during-measurement">position-during
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_position-during-measurement">position-during
  * -measurement</a>
  */
-public enum PositionDuringMeasurement implements SchemaEnumValue {
+public enum PositionDuringMeasurement implements SchemaEnumValue, SchemaSupport {
 
     SITTING,
     LYING_DOWN,
     STANDING;
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "position-during-measurement", "1.0");
 
     private String schemaValue;
     private static final Map<String, PositionDuringMeasurement> constantsBySchemaValue = new HashMap<>();
@@ -45,6 +48,11 @@ public enum PositionDuringMeasurement implements SchemaEnumValue {
         for (PositionDuringMeasurement constant : values()) {
             constantsBySchemaValue.put(constant.getSchemaValue(), constant);
         }
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     PositionDuringMeasurement() {

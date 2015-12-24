@@ -25,35 +25,34 @@ import java.util.Map;
 
 
 /**
- * A descriptive statistic of a set of measurements.
+ * The set of allowable values describing the source of a specimen analyzed.
  *
  * @author Emerson Farrugia
  * @version 1.0
  * @see
- * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_descriptive-statistic">descriptive-statistic</a>
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_specimen-source">specimen-source</a>
  */
-public enum DescriptiveStatistic implements SchemaEnumValue, SchemaSupport {
+public enum SpecimenSource implements SchemaEnumValue, SchemaSupport {
 
-    AVERAGE,
-    MAXIMUM,
-    MINIMUM,
-    STANDARD_DEVIATION,
-    VARIANCE,
-    SUM,
-    MEDIAN;
+    INTERSTITIAL_FLUID,
+    CAPILLARY_BLOOD,
+    PLASMA,
+    SERUM,
+    TEARS,
+    WHOLE_BLOOD;
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "descriptive-statistic", "1.0");
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "specimen-source", "1.0");
 
     private String schemaValue;
-    private static final Map<String, DescriptiveStatistic> constantsBySchemaValue = new HashMap<>();
+    private static final Map<String, SpecimenSource> constantsBySchemaValue = new HashMap<>();
 
     static {
-        for (DescriptiveStatistic constant : values()) {
+        for (SpecimenSource constant : values()) {
             constantsBySchemaValue.put(constant.getSchemaValue(), constant);
         }
     }
 
-    DescriptiveStatistic() {
+    SpecimenSource() {
         this.schemaValue = name().toLowerCase().replace('_', ' ');
     }
 
@@ -70,7 +69,7 @@ public enum DescriptiveStatistic implements SchemaEnumValue, SchemaSupport {
 
     @Nullable
     @JsonCreator
-    public static DescriptiveStatistic findBySchemaValue(String schemaValue) {
+    public static SpecimenSource findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
     }
 }

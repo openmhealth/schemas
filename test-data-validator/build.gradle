@@ -14,40 +14,19 @@
  * limitations under the License.
  */
 
-apply plugin: 'java'
-apply plugin: 'spring-boot'
-apply plugin: 'io.spring.dependency-management'
-
 buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
-
     ext {
-        springBootVersion = '1.2.5.RELEASE'
+        springBootVersion = '1.3.0.RELEASE'
     }
 
     dependencies {
-        classpath 'io.spring.gradle:dependency-management-plugin:0.5.3.RELEASE'
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
     }
 }
 
-ext {
-    javaVersion = 1.8
-}
+apply plugin: 'spring-boot'
 
-group = 'org.openmhealth.schema'
 version = '1.0.0'
-
-sourceCompatibility = javaVersion
-targetCompatibility = javaVersion
-
-repositories {
-    mavenLocal()
-    jcenter()
-}
 
 dependencyManagement {
     imports {
@@ -69,6 +48,7 @@ dependencies {
     compile 'com.github.fge:json-schema-validator:2.2.6'
     compile 'org.slf4j:log4j-over-slf4j'
     compile 'ch.qos.logback:logback-classic'
+    compile 'org.reflections:reflections:0.9.10'
     compile 'org.slf4j:slf4j-api'
     compile 'org.springframework:spring-beans'
     compile "org.springframework.boot:spring-boot-autoconfigure"
