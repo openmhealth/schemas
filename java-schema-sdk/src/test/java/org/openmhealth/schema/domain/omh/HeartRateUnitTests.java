@@ -21,14 +21,13 @@ import org.testng.annotations.Test;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
 import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.HeartRateUnit.BEATS_PER_MINUTE;
 import static org.openmhealth.schema.domain.omh.TemporalRelationshipToPhysicalActivity.AT_REST;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -57,19 +56,15 @@ public class HeartRateUnitTests extends SerializationUnitTests {
 
         BigDecimal heartRateValue = BigDecimal.valueOf(60);
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         HeartRate heartRate = new HeartRate.Builder(heartRateValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(heartRate, notNullValue());
         assertThat(heartRate.getHeartRate(), equalTo(new TypedUnitValue<>(BEATS_PER_MINUTE, heartRateValue)));
-        assertThat(heartRate.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(heartRate.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(heartRate.getDescriptiveStatistic(), equalTo(AVERAGE));
         assertThat(heartRate.getUserNotes(), equalTo("feeling fine"));
     }

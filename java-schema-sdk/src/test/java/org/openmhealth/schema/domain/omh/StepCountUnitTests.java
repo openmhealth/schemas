@@ -26,7 +26,7 @@ import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -63,18 +63,14 @@ public class StepCountUnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         StepCount stepCount = new StepCount.Builder(TEN)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(stepCount, notNullValue());
         assertThat(stepCount.getStepCount(), equalTo(TEN));
-        assertThat(stepCount.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(stepCount.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(stepCount.getDescriptiveStatistic(), nullValue());
         assertThat(stepCount.getUserNotes(), equalTo("feeling fine"));
     }

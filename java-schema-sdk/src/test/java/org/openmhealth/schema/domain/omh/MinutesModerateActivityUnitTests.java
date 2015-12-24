@@ -27,7 +27,9 @@ import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.*;
+import static org.openmhealth.schema.domain.omh.DurationUnit.HOUR;
+import static org.openmhealth.schema.domain.omh.DurationUnit.MINUTE;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -63,19 +65,15 @@ public class MinutesModerateActivityUnitTests extends SerializationUnitTests {
 
         DurationUnitValue durationUnitValue = new DurationUnitValue(MINUTE, TEN);
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         MinutesModerateActivity minutesModerateActivity = new MinutesModerateActivity.Builder(durationUnitValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setDescriptiveStatistic(MAXIMUM)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(minutesModerateActivity, notNullValue());
         assertThat(minutesModerateActivity.getMinutesModerateActivity(), equalTo(durationUnitValue));
-        assertThat(minutesModerateActivity.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(minutesModerateActivity.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(minutesModerateActivity.getDescriptiveStatistic(), equalTo(MAXIMUM));
         assertThat(minutesModerateActivity.getUserNotes(), equalTo("feeling fine"));
     }

@@ -20,13 +20,12 @@ import org.testng.annotations.Test;
 
 import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
 import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.KcalUnit.KILOCALORIE;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -61,15 +60,11 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         KcalUnitValue kcalBurned = new KcalUnitValue(KILOCALORIE, 800);
 
         CaloriesBurned caloriesBurned = new CaloriesBurned.Builder(kcalBurned)
                 .setActivityName("swimming")
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setDescriptiveStatistic(MEDIAN)
                 .setUserNotes("feeling fine")
                 .build();
@@ -77,7 +72,7 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
         assertThat(caloriesBurned, notNullValue());
         assertThat(caloriesBurned.getKcalBurned(), equalTo(kcalBurned));
         assertThat(caloriesBurned.getActivityName(), equalTo("swimming"));
-        assertThat(caloriesBurned.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(caloriesBurned.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(caloriesBurned.getDescriptiveStatistic(), equalTo(MEDIAN));
         assertThat(caloriesBurned.getUserNotes(), equalTo("feeling fine"));
     }

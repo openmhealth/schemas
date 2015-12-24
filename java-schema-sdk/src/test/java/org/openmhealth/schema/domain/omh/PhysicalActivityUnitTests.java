@@ -20,20 +20,18 @@ import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 
 import static java.math.BigDecimal.ONE;
-import static java.math.BigDecimal.TEN;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MINIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
-import static org.openmhealth.schema.domain.omh.KcalUnit.*;
+import static org.openmhealth.schema.domain.omh.KcalUnit.KILOCALORIE;
 import static org.openmhealth.schema.domain.omh.LengthUnit.KILOMETER;
 import static org.openmhealth.schema.domain.omh.LengthUnit.MILE;
 import static org.openmhealth.schema.domain.omh.PartOfDay.MORNING;
 import static org.openmhealth.schema.domain.omh.PhysicalActivity.SelfReportedIntensity.LIGHT;
 import static org.openmhealth.schema.domain.omh.PhysicalActivity.SelfReportedIntensity.MODERATE;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -75,14 +73,10 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
 
         LengthUnitValue distance = new LengthUnitValue(KILOMETER, ONE);
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         PhysicalActivity physicalActivity = new PhysicalActivity.Builder("walking")
                 .setDistance(distance)
                 .setReportedActivityIntensity(LIGHT)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setDescriptiveStatistic(MINIMUM)
                 .setUserNotes("feeling fine")
                 .setKcalBurned(new KcalUnitValue(KILOCALORIE, 15.7))
@@ -92,7 +86,7 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
         assertThat(physicalActivity.getActivityName(), equalTo("walking"));
         assertThat(physicalActivity.getDistance(), equalTo(distance));
         assertThat(physicalActivity.getReportedActivityIntensity(), equalTo(LIGHT));
-        assertThat(physicalActivity.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(physicalActivity.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(physicalActivity.getDescriptiveStatistic(), equalTo(MINIMUM));
         assertThat(physicalActivity.getUserNotes(), equalTo("feeling fine"));
         assertThat(physicalActivity.getKcalBurned(), equalTo(new KcalUnitValue(KILOCALORIE, 15.7)));

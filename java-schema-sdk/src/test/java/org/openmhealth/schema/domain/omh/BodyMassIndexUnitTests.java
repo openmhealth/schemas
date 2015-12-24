@@ -20,14 +20,13 @@ import org.testng.annotations.Test;
 
 import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
 import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.BodyMassIndexUnit.KILOGRAMS_PER_SQUARE_METER;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -56,19 +55,15 @@ public class BodyMassIndexUnitTests extends SerializationUnitTests {
 
         TypedUnitValue<BodyMassIndexUnit> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         BodyMassIndex bmi = new BodyMassIndex.Builder(bmiValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(bmi, notNullValue());
         assertThat(bmi.getBodyMassIndex(), equalTo(bmiValue));
-        assertThat(bmi.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(bmi.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(bmi.getDescriptiveStatistic(), equalTo(AVERAGE));
         assertThat(bmi.getUserNotes(), equalTo("feeling fine"));
     }

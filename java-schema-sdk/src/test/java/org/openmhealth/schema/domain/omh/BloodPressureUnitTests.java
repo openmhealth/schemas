@@ -22,16 +22,15 @@ import org.testng.annotations.Test;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
 import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.BloodPressureUnit.MM_OF_MERCURY;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MINIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.PositionDuringMeasurement.LYING_DOWN;
 import static org.openmhealth.schema.domain.omh.PositionDuringMeasurement.SITTING;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -79,13 +78,9 @@ public class BloodPressureUnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         BloodPressure bloodPressure = new BloodPressure.Builder(systolicBloodPressure, diastolicBloodPressure)
                 .setPositionDuringMeasurement(LYING_DOWN)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setDescriptiveStatistic(MEDIAN)
                 .setUserNotes("feeling fine")
                 .build();
@@ -94,7 +89,7 @@ public class BloodPressureUnitTests extends SerializationUnitTests {
         assertThat(bloodPressure.getSystolicBloodPressure(), equalTo(systolicBloodPressure));
         assertThat(bloodPressure.getDiastolicBloodPressure(), equalTo(diastolicBloodPressure));
         assertThat(bloodPressure.getPositionDuringMeasurement(), equalTo(LYING_DOWN));
-        assertThat(bloodPressure.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(bloodPressure.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(bloodPressure.getDescriptiveStatistic(), equalTo(MEDIAN));
         assertThat(bloodPressure.getUserNotes(), equalTo("feeling fine"));
     }

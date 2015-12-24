@@ -21,14 +21,14 @@ import org.testng.annotations.Test;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
 import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MINIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.MassUnit.KILOGRAM;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_POINT_IN_TIME;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -63,19 +63,15 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
 
         MassUnitValue massUnitValue = new MassUnitValue(KILOGRAM, BigDecimal.valueOf(65));
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         BodyWeight bodyWeight = new BodyWeight.Builder(massUnitValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(bodyWeight, notNullValue());
         assertThat(bodyWeight.getBodyWeight(), equalTo(massUnitValue));
-        assertThat(bodyWeight.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(bodyWeight.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(bodyWeight.getDescriptiveStatistic(), equalTo(AVERAGE));
         assertThat(bodyWeight.getUserNotes(), equalTo("feeling fine"));
     }
@@ -84,15 +80,14 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
     public void buildShouldConstructMeasureUsingDateTimeTimeFrame() {
 
         MassUnitValue massUnitValue = new MassUnitValue(KILOGRAM, BigDecimal.valueOf(65));
-        OffsetDateTime effectiveDateTime = OffsetDateTime.now();
 
         BodyWeight bodyWeight = new BodyWeight.Builder(massUnitValue)
-                .setEffectiveTimeFrame(effectiveDateTime)
+                .setEffectiveTimeFrame(FIXED_POINT_IN_TIME)
                 .build();
 
         assertThat(bodyWeight, notNullValue());
         assertThat(bodyWeight.getBodyWeight(), equalTo(massUnitValue));
-        assertThat(bodyWeight.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveDateTime)));
+        assertThat(bodyWeight.getEffectiveTimeFrame(), equalTo(FIXED_POINT_IN_TIME));
         assertThat(bodyWeight.getDescriptiveStatistic(), nullValue());
     }
 

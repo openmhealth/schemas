@@ -20,7 +20,6 @@ import org.testng.annotations.Test;
 
 import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
 import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -29,10 +28,10 @@ import static org.openmhealth.schema.domain.omh.BloodSpecimenType.PLASMA;
 import static org.openmhealth.schema.domain.omh.BloodSpecimenType.WHOLE_BLOOD;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MINIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.TemporalRelationshipToMeal.FASTING;
 import static org.openmhealth.schema.domain.omh.TemporalRelationshipToSleep.BEFORE_SLEEPING;
 import static org.openmhealth.schema.domain.omh.TemporalRelationshipToSleep.ON_WAKING;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -69,17 +68,13 @@ public class BloodGlucoseUnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         TypedUnitValue<BloodGlucoseUnit> bloodGlucoseLevel = new TypedUnitValue<>(MILLIGRAMS_PER_DECILITER, 110);
 
         BloodGlucose bloodGlucose = new BloodGlucose.Builder(bloodGlucoseLevel)
                 .setBloodSpecimenType(WHOLE_BLOOD)
                 .setTemporalRelationshipToMeal(FASTING)
                 .setTemporalRelationshipToSleep(BEFORE_SLEEPING)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setDescriptiveStatistic(MEDIAN)
                 .setUserNotes("feeling fine")
                 .build();
@@ -89,7 +84,7 @@ public class BloodGlucoseUnitTests extends SerializationUnitTests {
         assertThat(bloodGlucose.getBloodSpecimenType(), equalTo(WHOLE_BLOOD));
         assertThat(bloodGlucose.getTemporalRelationshipToMeal(), equalTo(FASTING));
         assertThat(bloodGlucose.getTemporalRelationshipToSleep(), equalTo(BEFORE_SLEEPING));
-        assertThat(bloodGlucose.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(bloodGlucose.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(bloodGlucose.getDescriptiveStatistic(), equalTo(MEDIAN));
         assertThat(bloodGlucose.getUserNotes(), equalTo("feeling fine"));
     }

@@ -20,16 +20,14 @@ import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.LengthUnit.CENTIMETER;
 import static org.openmhealth.schema.domain.omh.PartOfDay.MORNING;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -64,19 +62,15 @@ public class BodyHeightUnitTests extends SerializationUnitTests {
 
         LengthUnitValue lengthUnitValue = new LengthUnitValue(CENTIMETER, BigDecimal.valueOf(180));
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         BodyHeight bodyHeight = new BodyHeight.Builder(lengthUnitValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(bodyHeight, notNullValue());
         assertThat(bodyHeight.getBodyHeight(), equalTo(lengthUnitValue));
-        assertThat(bodyHeight.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(bodyHeight.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(bodyHeight.getDescriptiveStatistic(), equalTo(AVERAGE));
         assertThat(bodyHeight.getUserNotes(), equalTo("feeling fine"));
     }

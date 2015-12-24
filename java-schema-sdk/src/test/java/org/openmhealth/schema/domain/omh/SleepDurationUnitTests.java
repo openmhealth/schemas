@@ -27,7 +27,9 @@ import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.*;
+import static org.openmhealth.schema.domain.omh.DurationUnit.HOUR;
+import static org.openmhealth.schema.domain.omh.DurationUnit.WEEK;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.OCTOBER;
 
 
 /**
@@ -68,19 +70,15 @@ public class SleepDurationUnitTests extends SerializationUnitTests {
 
         DurationUnitValue durationUnitValue = new DurationUnitValue(HOUR, TEN);
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         SleepDuration sleepDuration = new SleepDuration.Builder(durationUnitValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(OCTOBER)
                 .setDescriptiveStatistic(MAXIMUM)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(sleepDuration, notNullValue());
         assertThat(sleepDuration.getSleepDuration(), equalTo(durationUnitValue));
-        assertThat(sleepDuration.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(sleepDuration.getEffectiveTimeFrame(), equalTo(OCTOBER));
         assertThat(sleepDuration.getDescriptiveStatistic(), equalTo(MAXIMUM));
         assertThat(sleepDuration.getUserNotes(), equalTo("feeling fine"));
     }
