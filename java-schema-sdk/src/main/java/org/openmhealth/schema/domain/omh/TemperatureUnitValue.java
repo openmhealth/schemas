@@ -54,6 +54,4 @@ public class TemperatureUnitValue extends TypedUnitValue<TemperatureUnit> {
     public TemperatureUnitValue(TemperatureUnit unit, Double value) {
         super(unit, value);
     }
-
-
 }

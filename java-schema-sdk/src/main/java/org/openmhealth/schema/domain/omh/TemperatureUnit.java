@@ -25,7 +25,12 @@ import java.util.Map;
 
 
 /**
+ * A unit of temperature.
+ *
  * @author Chris Schaefbauer
+ * @version 1.0
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temperature-unit
+ * -value">temperature-unit-value</a>
  */
 public enum TemperatureUnit implements Unit {
 

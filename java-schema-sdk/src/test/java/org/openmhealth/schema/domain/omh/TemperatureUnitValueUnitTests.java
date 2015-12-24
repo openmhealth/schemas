@@ -18,11 +18,7 @@ package org.openmhealth.schema.domain.omh;
 
 import org.testng.annotations.BeforeClass;
 
-import java.math.BigDecimal;
-
-import static org.openmhealth.schema.domain.omh.TemperatureUnit.CELSIUS;
-import static org.openmhealth.schema.domain.omh.TemperatureUnit.FAHRENHEIT;
-import static org.openmhealth.schema.domain.omh.TemperatureUnit.KELVIN;
+import static org.openmhealth.schema.domain.omh.TemperatureUnit.*;
 
 
 /**
@@ -41,10 +37,7 @@ public class TemperatureUnitValueUnitTests extends DataProvidingSerializationUni
     public void addSerializationTests() {
 
         addSerializationTest("{\"unit\":\"F\",\"value\":98.9}", new TemperatureUnitValue(FAHRENHEIT, 98.9));
-        addSerializationTest("{\"unit\":\"C\",\"value\":37}",
-                new TemperatureUnitValue(CELSIUS, BigDecimal.valueOf(37)));
+        addSerializationTest("{\"unit\":\"C\",\"value\":37}", new TemperatureUnitValue(CELSIUS, 37L));
         addSerializationTest("{\"unit\":\"K\",\"value\":310}", new TemperatureUnitValue(KELVIN, 310L));
     }
-
-
 }

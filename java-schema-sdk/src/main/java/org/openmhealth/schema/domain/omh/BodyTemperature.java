@@ -31,7 +31,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
- * Measure capturing a person's body temperature.
+ * A person's body temperature.
  *
  * @author Chris Schaefbauer
  * @version 1.0
@@ -43,31 +43,54 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class BodyTemperature extends Measure {
 
     private static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "body-temperature", "1.0");
+
+
+    /**
+     * A location where a body temperature measurement is taken.
+     */
+    public enum MeasurementLocation implements SchemaEnumValue {
+
+        ORAL,
+        RECTAL,
+        VAGINAL,
+        AXILLARY,
+        OTIC,
+        WRIST,
+        CHEST,
+        TEMPORAL;
+
+        private String schemaValue;
+        private static final Map<String, MeasurementLocation> constantsBySchemaValue = Maps.newHashMap();
+
+        static {
+            for (MeasurementLocation location : values()) {
+                constantsBySchemaValue.put(location.getSchemaValue(), location);
+            }
+        }
+
+        MeasurementLocation() {
+            schemaValue = name().toLowerCase();
+        }
+
+        @Override
+        @JsonValue
+        public String getSchemaValue() {
+            return schemaValue;
+        }
+
+        @JsonCreator
+        @Nullable
+        public MeasurementLocation findBySchemaValue(String schemaValue) {
+            return constantsBySchemaValue.get(schemaValue);
+        }
+    }
+
+
     private TemperatureUnitValue bodyTemperature;
     private MeasurementLocation measurementLocation;
 
-    private BodyTemperature(Builder builder) {
-
-        super(builder);
-        this.bodyTemperature = builder.bodyTemperature;
-        this.measurementLocation = builder.measurementLocation;
-    }
-
     @SerializationConstructor
     protected BodyTemperature() {
-    }
-
-    @Override
-    public SchemaId getSchemaId() {
-        return SCHEMA_ID;
-    }
-
-    public TemperatureUnitValue getBodyTemperature() {
-        return bodyTemperature;
-    }
-
-    public MeasurementLocation getMeasurementLocation() {
-        return measurementLocation;
     }
 
     public static class Builder extends Measure.Builder<BodyTemperature, Builder> {
@@ -93,46 +116,26 @@ public class BodyTemperature extends Measure {
         }
     }
 
+    private BodyTemperature(Builder builder) {
 
-    /**
-     * A location where a body temperature measurement was taken.
-     */
-    public enum MeasurementLocation implements SchemaEnumValue {
-
-        ORAL,
-        RECTAL,
-        VAGINAL,
-        AXILLARY,
-        OTIC,
-        WRIST,
-        CHEST,
-        TEMPORAL;
-
-        private String schemaValue;
-        private static final Map<String, MeasurementLocation> constantsBySchemaValue = Maps.newHashMap();
-
-        static {
-            for (MeasurementLocation location : values()) {
-                constantsBySchemaValue.put(location.getSchemaValue(), location);
-            }
-        }
-
-        MeasurementLocation() {
-            schemaValue = name().toLowerCase().replace('_', ' ');
-        }
-
-        @Override
-        @JsonValue
-        public String getSchemaValue() {
-            return schemaValue;
-        }
-
-        @JsonCreator
-        @Nullable
-        public MeasurementLocation findBySchemaValue(String schemaValue) {
-            return constantsBySchemaValue.get(schemaValue);
-        }
+        super(builder);
+        this.bodyTemperature = builder.bodyTemperature;
+        this.measurementLocation = builder.measurementLocation;
     }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
+    }
+
+    public TemperatureUnitValue getBodyTemperature() {
+        return bodyTemperature;
+    }
+
+    public MeasurementLocation getMeasurementLocation() {
+        return measurementLocation;
+    }
+
 
     @Override
     public boolean equals(Object object) {

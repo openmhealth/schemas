@@ -154,5 +154,4 @@ public class BodyTemperatureUnitTests extends SerializationUnitTests {
 
         assertThat(bodyTemperature.equals(withDifferentOptionalValues), is(false));
     }
-
 }
