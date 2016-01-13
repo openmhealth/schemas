@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a person's body temperature, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures)",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents body temperature (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/386725007"
+        }
+    ],
+
+    "definitions": {
+        "temperature_unit_value": {
+            "$ref": "temperature-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "body_temperature": {
+            "$ref": "#/definitions/temperature_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "measurement_location": {
+            "description": "The value set is taken from SNOMED CT and LOINC. For common temperature locations, the adjective is used rathe than the actual location name (e.g., axillary rather than armpit). Forehead indicates the use of a disposable strip.",
+            "type": "string",
+            "enum": [
+                "axillary",
+                "finger",
+                "forehead",
+                "oral",
+                "rectal",
+                "temporal artery",
+                "toe",
+                "tympanic",
+                "wrist",
+                "vagina"
+            ]
+        },
+        "measurement_type": {
+            "description": "The lowest body temperature attained during rest, usually estimated by a temperature measurement immediately after awakening and before any physical activity has been undertaken.",
+            "type": "string",
+            "enum": [
+                "basal"
+            ]
+        }
+    },
+
+    "required": ["body_temperature"]
+}
