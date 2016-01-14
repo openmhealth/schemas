@@ -17,19 +17,6 @@
         },
         "duration-unit-value": {
             "$ref": "duration-unit-value-1.x.json"
-        },
-        "full_date": {
-            "type": "string",
-            "references": [
-                {
-                    "description": "This schema represents a date. See RFC 3339 5.6 for details.",
-                    "url": "http://tools.ietf.org/html/rfc3339"
-                }
-            ],
-            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
-        },
-        "part_of_day": {
-            "$ref": "part-of-day-1.x.json"
         }
     },
 

@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents number of stepn, either as a single measurement, or as the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures).",
+
+    "type": "object",
+    "references": [
+        {
+            "description": "The LOINC code refers to Number of steps in unspecified time Pedometer",
+            "url": "http://purl.bioontology.org/ontology/LNC/55423-8"
+        }
+    ],
+
+    "definitions": {
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.0.json"
+        }
+    },
+
+    "properties": {
+        "step_count": {
+            "type": "number"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "statistic_time_denominator": {
+            "description": "The time denominator of the descriptive statistic. For example, in the case of average daily step count, the value would be d.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/duration_unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "min",
+                                "h",
+                                "d",
+                                "wk",
+                                "Mo"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+
+    },
+
+    "required": ["step_count","effective_time_frame"]
+}

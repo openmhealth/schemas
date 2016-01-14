@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "description": "This schema represents a single measurement of sleep duration, either as a single measurement, or as the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures) median).",
+    "description": "This schema represents sleep duration, either as a single measurement, or as the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures).",
     "references": [
         {
             "description": "The SNOMED code represents Duration of sleep (observable entity)",
@@ -17,7 +17,7 @@
             "$ref": "time-frame-1.x.json"
         },
         "descriptive_statistic": {
-            "$ref": "../generic/descriptive-statistic-1.0.json"
+            "$ref": "descriptive-statistic-1.0.json"
         }
     },
 
