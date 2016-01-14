@@ -1,0 +1,10 @@
+{
+    "systolic_blood_pressure": {
+        "value": 160,
+        "unit": "mmH"
+    },
+    "diastolic_blood_pressure": {
+        "value": 60,
+        "unit": "mmHg"
+    }
+}

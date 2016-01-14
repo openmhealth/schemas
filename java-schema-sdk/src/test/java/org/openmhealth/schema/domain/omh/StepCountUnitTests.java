@@ -19,14 +19,13 @@ package org.openmhealth.schema.domain.omh;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 
 import static java.math.BigDecimal.TEN;
-import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_DAY;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -63,18 +62,14 @@ public class StepCountUnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         StepCount stepCount = new StepCount.Builder(TEN)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(stepCount, notNullValue());
         assertThat(stepCount.getStepCount(), equalTo(TEN));
-        assertThat(stepCount.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(stepCount.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(stepCount.getDescriptiveStatistic(), nullValue());
         assertThat(stepCount.getUserNotes(), equalTo("feeling fine"));
     }
@@ -88,18 +83,15 @@ public class StepCountUnitTests extends SerializationUnitTests {
     public void measureShouldSerializeCorrectly() throws Exception {
 
         StepCount stepCount = new StepCount.Builder(BigDecimal.valueOf(6000))
-                .setEffectiveTimeFrame(TimeInterval.ofStartDateTimeAndEndDateTime(
-                        OffsetDateTime.of(2013, 2, 5, 6, 25, 0, 0, UTC),
-                        OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, UTC)
-                ))
+                .setEffectiveTimeFrame(FIXED_DAY)
                 .build();
 
         String document = "{\n" +
                 "    \"step_count\": 6000,\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"start_date_time\": \"2013-02-05T06:25:00Z\",\n" +
-                "            \"end_date_time\": \"2013-02-05T07:25:00Z\"\n" +
+                "            \"start_date_time\": \"2015-10-21T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-10-22T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    }\n" +
                 "}";

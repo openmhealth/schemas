@@ -1,0 +1,16 @@
+{
+    "description": "Leucovorin 20 MG/ML 3.675 mL IV daily for 5 days",
+
+    "medication": {
+        "generic_name": "Leucovorin",
+        "strength": [
+            {
+                "value": 20,
+                "unit": "mg/mL"
+            }
+        ],
+        "rxnorm_code": 237788
+    },
+
+    "route": "intravenous peripheral"
+}

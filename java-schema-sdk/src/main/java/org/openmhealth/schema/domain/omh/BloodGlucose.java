@@ -47,7 +47,7 @@ public class BloodGlucose extends Measure {
     protected BloodGlucose() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<BloodGlucose, Builder> {
 
         private TypedUnitValue<BloodGlucoseUnit> bloodGlucose;
         private BloodSpecimenType bloodSpecimenType;

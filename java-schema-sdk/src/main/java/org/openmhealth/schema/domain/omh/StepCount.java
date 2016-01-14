@@ -46,7 +46,7 @@ public class StepCount extends Measure {
     protected StepCount() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<StepCount, Builder> {
 
         private BigDecimal stepCount;
 

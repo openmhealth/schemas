@@ -20,18 +20,15 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
-import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.BloodPressureUnit.MM_OF_MERCURY;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MINIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.PositionDuringMeasurement.LYING_DOWN;
 import static org.openmhealth.schema.domain.omh.PositionDuringMeasurement.SITTING;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -79,13 +76,9 @@ public class BloodPressureUnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         BloodPressure bloodPressure = new BloodPressure.Builder(systolicBloodPressure, diastolicBloodPressure)
                 .setPositionDuringMeasurement(LYING_DOWN)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MEDIAN)
                 .setUserNotes("feeling fine")
                 .build();
@@ -94,7 +87,7 @@ public class BloodPressureUnitTests extends SerializationUnitTests {
         assertThat(bloodPressure.getSystolicBloodPressure(), equalTo(systolicBloodPressure));
         assertThat(bloodPressure.getDiastolicBloodPressure(), equalTo(diastolicBloodPressure));
         assertThat(bloodPressure.getPositionDuringMeasurement(), equalTo(LYING_DOWN));
-        assertThat(bloodPressure.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(bloodPressure.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(bloodPressure.getDescriptiveStatistic(), equalTo(MEDIAN));
         assertThat(bloodPressure.getUserNotes(), equalTo("feeling fine"));
     }
@@ -107,14 +100,9 @@ public class BloodPressureUnitTests extends SerializationUnitTests {
     @Test
     public void measureShouldSerializeCorrectly() throws Exception {
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofStartDateTimeAndEndDateTime(
-                OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, UTC),
-                OffsetDateTime.of(2013, 6, 5, 7, 25, 0, 0, UTC)
-        );
-
         BloodPressure bloodPressure = new BloodPressure.Builder(systolicBloodPressure, diastolicBloodPressure)
                 .setPositionDuringMeasurement(SITTING)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MINIMUM)
                 .setUserNotes("I felt quite dizzy")
                 .build();
@@ -130,8 +118,8 @@ public class BloodPressureUnitTests extends SerializationUnitTests {
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"start_date_time\": \"2013-02-05T07:25:00Z\",\n" +
-                "            \"end_date_time\": \"2013-06-05T07:25:00Z\"\n" +
+                "            \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    },\n" +
                 "    \"position_during_measurement\": \"sitting\",\n" +

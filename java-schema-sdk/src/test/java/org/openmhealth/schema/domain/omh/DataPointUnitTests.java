@@ -20,7 +20,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Collections;
 import java.util.HashMap;
@@ -31,8 +30,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.LengthUnit.MILE;
-import static org.openmhealth.schema.domain.omh.PartOfDay.MORNING;
 import static org.openmhealth.schema.domain.omh.PhysicalActivity.SelfReportedIntensity.MODERATE;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -97,7 +96,7 @@ public class DataPointUnitTests extends SerializationUnitTests {
         PhysicalActivity physicalActivity = new PhysicalActivity.Builder("walking")
                 .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
                 .setReportedActivityIntensity(MODERATE)
-                .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .build();
 
         DataPoint<Object> dataPoint = new DataPoint<>(header, physicalActivity);
@@ -126,8 +125,8 @@ public class DataPointUnitTests extends SerializationUnitTests {
                 "        \"reported_activity_intensity\": \"moderate\",\n" +
                 "        \"effective_time_frame\": {\n" +
                 "            \"time_interval\": {\n" +
-                "                \"date\": \"2013-02-05\",\n" +
-                "                \"part_of_day\": \"morning\"\n" +
+                "                \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "                \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "            }\n" +
                 "        }\n" +
                 "    }\n" +

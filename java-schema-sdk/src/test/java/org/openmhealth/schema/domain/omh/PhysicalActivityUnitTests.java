@@ -20,19 +20,18 @@ import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 
 import static java.math.BigDecimal.ONE;
-import static java.math.BigDecimal.TEN;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MINIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
+import static org.openmhealth.schema.domain.omh.KcalUnit.KILOCALORIE;
 import static org.openmhealth.schema.domain.omh.LengthUnit.KILOMETER;
 import static org.openmhealth.schema.domain.omh.LengthUnit.MILE;
 import static org.openmhealth.schema.domain.omh.PartOfDay.MORNING;
 import static org.openmhealth.schema.domain.omh.PhysicalActivity.SelfReportedIntensity.LIGHT;
 import static org.openmhealth.schema.domain.omh.PhysicalActivity.SelfReportedIntensity.MODERATE;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -40,7 +39,7 @@ import static org.openmhealth.schema.domain.omh.PhysicalActivity.SelfReportedInt
  */
 public class PhysicalActivityUnitTests extends SerializationUnitTests {
 
-    public static final String SCHEMA_FILENAME = "schema/omh/physical-activity-1.0.json";
+    public static final String SCHEMA_FILENAME = "schema/omh/physical-activity-1.2.json";
 
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedActivityName() {
@@ -66,32 +65,32 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
         assertThat(physicalActivity.getEffectiveTimeFrame(), nullValue());
         assertThat(physicalActivity.getDescriptiveStatistic(), nullValue());
         assertThat(physicalActivity.getUserNotes(), nullValue());
+        assertThat(physicalActivity.getCaloriesBurned(), nullValue());
     }
 
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
         LengthUnitValue distance = new LengthUnitValue(KILOMETER, ONE);
-
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
+        KcalUnitValue caloriesBurned = new KcalUnitValue(KILOCALORIE, 15.7);
 
         PhysicalActivity physicalActivity = new PhysicalActivity.Builder("walking")
                 .setDistance(distance)
                 .setReportedActivityIntensity(LIGHT)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MINIMUM)
                 .setUserNotes("feeling fine")
+                .setCaloriesBurned(caloriesBurned)
                 .build();
 
         assertThat(physicalActivity, notNullValue());
         assertThat(physicalActivity.getActivityName(), equalTo("walking"));
         assertThat(physicalActivity.getDistance(), equalTo(distance));
         assertThat(physicalActivity.getReportedActivityIntensity(), equalTo(LIGHT));
-        assertThat(physicalActivity.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(physicalActivity.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(physicalActivity.getDescriptiveStatistic(), equalTo(MINIMUM));
         assertThat(physicalActivity.getUserNotes(), equalTo("feeling fine"));
+        assertThat(physicalActivity.getCaloriesBurned(), equalTo(caloriesBurned));
     }
 
     @Override
@@ -105,7 +104,8 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
         PhysicalActivity physicalActivity = new PhysicalActivity.Builder("walking")
                 .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
                 .setReportedActivityIntensity(MODERATE)
-                .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
+                .setEffectiveTimeFrame(FIXED_MONTH)
+                .setCaloriesBurned(new KcalUnitValue(KILOCALORIE, 25.1))
                 .build();
 
         String document = "{\n" +
@@ -117,13 +117,46 @@ public class PhysicalActivityUnitTests extends SerializationUnitTests {
                 "    \"reported_activity_intensity\": \"moderate\",\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"date\": \"2013-02-05\",\n" +
-                "            \"part_of_day\": \"morning\"\n" +
+                "            \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
+                "    },\n" +
+                "    \"kcal_burned\": {\n" +
+                "        \"value\": 25.1,\n" +
+                "        \"unit\": \"kcal\"\n" +
                 "    }\n" +
                 "}";
 
         serializationShouldCreateValidDocument(physicalActivity, document);
         deserializationShouldCreateValidObject(document, physicalActivity);
+    }
+
+    @Test
+    public void equalsShouldReturnCorrectComparison() {
+
+        PhysicalActivity physicalActivity = new PhysicalActivity.Builder("walking")
+                .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
+                .setReportedActivityIntensity(MODERATE)
+                .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
+                .setCaloriesBurned(new KcalUnitValue(KILOCALORIE, 25.1))
+                .build();
+
+        PhysicalActivity samePhysicalActivity = new PhysicalActivity.Builder("walking")
+                .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(1.5)))
+                .setReportedActivityIntensity(MODERATE)
+                .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
+                .setCaloriesBurned(new KcalUnitValue(KILOCALORIE, 25.1))
+                .build();
+
+        assertThat(physicalActivity.equals(samePhysicalActivity), is(true));
+
+        PhysicalActivity differentPhysicalActivity = new PhysicalActivity.Builder("running")
+                .setDistance(new LengthUnitValue(MILE, BigDecimal.valueOf(2.5)))
+                .setReportedActivityIntensity(LIGHT)
+                .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2014, 2, 5), MORNING))
+                .setCaloriesBurned(new KcalUnitValue(KILOCALORIE, 100))
+                .build();
+
+        assertThat(physicalActivity.equals(differentPhysicalActivity), is(false));
     }
 }

@@ -1,6 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-
+    "deprecation": {
+        "reason": "This schema is now deprecated, in favor of the more generic body-posture, which can be used to describe more than the position during a measurement.",
+        "supersededBy": "omh:body-posture:1.x",
+        "date": "2015-11-23"
+    },
     "type": "string",
     "description": "The position of the subject during a clinical measurement.",
     "references": [

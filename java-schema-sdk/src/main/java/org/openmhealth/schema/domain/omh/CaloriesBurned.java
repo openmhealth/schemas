@@ -46,7 +46,7 @@ public class CaloriesBurned extends Measure {
     protected CaloriesBurned() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<CaloriesBurned, Builder> {
 
         private KcalUnitValue kcalBurned;
         private String activityName;

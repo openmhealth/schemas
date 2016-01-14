@@ -1,0 +1,61 @@
+{
+    "description": " insulin glargine (LANTUS SOLOSTAR) 100 unit/mL (3 mL) PENINSULN injection pen Inject 4 units subcutaneously in the morning and 10 units subcutaneously at bedtime",
+
+    "medication": {
+        "trade_name": "Lantus 300 UNT per 3 ML OptiClik Pen",
+        "strength": [
+            {
+                "value": 100,
+                "unit": "unt/mL"
+            }
+        ],
+        "rxnorm_code": 847230
+    },
+
+    "route": "subcutaneous",
+
+    "schedule": [
+        {
+            "dose_duration": {
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
+            },
+            "medication_dose": {
+                "dose": {
+                    "value": 4,
+                    "unit": "unt"
+                }
+            },
+            "dose_recurrence": {
+                "timing": [
+                    {
+                        "part_of_day": "morning"
+                    }
+                ]
+            }
+        },
+        {
+            "dose_duration": {
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
+            },
+            "medication_dose": {
+                "dose": {
+                    "value": 10,
+                    "unit": "unt"
+                }
+            },
+            "dose_recurrence": {
+                "timing": [
+                    {
+                        "temporal_relationship_to_sleep": "before sleeping"
+                    }
+                ]
+            }
+        }
+    ]
+}

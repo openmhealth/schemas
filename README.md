@@ -1,6 +1,6 @@
 # Open mHealth Schema Repository
 
-A repository of Open mHealth [schemas](http://www.openmhealth.org/developers/schemas/). This repository also includes sample test data, a validator for that data, and a Java schema SDK.
+A repository of Open mHealth [schemas](http://www.openmhealth.org/documentation/#/schema-docs/overview). This repository also includes sample test data, a validator for that data, and a Java schema SDK.
 
 [![Build Status](https://travis-ci.org/openmhealth/schemas.svg?branch=develop)](https://travis-ci.org/openmhealth/schemas)
 
