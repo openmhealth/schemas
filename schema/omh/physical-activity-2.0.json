@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a single episode of physical activity.",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Physical activity (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/68130003"
+        }
+    ],
+    "definitions": {
+        "activity_name": {
+            "$ref": "activity-name-1.x.json"
+        },
+        "length_unit_value": {
+            "$ref": "length-unit-value-1.x.json"
+        },
+        "duration_unit_value": {
+            "$ref": "duration-unit-value-1.x.json"
+        },
+        "kcal_unit_value": {
+            "$ref": "kcal-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        }
+    },
+
+    "properties": {
+        "activity_name": {
+            "$ref": "#/definitions/activity_name"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "distance": {
+            "description": "The distance covered, if applicable.",
+            "$ref": "#/definitions/length_unit_value"
+        },
+        "effective_duration": {
+            "description": "This is the net duration of an episode of physical activity. The net duration can be less than the time interval defined by effective time frame if the person paused during the activity.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/duration_unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "sec",
+                                "min",
+                                "h"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "kcal_burned": {
+            "description": "The calories burned during the activity.",
+            "$ref": "#/definitions/kcal_unit_value"
+        },
+        "reported_activity_intensity": {
+            "description": "Self-reported intensity of the activity performed.",
+            "type": "string",
+            "enum": ["light", "moderate", "vigorous"]
+        },
+        "met_value": {
+            "description": "Metabolic Equivalent of Task value for the activity",
+            "type": "number"
+        }
+    },
+
+    "required": ["activity_name","effective_time_frame"]
+}

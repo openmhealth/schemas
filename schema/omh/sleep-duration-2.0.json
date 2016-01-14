@@ -23,6 +23,7 @@
 
     "properties": {
         "sleep_duration": {
+            "description": "Total time asleep from bedtime until getting out of bed in the morning or across the 24-h period. This does not include any time that a person is awake after first falling asleep at the beginning of the night.",
             "allOf": [
                 {
                     "$ref": "#/definitions/duration_unit_value"
@@ -55,7 +56,8 @@
             "$ref": "#/definitions/descriptive_statistic"
         },
         "statistic_time_denominator": {
-            "description": "An aggregated result of a phenomenon that occurs over a period of time may need a time denominator of the descriptive statistic to specify its meaning. For example, an average sleep duration over a month time frame without further specification does not have an unambiguous meaning. A statistic time denominator value of d specifies that the value is the average daily sleep duration.",            "allOf": [
+            "description": "An aggregated result of a phenomenon that occurs over a period of time may need a time denominator of the descriptive statistic to specify its meaning. For example, an average sleep duration over a month time frame without further specification is ambiguous. A statistic time denominator value of d specifies that the value is the average daily sleep duration.",
+            "allOf": [
                 {
                     "$ref": "#/definitions/duration_unit_value"
                 },
@@ -72,11 +74,8 @@
                     }
                 }
             ]
-        },
-        "user_notes": {
-            "type": "string"
         }
     },
 
-    "required": ["sleep_duration"]
+    "required": ["sleep_duration","effective_time_frame"]
 }
