@@ -1,0 +1,10 @@
+{
+    "body_temperature": {
+        "value": 96.5,
+        "unit": "F"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T06:25:00Z"
+    },
+    "temporal_relationship_to_sleep": "on waking"
+}

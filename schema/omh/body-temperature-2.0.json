@@ -19,6 +19,9 @@
         },
         "descriptive_statistic": {
             "$ref": "descriptive-statistic-1.x.json"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "temporal-relationship-to-sleep-1.x.json"
         }
     },
 
@@ -33,7 +36,7 @@
             "$ref": "#/definitions/descriptive_statistic"
         },
         "measurement_location": {
-            "description": "The value set is taken from SNOMED CT and LOINC. For common temperature locations, the adjective is used rathe than the actual location name (e.g., axillary rather than armpit). Forehead indicates the use of a disposable strip.",
+            "description": "The value set is taken from SNOMED CT and LOINC. For common temperature locations, the adjective is used rather than the actual location name (e.g., axillary rather than armpit). Forehead indicates the use of a disposable strip.",
             "type": "string",
             "enum": [
                 "axillary",
@@ -48,14 +51,11 @@
                 "vagina"
             ]
         },
-        "measurement_type": {
-            "description": "The lowest body temperature attained during rest, usually estimated by a temperature measurement immediately after awakening and before any physical activity has been undertaken.",
-            "type": "string",
-            "enum": [
-                "basal"
-            ]
+
+        "temporal_relationship_to_sleep": {
+            "description": "The temporal relationship to sleep of the temperature measurement(s). The lowest body temperature attained during rest, usually estimated by a temperature measurement immediately on waking up and before any physical activity has been undertaken is called basal temperature.",
+            "$ref": "#/definitions/temporal_relationship_to_sleep"
         }
     },
-
-    "required": ["body_temperature"]
+    "required": ["body_temperature","effective_time_frame"]
 }
