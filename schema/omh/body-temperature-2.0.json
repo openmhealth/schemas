@@ -57,5 +57,5 @@
             "$ref": "#/definitions/temporal_relationship_to_sleep"
         }
     },
-    "required": ["body_temperature","effective_time_frame"]
+    "required": ["body_temperature"]
 }
