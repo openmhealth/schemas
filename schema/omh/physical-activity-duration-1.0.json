@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a single episode of physical activity.",
+    "description": "This schema represents an episode of physical activity, continuous or as a sum of episodes that all belong to the same session.",
     "type": "object",
     "references": [
         {
