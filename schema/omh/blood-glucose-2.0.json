@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a person's blood glucose level, either a single blood glucose measurement, or the result of aggregating several measurements made over time (see Numeric descriptor schema for a list of aggregate measures)",
+    "description": "This schema represents a person's blood glucose level.",
     "type": "object",
 
     "references": [
