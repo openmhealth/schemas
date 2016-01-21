@@ -9,5 +9,6 @@
             "end_date_time": "2015-02-06T06:00:00Z"
         }
     },
+    "measurement_location": "oral",
     "descriptive_statistic": "maximum"
 }
