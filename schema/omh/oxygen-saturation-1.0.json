@@ -40,6 +40,7 @@
             ]
         },
         "system": {
+            "description": "Oxygen saturation can be measured at different levels in the body and is labeled accordingly: peripheral, arterial, etc.",
             "type": "string",
             "enum": [
                 "peripheral capillary"

@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "The constants for category type data as defined by the Apple HealthKit framework.",
+    "type": "string",
+
+    "references": [
+        {
+            "value": "HKCategoryTypeIdentifierSleepAnalysis",
+            "description": "A category sample type for samples that contain sleep analysis information.",
+            "url": "https://developer.apple.com/library/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/c/data/HKCategoryTypeIdentifierSleepAnalysis"
+        }
+    ],
+    "enum": [
+        "HKCategoryTypeIdentifierSleepAnalysis",
+        "HKCategoryTypeIdentifierAppleStandHour",
+        "HKCategoryTypeIdentifierCervicalMucusQuality",
+        "HKCategoryTypeIdentifierOvulationTestResult",
+        "HKCategoryTypeIdentifierMenstrualFlow",
+        "HKCategoryTypeIdentifierIntermenstrualBleeding",
+        "HKCategoryTypeIdentifierSexualActivity"
+    ]
+}
