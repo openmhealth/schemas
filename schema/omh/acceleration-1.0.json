@@ -41,7 +41,7 @@
         "handedness": {
             "type": "string",
             "enum": [
-                "right", "left"
+                "left", "right"
             ]
         },
         "effective_time_frame": {
