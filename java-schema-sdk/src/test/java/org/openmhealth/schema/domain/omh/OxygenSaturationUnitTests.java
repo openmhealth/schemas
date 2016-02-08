@@ -28,6 +28,7 @@ import static org.openmhealth.schema.domain.omh.OxygenSaturation.MeasurementMeth
 import static org.openmhealth.schema.domain.omh.OxygenSaturation.MeasurementSystem.PERIPHERAL_CAPILLARY;
 import static org.openmhealth.schema.domain.omh.OxygenSaturation.SupplementalOxygenAdministrationMode.NASAL_CANNULA;
 import static org.openmhealth.schema.domain.omh.PercentUnit.PERCENT;
+import static org.openmhealth.schema.domain.omh.SchemaSupport.OMH_NAMESPACE;
 import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_POINT_IN_TIME;
 
@@ -122,6 +123,13 @@ public class OxygenSaturationUnitTests extends SerializationUnitTests {
 
         serializationShouldCreateValidDocument(oxygenSaturation, expectedDocument);
         deserializationShouldCreateValidObject(expectedDocument, oxygenSaturation);
+    }
+
+    @Test
+    public void schemaIdShouldReturnCorrectValues() {
+
+        assertThat(OxygenSaturation.SCHEMA_ID.getName(), equalTo("oxygen-saturation"));
+        assertThat(OxygenSaturation.SCHEMA_ID.getNamespace(), equalTo(OMH_NAMESPACE));
     }
 
     @Test

@@ -44,7 +44,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
 public class OxygenSaturation extends Measure {
 
-    private static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "oxygen-saturation", "1.0");
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "oxygen-saturation", "1.0");
 
 
     /**
