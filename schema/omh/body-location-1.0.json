@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "???",
+
+    "type": "string",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Anatomical or acquired body structure (body structure)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442083009"
+        }
+    ],
+    "enum": [
+        "ankle", "back", "chest", "head", "hip", "thigh", "upper arm", "wrist"
+    ]
+}
