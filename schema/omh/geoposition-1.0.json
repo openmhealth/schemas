@@ -31,7 +31,7 @@
             "references": [
                 {
                     "description": "The NCIT code represents Latitude. Negative numbers indicate South.",
-                    "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C6864"
+                    "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1627936"
                 }
             ],
             "$ref": "#/definitions/plane_angle_unit_value"
@@ -41,7 +41,7 @@
             "references": [
                 {
                     "description": "The NCIT code represents Longitude. Negative numbers indicate West.",
-                    "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68643"
+                    "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1657623"
                 }
             ],
             "$ref": "#/definitions/plane_angle_unit_value"
