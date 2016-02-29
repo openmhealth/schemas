@@ -12,6 +12,13 @@
         }
     ],
     "enum": [
-        "ankle", "back", "chest", "head", "hip", "thigh", "upper arm", "wrist"
+        "ankle",
+        "back",
+        "chest",
+        "head",
+        "hip",
+        "thigh",
+        "upper arm",
+        "wrist"
     ]
 }
