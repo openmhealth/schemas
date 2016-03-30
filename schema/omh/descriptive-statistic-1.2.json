@@ -7,67 +7,67 @@
     "references": [
         {
             "value": "average",
-            "description": "The NCIT code represents average",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C37917"
-        },
-        {
-            "value": "maximum",
-            "description": "The NCIT code represents maximum",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25564"
-        },
-        {
-            "value": "minimum",
-            "description": "The NCIT code represents minimum",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25570"
-        },
-        {
-            "value": "standard deviation",
-            "description": "The NCIT code represents standard deviation",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C53322"
-        },
-        {
-            "value": "variance",
-            "description": "The NCIT code represents variance",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C48918"
-        },
-        {
-            "value": "sum",
-            "description": "The NCIT code represents sum",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25697"
-        },
-        {
-            "value": "median",
-            "description": "The NCIT code represents median",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C28007"
+            "description": "The NCIT code represents Average",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1510992"
         },
         {
             "value": "count",
-            "description": "The NCIT code represents count",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25463"
+            "description": "The NCIT code represents Count",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0750480"
+        },
+        {
+            "value": "maximum",
+            "description": "The NCIT code represents Maximum",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0806909"
+        },
+        {
+            "value": "median",
+            "description": "The NCIT code represents Median (Statistical Measurement)",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0876920"
+        },
+        {
+            "value": "minimum",
+            "description": "The NCIT code represents Minimum",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1524031"
+        },
+        {
+            "value": "standard deviation",
+            "description": "The NCIT code represents Standard Deviation",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0871420"
+        },
+        {
+            "value": "sum",
+            "description": "The NCIT code represents Sum",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1515051"
+        },
+        {
+            "value": "variance",
+            "description": "The NCIT code represents Variance",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1711260"
+        },
+        {
+            "value": "20th percentile",
+            "description": "The NCIT code represents Percentile, any of the 99 numbered points that divide an ordered set of scores into 100 parts each of which contains one-hundredth of the total.",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1264641"
+        },
+        {
+            "value": "80th percentile",
+            "description": "The NCIT code represents Percentile, any of the 99 numbered points that divide an ordered set of scores into 100 parts each of which contains one-hundredth of the total.",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1264641"
+        },
+        {
+            "value": "lower quartile",
+            "description": "The NCIT code represents Quartile, any of four equal-sized sets of observations in a ranked sample.",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C2828255"
+        },
+        {
+            "value": "upper quartile",
+            "description": "The NCIT code represents Quartile, any of four equal-sized sets of observations in a ranked sample.",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C2828255"
         },
         {
             "value": "quartile deviation",
             "description": "In a distribution, partial variance between the upper quartile and lower quartile (semi inter quartile range)."
-        },
-        {
-            "value": "20th percentile",
-            "description": "The NCIT code represents percentile, any of the 99 numbered points that divide an ordered set of scores into 100 parts each of which contains one-hundredth of the total.",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C48919"
-        },
-        {
-            "value": "80th percentile",
-            "description": "The NCIT code represents percentile, any of the 99 numbered points that divide an ordered set of scores into 100 parts each of which contains one-hundredth of the total.",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C48919"
-        },
-        {
-            "value": "lower quartile",
-            "description": "The NCIT code represents quartile, any of four equal-sized sets of observations in a ranked sample.",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C87306"
-        },
-        {
-            "value": "upper quartile",
-            "description": "The NCIT code represents quartile, any of four equal-sized sets of observations in a ranked sample.",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C87306"
         },
         {
             "value": "1st quintile",
@@ -88,18 +88,18 @@
     ],
     "enum": [
         "average",
+        "count",
         "maximum",
+        "median",
         "minimum",
         "standard deviation",
-        "variance",
         "sum",
-        "median",
-        "count",
-        "quartile deviation",
+        "variance",
         "20th percentile",
         "80th percentile",
         "lower quartile",
         "upper quartile",
+        "quartile deviation",
         "1st quintile",
         "2nd quintile",
         "3rd quintile",
