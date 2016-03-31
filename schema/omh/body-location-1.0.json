@@ -1,24 +1,46 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "???",
+    "description": "A location on the body. If the location is on a side, whether the side is the dominant one. The schema allows post-coordination of terms if a pre-coordinated",
 
-    "type": "string",
+    "type": "object",
 
-    "references": [
-        {
-            "description": "The SNOMED code represents Anatomical or acquired body structure (body structure)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442083009"
+    "definition": {
+        "body_structure": {
+            "references": [
+                {
+                    "description": "The SNOMED code represents Anatomical or acquired body structure (body structure)",
+                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442083009"
+                }
+            ],
+            "type": "string",
+            "enum": [
+                "left ankle",
+                "right ankle",
+                "back",
+                "chest",
+                "head",
+                "hip",
+                "thigh",
+                "upper arm",
+                "wrist"
+            ]
+        },
+        "laterality": {
+            "description": "If not part of body_structure",
+            "type": "string",
+            "enum": [
+                "left",
+                "right"
+            ]
+        },
+        "is_dominant_side": {
+            "description": "Whether the side is the dominant one",
+            "type": "boolean"
         }
-    ],
-    "enum": [
-        "ankle",
-        "back",
-        "chest",
-        "head",
-        "hip",
-        "thigh",
-        "upper arm",
-        "wrist"
+
+    },
+    "required": [
+        "body_structure"
     ]
 }
