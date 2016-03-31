@@ -11,6 +11,9 @@
         "time_frame": {
             "$ref": "time-frame-1.x.json"
         },
+        "body_location": {
+            "$ref": "body-location-1.x.json"
+        },
         "descriptive_statistic": {
             "$ref": "descriptive-statistic-1.x.json"
         }
@@ -28,6 +31,9 @@
         "magnetic_field_strength_z": {
             "description": "represents the magnetic field strength in the local nadir direction (vertically down).",
             "$ref": "#/definitions/magnetic_flux_density_unit_value"
+        },
+        "sensor_location": {
+            "$ref": "#/definitions/body_location"
         },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"

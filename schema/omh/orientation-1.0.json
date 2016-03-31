@@ -11,6 +11,9 @@
         "time_frame": {
             "$ref": "time-frame-1.x.json"
         },
+        "body_location": {
+            "$ref": "body-location-1.x.json"
+        },
         "descriptive_statistic": {
             "$ref": "descriptive-statistic-1.x.json"
         }
@@ -30,22 +33,7 @@
             "$ref": "#/definitions/angular_velocity_unit_value"
         },
         "sensor_location": {
-            "type": "string",
-            "enum": [
-                "ankle", "back", "chest", "head", "hip", "thigh", "upper arm", "wrist"
-            ]
-        },
-        "side": {
-            "type": "string",
-            "enum": [
-                "left", "right"
-            ]
-        },
-        "handedness": {
-            "type": "string",
-            "enum": [
-                "left", "right"
-            ]
+            "$ref": "#/definitions/body_location"
         },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
