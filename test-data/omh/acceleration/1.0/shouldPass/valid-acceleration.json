@@ -11,9 +11,10 @@
         "value": 0.0001,
         "unit": "m/s2"
     },
-    "accelerometer_location": "wrist",
-    "accelerometer_side": "left",
-    "handedness": "right",
+    "sensor_location": {
+        "body_structure": "left wrist",
+        "is_dominant_side": false
+    },
     "effective_time_frame": {
         "date_time": "2015-08-18T07:25:00Z"
     }
