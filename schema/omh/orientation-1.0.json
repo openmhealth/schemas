@@ -21,15 +21,12 @@
 
     "properties": {
         "angular_velocity_x": {
-            "description": "Also called pitch.",
             "$ref": "#/definitions/angular_velocity_unit_value"
         },
         "angular_velocity_y": {
-            "description": "Also called roll.",
             "$ref": "#/definitions/angular_velocity_unit_value"
         },
         "angular_velocity_z": {
-            "description": "Also called azimuth.",
             "$ref": "#/definitions/angular_velocity_unit_value"
         },
         "sensor_location": {
