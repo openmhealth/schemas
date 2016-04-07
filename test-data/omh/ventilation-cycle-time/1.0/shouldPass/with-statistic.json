@@ -1,5 +1,5 @@
 {
-    "ventilatory_time": {
+    "ventilation_cycle_time": {
         "value": 5.2,
         "unit": "sec"
     },
