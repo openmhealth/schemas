@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Open mHealth
+ * Copyright 2016 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.openmhealth.schema.domain.omh;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.util.Map;
 import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -78,21 +79,89 @@ public class AdditionalPropertySupportUnitTests extends SerializationUnitTests {
     }
 
     @Test
+    public void setAdditionalPropertyShouldCreateRootProperty() {
+
+        // before: {}
+        //  after: { "foo" : 2 }
+        unitValue.setAdditionalProperty("foo", 2L);
+
+        assertThat(unitValue.getAdditionalProperty("foo"), equalTo(Optional.of(2L)));
+    }
+
+    @Test
+    public void setAdditionalPropertyShouldOverrideRootProperty() {
+
+        unitValue.setAdditionalProperty("foo", 2L);
+
+        // before: { "foo" : 2 }
+        //  after: { "foo" : "bar" }
+        unitValue.setAdditionalProperty("foo", "bar");
+
+        assertThat(unitValue.getAdditionalProperty("foo"), equalTo(Optional.of("bar")));
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void setAdditionalPropertyShouldCreateNestedProperties() {
+
+        // before: { }
+        //  after: { "foo" : { "bar" : 2 } }
+        unitValue.setAdditionalProperty("foo.bar", 2L);
+
+        // before: { "foo" : { "bar" : 2 } }
+        //  after: { "foo" : { "bar" : 2, "cafe" : "ideal } }
+        unitValue.setAdditionalProperty("foo.cafe", "ideal");
+
+        Optional<Object> fooProperty = unitValue.getAdditionalProperty("foo");
+
+        assertThat(fooProperty, notNullValue());
+        assertThat(fooProperty.isPresent(), equalTo(true));
+
+        Map<String, Object> fooMap = (Map<String, Object>) fooProperty.get();
+
+        assertThat(fooMap.get("bar"), equalTo(2L));
+        assertThat(fooMap.get("cafe"), equalTo("ideal"));
+    }
+
+    @Test
+    public void setAdditionalPropertyShouldOverrideNestedProperty() {
+
+        unitValue.setAdditionalProperty("foo", 2L);
+
+        // before: { "foo" : 2 }
+        //  after: { "foo" : { "cafe" : "ideal" } }
+        unitValue.setAdditionalProperty("foo.cafe", "ideal");
+
+        Optional<Object> fooProperty = unitValue.getAdditionalProperty("foo");
+
+        assertThat(fooProperty, notNullValue());
+        assertThat(fooProperty.isPresent(), equalTo(true));
+
+        Map<String, Object> fooMap = (Map<String, Object>) fooProperty.get();
+
+        assertThat(fooMap.get("cafe"), equalTo("ideal"));
+    }
+
+
+    @Test
     public void getAdditionalPropertiesShouldNotReturnNull() {
 
         assertThat(unitValue.getAdditionalProperties(), notNullValue());
     }
 
-
     @Test
     public void additionalPropertiesShouldSerializeCorrectly() throws Exception {
 
         unitValue.setAdditionalProperty("foo", "bar");
+        unitValue.setAdditionalProperty("baz.cafe", "ideal");
 
         String document = "{\n" +
                 "    \"value\": 3,\n" +
                 "    \"unit\": \"cups\",\n" +
-                "    \"foo\": \"bar\"" +
+                "    \"foo\": \"bar\",\n" +
+                "    \"baz\": {\n" +
+                "      \"cafe\": \"ideal\"\n" +
+                "    }\n" +
                 "}";
 
         serializationShouldCreateValidDocument(unitValue, document);
