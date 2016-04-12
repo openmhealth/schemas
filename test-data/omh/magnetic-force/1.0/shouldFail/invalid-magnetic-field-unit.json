@@ -15,7 +15,6 @@
         "date_time": "2015-08-18T07:25:00Z"
     },
     "sensor_location": {
-        "body_structure": "hip",
-        "laterality": "left"
+        "body_structure": "left hip"
     }
 }

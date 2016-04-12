@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "A location on the body. The schema allows post-coordination of terms if a pre-coordinated",
+    "description": "A location on the body. This is an incomplete value set. Values from the Anatomical or acquired body structure hierarchy of SNOMED can be added as needed.",
 
     "type": "object",
 
@@ -17,21 +17,16 @@
             "enum": [
                 "left ankle",
                 "right ankle",
-                "back",
-                "chest",
-                "head",
-                "hip",
+                "left hip",
+                "right hip",
                 "left thigh",
-                "upper arm",
-                "wrist"
-            ]
-        },
-        "laterality": {
-            "description": "If not part of body_structure",
-            "type": "string",
-            "enum": [
-                "left",
-                "right"
+                "right thigh",
+                "left thorax",
+                "middle left thorax",
+                "left upper arm",
+                "right upper arm",
+                "left wrist",
+                "right wrist"
             ]
         }
     },

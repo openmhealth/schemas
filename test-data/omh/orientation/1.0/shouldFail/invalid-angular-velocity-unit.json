@@ -12,7 +12,6 @@
         "unit": "rad/s2"
     },
     "sensor_location": {
-        "body_structure": "hip",
-        "laterality": "left"
+        "body_structure": "left hip"
     }
 }
