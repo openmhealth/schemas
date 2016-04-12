@@ -16,7 +16,6 @@
     },
     "sensor_location": {
         "body_structure": "hip",
-        "laterality": "left",
-        "is_dominant_side": false
+        "laterality": "left"
     }
 }

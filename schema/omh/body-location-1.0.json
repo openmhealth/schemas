@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "A location on the body. If the location is on a side, whether the side is the dominant one. The schema allows post-coordination of terms if a pre-coordinated",
+    "description": "A location on the body. The schema allows post-coordination of terms if a pre-coordinated",
 
     "type": "object",
 
@@ -21,7 +21,7 @@
                 "chest",
                 "head",
                 "hip",
-                "thigh",
+                "left thigh",
                 "upper arm",
                 "wrist"
             ]
@@ -33,12 +33,7 @@
                 "left",
                 "right"
             ]
-        },
-        "is_dominant_side": {
-            "description": "Whether the side is the dominant one",
-            "type": "boolean"
         }
-
     },
     "required": [
         "body_structure"

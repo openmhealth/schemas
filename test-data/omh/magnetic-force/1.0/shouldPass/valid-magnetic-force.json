@@ -15,7 +15,6 @@
         "date_time": "2015-08-18T07:25:00Z"
     },
     "sensor_location": {
-        "body_structure": "left wrist",
-        "is_dominant_side": false
+        "body_structure": "left wrist"
     }
 }
