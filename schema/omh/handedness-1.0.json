@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "A person's handedness, or side of dominant hand.",
+
+    "type": "string",
+
+    "references": [
+        {
+            "value": "Left handed",
+            "description": "The SNOMED code represents Left handed (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/87683000"
+        },
+        {
+            "value": "Tuesday",
+            "description": "The SNOMED code represents Right handed (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/46669005"
+        },
+        {
+            "value": "Wednesday",
+            "description": "The SNOMED code represents Ambidextrous (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/23088002"
+        }
+    ],
+    "enum": ["Left handed", "Right handed", "Ambidextrous"]
+}
