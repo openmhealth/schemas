@@ -32,7 +32,7 @@
             "description": "represents the magnetic field strength in the local nadir direction (vertically down).",
             "$ref": "#/definitions/magnetic_flux_density_unit_value"
         },
-        "sensor_location": {
+        "sensor_body_location": {
             "$ref": "#/definitions/body_location"
         },
         "effective_time_frame": {

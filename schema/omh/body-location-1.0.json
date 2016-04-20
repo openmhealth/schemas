@@ -3,34 +3,25 @@
 
     "description": "A location on the body. This is an incomplete value set. Values from the Anatomical or acquired body structure hierarchy of SNOMED can be added as needed.",
 
-    "type": "object",
-
-    "definition": {
-        "body_structure": {
-            "references": [
-                {
-                    "description": "The SNOMED code represents Anatomical or acquired body structure (body structure)",
-                    "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442083009"
-                }
-            ],
-            "type": "string",
-            "enum": [
-                "left ankle",
-                "right ankle",
-                "left hip",
-                "right hip",
-                "left thigh",
-                "right thigh",
-                "left thorax",
-                "middle left thorax",
-                "left upper arm",
-                "right upper arm",
-                "left wrist",
-                "right wrist"
-            ]
+    "references": [
+        {
+            "description": "The SNOMED code represents Anatomical or acquired body structure (body structure)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/442083009"
         }
-    },
-    "required": [
-        "body_structure"
+    ],
+    "type": "string",
+    "enum": [
+        "left ankle",
+        "right ankle",
+        "left hip",
+        "right hip",
+        "left thigh",
+        "right thigh",
+        "left thorax",
+        "middle left thorax",
+        "left upper arm",
+        "right upper arm",
+        "left wrist",
+        "right wrist"
     ]
 }

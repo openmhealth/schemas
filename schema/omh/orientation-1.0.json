@@ -32,7 +32,7 @@
             "description": "Also called yaw.",
             "$ref": "#/definitions/angular_velocity_unit_value"
         },
-        "sensor_location": {
+        "sensor_body_location": {
             "$ref": "#/definitions/body_location"
         },
         "effective_time_frame": {

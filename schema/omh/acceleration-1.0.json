@@ -14,6 +14,9 @@
         "body_location": {
             "$ref": "body-location-1.x.json"
         },
+        "handedness": {
+            "$ref": "handedness-1.x.json"
+        },
         "descriptive_statistic": {
             "$ref": "descriptive-statistic-1.x.json"
         }
@@ -29,8 +32,11 @@
         "acceleration_z": {
             "$ref": "#/definitions/acceleration_unit_value"
         },
-        "sensor_location": {
+        "sensor_body_location": {
             "$ref": "#/definitions/body_location"
+        },
+        "handedness": {
+            "$ref": "#/definitions/handedness"
         },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
