@@ -8,11 +8,11 @@
         "plane_angle_unit_value": {
             "$ref": "plane-angle-unit-value-1.x.json"
         },
-        "elevation": {
-            "$ref": "elevation-1.x.json"
-        },
         "length_unit_value": {
             "$ref": "length-unit-value-1.x.json"
+        },
+        "decibel_unit_value": {
+            "$ref": "decibel-unit-value-1.x.json"
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
@@ -54,7 +54,27 @@
                     "url": "http://purl.bioontology.org/ontology/LNC/41905-1"
                 }
             ],
-            "$ref": "#/definitions/elevation"
+            "allOf": [
+                {
+                    "$ref": "#/definitions/length_unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "references": [
+                                {
+                                    "description": "The unit of measure of the element. Basic unit is meter (m) [ http://unitsofmeasure.org/ucum.html#para-28 ]. Allowed values are drawn from the SI Length Units and English Length Units Common Synonyms (non-UCUM). The valid UCUM code is different for inch ([in_i]), foot ([ft_i]), yard ([yd_i]) and mile ([mi_i]).",
+                                    "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
+                                }
+                            ],
+                            "enum": [
+                                "m",
+                                "ft"
+                            ]
+                        }
+                    }
+                }
+            ]
         },
         "accuracy": {
             "description": "The radius of a circle or sphere in which a certain % of the values occur (the percentage being measure-specific).",
@@ -117,10 +137,10 @@
             "type": "integer"
         },
         "satellite_signal_strength": {
-            "description": "Typical value for a good fix is 20-40.",
+            "description": "TheTypical value for a good fix is 20-40. signal-to-noise ratio (SNR) expressed in decibels (dB). The higher the number, the stronger the signal.",
             "type": "array",
             "items": {
-                "$ref": "#/definitions/signal_to_noise_ratio_unit_value"
+                "$ref": "#/definitions/decibel_unit_value"
             }
         },
         "number_of_satellites_in_fix": {
@@ -136,5 +156,6 @@
     "required": [
         "latitude",
         "longitude"
-    ]
+    ],
+    "additionalProperties": false
 }
