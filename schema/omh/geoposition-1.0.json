@@ -137,7 +137,7 @@
             "type": "integer"
         },
         "satellite_signal_strength": {
-            "description": "TheTypical value for a good fix is 20-40. signal-to-noise ratio (SNR) expressed in decibels (dB). The higher the number, the stronger the signal.",
+            "description": "Signal-to-noise ratio (SNR) expressed in decibels (dB). The typical value for a good fix is 20-40. The higher the number, the stronger the signal.",
             "type": "array",
             "items": {
                 "$ref": "#/definitions/decibel_unit_value"
