@@ -7,20 +7,9 @@
 
     "references": [
         {
-            "value": "right handed",
-            "description": "The SNOMED code represents Right handed (finding)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/46669005"
-        },
-        {
-            "value": "left handed",
-            "description": "The SNOMED code represents Left handed (finding)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/87683000"
-        },
-        {
-            "value": "ambidextrous",
-            "description": "The SNOMED code represents Ambidextrous (finding)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/23088002"
+            "description": "The SNOMED code represents Handedness finding (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/364940007"
         }
     ],
-    "enum": ["right handed", "left handed", "ambidextrous"]
+    "enum": ["right handed", "left handed", "ambidextrous","Unknown handedness"]
 }
