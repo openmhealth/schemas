@@ -1,15 +1,20 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "A person's handedness.",
+    "description": "A person's handedness. The value set corresponds to SNOMED's Handedness (finding).",
 
     "type": "string",
 
     "references": [
         {
-            "description": "The SNOMED code represents Handedness finding (finding)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/364940007"
+            "description": "The SNOMED code represents Finding of hand preference (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/366067002"
         }
     ],
-    "enum": ["right handed", "left handed", "ambidextrous","Unknown handedness"]
+    "enum": [
+        "ambidextrous",
+        "left handed",
+        "right handed",
+        "unknown handedness"
+    ]
 }
