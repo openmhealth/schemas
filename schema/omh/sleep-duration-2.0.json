@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "description": "This schema represents sleep duration, either as a single measurement, or as the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures).",
+    "description": "This schema represents sleep duration.",
     "references": [
         {
             "description": "The SNOMED code represents Duration of sleep (observable entity)",
@@ -56,23 +56,10 @@
             "$ref": "#/definitions/descriptive_statistic"
         },
         "statistic_time_denominator": {
-            "description": "An aggregated result of a phenomenon that occurs over a period of time may need a time denominator of the descriptive statistic to specify its meaning. For example, an average sleep duration over a month time frame without further specification is ambiguous. A statistic time denominator value of d specifies that the value is the average daily sleep duration.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/duration_unit_value"
-                },
-                {
-                    "properties": {
-                        "unit": {
-                            "enum": [
-                                "d",
-                                "wk",
-                                "Mo",
-                                "yr"
-                            ]
-                        }
-                    }
-                }
+            "description": "The time denominator of the descriptive statistic. For example if descriptive statistic is 'average', the value d indicates average daily sleep duration.",
+            "type": "string",
+            "enum": [
+                "d"
             ]
         }
     },
