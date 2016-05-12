@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents number of stepn, either as a single measurement, or as the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures).",
+    "description": "This schema represents number of steps.",
 
     "type": "object",
     "references": [
@@ -25,30 +25,24 @@
             "type": "number"
         },
         "effective_time_frame": {
-            "$ref": "#/definitions/time_frame"
+            "description": "As a measure of a duration, step count should not be associated to a date time time frame. Hence, effective time frame is restricted to be a time interval.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": ["time_interval"]
+                }
+            ]
         },
         "descriptive_statistic": {
             "$ref": "#/definitions/descriptive_statistic"
         },
         "statistic_time_denominator": {
-            "description": "The time denominator of the descriptive statistic. For example, in the case of average daily step count, the value would be d.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/duration_unit_value"
-                },
-                {
-                    "properties": {
-                        "unit": {
-                            "enum": [
-                                "min",
-                                "h",
-                                "d",
-                                "wk",
-                                "Mo"
-                            ]
-                        }
-                    }
-                }
+            "description": "The time denominator of the descriptive statistic. For example if descriptive statistic is 'average', the value d indicates average daily step count.",
+            "type": "string",
+            "enum": [
+                "d"
             ]
         }
 
