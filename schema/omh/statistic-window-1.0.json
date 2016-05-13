@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "The window of the descriptive statistic. For example if descriptive statistic is 'average', the value 'd' indicates average daily sleep duration.",
+    "type": "string",
+    "enum": [
+        "d",
+        "episode",
+        "meal",
+        "session"
+    ]
+}
