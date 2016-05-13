@@ -10,5 +10,5 @@
         }
     },
     "descriptive_statistic": "average",
-    "statistic_time_denominator": "d"
+    "statistic_window": "d"
 }

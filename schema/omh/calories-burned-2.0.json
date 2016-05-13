@@ -13,7 +13,7 @@
 
     "definitions": {
         "kcal_unit_value": {
-                "$ref": "kcal-unit-value-1.x.json"
+            "$ref": "kcal-unit-value-1.x.json"
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
@@ -23,6 +23,9 @@
         },
         "descriptive_statistic": {
             "$ref": "descriptive-statistic-1.x.json"
+        },
+        "statistic_window": {
+            "$ref": "statistic-window-1.x.json"
         }
     },
 
@@ -47,11 +50,15 @@
         "descriptive_statistic": {
             "$ref": "#/definitions/descriptive_statistic"
         },
-        "statistic_time_denominator": {
-            "description": "The time denominator of the descriptive statistic. For example if descriptive statistic is 'average', the value d indicates average daily calories burned.",
-            "type": "string",
-            "enum": [
-                "d"
+        "statistic_window": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/statistic_window"
+                },
+                {
+                    "description": "If the value needed is a standard unit of duration, select from the duration-unit-value value set.",
+                    "type": "string"
+                }
             ]
         }
     },
