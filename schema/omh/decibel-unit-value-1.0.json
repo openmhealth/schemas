@@ -16,8 +16,8 @@
                 "unit": {
                     "references": [
                         {
-                            "description": "The unit of measure of the element. The bel is seldom used. This is a “pseudo-unit” because of its standardized definition as being logarithm of a ratio of two measurements with the same kind of quantity.",
-                            "url": "http://unitsofmeasure.org/ucum.html#levels"
+                            "description": "The unit of measure of the element. The bel is seldom used. This is a 'pseudo-unit' because of its standardized definition as being logarithm of a ratio of two measurements with the same kind of quantity.",
+                            "url": "http://unitsofmeasure.org/ucum.html#para-46"
                         }
                     ],
                     "enum": [
