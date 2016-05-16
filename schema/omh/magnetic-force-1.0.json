@@ -14,6 +14,9 @@
         "body_location": {
             "$ref": "body-location-1.x.json"
         },
+        "handedness": {
+            "$ref": "handedness-1.x.json"
+        },
         "descriptive_statistic": {
             "$ref": "descriptive-statistic-1.x.json"
         }
@@ -34,6 +37,9 @@
         },
         "sensor_body_location": {
             "$ref": "#/definitions/body_location"
+        },
+        "handedness": {
+            "$ref": "#/definitions/handedness"
         },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"

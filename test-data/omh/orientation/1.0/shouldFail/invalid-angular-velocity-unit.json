@@ -11,5 +11,9 @@
         "value": 0.0001,
         "unit": "rad/s2"
     },
-    "sensor_body_location": "left hip"
+    "effective_time_frame": {
+        "date_time": "2015-08-18T07:25:00Z"
+    },
+    "sensor_body_location": "left hip",
+    "handedness": "right handed"
 }

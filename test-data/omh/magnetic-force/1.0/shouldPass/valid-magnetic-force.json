@@ -14,5 +14,6 @@
     "effective_time_frame": {
         "date_time": "2015-08-18T07:25:00Z"
     },
-    "sensor_body_location": "left hip"
+    "sensor_body_location": "left hip",
+    "handedness": "left handed"
 }

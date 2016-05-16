@@ -19,9 +19,6 @@
         },
         "descriptive_statistic": {
             "$ref": "descriptive-statistic-1.x.json"
-        },
-        "signal_to_noise_ratio_unit_value": {
-            "$ref": "signal-to-noise-ratio-unit-value-1.x.json"
         }
     },
 
