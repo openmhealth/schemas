@@ -53,5 +53,8 @@
         }
     },
 
-    "required": ["ventilation_cycle_time"]
+    "required": [
+        "ventilation_cycle_time",
+        "effective_time_frame"
+    ]
 }
