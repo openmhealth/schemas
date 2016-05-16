@@ -21,15 +21,12 @@
 
     "properties": {
         "angular_velocity_x": {
-            "description": "Also called pitch.",
             "$ref": "#/definitions/angular_velocity_unit_value"
         },
         "angular_velocity_y": {
-            "description": "Also called roll.",
             "$ref": "#/definitions/angular_velocity_unit_value"
         },
         "angular_velocity_z": {
-            "description": "Also called yaw.",
             "$ref": "#/definitions/angular_velocity_unit_value"
         },
         "sensor_body_location": {
@@ -44,6 +41,7 @@
     },
     "required": [
         "angular_velocity_x",
-        "angular_velocity_y"
+        "angular_velocity_y",
+        "effective_time_frame"
     ]
 }

@@ -44,6 +44,7 @@
     },
     "required": [
         "magnetic_field_strength_x",
-        "magnetic_field_strength_y"
+        "magnetic_field_strength_y",
+        "effective_time_frame"
     ]
 }

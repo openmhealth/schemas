@@ -47,6 +47,7 @@
     },
     "required": [
         "acceleration_x",
-        "acceleration_y"
+        "acceleration_y",
+        "effective_time_frame"
     ]
 }
