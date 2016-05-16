@@ -157,6 +157,5 @@
         "latitude",
         "longitude",
         "effective_time_frame"
-    ],
-    "additionalProperties": false
+    ]
 }
