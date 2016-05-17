@@ -137,7 +137,29 @@
             "description": "Signal-to-noise ratio (SNR) expressed in decibels (dB). The typical value for a good fix is 20-40. The higher the number, the stronger the signal.",
             "type": "array",
             "items": {
-                "$ref": "#/definitions/decibel_unit_value"
+                "allOf": [
+                    {
+                        "$ref": "unit-value-1.0.json"
+                    },
+                    {
+                        "properties": {
+                            "value": {
+                                "type": "integer"
+                            },
+                            "unit": {
+                                "references": [
+                                    {
+                                        "description": "The unit of measure of the element. The bel is seldom used. This is a 'pseudo-unit' because of its standardized definition as being logarithm of a ratio of two measurements with the same kind of quantity.",
+                                        "url": "http://unitsofmeasure.org/ucum.html#para-46"
+                                    }
+                                ],
+                                "enum": [
+                                    "dB"
+                                ]
+                            }
+                        }
+                    }
+                ]
             }
         },
         "number_of_satellites_in_fix": {
@@ -154,5 +176,6 @@
         "latitude",
         "longitude",
         "effective_time_frame"
-    ]
+    ],
+    "additionalProperties": false
 }
