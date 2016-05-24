@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents (walking, running, biking, etc.) pace measurements, i.e. the time it takes to cover a certain distance (km or mile). This is NOT the traditional unit of length of the same name.",
+    "type": "object",
+
+    "definitions": {
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "pace": {
+            "allOf": [
+                {
+                    "$ref": "unit-value-1.0.json"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "min/mi",
+                                "min/km"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+
+    "required": [
+        "pace",
+        "effective_time_frame"
+    ]
+}
