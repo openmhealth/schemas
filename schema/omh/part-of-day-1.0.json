@@ -7,25 +7,34 @@
 
     "references": [
         {
+            "description": "The SNOMED code represents Temporal periods of day (qualifier value)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/272106006"
+        },
+        {
             "value": "morning",
-            "description": "The SNOMED code represents morning (temporal qualifier)",
+            "description": "The SNOMED code represents Morning (temporal qualifier)",
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/73775008"
         },
         {
             "value": "afternoon",
-            "description": "The SNOMED code represents afternoon (temporal qualifier)",
+            "description": "The SNOMED code represents Afternoon (temporal qualifier)",
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/422133006"
         },
         {
             "value": "evening",
-            "description": "The SNOMED code represents evening (temporal qualifier)",
+            "description": "The SNOMED code represents Evening (temporal qualifier)",
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/3157002"
         },
         {
             "value": "night",
-            "description": "The SNOMED code represents night time (temporal qualifier)",
+            "description": "The SNOMED code represents Night time (temporal qualifier)",
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/2546009"
         }
     ],
-    "enum": ["morning", "afternoon", "evening", "night"]
+    "enum": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+    ]
 }
