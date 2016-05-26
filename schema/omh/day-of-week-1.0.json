@@ -7,6 +7,10 @@
 
   "references": [
     {
+      "description": "The SNOMED code represents Days of the week (temporal qualifier)",
+      "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307144000"
+    },
+    {
       "value": "Monday",
       "description": "The SNOMED code represents Monday (temporal qualifier)",
       "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307145004"
@@ -42,5 +46,13 @@
       "url": "http://purl.bioontology.org/ontology/SNOMEDCT/307146003"
     }
   ],
-  "enum": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+  "enum": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ]
 }

@@ -27,32 +27,32 @@
         {
             "value": "before breakfast",
             "description": "The NCIT code represents Before breakfast",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C92679"
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1549040"
         },
         {
             "value": "after breakfast",
             "description": "The NCIT code represents After breakfast",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C92687"
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1550743"
         },
         {
             "value": "before lunch",
             "description": "The NCIT code represents Before lunch",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C92681"
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1550741"
         },
         {
             "value": "after lunch",
             "description": "The NCIT code represents After lunch",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C64600"
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1879668"
         },
         {
             "value": "before dinner",
             "description": "The NCIT code represents Before dinner",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C92682"
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1550742"
         },
         {
             "value": "after dinner",
             "description": "The NCIT code represents After supper or evening meal",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C64602"
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1879671"
         },
         {
             "value": "2 hours postprandial",
