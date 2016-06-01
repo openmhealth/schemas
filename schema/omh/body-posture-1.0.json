@@ -5,8 +5,8 @@
     "description": "The posture of the subject (for example, during a clinical measurement). This value set is not exhaustive.",
     "references": [
         {
-            "description": "The SNOMED code represents Body position finding",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/9851009"
+            "description": "The SNOMED code represents Position of body and posture (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/271605009"
         },
         {
             "value": "sitting",
