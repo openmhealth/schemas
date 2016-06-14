@@ -7,7 +7,7 @@
     "references": [
         {
             "description": "The NCIT codes represent Timespan (synonym: time interval).",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68594"
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0872291"
         }
     ],
 
