@@ -5,7 +5,7 @@
     "references": [
         {
             "description": "The NCIT code represents Dose",
-            "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25488"
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0178602"
         }
     ],
     "definitions": {

@@ -1,0 +1,9 @@
+{
+    "ventilation_cycle_time": {
+        "value": 6,
+        "unit": "s"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00Z"
+    }
+}
