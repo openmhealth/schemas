@@ -63,5 +63,8 @@
         }
     },
 
-    "required": ["kcal_burned","effective_time_frame"]
+    "required": [
+        "kcal_burned",
+        "effective_time_frame"
+    ]
 }

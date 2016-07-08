@@ -71,5 +71,8 @@
         }
     },
 
-    "required": ["sleep_duration","effective_time_frame"]
+    "required": [
+        "sleep_duration",
+        "effective_time_frame"
+    ]
 }

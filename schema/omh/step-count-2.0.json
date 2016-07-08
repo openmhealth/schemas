@@ -54,5 +54,8 @@
         }
     },
 
-    "required": ["step_count","effective_time_frame"]
+    "required": [
+        "step_count",
+        "effective_time_frame"
+    ]
 }
