@@ -1,7 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "The window of the descriptive statistic. For example in the context of sleep duration, if the descriptive statistic is 'average' and the statistic window is 'd' the value describes average daily sleep duration during the period delimited by the effective time frame; in the context of step count, if the descriptive statistic is 'maximum' and the statistic window is 'session' the value describes maximum step count per session during the period delimited by the effective time frame.",    "type": "string",
+    "description": "The window of the descriptive statistic. For example in the context of sleep duration, if the descriptive statistic is 'average' and the statistic window is 'd' the value describes average daily sleep duration during the period delimited by the effective time frame; in the context of step count, if the descriptive statistic is 'maximum' and the statistic window is 'session' the value describes maximum step count per session during the period delimited by the effective time frame.",
+    "type": "string",
     "enum": [
         "d",
         "episode",
