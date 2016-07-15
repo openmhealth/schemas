@@ -10,6 +10,9 @@
         }
     ],
     "definitions": {
+        "speed_unit_value": {
+            "$ref": "speed-unit-value-1.x.json"
+        },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
         },
@@ -20,28 +23,7 @@
 
     "properties": {
         "speed": {
-            "allOf": [
-                {
-                    "$ref": "unit-value-1.0.json"
-                },
-                {
-                    "properties": {
-                        "unit": {
-                            "references": [
-                                {
-                                    "description": "The unit of measure of the element. Basic units are meter and second.",
-                                    "url": "http://unitsofmeasure.org/ucum.html#section-Base-Units"
-                                }
-                            ],
-                            "enum": [
-                                "m/s",
-                                "km/h",
-                                "mph"
-                            ]
-                        }
-                    }
-                }
-            ]
+            "$ref": "#/definitions/speed_unit_value"
         },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"

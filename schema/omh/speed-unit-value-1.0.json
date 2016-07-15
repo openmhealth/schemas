@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a speed (space over time).",
+    "type": "object",
+    "references": [
+        {
+            "description": "The NCIT code represents Speed.",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0678536"
+        }
+    ],
+    "allOf": [
+        {
+            "$ref": "unit-value-1.0.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Basic units are meter and second.",
+                            "url": "http://unitsofmeasure.org/ucum.html#section-Base-Units"
+                        }
+                    ],
+                    "enum": [
+                        "m/s",
+                        "km/h",
+                        "mph"
+                    ]
+                }
+            }
+        }
+    ]
+}
