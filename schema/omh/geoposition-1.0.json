@@ -11,9 +11,6 @@
         "length_unit_value": {
             "$ref": "length-unit-value-1.x.json"
         },
-        "decibel_unit_value": {
-            "$ref": "decibel-unit-value-1.x.json"
-        },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
         },
