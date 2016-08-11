@@ -1,12 +1,12 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents the time measurement between the R wave of a person's successive heartbeats.",
+    "description": "This schema represents the duration of a person's complete respiration.",
     "type": "object",
     "references": [
         {
-            "description": "The NCIT code represents the time measurement between the R wave of successive heartbeats as measured in milliseconds.",
-            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0489636"
+            "description": "The SNOMED code represents Ventilation cycle time (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/250818005"
         }
     ],
 
@@ -26,7 +26,7 @@
     },
 
     "properties": {
-        "rr_interval": {
+        "ventilation_cycle_time": {
             "allOf": [
                 {
                     "$ref": "#/definitions/duration_unit_value"
@@ -35,7 +35,7 @@
                     "properties": {
                         "unit": {
                             "enum": [
-                                "ms"
+                                "sec"
                             ]
                         }
                     }
@@ -53,5 +53,8 @@
         }
     },
 
-    "required": ["rr_interval"]
+    "required": [
+        "ventilation_cycle_time",
+        "effective_time_frame"
+    ]
 }

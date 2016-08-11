@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a person's body temperature.",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents body temperature (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/386725007"
+        }
+    ],
+
+    "definitions": {
+        "temperature_unit_value": {
+            "$ref": "temperature-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "temporal-relationship-to-sleep-1.x.json"
+        }
+    },
+
+    "properties": {
+        "body_temperature": {
+            "$ref": "#/definitions/temperature_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "measurement_location": {
+            "description": "The value set is taken from SNOMED CT and LOINC. For common temperature locations, the adjective is used rather than the actual location name (e.g., axillary rather than armpit). Forehead indicates the use of a disposable strip.",
+            "type": "string",
+            "enum": [
+                "axillary",
+                "finger",
+                "forehead",
+                "oral",
+                "rectal",
+                "temporal artery",
+                "toe",
+                "tympanic",
+                "wrist",
+                "vagina"
+            ]
+        },
+
+        "temporal_relationship_to_sleep": {
+            "description": "The temporal relationship to sleep of the temperature measurement(s). The lowest body temperature attained during rest, usually estimated by a temperature measurement immediately on waking up and before any physical activity has been undertaken is called basal temperature.",
+            "$ref": "#/definitions/temporal_relationship_to_sleep"
+        }
+    },
+    "required": ["body_temperature"]
+}

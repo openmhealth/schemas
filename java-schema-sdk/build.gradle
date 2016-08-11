@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Open mHealth
+ * Copyright 2016 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray' // see https://github.com/bintray/gradle-bintray-plugin for details
 
 archivesBaseName = 'omh-schema-sdk'
-version = '1.0.5-SNAPSHOT'
+version = '1.0.7-SNAPSHOT'
 
 ext {
     jacksonVersion = '2.6.3'
