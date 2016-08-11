@@ -20,12 +20,11 @@
                 "unit": {
                     "references": [
                         {
-                            "description": "The unit of measure of the element.",
-                            "url": "http://unitsofmeasure.org/ucum.html#datyp2apdxatblxmp"
+                            "description": "The unit of measure of the element."
                         }
                     ],
                     "enum": [
-                        "m/s2"
+                        "m/s^2"
                     ]
                 }
             }
