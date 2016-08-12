@@ -5,8 +5,8 @@
     "type": "object",
 
     "definitions": {
-        "pace_unit_value":{
-            "$ref": "pace-unit-value-1.x.json"
+        "unit_value": {
+            "$ref": "unit-value-1.0.json"
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
@@ -18,7 +18,21 @@
 
     "properties": {
         "pace": {
-            "$ref": "#/definitions/pace_unit_value"
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "min/mi",
+                                "min/km"
+                            ]
+                        }
+                    }
+                }
+            ]
         },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
@@ -31,5 +45,6 @@
     "required": [
         "pace",
         "effective_time_frame"
-    ]
+    ],
+    "additionalProperties": false
 }
