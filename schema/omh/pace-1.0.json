@@ -45,6 +45,5 @@
     "required": [
         "pace",
         "effective_time_frame"
-    ],
-    "additionalProperties": false
+    ]
 }
