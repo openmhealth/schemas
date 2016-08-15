@@ -5,8 +5,8 @@
     "type": "object",
     "references": [
         {
-            "description": "The NCIT code represents Speed.",
-            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0678536"
+            "description": "The SNOMED code represents Velocity (property) (qualifier value)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/118592000"
         }
     ],
     "allOf": [
