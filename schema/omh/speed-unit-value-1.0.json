@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
 
-    "description": "This schema represents a speed (space over time).",
+    "description": "This schema represents a speed (distance over time).",
     "type": "object",
     "references": [
         {
@@ -11,7 +11,7 @@
     ],
     "allOf": [
         {
-            "$ref": "unit-value-1.0.json"
+            "$ref": "unit-value-1.x.json"
         },
         {
             "properties": {
