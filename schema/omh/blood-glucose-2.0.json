@@ -1,0 +1,87 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a person's blood glucose level.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Blood glucose level (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/365812005"
+        }
+    ],
+
+    "definitions": {
+        "unit_value": {
+            "$ref": "unit-value-1.x.json"
+        },
+        "specimen_source": {
+            "$ref": "specimen-source-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "temporal_relationship_to_meal": {
+            "$ref": "temporal-relationship-to-meal-1.x.json"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "temporal-relationship-to-sleep-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "blood_glucose": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "mg/dL",
+                                "mmol/L"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "specimen_source": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/specimen_source"
+                },
+                {
+                    "enum": [
+                        "interstitial fluid",
+                        "capillary blood",
+                        "plasma",
+                        "serum",
+                        "tears",
+                        "whole blood"
+                    ]
+                }
+            ]
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "temporal_relationship_to_meal": {
+            "$ref": "#/definitions/temporal_relationship_to_meal"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "#/definitions/temporal_relationship_to_sleep"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "user_notes": {
+            "type": "string"
+        }
+    },
+    "required": ["blood_glucose"]
+}

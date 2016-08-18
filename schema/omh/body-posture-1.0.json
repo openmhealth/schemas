@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "type": "string",
+    "description": "The posture of the subject (for example, during a clinical measurement). This value set is not exhaustive.",
+    "references": [
+        {
+            "description": "The SNOMED code represents Position of body and posture (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/271605009"
+        },
+        {
+            "value": "sitting",
+            "description": "The SNOMED code represents Sitting position (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/33586001"
+        },
+        {
+            "value": "lying down",
+            "description": "The SNOMED code represents Lying (Recumbent) position (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/102538003"
+        },
+        {
+            "value": "standing",
+            "description": "The SNOMED code represents Standing position (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/10904000"
+        },
+        {
+            "value": "semi-recumbent",
+            "description": "The SNOMED code represents Semi-recumbent position (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/272580008"
+        }
+    ],
+    "enum": [
+        "sitting",
+        "lying down",
+        "standing",
+        "semi-recumbent"
+    ]
+}

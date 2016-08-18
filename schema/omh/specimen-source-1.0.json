@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "type": "string",
+    "description": "The source of the specimen analyzed. This is an incomplete value set. More values will be added soon.",
+    "references": [
+        {
+            "description": "The SNOMED code represents Body substance sample (specimen)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/309050000"
+        }
+    ],
+
+    "enum": [
+        "interstitial fluid",
+        "capillary blood",
+        "plasma",
+        "serum",
+        "tears",
+        "whole blood"
+    ]
+}

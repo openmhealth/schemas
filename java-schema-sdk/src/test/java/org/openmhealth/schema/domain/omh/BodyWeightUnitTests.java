@@ -19,16 +19,14 @@ package org.openmhealth.schema.domain.omh;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
-import static java.time.ZoneOffset.UTC;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MINIMUM;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.MassUnit.KILOGRAM;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_POINT_IN_TIME;
 
 
 /**
@@ -63,19 +61,15 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
 
         MassUnitValue massUnitValue = new MassUnitValue(KILOGRAM, BigDecimal.valueOf(65));
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         BodyWeight bodyWeight = new BodyWeight.Builder(massUnitValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(bodyWeight, notNullValue());
         assertThat(bodyWeight.getBodyWeight(), equalTo(massUnitValue));
-        assertThat(bodyWeight.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(bodyWeight.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(bodyWeight.getDescriptiveStatistic(), equalTo(AVERAGE));
         assertThat(bodyWeight.getUserNotes(), equalTo("feeling fine"));
     }
@@ -84,15 +78,14 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
     public void buildShouldConstructMeasureUsingDateTimeTimeFrame() {
 
         MassUnitValue massUnitValue = new MassUnitValue(KILOGRAM, BigDecimal.valueOf(65));
-        OffsetDateTime effectiveDateTime = OffsetDateTime.now();
 
         BodyWeight bodyWeight = new BodyWeight.Builder(massUnitValue)
-                .setEffectiveTimeFrame(effectiveDateTime)
+                .setEffectiveTimeFrame(FIXED_POINT_IN_TIME)
                 .build();
 
         assertThat(bodyWeight, notNullValue());
         assertThat(bodyWeight.getBodyWeight(), equalTo(massUnitValue));
-        assertThat(bodyWeight.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveDateTime)));
+        assertThat(bodyWeight.getEffectiveTimeFrame(), equalTo(FIXED_POINT_IN_TIME));
         assertThat(bodyWeight.getDescriptiveStatistic(), nullValue());
     }
 
@@ -106,13 +99,8 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
 
         MassUnitValue massUnitValue = new MassUnitValue(KILOGRAM, BigDecimal.valueOf(50));
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofStartDateTimeAndEndDateTime(
-                OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, UTC),
-                OffsetDateTime.of(2013, 6, 5, 7, 25, 0, 0, UTC)
-        );
-
         BodyWeight bodyWeight = new BodyWeight.Builder(massUnitValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MINIMUM)
                 .build();
 
@@ -123,8 +111,8 @@ public class BodyWeightUnitTests extends SerializationUnitTests {
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"start_date_time\": \"2013-02-05T07:25:00Z\",\n" +
-                "            \"end_date_time\": \"2013-06-05T07:25:00Z\"\n" +
+                "            \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    },\n" +
                 "    \"descriptive_statistic\": \"minimum\"\n" +

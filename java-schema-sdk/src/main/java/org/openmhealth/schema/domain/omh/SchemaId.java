@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Open mHealth
+ * Copyright 2016 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,8 +37,10 @@ import static java.util.regex.Pattern.compile;
  */
 public class SchemaId implements Comparable<SchemaId>, SchemaSupport {
 
-    public static final Pattern NAMESPACE_PATTERN = compile("[a-zA-Z0-9.-]+");
-    public static final Pattern NAME_PATTERN = compile("[a-zA-Z0-9-]+");
+    public static final String NAMESPACE_PATTERN_STRING = "[a-zA-Z0-9.-]+";
+    public static final Pattern NAMESPACE_PATTERN = compile(NAMESPACE_PATTERN_STRING);
+    public static final String NAME_PATTERN_STRING = "[a-zA-Z0-9-]+";
+    public static final Pattern NAME_PATTERN = compile(NAME_PATTERN_STRING);
 
     public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "schema-id", "1.0");
 

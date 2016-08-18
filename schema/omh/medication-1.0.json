@@ -20,7 +20,7 @@
                 "references": [
                     {
                         "description": "The NCIT code represents Pharmaceutical Strength",
-                        "url": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C53294"
+                        "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1705922"
                     }
                 ],
                 "allOf": [

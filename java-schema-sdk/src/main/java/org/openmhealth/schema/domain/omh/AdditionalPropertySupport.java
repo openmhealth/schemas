@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Open mHealth
+ * Copyright 2016 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,10 @@ package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.google.common.base.Splitter;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Optional;
 
@@ -34,18 +37,41 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public interface AdditionalPropertySupport {
 
     /**
-     * Sets an additional property.
+     * Sets an additional property. This method supports dot-separated paths by creating nested maps when necessary.
      *
-     * @param name the name of the property to set
+     * @param path  the path of the property to set
      * @param value the value of the property to set
      */
+    @SuppressWarnings("unchecked")
     @JsonAnySetter
-    default void setAdditionalProperty(String name, Object value) {
+    default void setAdditionalProperty(String path, Object value) {
 
-        checkNotNull(name, "A name hasn't been specified.");
-        checkArgument(!name.isEmpty(), "An empty name has been specified.");
+        checkNotNull(path, "A path hasn't been specified.");
+        checkArgument(!path.isEmpty(), "An empty path has been specified.");
 
-        getAdditionalProperties().put(name, value);
+        Iterator<String> names = Splitter.on(".").omitEmptyStrings().split(path).iterator();
+        Map<String, Object> currentCollection = getAdditionalProperties();
+
+        while (names.hasNext()) {
+            String currentName = names.next();
+
+            // set the value, potentially overriding an existing value
+            if (!names.hasNext()) {
+                currentCollection.put(currentName, value);
+                break;
+            }
+
+            // traverse into a collection if one exists
+            if (currentCollection.get(currentName) instanceof Map) {
+                currentCollection = (Map<String, Object>) currentCollection.get(currentName);
+                continue;
+            }
+
+            // create a new collection, potentially overriding an existing value
+            Map<String, Object> map = new HashMap<>();
+            currentCollection.put(currentName, map);
+            currentCollection = map;
+        }
     }
 
     /**

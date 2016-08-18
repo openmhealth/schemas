@@ -29,16 +29,20 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temporal-relationship-to-physical-activity">temporal
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temporal-relationship-to-physical-activity">temporal
  * -relationship-to-physical-activity</a>
  */
-public enum TemporalRelationshipToPhysicalActivity implements SchemaEnumValue {
+public enum TemporalRelationshipToPhysicalActivity implements SchemaEnumValue, SchemaSupport {
 
     AT_REST,
     ACTIVE,
     BEFORE_EXERCISE,
     AFTER_EXERCISE,
     DURING_EXERCISE;
+
+    public static final SchemaId SCHEMA_ID =
+            new SchemaId(OMH_NAMESPACE, "temporal-relationship-to-physical-activity", "1.0");
 
     private String schemaValue;
     private static final Map<String, TemporalRelationshipToPhysicalActivity> constantsBySchemaValue = new HashMap<>();
@@ -51,6 +55,11 @@ public enum TemporalRelationshipToPhysicalActivity implements SchemaEnumValue {
 
     TemporalRelationshipToPhysicalActivity() {
         this.schemaValue = name().toLowerCase().replace('_', ' ');
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     @Override

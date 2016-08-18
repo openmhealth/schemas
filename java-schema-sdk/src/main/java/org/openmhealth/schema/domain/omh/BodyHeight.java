@@ -44,7 +44,7 @@ public class BodyHeight extends Measure {
     protected BodyHeight() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<BodyHeight, Builder> {
 
         private LengthUnitValue bodyHeight;
 

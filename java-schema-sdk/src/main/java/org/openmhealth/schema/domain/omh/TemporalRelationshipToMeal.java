@@ -29,10 +29,11 @@ import java.util.Map;
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temporal-relationship-to-meal">temporal-relationship
+ * @see
+ * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_temporal-relationship-to-meal">temporal-relationship
  * -to-meal</a>
  */
-public enum TemporalRelationshipToMeal implements SchemaEnumValue {
+public enum TemporalRelationshipToMeal implements SchemaEnumValue, SchemaSupport {
 
     FASTING,
     NOT_FASTING,
@@ -45,6 +46,8 @@ public enum TemporalRelationshipToMeal implements SchemaEnumValue {
     BEFORE_DINNER,
     AFTER_DINNER,
     TWO_HOURS_POSTPRANDIAL("2 hours postprandial");
+
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "temporal-relationship-to-meal", "1.0");
 
     private String schemaValue;
     private static final Map<String, TemporalRelationshipToMeal> constantsBySchemaValue = new HashMap<>();
@@ -61,6 +64,11 @@ public enum TemporalRelationshipToMeal implements SchemaEnumValue {
 
     TemporalRelationshipToMeal(String schemaValue) {
         this.schemaValue = schemaValue;
+    }
+
+    @Override
+    public SchemaId getSchemaId() {
+        return SCHEMA_ID;
     }
 
     @Override

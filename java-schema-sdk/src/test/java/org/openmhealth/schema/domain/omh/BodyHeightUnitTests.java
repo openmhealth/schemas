@@ -19,17 +19,13 @@ package org.openmhealth.schema.domain.omh;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
 
-import static java.math.BigDecimal.TEN;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
-import static org.openmhealth.schema.domain.omh.DurationUnit.DAY;
 import static org.openmhealth.schema.domain.omh.LengthUnit.CENTIMETER;
-import static org.openmhealth.schema.domain.omh.PartOfDay.MORNING;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
@@ -64,19 +60,15 @@ public class BodyHeightUnitTests extends SerializationUnitTests {
 
         LengthUnitValue lengthUnitValue = new LengthUnitValue(CENTIMETER, BigDecimal.valueOf(180));
 
-        TimeInterval effectiveTimeInterval = TimeInterval.ofEndDateTimeAndDuration(
-                OffsetDateTime.now(),
-                new DurationUnitValue(DAY, TEN));
-
         BodyHeight bodyHeight = new BodyHeight.Builder(lengthUnitValue)
-                .setEffectiveTimeFrame(effectiveTimeInterval)
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(bodyHeight, notNullValue());
         assertThat(bodyHeight.getBodyHeight(), equalTo(lengthUnitValue));
-        assertThat(bodyHeight.getEffectiveTimeFrame(), equalTo(new TimeFrame(effectiveTimeInterval)));
+        assertThat(bodyHeight.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(bodyHeight.getDescriptiveStatistic(), equalTo(AVERAGE));
         assertThat(bodyHeight.getUserNotes(), equalTo("feeling fine"));
     }
@@ -91,7 +83,7 @@ public class BodyHeightUnitTests extends SerializationUnitTests {
 
         BodyHeight bodyHeight = new BodyHeight
                 .Builder(new LengthUnitValue(CENTIMETER, BigDecimal.valueOf(180)))
-                .setEffectiveTimeFrame(TimeInterval.ofDateAndPartOfDay(LocalDate.of(2013, 2, 5), MORNING))
+                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MEDIAN)
                 .build();
 
@@ -102,8 +94,8 @@ public class BodyHeightUnitTests extends SerializationUnitTests {
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
-                "            \"date\": \"2013-02-05\",\n" +
-                "            \"part_of_day\": \"morning\"\n" +
+                "            \"start_date_time\": \"2015-10-01T00:00:00-07:00\",\n" +
+                "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    },\n" +
                 "    \"descriptive_statistic\": \"median\"\n" +

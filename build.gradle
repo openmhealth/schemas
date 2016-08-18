@@ -15,6 +15,13 @@
  */
 
 subprojects {
+    buildscript {
+        repositories {
+            mavenLocal()
+            jcenter()
+        }
+    }
+
     apply plugin: 'java'
 
     repositories {
@@ -33,5 +40,5 @@ subprojects {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    gradleVersion = '2.6'
 }

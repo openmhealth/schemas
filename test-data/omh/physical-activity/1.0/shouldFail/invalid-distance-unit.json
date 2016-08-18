@@ -1,0 +1,14 @@
+{
+    "activity_name": "walking",
+    "distance": {
+        "value": 3.2,
+        "unit": "miles"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2015-02-06T06:25:00Z",
+            "end_date_time": "2015-02-06T07:25:00Z"
+        }
+    },
+    "met_value": 3.5
+}

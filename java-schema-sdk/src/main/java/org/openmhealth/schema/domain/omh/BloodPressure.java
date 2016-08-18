@@ -46,7 +46,7 @@ public class BloodPressure extends Measure {
     protected BloodPressure() {
     }
 
-    public static class Builder extends Measure.Builder<Builder> {
+    public static class Builder extends Measure.Builder<BloodPressure, Builder> {
 
         private SystolicBloodPressure systolicBloodPressure;
         private DiastolicBloodPressure diastolicBloodPressure;

@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.openmhealth.schema.serializer.Rfc3339OffsetDateTimeSerializer;
 
 import java.time.OffsetDateTime;
@@ -44,8 +44,11 @@ public class JacksonConfiguration {
         // we serialize dates, date times, and times as strings, not numbers
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
+        // we preserve time zone offsets when deserializing
+        objectMapper.disable(DeserializationFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE);
+
         // we default to the ISO8601 format for JSR-310 and support Optional
-        objectMapper.registerModule(new JSR310Module());
+        objectMapper.registerModule(new JavaTimeModule());
         objectMapper.registerModule(new Jdk8Module());
 
         // but we have to explicitly support the RFC3339 format over ISO8601 to make JSON Schema happy, specifically to
@@ -53,7 +56,6 @@ public class JacksonConfiguration {
         SimpleModule rfc3339Module = new SimpleModule("rfc3339Module");
         rfc3339Module.addSerializer(new Rfc3339OffsetDateTimeSerializer(OffsetDateTime.class));
         objectMapper.registerModule(rfc3339Module);
-
 
         return objectMapper;
     }

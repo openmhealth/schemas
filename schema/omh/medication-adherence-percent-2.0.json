@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents summary adherence to a prescription as percent over a time period.",
+
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Adherence to medication regime",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/418633004"
+        }
+    ],
+    "definitions": {
+        "medication_prescription": {
+            "$ref": "medication-prescription-2.x.json"
+        },
+        "unit_value": {
+            "$ref": "unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        }
+    },
+    "properties": {
+        "medication_prescription": {
+            "$ref": "#/definitions/medication_prescription"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "medication_adherence_percent": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "%"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "required": [
+        "medication_prescription",
+        "medication_adherence_percent"
+    ]
+}

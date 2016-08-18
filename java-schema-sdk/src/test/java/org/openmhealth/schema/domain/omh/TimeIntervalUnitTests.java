@@ -160,7 +160,7 @@ public class TimeIntervalUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void ofStartDateTimeAndEndDateTimeShouldSerializeCorrectly() throws Exception {
+    public void ofStartDateTimeAndEndDateTimeShouldSerializeCorrectlyWithoutOffsets() throws Exception {
 
         OffsetDateTime startDateTime = OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, ZoneOffset.UTC);
         OffsetDateTime endDateTime = OffsetDateTime.of(2013, 2, 5, 7, 35, 20, 0, ZoneOffset.UTC);
@@ -177,7 +177,24 @@ public class TimeIntervalUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void ofStartDateTimeAndDurationShouldSerializeCorrectly() throws Exception {
+    public void ofStartDateTimeAndEndDateTimeShouldSerializeCorrectlyWithOffsets() throws Exception {
+
+        OffsetDateTime startDateTime = OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, ZoneOffset.ofHours(1));
+        OffsetDateTime endDateTime = OffsetDateTime.of(2013, 2, 5, 7, 35, 20, 0, ZoneOffset.ofHours(-1));
+
+        TimeInterval timeInterval = TimeInterval.ofStartDateTimeAndEndDateTime(startDateTime, endDateTime);
+
+        String document = "{\n" +
+                "    \"start_date_time\": \"2013-02-05T07:25:00+01:00\",\n" +
+                "    \"end_date_time\": \"2013-02-05T07:35:20-01:00\"\n" +
+                "}";
+
+        serializationShouldCreateValidDocument(timeInterval, document);
+        deserializationShouldCreateValidObject(document, timeInterval);
+    }
+
+    @Test
+    public void ofStartDateTimeAndDurationShouldSerializeCorrectlyWithoutOffsets() throws Exception {
 
         OffsetDateTime startDateTime = OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, ZoneOffset.UTC);
         DurationUnitValue duration = new DurationUnitValue(DurationUnit.DAY, ONE);
@@ -197,7 +214,27 @@ public class TimeIntervalUnitTests extends SerializationUnitTests {
     }
 
     @Test
-    public void ofEndDateTimeAndDurationShouldSerializeCorrectly() throws Exception {
+    public void ofStartDateTimeAndDurationShouldSerializeCorrectlyWithOffsets() throws Exception {
+
+        OffsetDateTime startDateTime = OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, ZoneOffset.ofHours(1));
+        DurationUnitValue duration = new DurationUnitValue(DurationUnit.DAY, ONE);
+
+        TimeInterval timeInterval = TimeInterval.ofStartDateTimeAndDuration(startDateTime, duration);
+
+        String document = "{\n" +
+                "    \"start_date_time\": \"2013-02-05T07:25:00+01:00\",\n" +
+                "    \"duration\": {\n" +
+                "        \"value\": 1,\n" +
+                "        \"unit\": \"d\"\n" +
+                "    }\n" +
+                "}";
+
+        serializationShouldCreateValidDocument(timeInterval, document);
+        deserializationShouldCreateValidObject(document, timeInterval);
+    }
+
+    @Test
+    public void ofEndDateTimeAndDurationShouldSerializeCorrectlyWithoutOffsets() throws Exception {
 
         OffsetDateTime endDateTime = OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, ZoneOffset.UTC);
         DurationUnitValue duration = new DurationUnitValue(DurationUnit.DAY, ONE);
@@ -206,6 +243,26 @@ public class TimeIntervalUnitTests extends SerializationUnitTests {
 
         String document = "{\n" +
                 "    \"end_date_time\": \"2013-02-05T07:25:00Z\",\n" +
+                "    \"duration\": {\n" +
+                "        \"value\": 1,\n" +
+                "        \"unit\": \"d\"\n" +
+                "    }\n" +
+                "}";
+
+        serializationShouldCreateValidDocument(timeInterval, document);
+        deserializationShouldCreateValidObject(document, timeInterval);
+    }
+
+    @Test
+    public void ofEndDateTimeAndDurationShouldSerializeCorrectlyWithOffsets() throws Exception {
+
+        OffsetDateTime endDateTime = OffsetDateTime.of(2013, 2, 5, 7, 25, 0, 0, ZoneOffset.ofHours(1));
+        DurationUnitValue duration = new DurationUnitValue(DurationUnit.DAY, ONE);
+
+        TimeInterval timeInterval = TimeInterval.ofEndDateTimeAndDuration(endDateTime, duration);
+
+        String document = "{\n" +
+                "    \"end_date_time\": \"2013-02-05T07:25:00+01:00\",\n" +
                 "    \"duration\": {\n" +
                 "        \"value\": 1,\n" +
                 "        \"unit\": \"d\"\n" +
