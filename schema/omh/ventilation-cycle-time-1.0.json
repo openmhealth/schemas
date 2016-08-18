@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the duration of a person's complete respiration.",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Ventilation cycle time (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/250818005"
+        }
+    ],
+
+    "definitions": {
+        "duration_unit_value": {
+            "$ref": "duration-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        },
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "temporal-relationship-to-physical-activity-1.x.json"
+        }
+    },
+
+    "properties": {
+        "ventilation_cycle_time": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/duration_unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "sec"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "#/definitions/temporal_relationship_to_physical_activity"
+        }
+    },
+
+    "required": [
+        "ventilation_cycle_time",
+        "effective_time_frame"
+    ]
+}

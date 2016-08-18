@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Open mHealth
+ * Copyright 2016 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ public class SchemaFile {
      * This pattern corresponds to the current layout in the /schema directory. The metadata extracted from the URI
      * should probably live in the schema itself.
      */
-    public static final Pattern SCHEMA_URI_PATTERN = compile("/([a-z-]+)/([a-z-]+)-([^-]+)\\.json$");
+    public static final Pattern SCHEMA_URI_PATTERN = compile("/([a-z0-9-]+)/([a-z0-9-]+)-([^-]+)\\.json$");
 
     private SchemaId schemaId;
     private URI location;

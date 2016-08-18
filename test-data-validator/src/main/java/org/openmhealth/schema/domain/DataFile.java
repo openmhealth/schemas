@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Open mHealth
+ * Copyright 2016 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ import static org.openmhealth.schema.domain.DataFileValidationResult.PASS;
 public class DataFile {
 
     public static final Pattern TEST_DATA_URI_PATTERN =
-            compile("/([a-z-]+)/([a-z-]+)/([^/]+)/(shouldPass|shouldFail)/([a-z-]+)\\.json$");
+            compile("/([a-z0-9-]+)/([a-z0-9-]+)/([^/]+)/(shouldPass|shouldFail)/([a-z0-9-]+)\\.json$");
 
     private String name;
     private URI location;
