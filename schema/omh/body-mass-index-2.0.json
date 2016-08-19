@@ -49,5 +49,8 @@
         }
     },
 
-    "required": ["body_mass_index"]
+    "required": [
+        "body_mass_index",
+        "effective_time_frame"
+    ]
 }
