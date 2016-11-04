@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "This schema represents a part of ecg",
+
+  "type": "object",
+
+  "definitions": {
+       "time_frame": {
+           "$ref": "time-frame-1.x.json"
+       },
+       "temporal_relationship_to_physical_activity": {
+           "$ref": "temporal-relationship-to-physical-activity-1.x.json"
+       },
+
+       "values": {
+           "type":"array",
+           "items":{
+             "type": "integer",
+             "maximum":250,
+             "minimum":0
+           },
+           "minItems":500,
+           "maxItems":500
+       },
+
+       "part_number": {
+         "type":"integer",
+         "minimum": 0
+       },
+
+       "unit":{
+          "type":"string",
+          "enum":["microVolt", "uV"]
+       }
+   },
+
+  "properties":{
+    "ecg_data": {
+      "type":"object",
+      "properties":{
+        "values": {
+          "$ref": "#/definitions/values"
+        },
+        "part_number":{
+          "$ref": "#/definitions/part_number"
+        },
+        "unit": {
+          "$ref": "#/definitions/unit"
+        }
+      },
+      "required": ["values", "part_number","unit"]
+    },
+
+   	"effective_time_frame": {
+      "$ref": "#/definitions/time_frame"
+    },
+
+    "temporal_relationship_to_physical_activity": {
+      "$ref": "#/definitions/temporal_relationship_to_physical_activity"
+    }
+  },
+
+  "required": ["ecg_data", "effective_time_frame"]
+}
