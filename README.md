@@ -15,7 +15,7 @@ that it uses is located in the [test-data](test-data) directory.
 The [Java SDK](java-schema-sdk) helps you produce and consume Open mHealth compliant data in your Java, Groovy, and Scala applications. 
 
 ## Tooling
-There are a few tools which are well suited to working with the schemas and source code in this repository.
+There are a few tools which are well-suited to working with the schemas and source code in this repository.
 
 * [Git](http://git-scm.com/downloads) to be able to pull the code
 * some text editor, preferably one that can do syntax highlighting for JSON documents
