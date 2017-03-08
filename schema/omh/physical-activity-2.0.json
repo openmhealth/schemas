@@ -39,7 +39,7 @@
             "$ref": "#/definitions/length_unit_value"
         },
         "effective_duration": {
-            "description": "This is the net duration of an episode of physical activity. The net duration can be less than the time interval defined by effective time frame if the person paused during the activity.",
+            "description": "The net duration of an episode of physical activity. The net duration can be less than the time interval defined by effective time frame if the person paused during the activity.",
             "allOf": [
                 {
                     "$ref": "#/definitions/duration_unit_value"

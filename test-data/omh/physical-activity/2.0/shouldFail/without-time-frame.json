@@ -1,0 +1,8 @@
+{
+    "activity_name": "walking",
+    "distance": {
+        "value": 3.2,
+        "unit": "mi"
+    },
+    "reported_activity_intensity": "moderate"
+}
