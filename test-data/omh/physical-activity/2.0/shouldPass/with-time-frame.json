@@ -1,9 +1,5 @@
 {
-    "activity_name": "walking",
-    "distance": {
-        "value": 3.2,
-        "unit": "mi"
-    },
+    "activity_name": "golf",
     "effective_time_frame": {
         "time_interval": {
             "start_date_time": "2015-02-06T06:25:00Z",
