@@ -18,8 +18,8 @@
         "descriptive_statistic": {
             "$ref": "descriptive-statistic-1.0.json"
         },
-        "statistic_window": {
-            "$ref": "statistic-window-1.x.json"
+        "descriptive_statistic_denominator": {
+            "$ref": "descriptive-statistic-denominator-1.x.json"
         }
     },
 
@@ -41,10 +41,10 @@
         "descriptive_statistic": {
             "$ref": "#/definitions/descriptive_statistic"
         },
-        "statistic_window": {
+        "descriptive_statistic_denominator": {
             "anyOf": [
                 {
-                    "$ref": "#/definitions/statistic_window"
+                    "$ref": "#/definitions/descriptive_statistic_denominator"
                 },
                 {
                     "description": "If the value needed is a standard unit of duration, select from the duration-unit-value value set.",

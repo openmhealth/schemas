@@ -7,5 +7,5 @@
         }
     },
     "descriptive_statistic": "average",
-    "statistic_window": "d"
+    "descriptive_statistic_denominator": "d"
 }

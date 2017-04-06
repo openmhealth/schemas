@@ -7,5 +7,5 @@
         }
     },
     "descriptive_statistic": "maximum",
-    "descriptive_statistic_denominator": "d"
+    "descriptive_statistic_denominator": "session"
 }
