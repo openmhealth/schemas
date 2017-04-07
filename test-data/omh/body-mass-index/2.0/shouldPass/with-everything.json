@@ -1,0 +1,13 @@
+{
+    "body_mass_index": {
+        "value": 16,
+        "unit": "kg/m^2"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2013-01-01T00:00:00Z",
+            "end_date_time": "2013-12-31T23:59:59Z"
+        }
+    },
+    "descriptive_statistic": "maximum"
+}
