@@ -1,0 +1,9 @@
+{
+    "body_mass_index": {
+        "value": 16,
+        "unit": "kg/m^2"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-01-01T00:00:00Z"
+    }
+}
