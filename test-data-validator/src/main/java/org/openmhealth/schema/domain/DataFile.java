@@ -38,7 +38,7 @@ import static org.openmhealth.schema.domain.DataFileValidationResult.PASS;
 public class DataFile {
 
     public static final Pattern TEST_DATA_URI_PATTERN =
-            compile("/([a-z0-9-]+)/([a-z0-9-]+)/([^/]+)/(shouldPass|shouldFail)/([a-z-]+)\\.json$");
+            compile("/([a-z0-9-]+)/([a-z0-9-]+)/([^/]+)/(shouldPass|shouldFail)/([a-z0-9-]+)\\.json$");
 
     private String name;
     private URI location;
