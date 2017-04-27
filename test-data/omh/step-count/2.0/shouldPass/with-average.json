@@ -1,0 +1,11 @@
+{
+    "step_count": 12000,
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2016-05-05T07:00:00Z",
+            "end_date_time": "2016-06-05T07:00:00Z"
+        }
+    },
+    "descriptive_statistic": "average",
+    "descriptive_statistic_denominator": "d"
+}
