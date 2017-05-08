@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents the amount of calories burned in kilocalories (kcal).",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The LOINC code represents Calories burned:Power = Energy/Time:Point in time:^Patient:Quantitative, that is, a Quantitative measure of Calories burned by a Patient at a Point in time",
+            "url": "http://purl.bioontology.org/ontology/LNC/41981-2"
+        }
+    ],
+
+    "definitions": {
+        "kcal_unit_value": {
+            "$ref": "kcal-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "activity_name": {
+            "$ref": "activity-name-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        },
+        "descriptive_statistic_denominator": {
+            "$ref": "descriptive-statistic-denominator-1.x.json"
+        }
+    },
+
+    "properties": {
+        "kcal_burned": {
+            "$ref": "#/definitions/kcal_unit_value"
+        },
+        "activity_name": {
+            "$ref": "#/definitions/activity_name"
+        },
+        "effective_time_frame": {
+            "description": "As a measure of a phenomenon that occurs over a period of time, calories burned should not be associated to a date time time frame. Hence, effective time frame is restricted to be a time interval.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": ["time_interval"]
+                }
+            ]
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "descriptive_statistic_denominator": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/descriptive_statistic_denominator"
+                },
+                {
+                    "description": "If the value needed is a standard unit of duration, select from the duration-unit-value value set.",
+                    "type": "string"
+                }
+            ]
+        }
+    },
+
+    "required": [
+        "kcal_burned",
+        "effective_time_frame"
+    ]
+}
