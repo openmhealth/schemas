@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "The side of a body structure. This is used to create a post-coordinated expression when SNOMED CT does not include the relevant pre-coordinated term (for example, left middle finger)",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Side (qualifier value)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/182353008"
+        }
+    ],
+    "type": "string",
+    "enum": [
+        "left",
+        "right"
+    ]
+}
