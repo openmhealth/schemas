@@ -97,17 +97,6 @@
                     }
                 }
             ],
-            "accuracy_measure": {
-                "description": "Known measures are listed. Others can be added, if needed.",
-                "anyOf": [
-                    {
-                        "type": "string"
-                    },
-                    {
-                        "enum": ["rms", "CEP", "R95", "2drms", "SEP"]
-                    }
-                ]
-            },
             "dimension": {
                 "description": "The dimension of the accuracy measure.",
                 "anyOf": [
@@ -116,6 +105,17 @@
                     },
                     {
                         "enum": ["horizontal", "vertical", "3-D"]
+                    }
+                ]
+            },
+            "accuracy_measure": {
+                "description": "Known measures are listed. Others can be added, if needed.",
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "enum": ["rms", "CEP", "R95", "2drms", "SEP"]
                     }
                 ]
             }
