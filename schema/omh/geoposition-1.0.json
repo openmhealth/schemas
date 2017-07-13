@@ -13,9 +13,6 @@
         },
         "time_frame": {
             "$ref": "time-frame-1.x.json"
-        },
-        "descriptive_statistic": {
-            "$ref": "descriptive-statistic-1.x.json"
         }
     },
 
