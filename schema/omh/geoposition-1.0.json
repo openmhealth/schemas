@@ -123,9 +123,6 @@
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
         },
-        "descriptive_statistic": {
-            "$ref": "#/definitions/descriptive_statistic"
-        },
         "number_of_satellites_in_view": {
             "description": "The number of satellites that can potentially be used to determine position.",
             "type": "integer"
