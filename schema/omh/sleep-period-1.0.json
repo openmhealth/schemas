@@ -1,0 +1,74 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description": "This schema represents one sleep event.",
+    "references": [
+        {
+            "description": "The SNOMED code represents Sleep, function (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258158006"
+        }
+    ],
+
+    "definitions": {
+        "unit_value": {
+            "$ref": "unit-value-1.x.json"
+        },
+        "duration_unit_value": {
+            "$ref": "duration-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "date_time": {
+            "$ref": "date-time-1.x.json"
+        }
+    },
+
+    "properties": {
+        "initial_sleep_onset_time": {
+            "$ref": "#/definitions/date_time"
+        },
+        "final_awakening_time": {
+            "$ref": "#/definitions/date_time"
+        },
+        "latency_to_sleep_onset": {
+            "$ref": "#/definitions/duration_unit_value"
+        },
+        "latency_to_arising": {
+            "$ref": "#/definitions/duration_unit_value"
+        },
+        "total_sleep_period_duration": {
+            "description": "From initial_sleep_onset_time to final_awakening_time.",
+            "$ref": "#/definitions/duration_unit_value"
+        },
+        "total_sleep_time": {
+            "description": "The total amount of time spent asleep.",
+            "$ref": "#/definitions/duration_unit_value"
+        },
+        "number_of_awakenings": {
+            "type": "integer"
+        },
+        "is_main_sleep": {
+            "type": "boolean"
+        },
+        "sleep_maintenance_efficiency_percentage": {
+            "description": "The amount of time spent asleep as a percentage of the sleep period.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": ["%"]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "required": [
+        "initial_sleep_onset_time",
+        "final_awakening_time"
+    ]
+}
