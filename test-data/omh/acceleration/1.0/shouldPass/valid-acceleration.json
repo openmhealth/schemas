@@ -12,8 +12,6 @@
         "unit": "m/s^2"
     },
     "sensor_body_location": "right hip",
-    "handedness": "right handed",
-
     "effective_time_frame": {
         "date_time": "2015-08-18T07:25:00Z"
     }
