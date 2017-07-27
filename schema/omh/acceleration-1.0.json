@@ -11,9 +11,6 @@
         "time_frame": {
             "$ref": "time-frame-1.x.json"
         },
-        "body_location": {
-            "$ref": "body-location-1.x.json"
-        },
         "descriptive_statistic": {
             "$ref": "descriptive-statistic-1.x.json"
         }
@@ -29,9 +26,6 @@
         "acceleration_z": {
             "$ref": "#/definitions/acceleration_unit_value"
         },
-        "sensor_body_location": {
-            "$ref": "#/definitions/body_location"
-        },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
         },
@@ -43,6 +37,5 @@
         "acceleration_x",
         "acceleration_y",
         "effective_time_frame"
-    ],
-    "additionalProperties":false
+    ]
 }
