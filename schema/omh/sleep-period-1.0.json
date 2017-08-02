@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "description": "This schema represents one sleep event.",
+    "description": "This schema represents one sleep event, which can be a main event (i.e., a night sleep for most people) or a nap.",
     "references": [
         {
             "description": "The SNOMED code represents Sleep, function (observable entity)",
@@ -25,10 +25,10 @@
     },
 
     "properties": {
-        "initial_sleep_onset_time": {
+        "initial_sleep_onset_date_time": {
             "$ref": "#/definitions/date_time"
         },
-        "final_awakening_time": {
+        "final_awakening_date_time": {
             "$ref": "#/definitions/date_time"
         },
         "latency_to_sleep_onset": {
@@ -42,7 +42,7 @@
             "$ref": "#/definitions/duration_unit_value"
         },
         "total_sleep_time": {
-            "description": "The total amount of time spent asleep.",
+            "description": "The total amount of time spent asleep (also called, sleep duration).",
             "$ref": "#/definitions/duration_unit_value"
         },
         "number_of_awakenings": {
@@ -66,9 +66,5 @@
                 }
             ]
         }
-    },
-    "required": [
-        "initial_sleep_onset_time",
-        "final_awakening_time"
-    ]
+    }
 }
