@@ -34,7 +34,7 @@ import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_POINT_IN_
  */
 public class HeartRateUnitTests extends SerializationUnitTests {
 
-    public static final String SCHEMA_FILENAME = "schema/omh/heart-rate-1.0.json";
+    public static final String SCHEMA_FILENAME = "schema/omh/heart-rate-1.1.json";
 
     @Test
     public void buildShouldConstructMeasureUsingOnlyRequiredProperties() {
