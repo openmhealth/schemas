@@ -42,14 +42,14 @@ public abstract class Measure implements SchemaSupport, AdditionalPropertySuppor
 
 
     @SuppressWarnings("unchecked")
-    public static abstract class Builder<M extends Measure, B extends Builder<M,B>> {
+    public static abstract class Builder<M extends Measure, B extends Builder<M, B>> {
 
         private TimeFrame effectiveTimeFrame;
         private DescriptiveStatistic descriptiveStatistic;
         private String userNotes;
 
-        public B setEffectiveTimeFrame(TimeFrame effectiveTimeFrame) {
-            this.effectiveTimeFrame = effectiveTimeFrame;
+        public B setEffectiveTimeFrame(TimeFrame timeFrame) {
+            this.effectiveTimeFrame = timeFrame;
             return (B) this;
         }
 
@@ -87,35 +87,37 @@ public abstract class Measure implements SchemaSupport, AdditionalPropertySuppor
         private DescriptiveStatistic descriptiveStatistic;
         private String userNotes;
 
-        public EffectiveTimeFrameBuilder(TimeFrame effectiveTimeFrame) {
-            checkNotNull(effectiveTimeFrame, "A time frame hasn't been specified.");
-            this.effectiveTimeFrame = effectiveTimeFrame;
+        public EffectiveTimeFrameBuilder(TimeFrame timeFrame) {
+
+            checkNotNull(timeFrame, "A time frame hasn't been specified.");
+            this.effectiveTimeFrame = timeFrame;
         }
 
         public EffectiveTimeFrameBuilder(TimeInterval timeInterval) {
+
             checkNotNull(timeInterval, "A time interval hasn't been specified.");
             this.effectiveTimeFrame = new TimeFrame(timeInterval);
         }
 
         public EffectiveTimeFrameBuilder(OffsetDateTime dateTime) {
+
             checkNotNull(dateTime, "A date time hasn't been specified.");
             this.effectiveTimeFrame = new TimeFrame(dateTime);
         }
 
         public B setDescriptiveStatistic(DescriptiveStatistic descriptiveStatistic) {
-
             this.descriptiveStatistic = descriptiveStatistic;
             return (B) this;
         }
 
         public B setUserNotes(String userNotes) {
-
             this.userNotes = userNotes;
             return (B) this;
         }
 
         public abstract M build();
     }
+
 
     /**
      * A builder that requires a time interval effective time frame.
@@ -127,28 +129,27 @@ public abstract class Measure implements SchemaSupport, AdditionalPropertySuppor
         private DescriptiveStatistic descriptiveStatistic;
         private String userNotes;
 
-        public TimeIntervalEffectiveTimeFrameBuilder(TimeFrame effectiveTimeFrame) {
+        public TimeIntervalEffectiveTimeFrameBuilder(TimeFrame timeFrame) {
 
-            checkNotNull(effectiveTimeFrame, "A time frame hasn't been specified.");
-            checkArgument(effectiveTimeFrame.getTimeInterval() != null,
+            checkNotNull(timeFrame, "A time frame hasn't been specified.");
+            checkArgument(timeFrame.getTimeInterval() != null,
                     "A time frame without a time interval has been specified.");
 
-            this.effectiveTimeFrame = effectiveTimeFrame;
+            this.effectiveTimeFrame = timeFrame;
         }
 
         public TimeIntervalEffectiveTimeFrameBuilder(TimeInterval timeInterval) {
+
             checkNotNull(timeInterval, "A time interval hasn't been specified.");
             this.effectiveTimeFrame = new TimeFrame(timeInterval);
         }
 
         public B setDescriptiveStatistic(DescriptiveStatistic descriptiveStatistic) {
-
             this.descriptiveStatistic = descriptiveStatistic;
             return (B) this;
         }
 
         public B setUserNotes(String userNotes) {
-
             this.userNotes = userNotes;
             return (B) this;
         }
@@ -162,6 +163,20 @@ public abstract class Measure implements SchemaSupport, AdditionalPropertySuppor
     }
 
     protected Measure(Builder builder) {
+
+        this.effectiveTimeFrame = builder.effectiveTimeFrame;
+        this.descriptiveStatistic = builder.descriptiveStatistic;
+        this.userNotes = builder.userNotes;
+    }
+
+    protected Measure(EffectiveTimeFrameBuilder builder) {
+
+        this.effectiveTimeFrame = builder.effectiveTimeFrame;
+        this.descriptiveStatistic = builder.descriptiveStatistic;
+        this.userNotes = builder.userNotes;
+    }
+
+    protected Measure(TimeIntervalEffectiveTimeFrameBuilder builder) {
 
         this.effectiveTimeFrame = builder.effectiveTimeFrame;
         this.descriptiveStatistic = builder.descriptiveStatistic;
