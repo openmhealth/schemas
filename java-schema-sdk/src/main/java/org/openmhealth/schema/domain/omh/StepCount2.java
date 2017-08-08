@@ -53,7 +53,7 @@ public class StepCount2 extends Measure {
         private BigDecimal stepCount;
         private DescriptiveStatisticDenominator descriptiveStatisticDenominator;
 
-        public Builder(TimeFrame effectiveTimeFrame, BigDecimal stepCount) {
+        public Builder(BigDecimal stepCount, TimeFrame effectiveTimeFrame) {
 
             super(effectiveTimeFrame);
 
@@ -61,15 +61,7 @@ public class StepCount2 extends Measure {
             this.stepCount = stepCount;
         }
 
-        public Builder(TimeFrame effectiveTimeFrame, double stepCount) {
-            this(effectiveTimeFrame, BigDecimal.valueOf(stepCount));
-        }
-
-        public Builder(TimeFrame effectiveTimeFrame, long stepCount) {
-            this(effectiveTimeFrame, BigDecimal.valueOf(stepCount));
-        }
-
-        public Builder(TimeInterval effectiveTimeInterval, BigDecimal stepCount) {
+        public Builder(BigDecimal stepCount, TimeInterval effectiveTimeInterval) {
 
             super(effectiveTimeInterval);
 
@@ -77,12 +69,20 @@ public class StepCount2 extends Measure {
             this.stepCount = stepCount;
         }
 
-        public Builder(TimeInterval effectiveTimeInterval, double stepCount) {
-            this(effectiveTimeInterval, BigDecimal.valueOf(stepCount));
+        public Builder(double stepCount, TimeFrame effectiveTimeFrame) {
+            this(BigDecimal.valueOf(stepCount), effectiveTimeFrame);
         }
 
-        public Builder(TimeInterval effectiveTimeInterval, long stepCount) {
-            this(effectiveTimeInterval, BigDecimal.valueOf(stepCount));
+        public Builder(double stepCount, TimeInterval effectiveTimeInterval) {
+            this(BigDecimal.valueOf(stepCount), effectiveTimeInterval);
+        }
+
+        public Builder(long stepCount, TimeFrame effectiveTimeFrame) {
+            this(BigDecimal.valueOf(stepCount), effectiveTimeFrame);
+        }
+
+        public Builder(long stepCount, TimeInterval effectiveTimeInterval) {
+            this(BigDecimal.valueOf(stepCount), effectiveTimeInterval);
         }
 
         public Builder setDescriptiveStatisticDenominator(DescriptiveStatisticDenominator denominator) {
