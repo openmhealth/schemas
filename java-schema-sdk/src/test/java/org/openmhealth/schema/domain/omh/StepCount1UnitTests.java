@@ -31,26 +31,26 @@ import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 /**
  * @author Emerson Farrugia
  */
-public class StepCountUnitTests extends SerializationUnitTests {
+public class StepCount1UnitTests extends SerializationUnitTests {
 
     public static final String SCHEMA_FILENAME = "schema/omh/step-count-1.0.json";
 
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedStepCount() {
 
-        new StepCount.Builder(null);
+        new StepCount1.Builder(null);
     }
 
     @Test(expectedExceptions = UnsupportedOperationException.class)
     public void setDescriptiveStatisticShouldThrowException() {
 
-        new StepCount.Builder(TEN).setDescriptiveStatistic(MEDIAN);
+        new StepCount1.Builder(TEN).setDescriptiveStatistic(MEDIAN);
     }
 
     @Test
     public void buildShouldConstructMeasureUsingOnlyRequiredProperties() {
 
-        StepCount stepCount = new StepCount.Builder(TEN).build();
+        StepCount1 stepCount = new StepCount1.Builder(TEN).build();
 
         assertThat(stepCount, notNullValue());
         assertThat(stepCount.getStepCount(), equalTo(TEN));
@@ -62,7 +62,7 @@ public class StepCountUnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        StepCount stepCount = new StepCount.Builder(TEN)
+        StepCount1 stepCount = new StepCount1.Builder(TEN)
                 .setEffectiveTimeFrame(FIXED_MONTH)
                 .setUserNotes("feeling fine")
                 .build();
@@ -82,7 +82,7 @@ public class StepCountUnitTests extends SerializationUnitTests {
     @Test
     public void measureShouldSerializeCorrectly() throws Exception {
 
-        StepCount stepCount = new StepCount.Builder(BigDecimal.valueOf(6000))
+        StepCount1 stepCount = new StepCount1.Builder(BigDecimal.valueOf(6000))
                 .setEffectiveTimeFrame(FIXED_DAY)
                 .build();
 
