@@ -51,6 +51,9 @@
         "is_main_sleep": {
             "type": "boolean"
         },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
         "sleep_maintenance_efficiency_percentage": {
             "description": "The amount of time spent asleep as a percentage of the sleep period.",
             "allOf": [
@@ -66,5 +69,8 @@
                 }
             ]
         }
-    }
+    },
+    "required": [
+        "effective_time_frame"
+    ]
 }
