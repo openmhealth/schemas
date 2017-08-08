@@ -38,7 +38,7 @@ public class BodyMassIndex2UnitTests extends SerializationUnitTests {
 
         TypedUnitValue<BodyMassIndexUnit2> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
 
-        BodyMassIndex2 bmi = new BodyMassIndex2.Builder(FIXED_MONTH, bmiValue).build();
+        BodyMassIndex2 bmi = new BodyMassIndex2.Builder(bmiValue, FIXED_MONTH).build();
 
         assertThat(bmi, notNullValue());
         assertThat(bmi.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
@@ -52,7 +52,7 @@ public class BodyMassIndex2UnitTests extends SerializationUnitTests {
 
         TypedUnitValue<BodyMassIndexUnit2> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
 
-        BodyMassIndex2 bmi = new BodyMassIndex2.Builder(FIXED_MONTH, bmiValue)
+        BodyMassIndex2 bmi = new BodyMassIndex2.Builder(bmiValue, FIXED_MONTH)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
                 .build();
@@ -73,7 +73,7 @@ public class BodyMassIndex2UnitTests extends SerializationUnitTests {
     public void measureShouldSerializeCorrectly() throws Exception {
 
         BodyMassIndex2 bmi =
-                new BodyMassIndex2.Builder(FIXED_MONTH, new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 16))
+                new BodyMassIndex2.Builder(new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 16), FIXED_MONTH)
                         .setDescriptiveStatistic(MAXIMUM)
                         .setUserNotes("I felt fine")
                         .build();

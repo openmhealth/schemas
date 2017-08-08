@@ -53,7 +53,7 @@ public class BodyMassIndex2 extends Measure {
         private TypedUnitValue<BodyMassIndexUnit2> bodyMassIndex;
 
 
-        public Builder(TimeFrame effectiveTimeFrame, TypedUnitValue<BodyMassIndexUnit2> bodyMassIndex) {
+        public Builder(TypedUnitValue<BodyMassIndexUnit2> bodyMassIndex, TimeFrame effectiveTimeFrame) {
 
             super(effectiveTimeFrame);
 
@@ -61,7 +61,7 @@ public class BodyMassIndex2 extends Measure {
             this.bodyMassIndex = bodyMassIndex;
         }
 
-        public Builder(TimeInterval effectiveTimeInterval, TypedUnitValue<BodyMassIndexUnit2> bodyMassIndex) {
+        public Builder(TypedUnitValue<BodyMassIndexUnit2> bodyMassIndex, TimeInterval effectiveTimeInterval) {
 
             super(effectiveTimeInterval);
 
@@ -69,7 +69,7 @@ public class BodyMassIndex2 extends Measure {
             this.bodyMassIndex = bodyMassIndex;
         }
 
-        public Builder(OffsetDateTime effectiveDateTime, TypedUnitValue<BodyMassIndexUnit2> bodyMassIndex) {
+        public Builder(TypedUnitValue<BodyMassIndexUnit2> bodyMassIndex, OffsetDateTime effectiveDateTime) {
 
             super(effectiveDateTime);
 
