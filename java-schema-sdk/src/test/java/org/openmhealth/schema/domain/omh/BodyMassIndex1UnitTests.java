@@ -29,7 +29,7 @@ import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 /**
  * @author Emerson Farrugia
  */
-public class BodyMassIndexUnitTests extends SerializationUnitTests {
+public class BodyMassIndex1UnitTests extends SerializationUnitTests {
 
     public static final String SCHEMA_FILENAME = "schema/omh/body-mass-index-1.0.json";
 
@@ -38,7 +38,7 @@ public class BodyMassIndexUnitTests extends SerializationUnitTests {
 
         TypedUnitValue<BodyMassIndexUnit> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
 
-        BodyMassIndex bmi = new BodyMassIndex.Builder(bmiValue).build();
+        BodyMassIndex1 bmi = new BodyMassIndex1.Builder(bmiValue).build();
 
         assertThat(bmi, notNullValue());
         assertThat(bmi.getBodyMassIndex(), equalTo(bmiValue));
@@ -52,7 +52,7 @@ public class BodyMassIndexUnitTests extends SerializationUnitTests {
 
         TypedUnitValue<BodyMassIndexUnit> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
 
-        BodyMassIndex bmi = new BodyMassIndex.Builder(bmiValue)
+        BodyMassIndex1 bmi = new BodyMassIndex1.Builder(bmiValue)
                 .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
@@ -73,7 +73,7 @@ public class BodyMassIndexUnitTests extends SerializationUnitTests {
     @Test
     public void measureShouldSerializeCorrectly() throws Exception {
 
-        BodyMassIndex bmi = new BodyMassIndex.Builder(new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 16))
+        BodyMassIndex1 bmi = new BodyMassIndex1.Builder(new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 16))
                 .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MAXIMUM)
                 .setUserNotes("I felt fine")

@@ -21,6 +21,8 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnders
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
+import java.util.Objects;
+
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -34,7 +36,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 @JsonInclude(NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
-public class BodyMassIndex extends Measure {
+public class BodyMassIndex1 extends Measure {
 
     public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "body-mass-index", "1.0");
 
@@ -42,10 +44,10 @@ public class BodyMassIndex extends Measure {
 
 
     @SerializationConstructor
-    protected BodyMassIndex() {
+    protected BodyMassIndex1() {
     }
 
-    public static class Builder extends Measure.Builder<BodyMassIndex, Builder> {
+    public static class Builder extends Measure.Builder<BodyMassIndex1, Builder> {
 
         private TypedUnitValue<BodyMassIndexUnit> bodyMassIndex;
 
@@ -57,12 +59,12 @@ public class BodyMassIndex extends Measure {
         }
 
         @Override
-        public BodyMassIndex build() {
-            return new BodyMassIndex(this);
+        public BodyMassIndex1 build() {
+            return new BodyMassIndex1(this);
         }
     }
 
-    private BodyMassIndex(Builder builder) {
+    private BodyMassIndex1(Builder builder) {
         super(builder);
 
         bodyMassIndex = builder.bodyMassIndex;
@@ -78,28 +80,27 @@ public class BodyMassIndex extends Measure {
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object o) {
 
-        if (this == object) {
+        if (this == o) {
             return true;
         }
-        if (object == null || getClass() != object.getClass()) {
-            return false;
-        }
-        if (!super.equals(object)) {
+
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        BodyMassIndex that = (BodyMassIndex) object;
+        if (!super.equals(o)) {
+            return false;
+        }
 
-        return bodyMassIndex.equals(that.bodyMassIndex);
+        BodyMassIndex1 that = (BodyMassIndex1) o;
+
+        return Objects.equals(bodyMassIndex, that.bodyMassIndex);
     }
 
     @Override
     public int hashCode() {
-
-        int result = super.hashCode();
-        result = 31 * result + bodyMassIndex.hashCode();
-        return result;
+        return Objects.hash(super.hashCode(), bodyMassIndex);
     }
 }
