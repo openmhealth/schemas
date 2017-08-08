@@ -21,6 +21,10 @@ import org.openmhealth.schema.serializer.SerializationConstructor;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 
 /**
@@ -72,6 +76,86 @@ public abstract class Measure implements SchemaSupport, AdditionalPropertySuppor
         public abstract M build();
     }
 
+
+    /**
+     * A builder that requires an effective time frame.
+     */
+    @SuppressWarnings("unchecked")
+    public static abstract class EffectiveTimeFrameBuilder<M extends Measure, B extends EffectiveTimeFrameBuilder<M, B>> {
+
+        private TimeFrame effectiveTimeFrame;
+        private DescriptiveStatistic descriptiveStatistic;
+        private String userNotes;
+
+        public EffectiveTimeFrameBuilder(TimeFrame effectiveTimeFrame) {
+            checkNotNull(effectiveTimeFrame, "A time frame hasn't been specified.");
+            this.effectiveTimeFrame = effectiveTimeFrame;
+        }
+
+        public EffectiveTimeFrameBuilder(TimeInterval timeInterval) {
+            checkNotNull(timeInterval, "A time interval hasn't been specified.");
+            this.effectiveTimeFrame = new TimeFrame(timeInterval);
+        }
+
+        public EffectiveTimeFrameBuilder(OffsetDateTime dateTime) {
+            checkNotNull(dateTime, "A date time hasn't been specified.");
+            this.effectiveTimeFrame = new TimeFrame(dateTime);
+        }
+
+        public B setDescriptiveStatistic(DescriptiveStatistic descriptiveStatistic) {
+
+            this.descriptiveStatistic = descriptiveStatistic;
+            return (B) this;
+        }
+
+        public B setUserNotes(String userNotes) {
+
+            this.userNotes = userNotes;
+            return (B) this;
+        }
+
+        public abstract M build();
+    }
+
+    /**
+     * A builder that requires a time interval effective time frame.
+     */
+    @SuppressWarnings("unchecked")
+    public static abstract class TimeIntervalEffectiveTimeFrameBuilder<M extends Measure, B extends TimeIntervalEffectiveTimeFrameBuilder<M, B>> {
+
+        private TimeFrame effectiveTimeFrame;
+        private DescriptiveStatistic descriptiveStatistic;
+        private String userNotes;
+
+        public TimeIntervalEffectiveTimeFrameBuilder(TimeFrame effectiveTimeFrame) {
+
+            checkNotNull(effectiveTimeFrame, "A time frame hasn't been specified.");
+            checkArgument(effectiveTimeFrame.getTimeInterval() != null,
+                    "A time frame without a time interval has been specified.");
+
+            this.effectiveTimeFrame = effectiveTimeFrame;
+        }
+
+        public TimeIntervalEffectiveTimeFrameBuilder(TimeInterval timeInterval) {
+            checkNotNull(timeInterval, "A time interval hasn't been specified.");
+            this.effectiveTimeFrame = new TimeFrame(timeInterval);
+        }
+
+        public B setDescriptiveStatistic(DescriptiveStatistic descriptiveStatistic) {
+
+            this.descriptiveStatistic = descriptiveStatistic;
+            return (B) this;
+        }
+
+        public B setUserNotes(String userNotes) {
+
+            this.userNotes = userNotes;
+            return (B) this;
+        }
+
+        public abstract M build();
+    }
+
     @SerializationConstructor
     protected Measure() {
 
@@ -102,34 +186,26 @@ public abstract class Measure implements SchemaSupport, AdditionalPropertySuppor
     }
 
     @Override
-    @SuppressWarnings("SimplifiableIfStatement")
-    public boolean equals(Object object) {
+    public boolean equals(Object o) {
 
-        if (this == object) {
+        if (this == o) {
             return true;
         }
-        if (object == null || getClass() != object.getClass()) {
+
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        Measure measure = (Measure) object;
+        Measure measure = (Measure) o;
 
-        if (effectiveTimeFrame != null ? !effectiveTimeFrame.equals(measure.effectiveTimeFrame)
-                : measure.effectiveTimeFrame != null) {
-            return false;
-        }
-        if (descriptiveStatistic != measure.descriptiveStatistic) {
-            return false;
-        }
-        return !(userNotes != null ? !userNotes.equals(measure.userNotes) : measure.userNotes != null);
+        return Objects.equals(effectiveTimeFrame, measure.effectiveTimeFrame) &&
+                descriptiveStatistic == measure.descriptiveStatistic &&
+                Objects.equals(userNotes, measure.userNotes);
     }
 
     @Override
     public int hashCode() {
 
-        int result = effectiveTimeFrame != null ? effectiveTimeFrame.hashCode() : 0;
-        result = 31 * result + (descriptiveStatistic != null ? descriptiveStatistic.hashCode() : 0);
-        result = 31 * result + (userNotes != null ? userNotes.hashCode() : 0);
-        return result;
+        return Objects.hash(effectiveTimeFrame, descriptiveStatistic, userNotes);
     }
 }
