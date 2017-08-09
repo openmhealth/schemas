@@ -37,7 +37,7 @@ import static org.openmhealth.schema.domain.omh.DurationUnit.*;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
-public class SleepDuration extends Measure {
+public class SleepDuration1 extends Measure {
 
     public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "sleep-duration", "1.0");
 
@@ -45,10 +45,10 @@ public class SleepDuration extends Measure {
 
 
     @SerializationConstructor
-    protected SleepDuration() {
+    protected SleepDuration1() {
     }
 
-    public static class Builder extends Measure.Builder<SleepDuration, Builder> {
+    public static class Builder extends Measure.Builder<SleepDuration1, Builder> {
 
         private DurationUnitValue sleepDuration;
 
@@ -62,12 +62,12 @@ public class SleepDuration extends Measure {
         }
 
         @Override
-        public SleepDuration build() {
-            return new SleepDuration(this);
+        public SleepDuration1 build() {
+            return new SleepDuration1(this);
         }
     }
 
-    private SleepDuration(Builder builder) {
+    private SleepDuration1(Builder builder) {
         super(builder);
 
         this.sleepDuration = builder.sleepDuration;
@@ -95,7 +95,7 @@ public class SleepDuration extends Measure {
             return false;
         }
 
-        SleepDuration that = (SleepDuration) object;
+        SleepDuration1 that = (SleepDuration1) object;
 
         return sleepDuration.equals(that.sleepDuration);
     }

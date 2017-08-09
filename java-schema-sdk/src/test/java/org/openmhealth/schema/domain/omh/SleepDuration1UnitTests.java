@@ -34,20 +34,20 @@ import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 /**
  * @author Emerson Farrugia
  */
-public class SleepDurationUnitTests extends SerializationUnitTests {
+public class SleepDuration1UnitTests extends SerializationUnitTests {
 
     public static final String SCHEMA_FILENAME = "schema/omh/sleep-duration-1.0.json";
 
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedSleepDuration() {
 
-        new SleepDuration.Builder(null);
+        new SleepDuration1.Builder(null);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void constructorShouldThrowExceptionOnInvalidDurationUnit() {
 
-        new SleepDuration.Builder(new DurationUnitValue(WEEK, ONE));
+        new SleepDuration1.Builder(new DurationUnitValue(WEEK, ONE));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class SleepDurationUnitTests extends SerializationUnitTests {
 
         DurationUnitValue durationUnitValue = new DurationUnitValue(HOUR, TEN);
 
-        SleepDuration sleepDuration = new SleepDuration.Builder(durationUnitValue).build();
+        SleepDuration1 sleepDuration = new SleepDuration1.Builder(durationUnitValue).build();
 
         assertThat(sleepDuration, notNullValue());
         assertThat(sleepDuration.getSleepDuration(), equalTo(durationUnitValue));
@@ -69,7 +69,7 @@ public class SleepDurationUnitTests extends SerializationUnitTests {
 
         DurationUnitValue durationUnitValue = new DurationUnitValue(HOUR, TEN);
 
-        SleepDuration sleepDuration = new SleepDuration.Builder(durationUnitValue)
+        SleepDuration1 sleepDuration = new SleepDuration1.Builder(durationUnitValue)
                 .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MAXIMUM)
                 .setUserNotes("feeling fine")
@@ -90,7 +90,7 @@ public class SleepDurationUnitTests extends SerializationUnitTests {
     @Test
     public void measureShouldSerializeCorrectly() throws Exception {
 
-        SleepDuration sleepDuration = new SleepDuration.Builder(new DurationUnitValue(HOUR, BigDecimal.valueOf(6)))
+        SleepDuration1 sleepDuration = new SleepDuration1.Builder(new DurationUnitValue(HOUR, BigDecimal.valueOf(6)))
                 .setEffectiveTimeFrame(FIXED_DAY)
                 .setUserNotes("slept well")
                 .build();
