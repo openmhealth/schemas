@@ -21,64 +21,53 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnders
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
-import java.math.BigDecimal;
+import java.util.EnumSet;
 import java.util.Objects;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
+import static org.openmhealth.schema.domain.omh.DurationUnit.*;
 
 
 /**
- * A number of steps.
+ * A measurement of sleep duration.
  *
  * @author Emerson Farrugia
  * @version 2.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_step-count">step-count</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_sleep-duration">sleep-duration</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(LowerCaseWithUnderscoresStrategy.class)
-public class StepCount2 extends Measure {
+public class SleepDuration2 extends Measure {
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "step-count", "2.0");
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "sleep-duration", "2.0");
 
-    private BigDecimal stepCount;
+    private DurationUnitValue sleepDuration;
     private DescriptiveStatisticDenominator descriptiveStatisticDenominator;
 
 
     @SerializationConstructor
-    protected StepCount2() {
+    protected SleepDuration2() {
     }
 
-    public static class Builder extends Measure.TimeIntervalEffectiveTimeFrameBuilder<StepCount2, Builder> {
+    public static class Builder extends TimeIntervalEffectiveTimeFrameBuilder<SleepDuration2, Builder> {
 
-        private BigDecimal stepCount;
+        private DurationUnitValue sleepDuration;
         private DescriptiveStatisticDenominator descriptiveStatisticDenominator;
 
-        public Builder(BigDecimal stepCount, TimeFrame effectiveTimeFrame) {
+        public Builder(DurationUnitValue sleepDuration, TimeFrame effectiveTimeFrame) {
 
             super(effectiveTimeFrame);
 
-            checkNotNull(stepCount, "A step count hasn't been specified.");
-            this.stepCount = stepCount;
+            checkNotNull(sleepDuration, "A sleep duration hasn't been specified.");
+            checkArgument(EnumSet.of(SECOND, MINUTE, HOUR).contains(sleepDuration.getTypedUnit()),
+                    "The unit '{}' is not a valid sleep duration unit.", sleepDuration.getUnit());
+
+            this.sleepDuration = sleepDuration;
         }
 
-        public Builder(BigDecimal stepCount, TimeInterval effectiveTimeInterval) {
-            this(stepCount, new TimeFrame(effectiveTimeInterval));
-        }
-
-        public Builder(double stepCount, TimeFrame effectiveTimeFrame) {
-            this(BigDecimal.valueOf(stepCount), effectiveTimeFrame);
-        }
-
-        public Builder(double stepCount, TimeInterval effectiveTimeInterval) {
-            this(BigDecimal.valueOf(stepCount), effectiveTimeInterval);
-        }
-
-        public Builder(long stepCount, TimeFrame effectiveTimeFrame) {
-            this(BigDecimal.valueOf(stepCount), effectiveTimeFrame);
-        }
-
-        public Builder(long stepCount, TimeInterval effectiveTimeInterval) {
-            this(BigDecimal.valueOf(stepCount), effectiveTimeInterval);
+        public Builder(DurationUnitValue sleepDuration, TimeInterval effectiveTimeInterval) {
+            this(sleepDuration, new TimeFrame(effectiveTimeInterval));
         }
 
         public Builder setDescriptiveStatisticDenominator(DescriptiveStatisticDenominator denominator) {
@@ -87,20 +76,20 @@ public class StepCount2 extends Measure {
         }
 
         @Override
-        public StepCount2 build() {
-            return new StepCount2(this);
+        public SleepDuration2 build() {
+            return new SleepDuration2(this);
         }
     }
 
-    private StepCount2(Builder builder) {
+    private SleepDuration2(Builder builder) {
         super(builder);
 
-        this.stepCount = builder.stepCount;
+        this.sleepDuration = builder.sleepDuration;
         this.descriptiveStatisticDenominator = builder.descriptiveStatisticDenominator;
     }
 
-    public BigDecimal getStepCount() {
-        return stepCount;
+    public DurationUnitValue getSleepDuration() {
+        return sleepDuration;
     }
 
     public DescriptiveStatisticDenominator getDescriptiveStatisticDenominator() {
@@ -127,14 +116,14 @@ public class StepCount2 extends Measure {
             return false;
         }
 
-        StepCount2 that = (StepCount2) o;
+        SleepDuration2 that = (SleepDuration2) o;
 
-        return Objects.equals(stepCount, that.stepCount) &&
+        return Objects.equals(sleepDuration, that.sleepDuration) &&
                 descriptiveStatisticDenominator == that.descriptiveStatisticDenominator;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), stepCount, descriptiveStatisticDenominator);
+        return Objects.hash(super.hashCode(), sleepDuration, descriptiveStatisticDenominator);
     }
 }
