@@ -1,14 +1,4 @@
 {
-
-    "initial_sleep_onset_date_time": "2016-02-05T21:35:00Z",
-    "final_awakening_date_time": "2016-02-06T06:35:00Z",
-    "effective_time_frame": {
-        "date_time": "2016-02-05T21:35:00Z"
-    },
-    "total_sleep_period_duration": {
-        "value": 9,
-        "unit": "hours"
-    },
     "total_sleep_time": {
         "value": 8.5,
         "unit": "h"

@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "description": "This schema represents one sleep event, which can be a main event (i.e., a night sleep for most people) or a nap.",
+    "description": "This schema represents one sleep episode, which can be the main sleep event (i.e., a night sleep for most people) or a nap.",
     "references": [
         {
             "description": "The SNOMED code represents Sleep, function (observable entity)",
@@ -25,24 +25,16 @@
     },
 
     "properties": {
-        "initial_sleep_onset_date_time": {
-            "$ref": "#/definitions/date_time"
-        },
-        "final_awakening_date_time": {
-            "$ref": "#/definitions/date_time"
-        },
         "latency_to_sleep_onset": {
+            "description": "Amount of time between when person starts to want to go to sleep and sleep onset.",
             "$ref": "#/definitions/duration_unit_value"
         },
         "latency_to_arising": {
-            "$ref": "#/definitions/duration_unit_value"
-        },
-        "total_sleep_period_duration": {
-            "description": "From initial_sleep_onset_time to final_awakening_time.",
+            "description": "Amount of time between final awakening and when person stops wanting to go to sleep.",
             "$ref": "#/definitions/duration_unit_value"
         },
         "total_sleep_time": {
-            "description": "The total amount of time spent asleep (also called, sleep duration).",
+            "description": "The total amount of time spent asleep within the effective time frame.",
             "$ref": "#/definitions/duration_unit_value"
         },
         "number_of_awakenings": {
@@ -52,10 +44,11 @@
             "type": "boolean"
         },
         "effective_time_frame": {
+            "description": "The initial sleep onset time maps to start_date_time, the final awakening time maps to end_date_time and total sleep episode duration maps to duration.",
             "$ref": "#/definitions/time_frame"
         },
         "sleep_maintenance_efficiency_percentage": {
-            "description": "The amount of time spent asleep as a percentage of the sleep period.",
+            "description": "The amount of time spent asleep as a percentage of the sleep episode bounded by the effective time frame.",
             "allOf": [
                 {
                     "$ref": "#/definitions/unit_value"
