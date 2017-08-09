@@ -17,11 +17,12 @@
 package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -34,8 +35,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_step-count">step-count</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonNaming(LowerCaseWithUnderscoresStrategy.class)
-public class StepCount extends Measure {
+@JsonNaming(SnakeCaseStrategy.class)
+public class StepCount1 extends Measure {
 
     public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "step-count", "1.0");
 
@@ -43,10 +44,10 @@ public class StepCount extends Measure {
 
 
     @SerializationConstructor
-    protected StepCount() {
+    protected StepCount1() {
     }
 
-    public static class Builder extends Measure.Builder<StepCount, Builder> {
+    public static class Builder extends Measure.Builder<StepCount1, Builder> {
 
         private BigDecimal stepCount;
 
@@ -74,12 +75,12 @@ public class StepCount extends Measure {
         }
 
         @Override
-        public StepCount build() {
-            return new StepCount(this);
+        public StepCount1 build() {
+            return new StepCount1(this);
         }
     }
 
-    private StepCount(Builder builder) {
+    private StepCount1(Builder builder) {
         super(builder);
 
         this.stepCount = builder.stepCount;
@@ -95,28 +96,27 @@ public class StepCount extends Measure {
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object o) {
 
-        if (this == object) {
+        if (this == o) {
             return true;
         }
-        if (object == null || getClass() != object.getClass()) {
-            return false;
-        }
-        if (!super.equals(object)) {
+
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        StepCount stepCount1 = (StepCount) object;
+        if (!super.equals(o)) {
+            return false;
+        }
 
-        return stepCount.equals(stepCount1.stepCount);
+        StepCount1 that = (StepCount1) o;
+
+        return Objects.equals(stepCount, that.stepCount);
     }
 
     @Override
     public int hashCode() {
-
-        int result = super.hashCode();
-        result = 31 * result + stepCount.hashCode();
-        return result;
+        return Objects.hash(super.hashCode(), stepCount);
     }
 }

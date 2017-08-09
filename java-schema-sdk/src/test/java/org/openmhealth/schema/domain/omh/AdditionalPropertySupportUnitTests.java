@@ -123,6 +123,7 @@ public class AdditionalPropertySupportUnitTests extends SerializationUnitTests {
         assertThat(fooMap.get("cafe"), equalTo("ideal"));
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     public void setAdditionalPropertyShouldOverrideNestedProperty() {
 

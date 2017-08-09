@@ -20,7 +20,7 @@ import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.openmhealth.schema.domain.omh.BodyMassIndexUnit.KILOGRAMS_PER_SQUARE_METER;
+import static org.openmhealth.schema.domain.omh.BodyMassIndexUnit2.KILOGRAMS_PER_SQUARE_METER;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
 import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
@@ -29,20 +29,20 @@ import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 /**
  * @author Emerson Farrugia
  */
-public class BodyMassIndexUnitTests extends SerializationUnitTests {
+public class BodyMassIndex2UnitTests extends SerializationUnitTests {
 
-    public static final String SCHEMA_FILENAME = "schema/omh/body-mass-index-1.0.json";
+    public static final String SCHEMA_FILENAME = "schema/omh/body-mass-index-2.0.json";
 
     @Test
     public void buildShouldConstructMeasureUsingOnlyRequiredProperties() {
 
-        TypedUnitValue<BodyMassIndexUnit> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
+        TypedUnitValue<BodyMassIndexUnit2> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
 
-        BodyMassIndex bmi = new BodyMassIndex.Builder(bmiValue).build();
+        BodyMassIndex2 bmi = new BodyMassIndex2.Builder(bmiValue, FIXED_MONTH).build();
 
         assertThat(bmi, notNullValue());
+        assertThat(bmi.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
         assertThat(bmi.getBodyMassIndex(), equalTo(bmiValue));
-        assertThat(bmi.getEffectiveTimeFrame(), nullValue());
         assertThat(bmi.getDescriptiveStatistic(), nullValue());
         assertThat(bmi.getUserNotes(), nullValue());
     }
@@ -50,10 +50,9 @@ public class BodyMassIndexUnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        TypedUnitValue<BodyMassIndexUnit> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
+        TypedUnitValue<BodyMassIndexUnit2> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
 
-        BodyMassIndex bmi = new BodyMassIndex.Builder(bmiValue)
-                .setEffectiveTimeFrame(FIXED_MONTH)
+        BodyMassIndex2 bmi = new BodyMassIndex2.Builder(bmiValue, FIXED_MONTH)
                 .setDescriptiveStatistic(AVERAGE)
                 .setUserNotes("feeling fine")
                 .build();
@@ -73,16 +72,16 @@ public class BodyMassIndexUnitTests extends SerializationUnitTests {
     @Test
     public void measureShouldSerializeCorrectly() throws Exception {
 
-        BodyMassIndex bmi = new BodyMassIndex.Builder(new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 16))
-                .setEffectiveTimeFrame(FIXED_MONTH)
-                .setDescriptiveStatistic(MAXIMUM)
-                .setUserNotes("I felt fine")
-                .build();
+        BodyMassIndex2 bmi =
+                new BodyMassIndex2.Builder(new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 16), FIXED_MONTH)
+                        .setDescriptiveStatistic(MAXIMUM)
+                        .setUserNotes("I felt fine")
+                        .build();
 
         String document = "{\n" +
                 "    \"body_mass_index\": {\n" +
                 "        \"value\": 16,\n" +
-                "        \"unit\": \"kg/m2\"\n" +
+                "        \"unit\": \"kg/m^2\"\n" +
                 "    },\n" +
                 "    \"effective_time_frame\": {\n" +
                 "        \"time_interval\": {\n" +
