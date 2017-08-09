@@ -31,20 +31,20 @@ import java.util.Map;
  * @version 1.0
  * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_body-mass-index">body-mass-index</a>
  */
-public enum BodyMassIndexUnit implements Unit {
+public enum BodyMassIndexUnit1 implements Unit {
 
     KILOGRAMS_PER_SQUARE_METER("kg/m2");
 
     private String schemaValue;
-    private static final Map<String, BodyMassIndexUnit> constantsBySchemaValue = new HashMap<>();
+    private static final Map<String, BodyMassIndexUnit1> constantsBySchemaValue = new HashMap<>();
 
     static {
-        for (BodyMassIndexUnit constant : values()) {
+        for (BodyMassIndexUnit1 constant : values()) {
             constantsBySchemaValue.put(constant.getSchemaValue(), constant);
         }
     }
 
-    BodyMassIndexUnit(String schemaValue) {
+    BodyMassIndexUnit1(String schemaValue) {
         this.schemaValue = schemaValue;
     }
 
@@ -56,7 +56,7 @@ public enum BodyMassIndexUnit implements Unit {
 
     @Nullable
     @JsonCreator
-    public static BodyMassIndexUnit findBySchemaValue(String schemaValue) {
+    public static BodyMassIndexUnit1 findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
     }
 }

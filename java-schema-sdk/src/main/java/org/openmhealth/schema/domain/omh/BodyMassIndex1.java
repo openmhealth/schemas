@@ -40,7 +40,7 @@ public class BodyMassIndex1 extends Measure {
 
     public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "body-mass-index", "1.0");
 
-    private TypedUnitValue<BodyMassIndexUnit> bodyMassIndex;
+    private TypedUnitValue<BodyMassIndexUnit1> bodyMassIndex;
 
 
     @SerializationConstructor
@@ -49,10 +49,10 @@ public class BodyMassIndex1 extends Measure {
 
     public static class Builder extends Measure.Builder<BodyMassIndex1, Builder> {
 
-        private TypedUnitValue<BodyMassIndexUnit> bodyMassIndex;
+        private TypedUnitValue<BodyMassIndexUnit1> bodyMassIndex;
 
 
-        public Builder(TypedUnitValue<BodyMassIndexUnit> bodyMassIndex) {
+        public Builder(TypedUnitValue<BodyMassIndexUnit1> bodyMassIndex) {
 
             checkNotNull(bodyMassIndex, "A body mass index hasn't been specified.");
             this.bodyMassIndex = bodyMassIndex;
@@ -70,7 +70,7 @@ public class BodyMassIndex1 extends Measure {
         bodyMassIndex = builder.bodyMassIndex;
     }
 
-    public TypedUnitValue<BodyMassIndexUnit> getBodyMassIndex() {
+    public TypedUnitValue<BodyMassIndexUnit1> getBodyMassIndex() {
         return bodyMassIndex;
     }
 

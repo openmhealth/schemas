@@ -20,7 +20,7 @@ import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.openmhealth.schema.domain.omh.BodyMassIndexUnit.KILOGRAMS_PER_SQUARE_METER;
+import static org.openmhealth.schema.domain.omh.BodyMassIndexUnit1.KILOGRAMS_PER_SQUARE_METER;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MAXIMUM;
 import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
@@ -36,7 +36,7 @@ public class BodyMassIndex1UnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOnlyRequiredProperties() {
 
-        TypedUnitValue<BodyMassIndexUnit> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
+        TypedUnitValue<BodyMassIndexUnit1> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
 
         BodyMassIndex1 bmi = new BodyMassIndex1.Builder(bmiValue).build();
 
@@ -50,7 +50,7 @@ public class BodyMassIndex1UnitTests extends SerializationUnitTests {
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        TypedUnitValue<BodyMassIndexUnit> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
+        TypedUnitValue<BodyMassIndexUnit1> bmiValue = new TypedUnitValue<>(KILOGRAMS_PER_SQUARE_METER, 20);
 
         BodyMassIndex1 bmi = new BodyMassIndex1.Builder(bmiValue)
                 .setEffectiveTimeFrame(FIXED_MONTH)
