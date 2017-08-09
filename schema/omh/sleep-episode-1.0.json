@@ -45,7 +45,14 @@
         },
         "effective_time_frame": {
             "description": "The initial sleep onset time maps to start_date_time, the final awakening time maps to end_date_time and total sleep episode duration maps to duration.",
-            "$ref": "#/definitions/time_frame"
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": ["time_interval"]
+                }
+            ]
         },
         "sleep_maintenance_efficiency_percentage": {
             "description": "The amount of time spent asleep as a percentage of the sleep episode bounded by the effective time frame.",
