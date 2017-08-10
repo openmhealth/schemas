@@ -1,0 +1,23 @@
+{
+    "effective_time_frame": {
+        "date_time": "2016-02-05T21:35:00Z"
+    },
+    "latency_to_sleep_onset": {
+        "value": 17.5,
+        "unit": "min"
+    },
+    "latency_to_arising": {
+        "value": 5.2,
+        "unit": "min"
+    },
+    "total_sleep_time": {
+        "value": 8.5,
+        "unit": "h"
+    },
+    "number_of_awakenings": 1,
+    "is_main_sleep": true,
+    "sleep_maintenance_efficiency_percentage": {
+        "value": 94.4,
+        "unit": "%"
+    }
+}

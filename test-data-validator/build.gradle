@@ -16,7 +16,7 @@
 
 buildscript {
     ext {
-        springBootVersion = '1.3.0.RELEASE'
+        springBootVersion = '1.5.6.RELEASE'
     }
 
     dependencies {
@@ -24,15 +24,9 @@ buildscript {
     }
 }
 
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 
 version = '1.0.0'
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
-    }
-}
 
 dependencies {
     compile project(':java-schema-sdk')
@@ -61,6 +55,7 @@ dependencies {
     testCompile 'junit:junit'
     testCompile 'org.mockito:mockito-core'
     testCompile 'org.springframework:spring-test'
+    testCompile 'org.springframework.boot:spring-boot-test'
     testCompile 'org.testng:testng:6.8.21'
 }
 

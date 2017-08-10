@@ -1,0 +1,13 @@
+{
+    "total_sleep_time": {
+        "value": 8.5,
+        "unit": "h"
+    },
+    "number_of_awakenings": 1,
+    "is_main_sleep": true,
+    "sleep_maintenance_efficiency_percentage": {
+        "value": 94.4,
+        "unit": "%"
+    }
+
+}

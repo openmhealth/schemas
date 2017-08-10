@@ -18,6 +18,7 @@ package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
@@ -29,7 +30,7 @@ import org.openmhealth.schema.serializer.SerializationConstructor;
  * @author Emerson Farrugia
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
+@JsonNaming(SnakeCaseStrategy.class)
 public class FreeFormMeasure extends Measure {
 
     private SchemaId schemaId;

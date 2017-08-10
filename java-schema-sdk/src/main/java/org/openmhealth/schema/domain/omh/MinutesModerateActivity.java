@@ -17,7 +17,7 @@
 package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
@@ -36,7 +36,7 @@ import static org.openmhealth.schema.domain.omh.DurationUnit.MINUTE;
  * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_minutes-moderate-activity">minutes-moderate-activity</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonNaming(LowerCaseWithUnderscoresStrategy.class)
+@JsonNaming(SnakeCaseStrategy.class)
 public class MinutesModerateActivity extends Measure {
 
     public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "minutes-moderate-activity", "1.0");

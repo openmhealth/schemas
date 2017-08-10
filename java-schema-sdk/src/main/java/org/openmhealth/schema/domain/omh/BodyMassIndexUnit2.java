@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Open mHealth
+ * Copyright 2017 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,23 +28,23 @@ import java.util.Map;
  * A unit of body mass index.
  *
  * @author Emerson Farrugia
- * @version 1.0
+ * @version 2.0
  * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_body-mass-index">body-mass-index</a>
  */
-public enum BodyMassIndexUnit implements Unit {
+public enum BodyMassIndexUnit2 implements Unit {
 
-    KILOGRAMS_PER_SQUARE_METER("kg/m2");
+    KILOGRAMS_PER_SQUARE_METER("kg/m^2");
 
     private String schemaValue;
-    private static final Map<String, BodyMassIndexUnit> constantsBySchemaValue = new HashMap<>();
+    private static final Map<String, BodyMassIndexUnit2> constantsBySchemaValue = new HashMap<>();
 
     static {
-        for (BodyMassIndexUnit constant : values()) {
+        for (BodyMassIndexUnit2 constant : values()) {
             constantsBySchemaValue.put(constant.getSchemaValue(), constant);
         }
     }
 
-    BodyMassIndexUnit(String schemaValue) {
+    BodyMassIndexUnit2(String schemaValue) {
         this.schemaValue = schemaValue;
     }
 
@@ -56,7 +56,7 @@ public enum BodyMassIndexUnit implements Unit {
 
     @Nullable
     @JsonCreator
-    public static BodyMassIndexUnit findBySchemaValue(String schemaValue) {
+    public static BodyMassIndexUnit2 findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
     }
 }

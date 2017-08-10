@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.google.common.collect.Maps;
 import org.openmhealth.schema.serializer.SerializationConstructor;
@@ -39,7 +40,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_body-temperature">body-temperature</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
+@JsonNaming(SnakeCaseStrategy.class)
 public class BodyTemperature extends Measure {
 
     private static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "body-temperature", "1.0");
