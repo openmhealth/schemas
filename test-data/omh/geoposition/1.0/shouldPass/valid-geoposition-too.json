@@ -11,12 +11,18 @@
         "value": 1548.5,
         "unit": "m"
     },
-    "accuracy": {
-        "value": 5.0,
-        "unit": "m",
-        "accuracy_measure": "CEP",
-        "dimension": "horizontal"
-    },
+    "accuracy": [
+        {
+            "value": 50.0,
+            "unit": "m",
+            "dimension": "horizontal"
+        },
+        {
+            "value": 23.0,
+            "unit": "m",
+            "dimension": "horizontal"
+        }
+    ],
     "number_of_satellites_in_view": 5,
     "number_of_satellites_in_fix": 3,
     "satellite_signal_strength": [
