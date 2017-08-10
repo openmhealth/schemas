@@ -98,6 +98,15 @@ public class SleepEpisode extends Measure {
             return this;
         }
 
+        /**
+         * We are working on supporting descriptive statistics for episodes, since the semantics of the effective time
+         * frame become unclear without additional temporal information.
+         */
+        @Override
+        public Builder setDescriptiveStatistic(DescriptiveStatistic descriptiveStatistic) {
+            throw new UnsupportedOperationException();
+        }
+
         @Override
         public SleepEpisode build() {
             return new SleepEpisode(this);

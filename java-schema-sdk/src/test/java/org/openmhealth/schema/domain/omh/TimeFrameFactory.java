@@ -46,6 +46,12 @@ public class TimeFrameFactory {
                     LocalDate.of(2015, OCTOBER, 22).atStartOfDay(PT).toOffsetDateTime()
             ));
 
+    public static final TimeFrame FIXED_NIGHT_TIME_HOURS =
+            new TimeFrame(ofStartDateTimeAndEndDateTime(
+                    LocalDate.of(2015, OCTOBER, 21).atStartOfDay(PT).minusHours(1).toOffsetDateTime(),
+                    LocalDate.of(2015, OCTOBER, 21).atStartOfDay(PT).plusHours(7).toOffsetDateTime()
+            ));
+
     // which isn't arbitrary at all, of course, but we'll limit the Back to the Future references to this comment
     public static final TimeFrame FIXED_POINT_IN_TIME =
             new TimeFrame(ZonedDateTime.of(2015, OCTOBER.getValue(), 21, 16, 29, 0, 0, PT).toOffsetDateTime());
