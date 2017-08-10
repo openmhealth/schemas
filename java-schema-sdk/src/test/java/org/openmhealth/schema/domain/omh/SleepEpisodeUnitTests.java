@@ -56,7 +56,7 @@ public class SleepEpisodeUnitTests extends SerializationUnitTests {
         assertThat(sleepEpisode, notNullValue());
         assertThat(sleepEpisode.getLatencyToSleepOnset(), nullValue());
         assertThat(sleepEpisode.getLatencyToArising(), nullValue());
-        assertThat(sleepEpisode.getTotalSleepDuration(), nullValue());
+        assertThat(sleepEpisode.getTotalSleepTime(), nullValue());
         assertThat(sleepEpisode.getNumberOfAwakenings(), nullValue());
         assertThat(sleepEpisode.getMainSleep(), nullValue());
         assertThat(sleepEpisode.getSleepMaintenanceEfficiencyPercentage(), nullValue());
@@ -75,7 +75,7 @@ public class SleepEpisodeUnitTests extends SerializationUnitTests {
         SleepEpisode sleepEpisode = new SleepEpisode.Builder(FIXED_NIGHT_TIME_HOURS)
                 .setLatencyToSleepOnset(twentyFourMinutes)
                 .setLatencyToArising(oneHour)
-                .setTotalSleepDuration(sixPointThreeHours)
+                .setTotalSleepTime(sixPointThreeHours)
                 .setNumberOfAwakenings(3)
                 .setMainSleep(true)
                 .setSleepMaintenanceEfficiencyPercentage(eightySevenPercent)
@@ -85,7 +85,7 @@ public class SleepEpisodeUnitTests extends SerializationUnitTests {
         assertThat(sleepEpisode, notNullValue());
         assertThat(sleepEpisode.getLatencyToSleepOnset(), equalTo(twentyFourMinutes));
         assertThat(sleepEpisode.getLatencyToArising(), equalTo(oneHour));
-        assertThat(sleepEpisode.getTotalSleepDuration(), equalTo(sixPointThreeHours));
+        assertThat(sleepEpisode.getTotalSleepTime(), equalTo(sixPointThreeHours));
         assertThat(sleepEpisode.getNumberOfAwakenings(), equalTo(3));
         assertThat(sleepEpisode.getMainSleep(), equalTo(true));
         assertThat(sleepEpisode.getSleepMaintenanceEfficiencyPercentage(), equalTo(eightySevenPercent));
@@ -105,7 +105,7 @@ public class SleepEpisodeUnitTests extends SerializationUnitTests {
                 OffsetDateTime.parse("2016-02-05T21:35:00Z"), new DurationUnitValue(HOUR, 9)))
                 .setLatencyToSleepOnset(new DurationUnitValue(MINUTE, 17.5))
                 .setLatencyToArising(new DurationUnitValue(MINUTE, 5.2))
-                .setTotalSleepDuration(new DurationUnitValue(HOUR, 8.5))
+                .setTotalSleepTime(new DurationUnitValue(HOUR, 8.5))
                 .setNumberOfAwakenings(1)
                 .setMainSleep(true)
                 .setSleepMaintenanceEfficiencyPercentage(new TypedUnitValue<>(PERCENT, 94.4))
@@ -130,7 +130,7 @@ public class SleepEpisodeUnitTests extends SerializationUnitTests {
                 "        \"value\": 5.2,\n" +
                 "        \"unit\": \"min\"\n" +
                 "    },\n" +
-                "    \"total_sleep_duration\": {\n" +
+                "    \"total_sleep_time\": {\n" +
                 "        \"value\": 8.5,\n" +
                 "        \"unit\": \"h\"\n" +
                 "    },\n" +

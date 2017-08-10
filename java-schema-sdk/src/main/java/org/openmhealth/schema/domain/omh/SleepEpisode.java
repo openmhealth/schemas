@@ -40,7 +40,7 @@ public class SleepEpisode extends Measure {
 
     private DurationUnitValue latencyToSleepOnset;
     private DurationUnitValue latencyToArising;
-    private DurationUnitValue totalSleepDuration;
+    private DurationUnitValue totalSleepTime;
     private Integer numberOfAwakenings;
     private Boolean mainSleep;
     private TypedUnitValue<PercentUnit> sleepMaintenanceEfficiencyPercentage;
@@ -54,7 +54,7 @@ public class SleepEpisode extends Measure {
 
         private DurationUnitValue latencyToSleepOnset;
         private DurationUnitValue latencyToArising;
-        private DurationUnitValue totalSleepDuration;
+        private DurationUnitValue totalSleepTime;
         private Integer numberOfAwakenings;
         private Boolean mainSleep;
         private TypedUnitValue<PercentUnit> sleepMaintenanceEfficiencyPercentage;
@@ -77,8 +77,8 @@ public class SleepEpisode extends Measure {
             return this;
         }
 
-        public Builder setTotalSleepDuration(DurationUnitValue totalSleepDuration) {
-            this.totalSleepDuration = totalSleepDuration;
+        public Builder setTotalSleepTime(DurationUnitValue totalSleepTime) {
+            this.totalSleepTime = totalSleepTime;
             return this;
         }
 
@@ -118,7 +118,7 @@ public class SleepEpisode extends Measure {
 
         this.latencyToSleepOnset = builder.latencyToSleepOnset;
         this.latencyToArising = builder.latencyToArising;
-        this.totalSleepDuration = builder.totalSleepDuration;
+        this.totalSleepTime = builder.totalSleepTime;
         this.numberOfAwakenings = builder.numberOfAwakenings;
         this.mainSleep = builder.mainSleep;
         this.sleepMaintenanceEfficiencyPercentage = builder.sleepMaintenanceEfficiencyPercentage;
@@ -132,8 +132,8 @@ public class SleepEpisode extends Measure {
         return latencyToArising;
     }
 
-    public DurationUnitValue getTotalSleepDuration() {
-        return totalSleepDuration;
+    public DurationUnitValue getTotalSleepTime() {
+        return totalSleepTime;
     }
 
     public Integer getNumberOfAwakenings() {
@@ -173,7 +173,7 @@ public class SleepEpisode extends Measure {
 
         return Objects.equals(latencyToSleepOnset, that.latencyToSleepOnset) &&
                 Objects.equals(latencyToArising, that.latencyToArising) &&
-                Objects.equals(totalSleepDuration, that.totalSleepDuration) &&
+                Objects.equals(totalSleepTime, that.totalSleepTime) &&
                 Objects.equals(numberOfAwakenings, that.numberOfAwakenings) &&
                 Objects.equals(mainSleep, that.mainSleep) &&
                 Objects.equals(sleepMaintenanceEfficiencyPercentage, that.sleepMaintenanceEfficiencyPercentage);
@@ -182,7 +182,7 @@ public class SleepEpisode extends Measure {
     @Override
     public int hashCode() {
         return Objects
-                .hash(super.hashCode(), latencyToSleepOnset, latencyToArising, totalSleepDuration, numberOfAwakenings,
+                .hash(super.hashCode(), latencyToSleepOnset, latencyToArising, totalSleepTime, numberOfAwakenings,
                         mainSleep, sleepMaintenanceEfficiencyPercentage);
     }
 }
