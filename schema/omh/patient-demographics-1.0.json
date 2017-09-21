@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "This schema represents patient data",
+
+  "type": "object",
+
+  "definitions": {
+       "name_family_given": {
+         "type" : "array",
+         "items": {
+           "type": "string"
+         }
+       },
+
+       "gender":{
+          "type":"string",
+          "enum":["male", "female"]
+       },
+       "name_use":{
+          "type":"string",
+          "enum":["usual", "official", "temp", "nickname", "anonymous", "old","maiden"]
+       },
+       "system":{
+          "type":"string",
+          "enum":["phone", "fax", "email", "pager", "url", "sms", "other"]
+       },
+       "contact_use":{
+          "type":"string",
+          "enum":["home", "work", "temp", "old", "mobile"]
+       },
+       "address_use":{
+          "type":"string",
+          "enum":["home", "work", "temp", "old"]
+       },
+       "address_type":{
+          "type":"string",
+          "enum":["postal", "physic", "both"]
+       },
+       "date_time": {
+           "$ref": "date-time-1.x.json"
+       }
+   },
+
+  "properties":{
+    "user_id": { "type":"string" },
+    "gender": { "$ref": "#/definitions/gender" },
+    "birthDate": { "type": "string" },
+    "name": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties":  {
+          "use": { "$ref": "#/definitions/name_use" },
+          "family": { "$ref": "#/definitions/name_family_given" },
+          "given": { "$ref": "#/definitions/name_family_given" }
+        },
+        "required": [ "given"]
+      },
+      "minItems": 1
+    },
+    "contact" : {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "telecom": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties":  {
+                "system": { "$ref": "#/definitions/system" },
+                "value": { "type": "string" },
+                "use": { "$ref": "#/definitions/contact_use" }
+              },
+              "required": ["system", "value"]
+            },
+            "minItems": 1
+          },
+
+          "address": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties":  {
+                "use": { "$ref": "#/definitions/address_use" },
+                "type": { "$ref": "#/definitions/address_type" },
+                "line": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "minItems": 1
+                  },
+                "city": { "type": "string" },
+                "district": { "type": "string" },
+                "state": { "type": "string" },
+                "postalCode": { "type": "string" }
+              },
+              "required": ["line", "city", "district", "postalCode"]
+            },
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "photo" : {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url" : { "type": "string"},
+          "creation" : { "$ref": "#/definitions/date_time" },
+          "data":{ "type": "string"},
+          "title": { "type": "string"}
+        }
+      }
+    }
+  },
+  "required": ["user_id","name", "gender", "birthDate", "contact"]
+}

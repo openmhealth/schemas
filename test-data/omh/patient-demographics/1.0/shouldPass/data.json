@@ -1,0 +1,32 @@
+{
+	"user_id": "omh2",
+	"gender": "male",
+	"birthDate": "01/01/1990",
+	"name": [{
+		"use": "official",
+		"family": ["oliveira"],
+		"given": ["ilidio"]
+	}],
+	"contact": [{
+		"telecom": [{
+			"system": "email",
+			"value": "ico@ua.pt",
+			"use": "work"
+		}, {
+			"system": "phone",
+			"value": "912312322",
+			"use": "home"
+		}],
+		"address": [{
+			"use": "home",
+			"type": "both",
+			"line": ["rua da pega"],
+			"city": "Glória e Vera Cruz",
+			"district": "Aveiro",
+			"postalCode": "3200"
+		}]
+	}],
+	"photo": [{
+		"url": "https://www.famousbirthdays.com/faces/lee-bruce-image.jpg"
+	}]
+}
