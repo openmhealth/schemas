@@ -43,6 +43,5 @@
         "acceleration_x",
         "acceleration_y",
         "effective_time_frame"
-    ],
-    "additionalProperties": false
+    ]
 }
