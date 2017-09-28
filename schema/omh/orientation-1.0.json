@@ -11,6 +11,9 @@
         "time_frame": {
             "$ref": "time-frame-1.x.json"
         },
+        "body_location": {
+            "$ref": "body-location-1.x.json"
+        },
         "descriptive_statistic": {
             "$ref": "descriptive-statistic-1.x.json"
         }
@@ -28,6 +31,9 @@
         },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
+        },
+        "sensor_body_location": {
+            "$ref": "#/definitions/body_location"
         },
         "descriptive_statistic": {
             "$ref": "#/definitions/descriptive_statistic"
