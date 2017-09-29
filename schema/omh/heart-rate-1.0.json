@@ -22,6 +22,15 @@
         },
         "temporal_relationship_to_physical_activity": {
             "$ref": "temporal-relationship-to-physical-activity-1.x.json"
+        },
+        "part_number": {
+          "type":"integer",
+          "minimum": 0
+        },
+
+        "session":{
+           "type":"integer",
+           "minimum": 0
         }
     },
 
@@ -37,8 +46,15 @@
                             "enum": [
                                 "beats/min"
                             ]
+                        },
+                        "part_number":{
+                          "$ref": "#/definitions/part_number"
+                        },
+                        "session":{
+                          "$ref": "#/definitions/session"
                         }
-                    }
+                    },
+                    "required": ["value", "unit"]
                 }
             ]
         },

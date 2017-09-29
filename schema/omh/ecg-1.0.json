@@ -23,32 +23,40 @@
            "maxItems":500
        },
 
+       "unit":{
+          "type":"string",
+          "enum":["microVolt", "uV"]
+       },
+
        "part_number": {
          "type":"integer",
          "minimum": 0
        },
 
-       "unit":{
-          "type":"string",
-          "enum":["microVolt", "uV"]
+       "session":{
+       	  "type":"integer",
+       	  "minimum": 0
        }
    },
 
   "properties":{
-    "ecg_data": {
+    "ecg": {
       "type":"object",
       "properties":{
         "values": {
           "$ref": "#/definitions/values"
         },
+        "unit": {
+          "$ref": "#/definitions/unit"
+        },
         "part_number":{
           "$ref": "#/definitions/part_number"
         },
-        "unit": {
-          "$ref": "#/definitions/unit"
+        "session":{
+          "$ref": "#/definitions/session"
         }
       },
-      "required": ["values", "part_number","unit"]
+      "required": ["values", "part_number","unit", "session"]
     },
 
    	"effective_time_frame": {
@@ -60,5 +68,5 @@
     }
   },
 
-  "required": ["ecg_data", "effective_time_frame"]
+  "required": ["ecg", "effective_time_frame"]
 }

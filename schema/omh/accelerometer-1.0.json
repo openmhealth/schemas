@@ -1,0 +1,78 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "Accelerometer measure of a person",
+
+    "type": "object",
+
+    "definitions": {
+
+      "time_frame": {
+          "$ref": "time-frame-1.x.json"
+      },
+
+      "temporal_relationship_to_physical_activity": {
+          "$ref": "temporal-relationship-to-physical-activity-1.x.json"
+      },
+
+      "part_number": {
+        "type":"integer",
+        "minimum": 0
+      },
+
+      "session":{
+         "type":"integer",
+         "minimum": 0
+      },
+      "unit":{
+         "type":"string",
+         "enum":["mS"]
+      }
+
+    },
+
+    "properties": {
+
+      "effective_time_frame": {
+        "$ref": "#/definitions/time_frame"
+      },
+
+      "temporal_relationship_to_physical_activity": {
+        "$ref": "#/definitions/temporal_relationship_to_physical_activity"
+      },
+
+      "accelerometer": {
+        "type": "object",
+        "properties": {
+
+          "values": {
+            "type": "object",
+            "properties": {
+
+              "x": {"type": "integer"},
+
+              "y": {"type": "integer"},
+
+              "z": {"type": "integer"}
+            }
+          },
+
+          "unit": {
+            "$ref": "#/definitions/unit"
+          },
+
+          "part_number":{
+            "$ref": "#/definitions/part_number"
+          },
+
+          "session":{
+            "$ref": "#/definitions/session"
+          }
+
+        },
+        "required": ["values", "part_number", "unit", "session"]
+      }
+
+    },
+    "required": ["accelerometer", "effective_time_frame"]
+}

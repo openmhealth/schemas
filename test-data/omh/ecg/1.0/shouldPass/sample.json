@@ -2,7 +2,8 @@
             "effective_time_frame": {
                 "date_time": "2016-12-21T16:01:43Z"
             },
-            "ecg_data": {
+            "temporal_relationship_to_physical_activity": "at rest",
+            "ecg": {
                 "unit": "uV",
                 "values": [
                     129,
@@ -507,6 +508,6 @@
                     129
                 ],
                 "part_number": 1,
-                "episode": 5
+                "session": 5
             }
         }
