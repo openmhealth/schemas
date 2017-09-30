@@ -28,7 +28,7 @@ import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 /**
  * @author Emerson Farrugia
  */
-public class CaloriesBurnedUnitTests extends SerializationUnitTests {
+public class CaloriesBurned1UnitTests extends SerializationUnitTests {
 
     public static final String SCHEMA_FILENAME = "schema/omh/calories-burned-1.0.json";
 
@@ -36,7 +36,7 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedCaloriesBurned() {
 
-        new CaloriesBurned.Builder(null);
+        new CaloriesBurned1.Builder(null);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
 
         KcalUnitValue kcalBurned = new KcalUnitValue(KILOCALORIE, 200);
 
-        CaloriesBurned caloriesBurned = new CaloriesBurned.Builder(kcalBurned).build();
+        CaloriesBurned1 caloriesBurned = new CaloriesBurned1.Builder(kcalBurned).build();
 
         assertThat(caloriesBurned, notNullValue());
         assertThat(caloriesBurned.getKcalBurned(), equalTo(kcalBurned));
@@ -59,7 +59,7 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
 
         KcalUnitValue kcalBurned = new KcalUnitValue(KILOCALORIE, 800);
 
-        CaloriesBurned caloriesBurned = new CaloriesBurned.Builder(kcalBurned)
+        CaloriesBurned1 caloriesBurned = new CaloriesBurned1.Builder(kcalBurned)
                 .setActivityName("swimming")
                 .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MEDIAN)
@@ -82,7 +82,7 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
     @Test
     public void measureShouldSerializeCorrectly() throws Exception {
 
-        CaloriesBurned measure = new CaloriesBurned.Builder(new KcalUnitValue(KILOCALORIE, 160))
+        CaloriesBurned1 measure = new CaloriesBurned1.Builder(new KcalUnitValue(KILOCALORIE, 160))
                 .setActivityName("walking")
                 .setEffectiveTimeFrame(FIXED_MONTH)
                 .build();
