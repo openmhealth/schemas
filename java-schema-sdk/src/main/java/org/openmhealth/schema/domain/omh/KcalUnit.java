@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import javax.annotation.Nullable;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,5 +59,17 @@ public enum KcalUnit implements Unit {
     @JsonCreator
     public static KcalUnit findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
+    }
+
+    KcalUnitValue newUnitValue(BigDecimal value) {
+        return new KcalUnitValue(this, value);
+    }
+
+    KcalUnitValue newUnitValue(double value) {
+        return new KcalUnitValue(this, value);
+    }
+
+    KcalUnitValue newUnitValue(long value) {
+        return new KcalUnitValue(this, value);
     }
 }
