@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents speed measurements (space over time).",
+    "type": "object",
+    "references": [
+        {
+            "description": "The NCIT code represents Speed.",
+            "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C0678536"
+        }
+    ],
+    "definitions": {
+        "speed_unit_value": {
+            "$ref": "speed-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "speed": {
+            "$ref": "#/definitions/speed_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+
+    "required": [
+        "speed",
+        "effective_time_frame"
+    ]
+}

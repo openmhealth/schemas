@@ -1,0 +1,14 @@
+{
+    "sleep_duration": {
+        "value": 7.25,
+        "unit": "h"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2016-02-05T07:00:00Z",
+            "end_date_time": "2013-06-06T07:00:00Z"
+        }
+    },
+    "descriptive_statistic": "average",
+    "descriptive_statistic_denominator": "d"
+}

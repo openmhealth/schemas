@@ -17,11 +17,12 @@
 package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -34,13 +35,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_heart-rate">heart-rate</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonNaming(LowerCaseWithUnderscoresStrategy.class)
+@JsonNaming(SnakeCaseStrategy.class)
 public class HeartRate extends Measure {
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "heart-rate", "1.0");
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "heart-rate", "1.1");
 
     private TypedUnitValue<HeartRateUnit> heartRate;
     private TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity;
+    private TemporalRelationshipToSleep temporalRelationshipToSleep;
 
 
     @SerializationConstructor
@@ -51,6 +53,7 @@ public class HeartRate extends Measure {
 
         private TypedUnitValue<HeartRateUnit> heartRate;
         private TemporalRelationshipToPhysicalActivity temporalRelationshipToPhysicalActivity;
+        private TemporalRelationshipToSleep temporalRelationshipToSleep;
 
         public Builder(TypedUnitValue<HeartRateUnit> heartRate) {
 
@@ -86,6 +89,11 @@ public class HeartRate extends Measure {
             return this;
         }
 
+        public Builder setTemporalRelationshipToSleep(TemporalRelationshipToSleep relationship) {
+            this.temporalRelationshipToSleep = relationship;
+            return this;
+        }
+
         @Override
         public HeartRate build() {
             return new HeartRate(this);
@@ -97,6 +105,7 @@ public class HeartRate extends Measure {
 
         this.heartRate = builder.heartRate;
         this.temporalRelationshipToPhysicalActivity = builder.temporalRelationshipToPhysicalActivity;
+        this.temporalRelationshipToSleep = builder.temporalRelationshipToSleep;
     }
 
     public TypedUnitValue<HeartRateUnit> getHeartRate() {
@@ -107,41 +116,40 @@ public class HeartRate extends Measure {
         return temporalRelationshipToPhysicalActivity;
     }
 
+    public TemporalRelationshipToSleep getTemporalRelationshipToSleep() {
+        return temporalRelationshipToSleep;
+    }
+
     @Override
     public SchemaId getSchemaId() {
         return SCHEMA_ID;
     }
 
-    @SuppressWarnings("SimplifiableIfStatement")
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object o) {
 
-        if (this == object) {
+        if (this == o) {
             return true;
         }
-        if (object == null || getClass() != object.getClass()) {
-            return false;
-        }
-        if (!super.equals(object)) {
+
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        HeartRate heartRate1 = (HeartRate) object;
-
-        if (!heartRate.equals(heartRate1.heartRate)) {
+        if (!super.equals(o)) {
             return false;
         }
-        return temporalRelationshipToPhysicalActivity == heartRate1.temporalRelationshipToPhysicalActivity;
+
+        HeartRate heartRate1 = (HeartRate) o;
+
+        return Objects.equals(heartRate, heartRate1.heartRate) &&
+                temporalRelationshipToPhysicalActivity == heartRate1.temporalRelationshipToPhysicalActivity &&
+                temporalRelationshipToSleep == heartRate1.temporalRelationshipToSleep;
     }
 
     @Override
     public int hashCode() {
-
-        int result = super.hashCode();
-        result = 31 * result + heartRate.hashCode();
-        result = 31 * result +
-                (temporalRelationshipToPhysicalActivity != null ? temporalRelationshipToPhysicalActivity.hashCode()
-                        : 0);
-        return result;
+        return Objects
+                .hash(super.hashCode(), heartRate, temporalRelationshipToPhysicalActivity, temporalRelationshipToSleep);
     }
 }

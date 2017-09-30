@@ -20,6 +20,7 @@ package org.openmhealth.schema;
 import com.github.fge.jackson.JacksonUtils;
 import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
+import org.junit.runner.RunWith;
 import org.openmhealth.schema.configuration.Application;
 import org.openmhealth.schema.domain.DataFile;
 import org.openmhealth.schema.domain.DataFileValidationResult;
@@ -30,8 +31,8 @@ import org.openmhealth.schema.service.SchemaFileService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -48,6 +49,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openmhealth.schema.domain.DataFileValidationResult.FAIL;
 import static org.openmhealth.schema.domain.DataFileValidationResult.PASS;
 import static org.slf4j.LoggerFactory.getLogger;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.NONE;
 
 
 /**
@@ -55,8 +57,8 @@ import static org.slf4j.LoggerFactory.getLogger;
  *
  * @author Emerson Farrugia
  */
-@SpringApplicationConfiguration(classes = Application.class)
-@IntegrationTest
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = Application.class, webEnvironment = NONE)
 public class TestDataValidationIntegrationTests extends AbstractTestNGSpringContextTests {
 
     private static final Logger logger = getLogger(TestDataValidationIntegrationTests.class);
@@ -129,7 +131,7 @@ public class TestDataValidationIntegrationTests extends AbstractTestNGSpringCont
                     continue;
                 }
 
-                validationPairs.add(new Object[]{schemaFile, dataFile});
+                validationPairs.add(new Object[] {schemaFile, dataFile});
             }
         }
 
@@ -137,6 +139,7 @@ public class TestDataValidationIntegrationTests extends AbstractTestNGSpringCont
     }
 
     private URI asUri(String filename) {
+
         return new File(filename).toURI();
     }
 }

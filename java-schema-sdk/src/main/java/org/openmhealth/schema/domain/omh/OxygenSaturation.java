@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.google.common.collect.Maps;
 import org.openmhealth.schema.serializer.SerializationConstructor;
@@ -41,7 +42,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_oxygen-saturation">oxygen-saturation</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
+@JsonNaming(SnakeCaseStrategy.class)
 public class OxygenSaturation extends Measure {
 
     public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "oxygen-saturation", "1.0");

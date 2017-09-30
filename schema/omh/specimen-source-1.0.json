@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
 
     "type": "string",
-    "description": "The source of the specimen analyzed. This is an incomplete value set. More values will be added soon.",
+    "description": "The specimen analyzed. The current value set is taken from the SNOMED CT Body substance sample (specimen) hierarchy without the word 'specimen'. More values will be added as needed.",
     "references": [
         {
             "description": "The SNOMED code represents Body substance sample (specimen)",

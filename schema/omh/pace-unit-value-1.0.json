@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a pace (time over distance).",
+    "type": "object",
+
+    "allOf": [
+        {
+            "$ref": "unit-value-1.x.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "enum": [
+                        "min/mi",
+                        "min/km"
+                    ]
+                }
+            }
+        }
+    ]
+}

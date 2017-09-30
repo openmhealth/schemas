@@ -1,0 +1,10 @@
+{
+    "sleep_duration": {
+        "value": 24000,
+        "unit": "s"
+    },
+    "effective_time_frame": {
+        "start_date_time": "2016-02-05T20:35:00Z",
+        "end_date_time": "2016-02-06T06:35:00Z"
+    }
+}
