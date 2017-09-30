@@ -222,6 +222,13 @@ public abstract class Measure implements SchemaSupport, AdditionalPropertySuppor
         this.userNotes = builder.userNotes;
     }
 
+    protected Measure(DateTimeEffectiveTimeFrameBuilder builder) {
+
+        this.effectiveTimeFrame = builder.effectiveTimeFrame;
+        this.descriptiveStatistic = builder.descriptiveStatistic;
+        this.userNotes = builder.userNotes;
+    }
+
     public TimeFrame getEffectiveTimeFrame() {
         return effectiveTimeFrame;
     }
