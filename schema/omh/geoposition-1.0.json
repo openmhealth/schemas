@@ -67,60 +67,6 @@
                 }
             ]
         },
-        "accuracy": {
-            "description": "The radius of a circle or sphere in which a certain % of the values occur (the percentage being measure-specific).",
-            "type": "array",
-            "items": {
-                "type": "object",
-                "references": [
-                    {
-                        "description": "The HL7 code represents position accuracy.",
-                        "url": "http://purl.bioontology.org/ontology/HL7/C3244100"
-                    },
-                    {
-                        "description": "The various measures of GPS accuracy.",
-                        "url": "http://www.novatel.com/assets/Documents/Bulletins/apn029.pdf"
-                    }
-                ],
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/length_unit_value"
-                    },
-                    {
-                        "properties": {
-                            "unit": {
-                                "enum": [
-                                    "m"
-                                ]
-                            }
-                        }
-                    }
-                ],
-                "dimension": {
-                    "description": "The dimension of the accuracy measure.",
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "enum": ["horizontal", "vertical", "3-D"]
-                        }
-                    ]
-                },
-                "accuracy_measure": {
-                    "description": "Known measures are listed. Others can be added, if needed.",
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "enum": ["rms", "CEP", "R95", "2drms", "SEP"]
-                        }
-                    ]
-                }
-            }
-
-        },
         "effective_time_frame": {
             "description": "A geoposition should be associated to a date time time frame.",
             "allOf": [

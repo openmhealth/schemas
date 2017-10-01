@@ -17,11 +17,13 @@
 package org.openmhealth.schema.domain.omh;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,6 +32,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.openmhealth.schema.domain.omh.LengthUnit.FOOT;
 import static org.openmhealth.schema.domain.omh.LengthUnit.METER;
+import static org.openmhealth.schema.domain.omh.SignalToNoiseRatioUnit.DECIBEL;
 
 
 /**
@@ -47,10 +50,11 @@ public class Geoposition extends Measure {
 
     private PlaneAngleUnitValue latitude;
     private PlaneAngleUnitValue longitude;
+    // TODO add accuracy
     private LengthUnitValue elevation;
     private Integer numberOfSatellitesInView;
     private Integer numberOfSatellitesInFix;
-    private List<TypedUnitValue<SignalToNoiseRatioUnit>> satelliteSignalStrength;
+    private List<TypedUnitValue<SignalToNoiseRatioUnit>> satelliteSignalStrengths;
     private PositioningSystem positioningSystem;
 
 
@@ -65,7 +69,7 @@ public class Geoposition extends Measure {
         private LengthUnitValue elevation;
         private Integer numberOfSatellitesInView;
         private Integer numberOfSatellitesInFix;
-        private List<TypedUnitValue<SignalToNoiseRatioUnit>> satelliteSignalStrength;
+        private List<TypedUnitValue<SignalToNoiseRatioUnit>> satelliteSignalStrengths = new ArrayList<>();
         private PositioningSystem positioningSystem;
 
         public Builder(PlaneAngleUnitValue latitude, PlaneAngleUnitValue longitude, TimeFrame effectiveTimeFrame) {
@@ -109,10 +113,19 @@ public class Geoposition extends Measure {
             return this;
         }
 
-        public Builder setSatelliteSignalStrength(
-                List<TypedUnitValue<SignalToNoiseRatioUnit>> satelliteSignalStrength) {
+        public Builder setSatelliteSignalStrengths(
+                List<TypedUnitValue<SignalToNoiseRatioUnit>> satelliteSignalStrengths) {
 
-            this.satelliteSignalStrength = satelliteSignalStrength;
+            this.satelliteSignalStrengths = satelliteSignalStrengths;
+            return this;
+        }
+
+        public Builder addSatelliteSignalStrengthInDb(Integer value) {
+
+            if (value != null) {
+                this.satelliteSignalStrengths.add(new TypedUnitValue<>(DECIBEL, value));
+            }
+
             return this;
         }
 
@@ -136,7 +149,7 @@ public class Geoposition extends Measure {
         this.elevation = builder.elevation;
         this.numberOfSatellitesInView = builder.numberOfSatellitesInView;
         this.numberOfSatellitesInFix = builder.numberOfSatellitesInFix;
-        this.satelliteSignalStrength = builder.satelliteSignalStrength;
+        this.satelliteSignalStrengths = builder.satelliteSignalStrengths;
         this.positioningSystem = builder.positioningSystem;
     }
 
@@ -160,8 +173,9 @@ public class Geoposition extends Measure {
         return numberOfSatellitesInFix;
     }
 
-    public List<TypedUnitValue<SignalToNoiseRatioUnit>> getSatelliteSignalStrength() {
-        return satelliteSignalStrength;
+    @JsonProperty("satellite_signal_strength")
+    public List<TypedUnitValue<SignalToNoiseRatioUnit>> getSatelliteSignalStrengths() {
+        return satelliteSignalStrengths;
     }
 
     public PositioningSystem getPositioningSystem() {
@@ -195,7 +209,7 @@ public class Geoposition extends Measure {
                 Objects.equals(elevation, that.elevation) &&
                 Objects.equals(numberOfSatellitesInView, that.numberOfSatellitesInView) &&
                 Objects.equals(numberOfSatellitesInFix, that.numberOfSatellitesInFix) &&
-                Objects.equals(satelliteSignalStrength, that.satelliteSignalStrength) &&
+                Objects.equals(satelliteSignalStrengths, that.satelliteSignalStrengths) &&
                 positioningSystem == that.positioningSystem;
     }
 
@@ -203,6 +217,6 @@ public class Geoposition extends Measure {
     public int hashCode() {
         return Objects
                 .hash(super.hashCode(), latitude, longitude, elevation, numberOfSatellitesInView,
-                        numberOfSatellitesInFix, satelliteSignalStrength, positioningSystem);
+                        numberOfSatellitesInFix, satelliteSignalStrengths, positioningSystem);
     }
 }
