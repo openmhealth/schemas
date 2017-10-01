@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import javax.annotation.Nullable;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -74,5 +75,17 @@ public enum VolumeUnit implements Unit {
     @JsonCreator
     public static VolumeUnit findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
+    }
+
+    VolumeUnitValue newUnitValue(BigDecimal value) {
+        return new VolumeUnitValue(this, value);
+    }
+
+    VolumeUnitValue newUnitValue(double value) {
+        return new VolumeUnitValue(this, value);
+    }
+
+    VolumeUnitValue newUnitValue(long value) {
+        return new VolumeUnitValue(this, value);
     }
 }

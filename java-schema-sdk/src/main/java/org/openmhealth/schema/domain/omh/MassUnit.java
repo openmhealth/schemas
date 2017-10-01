@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import javax.annotation.Nullable;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -69,5 +70,17 @@ public enum MassUnit implements Unit {
     @JsonCreator
     public static MassUnit findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
+    }
+
+    MassUnitValue newUnitValue(BigDecimal value) {
+        return new MassUnitValue(this, value);
+    }
+
+    MassUnitValue newUnitValue(double value) {
+        return new MassUnitValue(this, value);
+    }
+
+    MassUnitValue newUnitValue(long value) {
+        return new MassUnitValue(this, value);
     }
 }

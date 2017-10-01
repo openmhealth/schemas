@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.common.collect.Maps;
 
 import javax.annotation.Nullable;
+import java.math.BigDecimal;
 import java.util.Map;
 
 
@@ -60,5 +61,17 @@ public enum TemperatureUnit implements Unit {
     @JsonCreator
     public static TemperatureUnit findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
+    }
+
+    TemperatureUnitValue newUnitValue(BigDecimal value) {
+        return new TemperatureUnitValue(this, value);
+    }
+
+    TemperatureUnitValue newUnitValue(double value) {
+        return new TemperatureUnitValue(this, value);
+    }
+
+    TemperatureUnitValue newUnitValue(long value) {
+        return new TemperatureUnitValue(this, value);
     }
 }
