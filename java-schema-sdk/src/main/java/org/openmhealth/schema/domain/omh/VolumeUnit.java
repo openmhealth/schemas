@@ -77,15 +77,15 @@ public enum VolumeUnit implements Unit {
         return constantsBySchemaValue.get(schemaValue);
     }
 
-    VolumeUnitValue newUnitValue(BigDecimal value) {
+    public VolumeUnitValue newUnitValue(BigDecimal value) {
         return new VolumeUnitValue(this, value);
     }
 
-    VolumeUnitValue newUnitValue(double value) {
+    public VolumeUnitValue newUnitValue(double value) {
         return new VolumeUnitValue(this, value);
     }
 
-    VolumeUnitValue newUnitValue(long value) {
+    public VolumeUnitValue newUnitValue(long value) {
         return new VolumeUnitValue(this, value);
     }
 }

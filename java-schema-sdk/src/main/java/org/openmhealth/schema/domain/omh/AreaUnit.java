@@ -68,15 +68,15 @@ public enum AreaUnit implements Unit {
         return constantsBySchemaValue.get(schemaValue);
     }
 
-    AreaUnitValue newUnitValue(BigDecimal value) {
+    public AreaUnitValue newUnitValue(BigDecimal value) {
         return new AreaUnitValue(this, value);
     }
 
-    AreaUnitValue newUnitValue(double value) {
+    public AreaUnitValue newUnitValue(double value) {
         return new AreaUnitValue(this, value);
     }
 
-    AreaUnitValue newUnitValue(long value) {
+    public AreaUnitValue newUnitValue(long value) {
         return new AreaUnitValue(this, value);
     }
 }

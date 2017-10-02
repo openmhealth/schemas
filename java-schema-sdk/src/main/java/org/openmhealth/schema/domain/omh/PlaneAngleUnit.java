@@ -61,15 +61,15 @@ public enum PlaneAngleUnit implements Unit {
         return constantsBySchemaValue.get(schemaValue);
     }
 
-    PlaneAngleUnitValue newUnitValue(BigDecimal value) {
+    public PlaneAngleUnitValue newUnitValue(BigDecimal value) {
         return new PlaneAngleUnitValue(this, value);
     }
 
-    PlaneAngleUnitValue newUnitValue(double value) {
+    public PlaneAngleUnitValue newUnitValue(double value) {
         return new PlaneAngleUnitValue(this, value);
     }
 
-    PlaneAngleUnitValue newUnitValue(long value) {
+    public PlaneAngleUnitValue newUnitValue(long value) {
         return new PlaneAngleUnitValue(this, value);
     }
 }

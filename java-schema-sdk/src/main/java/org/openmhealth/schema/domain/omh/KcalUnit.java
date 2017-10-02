@@ -61,15 +61,15 @@ public enum KcalUnit implements Unit {
         return constantsBySchemaValue.get(schemaValue);
     }
 
-    KcalUnitValue newUnitValue(BigDecimal value) {
+    public KcalUnitValue newUnitValue(BigDecimal value) {
         return new KcalUnitValue(this, value);
     }
 
-    KcalUnitValue newUnitValue(double value) {
+    public KcalUnitValue newUnitValue(double value) {
         return new KcalUnitValue(this, value);
     }
 
-    KcalUnitValue newUnitValue(long value) {
+    public KcalUnitValue newUnitValue(long value) {
         return new KcalUnitValue(this, value);
     }
 }

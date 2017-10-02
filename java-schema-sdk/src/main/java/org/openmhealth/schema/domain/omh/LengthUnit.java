@@ -72,15 +72,15 @@ public enum LengthUnit implements Unit {
         return constantsBySchemaValue.get(schemaValue);
     }
 
-    LengthUnitValue newUnitValue(BigDecimal value) {
+    public LengthUnitValue newUnitValue(BigDecimal value) {
         return new LengthUnitValue(this, value);
     }
 
-    LengthUnitValue newUnitValue(double value) {
+    public LengthUnitValue newUnitValue(double value) {
         return new LengthUnitValue(this, value);
     }
 
-    LengthUnitValue newUnitValue(long value) {
+    public LengthUnitValue newUnitValue(long value) {
         return new LengthUnitValue(this, value);
     }
 }

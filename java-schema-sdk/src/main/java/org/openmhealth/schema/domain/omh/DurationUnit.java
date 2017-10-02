@@ -71,15 +71,15 @@ public enum DurationUnit implements Unit {
         return constantsBySchemaValue.get(schemaValue);
     }
 
-    DurationUnitValue newUnitValue(BigDecimal value) {
+    public DurationUnitValue newUnitValue(BigDecimal value) {
         return new DurationUnitValue(this, value);
     }
 
-    DurationUnitValue newUnitValue(double value) {
+    public DurationUnitValue newUnitValue(double value) {
         return new DurationUnitValue(this, value);
     }
 
-    DurationUnitValue newUnitValue(long value) {
+    public DurationUnitValue newUnitValue(long value) {
         return new DurationUnitValue(this, value);
     }
 }

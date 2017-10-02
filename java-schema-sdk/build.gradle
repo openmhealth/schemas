@@ -24,7 +24,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray' // see https://github.com/bintray/gradle-bintray-plugin for details
 
 archivesBaseName = 'omh-schema-sdk'
-version = '1.0.7-SNAPSHOT'
+version = '1.2.0-SNAPSHOT'
 
 ext {
     jacksonVersion = '2.8.9'

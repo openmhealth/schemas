@@ -72,15 +72,15 @@ public enum MassUnit implements Unit {
         return constantsBySchemaValue.get(schemaValue);
     }
 
-    MassUnitValue newUnitValue(BigDecimal value) {
+    public MassUnitValue newUnitValue(BigDecimal value) {
         return new MassUnitValue(this, value);
     }
 
-    MassUnitValue newUnitValue(double value) {
+    public MassUnitValue newUnitValue(double value) {
         return new MassUnitValue(this, value);
     }
 
-    MassUnitValue newUnitValue(long value) {
+    public MassUnitValue newUnitValue(long value) {
         return new MassUnitValue(this, value);
     }
 }

@@ -63,15 +63,15 @@ public enum TemperatureUnit implements Unit {
         return constantsBySchemaValue.get(schemaValue);
     }
 
-    TemperatureUnitValue newUnitValue(BigDecimal value) {
+    public TemperatureUnitValue newUnitValue(BigDecimal value) {
         return new TemperatureUnitValue(this, value);
     }
 
-    TemperatureUnitValue newUnitValue(double value) {
+    public TemperatureUnitValue newUnitValue(double value) {
         return new TemperatureUnitValue(this, value);
     }
 
-    TemperatureUnitValue newUnitValue(long value) {
+    public TemperatureUnitValue newUnitValue(long value) {
         return new TemperatureUnitValue(this, value);
     }
 }
