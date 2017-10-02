@@ -1,0 +1,18 @@
+{
+    "angular_velocity_x": {
+        "value": 0.0596923828125,
+        "unit": "rad/s"
+    },
+    "angular_velocity_y": {
+        "value": 0.0125,
+        "unit": "rad/s"
+    },
+    "angular_velocity_z": {
+        "value": 0.0001,
+        "unit": "rad/s"
+    },
+    "sensor_body_location": "right wrist",
+    "effective_time_frame": {
+        "date_time": "2015-08-18T07:25:00Z"
+    }
+}

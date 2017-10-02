@@ -34,7 +34,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 @JsonInclude(NON_NULL)
 @JsonNaming(SnakeCaseStrategy.class)
-public class CaloriesBurned extends Measure {
+public class CaloriesBurned1 extends Measure {
 
     public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "calories-burned", "1.0");
 
@@ -43,10 +43,10 @@ public class CaloriesBurned extends Measure {
 
 
     @SerializationConstructor
-    protected CaloriesBurned() {
+    protected CaloriesBurned1() {
     }
 
-    public static class Builder extends Measure.Builder<CaloriesBurned, Builder> {
+    public static class Builder extends Measure.Builder<CaloriesBurned1, Builder> {
 
         private KcalUnitValue kcalBurned;
         private String activityName;
@@ -63,12 +63,12 @@ public class CaloriesBurned extends Measure {
         }
 
         @Override
-        public CaloriesBurned build() {
-            return new CaloriesBurned(this);
+        public CaloriesBurned1 build() {
+            return new CaloriesBurned1(this);
         }
     }
 
-    private CaloriesBurned(Builder builder) {
+    private CaloriesBurned1(Builder builder) {
         super(builder);
 
         this.kcalBurned = builder.kcalBurned;
@@ -102,7 +102,7 @@ public class CaloriesBurned extends Measure {
             return false;
         }
 
-        CaloriesBurned that = (CaloriesBurned) object;
+        CaloriesBurned1 that = (CaloriesBurned1) object;
 
         if (!kcalBurned.equals(that.kcalBurned)) {
             return false;

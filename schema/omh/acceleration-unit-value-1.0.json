@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents acceleration.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Acceleration (physical force)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/285659007"
+        }
+    ],
+
+    "allOf": [
+        {
+            "$ref": "unit-value-1.0.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element."
+                        }
+                    ],
+                    "enum": [
+                        "m/s^2"
+                    ]
+                }
+            }
+        }
+    ]
+}

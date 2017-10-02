@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a magnetic flux density.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Magnetic field (physical force)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/285651005"
+        }
+    ],
+
+    "allOf": [
+        {
+            "$ref": "unit-value-1.x.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. Basic unit is Tesla (T)",
+                            "url": "http://unitsofmeasure.org/ucum.html#datyp2apdxatblxmp"
+                        }
+                    ],
+                    "enum": [
+                        "pT",
+                        "nT",
+                        "uT",
+                        "mT",
+                        "T"
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "acceleration_x": {
+        "value": 0.0596923828125,
+        "unit": "m/s^2"
+    },
+    "acceleration_y": {
+        "value": 0.0125,
+        "unit": "m/s^2"
+    },
+    "acceleration_z": {
+        "value": 0.0001,
+        "unit": "m/s^2"
+    },
+    "sensor_body_location": "right wrist",
+    "effective_time_frame": {
+        "date_time": "2015-08-18T07:25:00Z"
+    }
+}

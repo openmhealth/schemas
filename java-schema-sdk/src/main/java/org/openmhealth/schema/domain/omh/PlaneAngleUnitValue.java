@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Open mHealth
+ * Copyright 2017 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,18 +26,18 @@ import java.math.BigDecimal;
 /**
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_kcal-unit-value">kcal-unit-value</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_plane-angle-unit-value">plane-angle-unit-value</a>
  */
-public class KcalUnitValue extends TypedUnitValue<KcalUnit> {
+public class PlaneAngleUnitValue extends TypedUnitValue<PlaneAngleUnit> {
 
-    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "kcal-unit-value", "1.0");
+    public static final SchemaId SCHEMA_ID = new SchemaId(OMH_NAMESPACE, "plane-angle-unit-value", "1.0");
 
     @SerializationConstructor
-    protected KcalUnitValue() {
+    protected PlaneAngleUnitValue() {
     }
 
     @JsonCreator
-    public KcalUnitValue(@JsonProperty("unit") KcalUnit unit, @JsonProperty("value") BigDecimal value) {
+    public PlaneAngleUnitValue(@JsonProperty("unit") PlaneAngleUnit unit, @JsonProperty("value") BigDecimal value) {
         super(unit, value);
     }
 
@@ -46,11 +46,11 @@ public class KcalUnitValue extends TypedUnitValue<KcalUnit> {
         return SCHEMA_ID;
     }
 
-    public KcalUnitValue(KcalUnit unit, double value) {
+    public PlaneAngleUnitValue(PlaneAngleUnit unit, double value) {
         super(unit, value);
     }
 
-    public KcalUnitValue(KcalUnit unit, long value) {
+    public PlaneAngleUnitValue(PlaneAngleUnit unit, long value) {
         super(unit, value);
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Open mHealth
+ * Copyright 2017 Open mHealth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,42 +26,26 @@ import java.util.Map;
 
 
 /**
- * A unit of volume.
+ * A unit of an angle on a plane.
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_volume-unit-value">volume-unit-value</a>
+ * @see <a href="http://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_plane-angle-unit-value">plane-angle-unit-value</a>
  */
-public enum VolumeUnit implements Unit {
+public enum PlaneAngleUnit implements Unit {
 
-    FEMTOLITER("fL"),
-    PICOLITER("pL"),
-    NANOLITER("nL"),
-    MICROLITER("uL"),
-    MILLILITER("mL"),
-    CENTILITER("cL"),
-    DECILITER("dL"),
-    LITER("L"),
-    KILOLITER("kL"),
-    FLUID_OUNCE("fl oz"),
-    CUP("Cup"),
-    CUBIC_INCH("in^3"),
-    PINT("pt"),
-    QUART("qt"),
-    GALLON("gal"),
-    TEASPOON("tsp"),
-    TABLESPOON("tbsp");
+    DEGREE_OF_ARC("deg");
 
     private String schemaValue;
-    private static final Map<String, VolumeUnit> constantsBySchemaValue = new HashMap<>();
+    private static final Map<String, PlaneAngleUnit> constantsBySchemaValue = new HashMap<>();
 
     static {
-        for (VolumeUnit constant : values()) {
+        for (PlaneAngleUnit constant : values()) {
             constantsBySchemaValue.put(constant.getSchemaValue(), constant);
         }
     }
 
-    VolumeUnit(String schemaValue) {
+    PlaneAngleUnit(String schemaValue) {
         this.schemaValue = schemaValue;
     }
 
@@ -73,19 +57,19 @@ public enum VolumeUnit implements Unit {
 
     @Nullable
     @JsonCreator
-    public static VolumeUnit findBySchemaValue(String schemaValue) {
+    public static PlaneAngleUnit findBySchemaValue(String schemaValue) {
         return constantsBySchemaValue.get(schemaValue);
     }
 
-    public VolumeUnitValue newUnitValue(BigDecimal value) {
-        return new VolumeUnitValue(this, value);
+    public PlaneAngleUnitValue newUnitValue(BigDecimal value) {
+        return new PlaneAngleUnitValue(this, value);
     }
 
-    public VolumeUnitValue newUnitValue(double value) {
-        return new VolumeUnitValue(this, value);
+    public PlaneAngleUnitValue newUnitValue(double value) {
+        return new PlaneAngleUnitValue(this, value);
     }
 
-    public VolumeUnitValue newUnitValue(long value) {
-        return new VolumeUnitValue(this, value);
+    public PlaneAngleUnitValue newUnitValue(long value) {
+        return new PlaneAngleUnitValue(this, value);
     }
 }

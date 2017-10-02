@@ -1,0 +1,42 @@
+{
+    "latitude": {
+        "value": 40.0596923828125,
+        "unit": "deg"
+    },
+    "longitude": {
+        "value": -105.21440124511719,
+        "unit": "deg"
+    },
+    "elevation": {
+        "value": 1548.5,
+        "unit": "m"
+    },
+    "number_of_satellites_in_view": 5,
+    "number_of_satellites_in_fix": 3,
+    "satellite_signal_strengths": [
+        {
+            "value": 10,
+            "unit": "dB"
+        },
+        {
+            "value": 30,
+            "unit": "dB"
+        },
+        {
+            "value": 40,
+            "unit": "dB"
+        },
+        {
+            "value": 5,
+            "unit": "dB"
+        },
+        {
+            "value": 35,
+            "unit": "dB"
+        }
+    ],
+    "positioning_system": "GPS",
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00Z"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "latitude": {
+        "value": 40.0596923828125,
+        "unit": "deg"
+    },
+    "longitude": {
+        "value": -105.21440124511719,
+        "unit": "deg"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00Z"
+    },
+    "positioning_system": "GPS"
+}

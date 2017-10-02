@@ -20,57 +20,68 @@ import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.AVERAGE;
 import static org.openmhealth.schema.domain.omh.DescriptiveStatistic.MEDIAN;
+import static org.openmhealth.schema.domain.omh.DescriptiveStatisticDenominator.DAY;
 import static org.openmhealth.schema.domain.omh.KcalUnit.KILOCALORIE;
+import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_DAY;
 import static org.openmhealth.schema.domain.omh.TimeFrameFactory.FIXED_MONTH;
 
 
 /**
  * @author Emerson Farrugia
  */
-public class CaloriesBurnedUnitTests extends SerializationUnitTests {
+public class CaloriesBurned2UnitTests extends SerializationUnitTests {
 
-    public static final String SCHEMA_FILENAME = "schema/omh/calories-burned-1.0.json";
+    public static final String SCHEMA_FILENAME = "schema/omh/calories-burned-2.0.json";
 
 
     @Test(expectedExceptions = NullPointerException.class)
     public void constructorShouldThrowExceptionOnUndefinedCaloriesBurned() {
 
-        new CaloriesBurned.Builder(null);
+        new CaloriesBurned2.Builder(null, FIXED_MONTH);
+    }
+
+    @Test(expectedExceptions = NullPointerException.class)
+    public void constructorShouldThrowExceptionOnUndefinedEffectiveTimeFrame() {
+
+        new CaloriesBurned2.Builder(KILOCALORIE.newUnitValue(100), (TimeFrame) null);
     }
 
     @Test
     public void buildShouldConstructMeasureUsingOnlyRequiredProperties() {
 
-        KcalUnitValue kcalBurned = new KcalUnitValue(KILOCALORIE, 200);
+        KcalUnitValue kcalBurned = KILOCALORIE.newUnitValue(200);
 
-        CaloriesBurned caloriesBurned = new CaloriesBurned.Builder(kcalBurned).build();
+        CaloriesBurned2 caloriesBurned = new CaloriesBurned2.Builder(kcalBurned, FIXED_DAY).build();
 
         assertThat(caloriesBurned, notNullValue());
         assertThat(caloriesBurned.getKcalBurned(), equalTo(kcalBurned));
+        assertThat(caloriesBurned.getEffectiveTimeFrame(), equalTo(FIXED_DAY));
         assertThat(caloriesBurned.getActivityName(), nullValue());
-        assertThat(caloriesBurned.getEffectiveTimeFrame(), nullValue());
         assertThat(caloriesBurned.getDescriptiveStatistic(), nullValue());
+        assertThat(caloriesBurned.getDescriptiveStatisticDenominator(), nullValue());
         assertThat(caloriesBurned.getUserNotes(), nullValue());
     }
 
     @Test
     public void buildShouldConstructMeasureUsingOptionalProperties() {
 
-        KcalUnitValue kcalBurned = new KcalUnitValue(KILOCALORIE, 800);
+        KcalUnitValue kcalBurned = KILOCALORIE.newUnitValue(800);
 
-        CaloriesBurned caloriesBurned = new CaloriesBurned.Builder(kcalBurned)
+        CaloriesBurned2 caloriesBurned = new CaloriesBurned2.Builder(kcalBurned, FIXED_MONTH)
                 .setActivityName("swimming")
-                .setEffectiveTimeFrame(FIXED_MONTH)
                 .setDescriptiveStatistic(MEDIAN)
+                .setDescriptiveStatisticDenominator(DAY)
                 .setUserNotes("feeling fine")
                 .build();
 
         assertThat(caloriesBurned, notNullValue());
         assertThat(caloriesBurned.getKcalBurned(), equalTo(kcalBurned));
-        assertThat(caloriesBurned.getActivityName(), equalTo("swimming"));
         assertThat(caloriesBurned.getEffectiveTimeFrame(), equalTo(FIXED_MONTH));
+        assertThat(caloriesBurned.getActivityName(), equalTo("swimming"));
         assertThat(caloriesBurned.getDescriptiveStatistic(), equalTo(MEDIAN));
+        assertThat(caloriesBurned.getDescriptiveStatisticDenominator(), equalTo(DAY));
         assertThat(caloriesBurned.getUserNotes(), equalTo("feeling fine"));
     }
 
@@ -82,9 +93,11 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
     @Test
     public void measureShouldSerializeCorrectly() throws Exception {
 
-        CaloriesBurned measure = new CaloriesBurned.Builder(new KcalUnitValue(KILOCALORIE, 160))
+        CaloriesBurned2 measure = new CaloriesBurned2.Builder(KILOCALORIE.newUnitValue(160), FIXED_MONTH)
                 .setActivityName("walking")
-                .setEffectiveTimeFrame(FIXED_MONTH)
+                .setDescriptiveStatistic(AVERAGE)
+                .setDescriptiveStatisticDenominator(DAY)
+                .setUserNotes("feeling fine")
                 .build();
 
         String document = "{\n" +
@@ -98,7 +111,10 @@ public class CaloriesBurnedUnitTests extends SerializationUnitTests {
                 "            \"end_date_time\": \"2015-11-01T00:00:00-07:00\"\n" +
                 "        }\n" +
                 "    },\n" +
-                "    \"activity_name\": \"walking\"\n" +
+                "    \"activity_name\": \"walking\",\n" +
+                "    \"descriptive_statistic\": \"average\",\n" +
+                "    \"descriptive_statistic_denominator\": \"d\",\n" +
+                "    \"user_notes\": \"feeling fine\"\n" +
                 "}";
 
         serializationShouldCreateValidDocument(measure, document);

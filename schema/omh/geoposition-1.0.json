@@ -1,0 +1,136 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "This schema represents a geographic position measurement.",
+    "type": "object",
+    "definitions": {
+        "plane_angle_unit_value": {
+            "$ref": "plane-angle-unit-value-1.x.json"
+        },
+        "length_unit_value": {
+            "$ref": "length-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        }
+    },
+    "properties": {
+        "latitude": {
+            "description": "The angular distance of a place north or south of the earth's equator expressed in degrees.",
+            "references": [
+                {
+                    "description": "The NCIT code represents Latitude. Negative numbers indicate South.",
+                    "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1627936"
+                }
+            ],
+            "$ref": "#/definitions/plane_angle_unit_value"
+        },
+        "longitude": {
+            "description": "The angular distance of a place east or west of the meridian at Greenwich, England, expressed in degrees.",
+            "references": [
+                {
+                    "description": "The NCIT code represents Longitude. Negative numbers indicate West.",
+                    "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1657623"
+                }
+            ],
+            "$ref": "#/definitions/plane_angle_unit_value"
+        },
+        "elevation": {
+            "description": "The height above or below a fixed reference point, most commonly a reference geoid, a mathematical model of the Earth's sea level as an equipotential gravitational surface.",
+            "references": [
+                {
+                    "description": "The LOINC code represents Altitude (Length:Point in time:^Patient:Quantitative).",
+                    "url": "http://purl.bioontology.org/ontology/LNC/41905-1"
+                }
+            ],
+            "allOf": [
+                {
+                    "$ref": "#/definitions/length_unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "references": [
+                                {
+                                    "description": "The unit of measure of the element. Basic unit is meter (m) [ http://unitsofmeasure.org/ucum.html#para-28 ]. Allowed values are drawn from the SI Length Units and English Length Units Common Synonyms (non-UCUM). The valid UCUM code is different for inch ([in_i]), foot ([ft_i]), yard ([yd_i]) and mile ([mi_i]).",
+                                    "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
+                                }
+                            ],
+                            "enum": [
+                                "m",
+                                "ft"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "effective_time_frame": {
+            "description": "A geoposition should be associated to a date time time frame.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": [
+                        "date_time"
+                    ]
+                }
+            ]
+        },
+        "number_of_satellites_in_view": {
+            "description": "The number of satellites that can potentially be used to determine position.",
+            "type": "integer"
+        },
+        "satellite_signal_strengths": {
+            "description": "Signal-to-noise ratios (SNR) expressed in decibels (dB). The typical value for a good fix is 20-40. The higher the number, the stronger the signal.",
+            "type": "array",
+            "items": {
+                "allOf": [
+                    {
+                        "$ref": "unit-value-1.0.json"
+                    },
+                    {
+                        "properties": {
+                            "value": {
+                                "type": "integer"
+                            },
+                            "unit": {
+                                "references": [
+                                    {
+                                        "description": "The unit of measure of the element. The bel is seldom used. This is a 'pseudo-unit' because of its standardized definition as being logarithm of a ratio of two measurements with the same kind of quantity.",
+                                        "url": "http://unitsofmeasure.org/ucum.html#para-46"
+                                    }
+                                ],
+                                "enum": [
+                                    "dB"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "number_of_satellites_in_fix": {
+            "description": "The number of satellites actually used to determine position.",
+            "type": "integer"
+        },
+        "positioning_system": {
+            "description": "Known systems are listed. Others can be added, if needed. More than one can be used at the same time, hence this is an array",
+            "type": "string",
+            "enum": [
+                "GPS",
+                "GLONASS",
+                "Galileo",
+                "Beidou",
+                "COMPASS",
+                "IRNSS",
+                "QZSS"
+            ]
+        }
+    },
+    "required": [
+        "latitude",
+        "longitude",
+        "effective_time_frame"
+    ]
+}

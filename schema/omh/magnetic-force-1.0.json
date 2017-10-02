@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents magnetometer measurements.",
+    "type": "object",
+
+    "definitions": {
+        "magnetic_flux_density_unit_value": {
+            "$ref": "magnetic-flux-density-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "magnetic_field_strength_x": {
+            "description": "represents the magnetic field strength in roughly the direction of the north magnetic pole. A positive x-value means that part of the magnetic field is pointing north. A negative x-value means that part of the magnetic field is pointing south.",
+            "$ref": "#/definitions/magnetic_flux_density_unit_value"
+        },
+        "magnetic_field_strength_y": {
+            "description": "represents the magnetic field strength 90 degrees from the x-direction in the “magnetic east” direction. A positive y-value means that part of the magnetic field is pointing towards magnetic east. A negative y-value means that part of the magnetic field is pointing towards magnetic west.",
+            "$ref": "#/definitions/magnetic_flux_density_unit_value"
+        },
+        "magnetic_field_strength_z": {
+            "description": "represents the magnetic field strength in the local nadir direction (vertically down).",
+            "$ref": "#/definitions/magnetic_flux_density_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+    "required": [
+        "magnetic_field_strength_x",
+        "magnetic_field_strength_y",
+        "effective_time_frame"
+    ]
+}
