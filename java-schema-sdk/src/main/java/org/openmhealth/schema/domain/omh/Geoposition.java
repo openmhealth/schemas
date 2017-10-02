@@ -173,7 +173,6 @@ public class Geoposition extends Measure {
         return numberOfSatellitesInFix;
     }
 
-    @JsonProperty("satellite_signal_strength")
     public List<TypedUnitValue<SignalToNoiseRatioUnit>> getSatelliteSignalStrengths() {
         return satelliteSignalStrengths;
     }

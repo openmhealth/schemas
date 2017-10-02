@@ -1,9 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-
     "description": "This schema represents a geographic position measurement.",
     "type": "object",
-
     "definitions": {
         "plane_angle_unit_value": {
             "$ref": "plane-angle-unit-value-1.x.json"
@@ -15,7 +13,6 @@
             "$ref": "time-frame-1.x.json"
         }
     },
-
     "properties": {
         "latitude": {
             "description": "The angular distance of a place north or south of the earth's equator expressed in degrees.",
@@ -74,7 +71,9 @@
                     "$ref": "#/definitions/time_frame"
                 },
                 {
-                    "required": ["date_time"]
+                    "required": [
+                        "date_time"
+                    ]
                 }
             ]
         },
@@ -82,8 +81,8 @@
             "description": "The number of satellites that can potentially be used to determine position.",
             "type": "integer"
         },
-        "satellite_signal_strength": {
-            "description": "Signal-to-noise ratio (SNR) expressed in decibels (dB). The typical value for a good fix is 20-40. The higher the number, the stronger the signal.",
+        "satellite_signal_strengths": {
+            "description": "Signal-to-noise ratios (SNR) expressed in decibels (dB). The typical value for a good fix is 20-40. The higher the number, the stronger the signal.",
             "type": "array",
             "items": {
                 "allOf": [
@@ -118,7 +117,15 @@
         "positioning_system": {
             "description": "Known systems are listed. Others can be added, if needed. More than one can be used at the same time, hence this is an array",
             "type": "string",
-            "enum": ["GPS", "GLONASS", "Galileo","Beidou","COMPASS","IRNSS","QZSS"]
+            "enum": [
+                "GPS",
+                "GLONASS",
+                "Galileo",
+                "Beidou",
+                "COMPASS",
+                "IRNSS",
+                "QZSS"
+            ]
         }
     },
     "required": [
