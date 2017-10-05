@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.openmhealth.schema.serializer.SerializationConstructor;
 
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
@@ -47,14 +48,32 @@ public class Speed extends Measure {
     protected Speed() {
     }
 
-    public static class Builder extends Measure.Builder<Speed, Builder> {
+    public static class Builder
+            extends Measure.EffectiveTimeFrameBuilder<Speed, Builder> {
 
         private SpeedUnitValue speed;
 
-        public Builder(SpeedUnitValue speed) {
+        public Builder(SpeedUnitValue speed, TimeFrame effectiveTimeFrame) {
+
+            super(effectiveTimeFrame);
 
             checkNotNull(speed, "A speed hasn't been specified.");
+            this.speed = speed;
+        }
 
+        public Builder(SpeedUnitValue speed, TimeInterval effectiveTimeInterval) {
+
+            super(effectiveTimeInterval);
+
+            checkNotNull(speed, "A speed hasn't been specified.");
+            this.speed = speed;
+        }
+
+        public Builder(SpeedUnitValue speed, OffsetDateTime effectiveDateTime) {
+
+            super(effectiveDateTime);
+
+            checkNotNull(speed, "A speed hasn't been specified.");
             this.speed = speed;
         }
 
