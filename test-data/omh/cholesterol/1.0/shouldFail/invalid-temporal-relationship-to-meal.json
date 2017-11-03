@@ -1,0 +1,7 @@
+{
+    "total_cholesterol": {
+        "unit": "mg/dL",
+        "value": 95
+    },
+    "temporal_relationship_to_meal": "fsting"
+}

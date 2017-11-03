@@ -1,0 +1,7 @@
+{
+    "total_cholesterol": {
+        "unit": "mg/dL",
+        "value": 95
+    },
+    "specimen_source": "serum"
+}

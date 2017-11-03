@@ -1,0 +1,28 @@
+{
+    "total_cholesterol": {
+        "unit": "mg/dL",
+        "value": 120
+    },
+    "vdl": {
+        "unit": "mg/dL",
+        "value": 10
+    },
+    "hdl": {
+        "unit": "mg/dL",
+        "value": 20
+    },
+    "vldl": {
+        "unit": "mg/dL",
+        "value": 30
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2013-02-05T07:25:00Z",
+            "end_date_time": "2013-06-05T07:25:00Z"
+        }
+    },
+    "specimen_source": "interstitial fluid",
+    "temporal_relationship_to_meal": "fasting",
+    "temporal_relationship_to_sleep": "on waking",
+    "descriptive_statistic": "minimum"
+}
