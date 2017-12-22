@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "This schema represents patient data",
+  "description": "This schema represents patient data. Used https://www.hl7.org/fhir/patient.html to define this JSON schema",
 
   "type": "object",
 
@@ -42,7 +42,6 @@
    },
 
   "properties":{
-    "user_id": { "type":"string" },
     "gender": { "$ref": "#/definitions/gender" },
     "birthDate": { "type": "string" },
     "name": {
@@ -114,5 +113,5 @@
       }
     }
   },
-  "required": ["user_id","name", "gender", "birthDate", "contact"]
+  "required": ["name", "gender", "birthDate", "contact"]
 }

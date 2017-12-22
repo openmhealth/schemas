@@ -20,22 +20,12 @@
              "minimum":0
            },
            "minItems":500,
-           "maxItems":500
+           "maxItems":1000
        },
 
        "unit":{
           "type":"string",
           "enum":["microVolt", "uV"]
-       },
-
-       "part_number": {
-         "type":"integer",
-         "minimum": 0
-       },
-
-       "session":{
-       	  "type":"integer",
-       	  "minimum": 0
        }
    },
 
@@ -48,15 +38,9 @@
         },
         "unit": {
           "$ref": "#/definitions/unit"
-        },
-        "part_number":{
-          "$ref": "#/definitions/part_number"
-        },
-        "session":{
-          "$ref": "#/definitions/session"
         }
       },
-      "required": ["values", "part_number","unit", "session"]
+      "required": ["values", "unit"]
     },
 
    	"effective_time_frame": {

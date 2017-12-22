@@ -1,21 +1,14 @@
 {
     "effective_time_frame": {
-        "date_time": "2017-10-24T16:01:43Z"
+        "date_time": "2017-12-08T15:43:57Z"
     },
-    "temporal_relationship_to_physical_activity": "at rest",
-
     "accelerometer": {
-
-      "session": 1,
-
-      "part_number":1,
-
-      "values": {
-        "x": 1,
-        "y": 2,
-        "z":3
-      },
-      "unit": "mS"
-    }
-
+        "unit": "mS",
+        "values": {
+            "x": 1,
+            "y": -3,
+            "z": 33
+        }
+    },
+    "temporal_relationship_to_physical_activity": "active"
 }
