@@ -62,7 +62,10 @@
                         "plasma",
                         "serum",
                         "tears",
-                        "whole blood"
+                        "whole blood",
+                        "urine",
+                        "sweat",
+                        "saliva"
                     ]
                 }
             ]
