@@ -10,7 +10,7 @@
         },
         {
              "description": "CDC guidelines on standard energy expenditure values (METs).",
-             "url": "http://www.startwalkingnow.org/documents/PA_Intensity_table_2_1.pdf"
+             "url": "https://www.cdc.gov/nccdphp/dnpa/physical/pdf/PA_Intensity_table_2_1.pdf"
         }
     ],
     "type": "string"
