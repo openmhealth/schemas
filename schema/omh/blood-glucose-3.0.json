@@ -1,0 +1,92 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "description": "This schema represents a person's blood glucose level.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The LOINC code refers to Glucose [Mass/volume] in Capillary blood (mg/dL)",
+            "url": "http://purl.bioontology.org/ontology/LNC/32016-8"
+        },
+        {
+            "description": "The LOINC code refers to Glucose [Moles/volume] in Capillary blood (mmol/L)",
+            "url": "http://purl.bioontology.org/ontology/LNC/51596-5"
+        },
+        {
+            "description": "The LOINC code refers to Glucose [Mass/volume] in Capillary blood (mg/dL) by Glucometer",
+            "url": "http://purl.bioontology.org/ontology/LNC/41653-7"
+        },
+        {
+            "description": "The LOINC code refers to Glucose [Moles/volume] in Capillary blood (mmol/L) by Glucometer",
+            "url": "http://purl.bioontology.org/ontology/LNC/14743-9"
+        },
+        {
+            "description": "The LOINC code refers to Glucose [Mass/volume] in Body fluid (mg/dL)",
+            "url": "http://purl.bioontology.org/ontology/LNC/2344-0"
+        },
+        {
+            "description": "The LOINC code refers to Glucose [Moles/volume] in Body fluid (mmol/L)",
+            "url": "http://purl.bioontology.org/ontology/LNC/14745-4"
+        }
+    ],
+    "definitions": {
+        "unit_value": {
+            "$ref": "unit-value-1.x.json"
+        },
+        "specimen_source": {
+            "$ref": "specimen-source-2.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "temporal_relationship_to_meal": {
+            "$ref": "temporal-relationship-to-meal-1.x.json"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "temporal-relationship-to-sleep-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "blood_glucose": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "mg/dL",
+                                "mmol/L"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "specimen_source": {
+            "$ref": "#/definitions/specimen_source"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "temporal_relationship_to_meal": {
+            "$ref": "#/definitions/temporal_relationship_to_meal"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "#/definitions/temporal_relationship_to_sleep"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+    "required": [
+        "blood_glucose",
+        "effective_time_frame"
+    ]
+}
