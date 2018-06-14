@@ -24,11 +24,6 @@
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258479004"
         },
         {
-            "value": "tears",
-            "description": "The SNOMED code represents Tears specimen (specimen)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/122594008"
-        },
-        {
             "value": "lacrimal fluid",
             "description": "The SNOMED code represents Lacrimal fluid sample (specimen)",
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258465007"
@@ -44,6 +39,11 @@
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/122569007"
         },
         {
+            "value": "tears",
+            "description": "The SNOMED code represents Tears specimen (specimen)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/122594008"
+        },
+        {
             "value": "urine",
             "description": "The SNOMED code represents Urine specimen (specimen)",
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/122575003"
@@ -54,10 +54,10 @@
         "breath",
         "capillary blood",
         "interstitial fluid",
-        "tears",
         "lacrimal fluid",
         "saliva",
         "sweat",
+        "tears",
         "urine"
     ]
 }

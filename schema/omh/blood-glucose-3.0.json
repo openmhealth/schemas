@@ -6,28 +6,12 @@
 
     "references": [
         {
-            "description": "The LOINC code refers to Glucose [Mass/volume] in Capillary blood (mg/dL)",
-            "url": "http://purl.bioontology.org/ontology/LNC/32016-8"
+            "description": "The LOINC code refers to Glucose [Mass/volume] in Blood (mg/dL)",
+            "url": "http://purl.bioontology.org/ontology/LNC/2339-0"
         },
         {
-            "description": "The LOINC code refers to Glucose [Moles/volume] in Capillary blood (mmol/L)",
-            "url": "http://purl.bioontology.org/ontology/LNC/51596-5"
-        },
-        {
-            "description": "The LOINC code refers to Glucose [Mass/volume] in Capillary blood (mg/dL) by Glucometer",
-            "url": "http://purl.bioontology.org/ontology/LNC/41653-7"
-        },
-        {
-            "description": "The LOINC code refers to Glucose [Moles/volume] in Capillary blood (mmol/L) by Glucometer",
-            "url": "http://purl.bioontology.org/ontology/LNC/14743-9"
-        },
-        {
-            "description": "The LOINC code refers to Glucose [Mass/volume] in Body fluid (mg/dL)",
-            "url": "http://purl.bioontology.org/ontology/LNC/2344-0"
-        },
-        {
-            "description": "The LOINC code refers to Glucose [Moles/volume] in Body fluid (mmol/L)",
-            "url": "http://purl.bioontology.org/ontology/LNC/14745-4"
+            "description": "The LOINC code refers to Glucose [Moles/volume] in Blood (mmol/L)",
+            "url": "http://purl.bioontology.org/ontology/LNC/15074-8"
         }
     ],
     "definitions": {
