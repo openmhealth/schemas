@@ -6,12 +6,8 @@
 
     "references": [
         {
-            "description": "The LOINC code refers to Glucose [Mass/volume] in Blood (mg/dL)",
-            "url": "http://purl.bioontology.org/ontology/LNC/2339-0"
-        },
-        {
-            "description": "The LOINC code refers to Glucose [Moles/volume] in Blood (mmol/L)",
-            "url": "http://purl.bioontology.org/ontology/LNC/15074-8"
+            "description": "The SNOMED code represents Blood glucose level (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/365812005"
         }
     ],
     "definitions": {
