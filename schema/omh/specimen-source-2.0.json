@@ -24,11 +24,6 @@
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258479004"
         },
         {
-            "value": "lacrimal fluid",
-            "description": "The SNOMED code represents Lacrimal fluid sample (specimen)",
-            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/258465007"
-        },
-        {
             "value": "saliva",
             "description": "The SNOMED code represents Saliva specimen (specimen)",
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/119342007"
@@ -57,7 +52,6 @@
         "lacrimal fluid",
         "saliva",
         "sweat",
-        "tears",
         "urine"
     ]
 }
