@@ -1,0 +1,11 @@
+{
+    "oxygen_saturation": {
+        "value": 95,
+        "unit": "%"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00-08:00"
+    },
+    "system": "peripheral capillary",
+    "measurement_method": "pulse oximetry"
+}

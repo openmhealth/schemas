@@ -1,0 +1,13 @@
+{
+    "oxygen_saturation": {
+        "value": 93,
+        "unit": "%"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2020-02-05T06:00:00+01:00",
+            "end_date_time": "2020-02-05T06:00:00+01:00"
+        }
+    },
+    "descriptive-statistic": "minimum"
+}
