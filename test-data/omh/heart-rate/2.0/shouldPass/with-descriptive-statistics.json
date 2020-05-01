@@ -1,0 +1,13 @@
+{
+    "heart_rate": {
+        "value": 50,
+        "unit": "beats/min"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2020-02-05T06:00:00+01:00",
+            "end_date_time": "2020-02-06T06:00:00+01:00"
+        }
+    },
+    "descriptive-statistics": "minimum"
+}
