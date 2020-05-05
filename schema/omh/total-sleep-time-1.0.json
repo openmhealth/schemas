@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
-    "description": "This schema represents total sleep time, the total amount of time spent asleep.",
+    "description": "This schema represents total sleep time, the total amount of time spent asleep. This does not include any time that a person is awake after first falling asleep at the beginning of the sleep period.",
     "references": [
         {
             "description": "The SNOMED code represents Duration of sleep (observable entity)",
@@ -30,7 +30,6 @@
 
     "properties": {
         "total_sleep_time": {
-            "description": "Total time asleep from bedtime until getting out of bed in the morning or across the 24-h period. This does not include any time that a person is awake after first falling asleep at the beginning of the night.",
             "$ref": "#/definitions/duration_unit_value"
         },
         "effective_time_frame": {
