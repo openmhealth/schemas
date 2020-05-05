@@ -1,0 +1,67 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "This schema represents total sleep time, the total amount of time spent asleep.",
+    "references": [
+        {
+            "description": "The SNOMED code represents Duration of sleep (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/248263006"
+        },
+        {
+            "description": "ANSI/CTA  Standard: Definitions and Characteristics for Wearable Sleep Monitors",
+            "url": "https://shop.cta.tech/products/definitions-and-characteristics-for-wearable-sleep-monitors"
+        }
+    ],
+
+    "definitions": {
+        "duration_unit_value": {
+            "$ref": "duration-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        },
+        "descriptive_statistic_denominator": {
+            "$ref": "descriptive-statistic-denominator-1.x.json"
+        }
+    },
+
+    "properties": {
+        "total_sleep_time": {
+            "description": "Total time asleep from bedtime until getting out of bed in the morning or across the 24-h period. This does not include any time that a person is awake after first falling asleep at the beginning of the night.",
+            "$ref": "#/definitions/duration_unit_value"
+        },
+        "effective_time_frame": {
+            "description": "As a measure of a duration, sleep duration should not be associated to a date time time frame. Hence, effective time frame is restricted to be a time interval.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": ["time_interval"]
+                }
+            ]
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "descriptive_statistic_denominator": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/descriptive_statistic_denominator"
+                },
+                {
+                    "description": "If the value needed is a standard unit of duration, select from the duration-unit-value value set.",
+                    "type": "string"
+                }
+            ]
+        }
+    },
+
+    "required": [
+        "total_sleep_time",
+        "effective_time_frame"
+    ]
+}

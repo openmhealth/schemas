@@ -1,0 +1,9 @@
+{
+    "total_sleep_time": {
+        "value": 7.5,
+        "unit": "h"
+    },
+    "effective_time_frame": {
+        "date_time": "2013-02-05T07:25:00.123Z"
+    }
+}

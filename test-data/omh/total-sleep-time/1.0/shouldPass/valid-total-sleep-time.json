@@ -1,0 +1,12 @@
+{
+    "total_sleep_time": {
+        "value": 465,
+        "unit": "min"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2016-02-05T20:35:00-08:00",
+            "end_date_time": "2016-02-06T06:35:00-08:00"
+        }
+    }
+}
