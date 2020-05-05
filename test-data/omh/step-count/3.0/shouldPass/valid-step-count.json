@@ -1,0 +1,12 @@
+{
+    "step_count": {
+        "value": 10600,
+        "unit": "steps"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2016-02-05T06:25:00Z",
+            "end_date_time": "2016-02-05T07:25:00Z"
+        }
+    }
+}

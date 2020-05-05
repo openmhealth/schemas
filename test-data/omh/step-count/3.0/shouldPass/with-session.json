@@ -1,0 +1,14 @@
+{
+    "step_count": {
+        "value": 26000,
+        "unit": "steps"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2016-02-05T07:00:00Z",
+            "end_date_time": "2016-06-05T07:00:00Z"
+        }
+    },
+    "descriptive_statistic": "maximum",
+    "descriptive_statistic_denominator": "session"
+}

@@ -1,0 +1,77 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+
+    "description": "This schema represents number of steps.",
+
+    "type": "object",
+    "references": [
+        {
+            "description": "The LOINC code refers to Number of steps in unspecified time Pedometer",
+            "url": "http://purl.bioontology.org/ontology/LNC/55423-8"
+        }
+    ],
+
+    "definitions": {
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "unit_value": {
+            "$ref": "unit-value-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.0.json"
+        },
+        "descriptive_statistic_denominator": {
+            "$ref": "descriptive-statistic-denominator-1.x.json"
+        }
+    },
+
+    "properties": {
+        "step_count": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "steps"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "effective_time_frame": {
+            "description": "As a measure of a duration, step count should not be associated to a date time time frame. Hence, effective time frame is restricted to be a time interval.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/time_frame"
+                },
+                {
+                    "required": ["time_interval"]
+                }
+            ]
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "descriptive_statistic_denominator": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/descriptive_statistic_denominator"
+                },
+                {
+                    "description": "If the value needed is a standard unit of duration, select from the duration-unit-value value set.",
+                    "type": "string"
+                }
+            ]
+        }
+    },
+
+    "required": [
+        "step_count",
+        "effective_time_frame"
+    ]
+}
