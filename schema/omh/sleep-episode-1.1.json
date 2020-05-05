@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "description": "This schema represents one sleep episode, which can be the main sleep event (i.e., a night sleep for most people) or a nap.",
     "references": [
