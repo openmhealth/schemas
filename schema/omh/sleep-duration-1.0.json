@@ -1,5 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
+    "deprecation": {
+        "reason": "This schema is now deprecated, in favor of the more precisely named total-sleep-time.",
+        "supersededBy": "omh:total-sleep-time:1.x",
+        "date": "2020-05-05"
+    },
     "type": "object",
     "description": "This schema represents a single measurement of sleep duration. The ability to represent descriptive statistics (e.g., mean, median) will be added shortly.",
     "references": [
