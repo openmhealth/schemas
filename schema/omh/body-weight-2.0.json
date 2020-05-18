@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+
+    "description": "This schema represents a person's body weight.",
+
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Body weight measure (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/363808001"
+        }
+    ],
+    "definitions": {
+        "mass_unit_value": {
+            "$ref": "mass-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "time-frame-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "descriptive-statistic-1.x.json"
+        }
+    },
+
+    "properties": {
+        "body_weight": {
+            "$ref": "#/definitions/mass_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+
+    "required": [
+        "body_weight",
+        "effective_time_frame"
+    ]
+}
