@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/ieee/ieee-1752-schema/unit-value.json",
+    "title": "Unit of Measure and Value",
+    "description": "This schema represents a numerical value with a unit of measure.",
+    "type": "object",
+    "properties": {
+        "value": {
+            "description": "The numeric value of the element.",
+            "type": "number"
+        },
+        "unit": {
+            "description": "The unit of measure of the element. Allowed values are drawn from the Common synonyms (non-UCUM) column of [subset of] UCUM, SI and English units. ",
+            "references": [
+                {
+                    "description": "The Common synonyms (non-UCUM) column of [subset of] UCUM.",
+                    "url": "http://download.hl7.de/documents/ucum/ucumdata.html"
+                },
+                {
+                    "description": "The Unified Code for Units of Measure (UCUM).",
+                    "url": "http://unitsofmeasure.org/ucum.html"
+                }
+            ],
+            "type": "string"
+        }
+    },
+    "required": [
+        "value",
+        "unit"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/ieee/ieee-1752-schema/date-time.json",
+    "title": "Date-Time",
+    "description": "This schema represents a point in time (ISO8601). If a timezone is not included, the timezone is assumed to be UTC.",
+    "type": "string",
+    "references": [
+        {
+            "description": "Reference RFC 3339 5.6 for details.",
+            "url": "http://tools.ietf.org/html/rfc3339#section-5.6"
+        }
+    ],
+    "format": "date-time"
+}
