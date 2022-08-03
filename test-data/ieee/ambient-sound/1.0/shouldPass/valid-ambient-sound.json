@@ -1,0 +1,9 @@
+{
+    "ambient_sound": {
+        "value": 75,
+        "unit": "dB"
+    },
+    "effective_time_frame": {
+        "date_time": "2019-02-05T06:00:00Z"
+    }
+}
