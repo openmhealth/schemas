@@ -17,16 +17,14 @@
 subprojects {
     buildscript {
         repositories {
-            mavenLocal()
-            jcenter()
+            mavenCentral()
         }
     }
 
     apply plugin: 'java'
 
     repositories {
-        mavenLocal()
-        jcenter()
+        mavenCentral()
     }
 
     group = 'org.openmhealth.schema'
@@ -37,8 +35,4 @@ subprojects {
 
     sourceCompatibility = javaVersion
     targetCompatibility = javaVersion
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.1'
 }
