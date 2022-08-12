@@ -56,14 +56,14 @@ def validate_data_file(data_file: DataFile):
             validate(data_file.data, schema_file.data, resolver=resolver, format_checker=draft202012_format_checker)
 
             if not data_file.should_pass:
-                print("{} should have failed but passed".format(data_file), file=sys.stderr) # TODO
+                print("{} should have failed but passed".format(data_file), file=sys.stderr) # FIXME add output
 
         except ValidationError as ve:
             if data_file.should_pass:
-                print("{} should have passed but failed".format(data_file), file=sys.stderr) # TODO
-                print(ve.message, file=sys.stderr) # TODO
+                print("{} should have passed but failed".format(data_file), file=sys.stderr) # FIXME add output
 
         except Exception as e:
+            print("An exception occurred while validating {} against {}.".format(data_file, schema_file), file=sys.stderr)
             traceback.print_exc()
             sys.exit(1)
 
