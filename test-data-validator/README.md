@@ -42,19 +42,19 @@ and drop the schema file in there.
 The test data directory structure looks like this:
   
     test-data
-    `-- omh                         # namespace
-        `-- body-weight             # schema name
-            `-- 1.0                 # version
-                +-- shouldPass      # contains positive tests
-                |   +-- a.json      # test data file
-                |   `-- b.json      
-                `-- shouldFail      # contains negative tests
-                    +-- c.json      
-                    `-- d.json
+    `-- omh                           # namespace
+        `-- body-weight               # schema name
+            `-- 1.0                   # version
+                +-- shouldPass        # contains positive tests
+                |   +-- first.json    # test data file
+                |   `-- second.json      
+                `-- shouldFail        # contains negative tests
+                    +-- third.json      
+                    `-- fourth.json
 
 The validator checks test data files against any matching schema files found in the schema directory. In the above 
-example, the validator checks that test data file `test-data/omh/body-weight/1.0/shouldPass/a.json` matches schema `omh:body-weight:1.0` located in `schemas/omh/body-weight-1.0.json`. According to the rules of semantic
- versioning, `1.0` data should conform to `1.1` schemas, so the validator also checks that `a.json` matches `schemas/omh/body-weight-1.1.json`.
+example, the validator checks that test data file `test-data/omh/body-weight/1.0/shouldPass/first.json` matches schema `omh:body-weight:1.0` located in `schemas/omh/body-weight-1.0.json`. According to the rules of semantic
+ versioning, `1.0` data should conform to `1.1` schemas, so the validator also checks that `first.json` matches `schemas/omh/body-weight-1.1.json`.
 
 To add a test data file that should match an existing schema, drop it in the `shouldPass` directory of the corresponding schema version. 
 
