@@ -34,11 +34,12 @@ class SchemaId:
 
 
 class SchemaFile:
-    def __init__(self, schema_id: SchemaId, data: dict):
+    def __init__(self, schema_id: SchemaId, data: dict, path: str):
         self.schema_id = schema_id
         self.data = data
         self.filename = "{0}-{1}.json".format(schema_id.name, schema_id.version)
         self.base_uri = schema_namespace_uris[schema_id.namespace] + "/" + self.filename
+        self.path = path
 
     @classmethod
     def from_path(cls, path: str):
@@ -54,18 +55,19 @@ class SchemaFile:
         data = json.load(file)
         file.close()
 
-        return cls(schema_id, data)
+        return cls(schema_id, data, path)
 
     def __str__(self):
         return self.schema_id.__str__()
 
 
 class DataFile:
-    def __init__(self, name: str, schema_id: SchemaId, data: dict, should_pass: bool):
+    def __init__(self, name: str, schema_id: SchemaId, data: dict, should_pass: bool, path: str):
         self.name = name
         self.schema_id = schema_id
         self.data = data
         self.should_pass = should_pass
+        self.path = path
 
     # e.g. path: ../test-data/omh/medication-prescription/1.0/shouldPass/valid-med-coumadin.json, base_dir: ../test-data
     @classmethod
@@ -81,7 +83,7 @@ class DataFile:
         data = json.load(file)
         file.close()
 
-        return cls(name, schema_id, data, should_pass)
+        return cls(name, schema_id, data, should_pass, path)
 
     def __str__(self):
         return "DataFile[name={0}, schema_id={1}, should_pass={2}]".format(self.name, self.schema_id, self.should_pass)

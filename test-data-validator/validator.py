@@ -56,11 +56,18 @@ def validate_data_file(data_file: DataFile):
             validate(data_file.data, schema_file.data, resolver=resolver, format_checker=draft202012_format_checker)
 
             if not data_file.should_pass:
-                print("{} should have failed but passed".format(data_file), file=sys.stderr) # FIXME add output
+                print("Error: The data file '{}' should have failed validation against schema {}, but"
+                      " passed.".format(data_file.name, schema_file.schema_id), end="\n\n", file=sys.stderr)
+                print("Schema path: {}".format(schema_file.path))
+                print("Data file path: {}".format(data_file.path), end="\n\n")
 
         except ValidationError as ve:
             if data_file.should_pass:
-                print("{} should have passed but failed".format(data_file), file=sys.stderr) # FIXME add output
+                print("Error: The data file '{}' should have passed validation against schema {}, but failed"
+                      " with the following error:".format(data_file.name, schema_file.schema_id), file=sys.stderr)
+                print(ve, end="\n\n")
+                print("Schema path: {}".format(schema_file.path))
+                print("Data file path: {}".format(data_file.path), end="\n\n")
 
         except Exception as e:
             print("An exception occurred while validating {} against {}.".format(data_file, schema_file), file=sys.stderr)
@@ -70,7 +77,7 @@ def validate_data_file(data_file: DataFile):
         validated = True
 
     if not validated:
-        print("No schema found to validated data file {0}".format(data_file))
+        print("Warning: No schemas have been found that validate data file {0}.".format(data_file))
 
     return
 
