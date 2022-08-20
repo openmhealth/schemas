@@ -27,6 +27,7 @@ def record_schema_version(schema_file: SchemaFile):
 
 
 def load_schemas():
+    total_loaded = 0
     for path, _, schema_filenames in os.walk(schema_base_dir):
         if not schema_filenames:
             continue
@@ -37,6 +38,9 @@ def load_schemas():
             schema_file = SchemaFile.from_path(os.path.join(path, schema_filename))
             record_schema_version(schema_file)
             ref_resolver_store[schema_file.base_uri] = schema_file.data
+            total_loaded += 1
+
+    print("Loaded {} schemas.".format(total_loaded))
 
 
 def validate_data_file(data_file: DataFile):
@@ -58,26 +62,26 @@ def validate_data_file(data_file: DataFile):
             if not data_file.should_pass:
                 print("Error: The data file '{}' should have failed validation against schema {}, but"
                       " passed.".format(data_file.name, schema_file.schema_id), end="\n\n", file=sys.stderr)
-                print("Schema path: {}".format(schema_file.path))
-                print("Data file path: {}".format(data_file.path), end="\n\n")
+                print("- Schema path: {}".format(schema_file.path))
+                print("- Data file path: {}".format(data_file.path), end="\n\n")
 
         except ValidationError as ve:
             if data_file.should_pass:
                 print("Error: The data file '{}' should have passed validation against schema {}, but failed"
                       " with the following error:".format(data_file.name, schema_file.schema_id), file=sys.stderr)
                 print(ve, end="\n\n")
-                print("Schema path: {}".format(schema_file.path))
-                print("Data file path: {}".format(data_file.path), end="\n\n")
+                print("- Schema path: {}".format(schema_file.path))
+                print("- Data file path: {}".format(data_file.path), end="\n\n")
 
         except Exception as e:
-            print("An exception occurred while validating {} against {}.".format(data_file, schema_file), file=sys.stderr)
+            print("Error: An exception occurred while validating {} against {}.".format(data_file, schema_file), file=sys.stderr)
             traceback.print_exc()
             sys.exit(1)
 
         validated = True
 
     if not validated:
-        print("Warning: No schemas have been found that validate data file {0}.".format(data_file))
+        print("Warning: No schemas have been found that validate data file '{0}'.".format(data_file.path))
 
     return
 
@@ -101,6 +105,7 @@ def add_wildcard_versions_to_ref_resolver_store():
 
 
 def validate_data_files():
+    total_validated = 0
     for path, _, test_data_filenames in os.walk(test_data_base_dir):
         if not test_data_filenames:
             continue
@@ -108,6 +113,9 @@ def validate_data_files():
         for test_data_filename in test_data_filenames:
             data_file = DataFile.from_path(os.path.join(path, test_data_filename), test_data_base_dir)
             validate_data_file(data_file)
+            total_validated += 1
+
+    print("Validated {} test data files.".format(total_validated))
 
 
 load_schemas()
