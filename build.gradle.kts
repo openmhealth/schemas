@@ -14,25 +14,3 @@
  * limitations under the License.
  */
 
-subprojects {
-    buildscript {
-        repositories {
-            mavenCentral()
-        }
-    }
-
-    apply plugin: 'java'
-
-    repositories {
-        mavenCentral()
-    }
-
-    group = 'org.openmhealth.schema'
-
-    ext {
-        javaVersion = 1.8
-    }
-
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
