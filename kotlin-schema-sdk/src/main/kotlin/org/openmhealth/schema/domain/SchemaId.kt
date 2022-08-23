@@ -9,7 +9,7 @@ import java.util.regex.Pattern
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see [schema-id](http://www.openmhealth.org/documentation/./schema-docs/schema-library/schemas/omh_schema-id)
+ * @see [schema-id](https://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_schema-id)
  */
 data class SchemaId(
     val namespace: SchemaNamespace = OMH_NAMESPACE,
