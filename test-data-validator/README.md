@@ -6,9 +6,10 @@ This validator is a Python application that validates test data against schemas.
 
 You'll need [Python 3.7](https://www.python.org/downloads/) or later.
  
-You'll also need the [jsonschema](https://pypi.org/project/jsonschema/) Python package. `jsonschema` depends on format checkers, [listed at the bottom of the `jsonschema` validation documentation](https://python-jsonschema.readthedocs.io/en/stable/validate/#validating-formats). To install the format checking Python packages along with `jsonschema`, run: 
+You'll also need the [requests](https://pypi.org/project/requests/) and [jsonschema](https://pypi.org/project/jsonschema/) Python packages. Note that `jsonschema` depends on [format checkers](https://python-jsonschema.readthedocs.io/en/stable/validate/#validating-formats). You can install the format checkers with `jsonschema` by using the following commands:
 
 ```sh
+pip install requests
 pip install "jsonschema[format]"
 ```
 
