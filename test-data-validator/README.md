@@ -64,7 +64,7 @@ The validator helps you test whether the new schemas you're creating validate da
 
 Validation is triggered by the presence of test data files. If a schema doesn't have any corresponding test data files, it won't be tested directly. The schema may however be tested indirectly if it's referenced by another schema that has its own test data. For example, if there are no test data files for the `omh:time-frame:1.0` schema, but the `omh:blood-pressure:3.0` schema references `omh:time-frame`, the relevant time frame properties in the `omh:blood-pressure` test data files would be checked against the `omh:time-frame` schema. 
 
-If a test data file is loaded by the validator but no corresponding schema file is found, a warning will be shown.
+If a test data file is loaded by the validator but no corresponding local or remote schema is found, a warning will be shown.
 ```
 Warning: No schemas have been found that validate data file '../test-data/omh/new-schema/1.0/shouldPass/some-data.json'.
 ```
