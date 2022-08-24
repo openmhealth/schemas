@@ -33,7 +33,7 @@ def load_schemas():
             continue
 
         for schema_filename in schema_filenames:
-            if schema_filename.endswith("x.json"):
+            if schema_filename.startswith(".") or schema_filename.endswith("x.json"):
                 continue
             schema_file = SchemaFile.from_path(os.path.join(path, schema_filename))
             record_schema_version(schema_file)
