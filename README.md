@@ -19,6 +19,5 @@ There are a few tools which are well suited to working with the schemas and sour
 
 * [Git](http://git-scm.com/downloads) to be able to pull the code
 * some text editor, preferably one that can do syntax highlighting for JSON documents
-    * [Atom](https://atom.io/) if you're comfortable with command line Git
-    * [Atom](https://atom.io/) and [SourceTree](http://www.sourcetreeapp.com) if you're *not* comfortable with command-line Git
+    * A text editor and [SourceTree](http://www.sourcetreeapp.com) if you're *not* comfortable with command-line Git
     * [IntelliJ IDEA Community Edition](http://www.jetbrains.com/idea/download/) for a full IDE with Git integration

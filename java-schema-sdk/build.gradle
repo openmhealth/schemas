@@ -14,14 +14,7 @@
  * limitations under the License.
  */
 
-buildscript {
-    dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.5'
-    }
-}
-
 apply plugin: 'maven-publish'
-apply plugin: 'com.jfrog.bintray' // see https://github.com/bintray/gradle-bintray-plugin for details
 
 archivesBaseName = 'omh-schema-sdk'
 version = '1.2.2-SNAPSHOT'
@@ -78,26 +71,5 @@ publishing {
             artifactId 'omh-schema-sdk'
             artifact javadocJar
         }
-    }
-}
-
-bintray {
-    user = project.hasProperty('bintray_user') ? bintray_user : ''
-    key = project.hasProperty('bintray_api_key') ? bintray_api_key : ''
-
-    publications = ['jar', 'sources', 'javadoc']
-    dryRun = false
-    publish = false
-    pkg {
-        repo = 'maven'
-        name = 'omh-schema-sdk'
-        userOrg = 'openmhealth'
-        desc = 'A library containing Java classes corresponding to Open mHealth schemas.'
-        websiteUrl = 'https://github.com/openmhealth/schemas'
-        issueTrackerUrl = 'https://github.com/openmhealth/schemas/issues'
-        vcsUrl = 'https://github.com/openmhealth/schemas.git'
-        licenses = ['Apache-2.0']
-        labels = ['schemas']
-        publicDownloadNumbers = true
     }
 }

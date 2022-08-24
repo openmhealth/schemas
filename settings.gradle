@@ -16,5 +16,4 @@
 
 rootProject.name = 'schemas'
 include 'java-schema-sdk'
-include 'test-data-validator'
 
