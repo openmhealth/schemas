@@ -37,10 +37,39 @@ def load_schemas():
                 continue
             schema_file = SchemaFile.from_path(os.path.join(path, schema_filename))
             record_schema_version(schema_file)
-            ref_resolver_store[schema_file.base_uri] = schema_file.data
+            ref_resolver_store[schema_file.schema_id.base_uri] = schema_file.data
             total_loaded += 1
 
     print("Loaded {} schemas.".format(total_loaded))
+
+
+def validate_data_file_against_schema(data_file: DataFile, schema_file: SchemaFile):
+
+    try:
+        # see https://python-jsonschema.readthedocs.io/en/stable/references/
+        resolver = RefResolver(schema_file.schema_id.base_uri, schema_file.data, ref_resolver_store)
+
+        # see https://python-jsonschema.readthedocs.io/en/stable/validate/
+        validate(data_file.data, schema_file.data, resolver=resolver, format_checker=draft202012_format_checker)
+
+        if not data_file.should_pass:
+            print("Error: The data file '{}' should have failed validation against schema {}, but"
+                  " passed.".format(data_file.name, schema_file.schema_id), end="\n\n", file=sys.stderr)
+            print("- Schema path: {}".format(schema_file.path))
+            print("- Data file path: {}".format(data_file.path), end="\n\n")
+
+    except ValidationError as ve:
+        if data_file.should_pass:
+            print("Error: The data file '{}' should have passed validation against schema {}, but failed"
+                  " with the following error:".format(data_file.name, schema_file.schema_id), file=sys.stderr)
+            print(ve, end="\n\n")
+            print("- Schema path: {}".format(schema_file.path))
+            print("- Data file path: {}".format(data_file.path), end="\n\n")
+
+    except Exception:
+        print("Error: An exception occurred while validating {} against {}.".format(data_file, schema_file), file=sys.stderr)
+        traceback.print_exc()
+        sys.exit(1)
 
 
 def validate_data_file(data_file: DataFile):
@@ -52,42 +81,21 @@ def validate_data_file(data_file: DataFile):
         if data_file.schema_id.version.minor > schema_file.schema_id.version.minor:
             continue
 
-        try:
-            # see https://python-jsonschema.readthedocs.io/en/stable/references/
-            resolver = RefResolver(schema_file.base_uri, schema_file.data, ref_resolver_store)
-
-            # see https://python-jsonschema.readthedocs.io/en/stable/validate/
-            validate(data_file.data, schema_file.data, resolver=resolver, format_checker=draft202012_format_checker)
-
-            if not data_file.should_pass:
-                print("Error: The data file '{}' should have failed validation against schema {}, but"
-                      " passed.".format(data_file.name, schema_file.schema_id), end="\n\n", file=sys.stderr)
-                print("- Schema path: {}".format(schema_file.path))
-                print("- Data file path: {}".format(data_file.path), end="\n\n")
-
-        except ValidationError as ve:
-            if data_file.should_pass:
-                print("Error: The data file '{}' should have passed validation against schema {}, but failed"
-                      " with the following error:".format(data_file.name, schema_file.schema_id), file=sys.stderr)
-                print(ve, end="\n\n")
-                print("- Schema path: {}".format(schema_file.path))
-                print("- Data file path: {}".format(data_file.path), end="\n\n")
-
-        except Exception as e:
-            print("Error: An exception occurred while validating {} against {}.".format(data_file, schema_file), file=sys.stderr)
-            traceback.print_exc()
-            sys.exit(1)
-
+        validate_data_file_against_schema(data_file, schema_file)
         validated = True
 
     if not validated:
-        print("Warning: No schemas have been found that validate data file '{0}'.".format(data_file.path))
+        remote_schema_file = SchemaFile.from_schema_id(data_file.schema_id)
+        if remote_schema_file:
+            validate_data_file_against_schema(data_file, remote_schema_file)
+        else:
+            print("Warning: No local or remote schemas have been found that validate data file '{0}'.".format(data_file.path))
 
     return
 
 
 def add_wildcard_version_to_ref_resolver_store(schema_file: SchemaFile):
-    schema_base_uri = schema_file.base_uri
+    schema_base_uri = schema_file.schema_id.base_uri
     schema_base_uri_without_extension = schema_base_uri[:-5]
     schema_base_uri_without_minor_version = schema_base_uri[:schema_base_uri_without_extension.rindex(".")]
     schema_wildcard_base_uri = schema_base_uri_without_minor_version + ".x.json"
