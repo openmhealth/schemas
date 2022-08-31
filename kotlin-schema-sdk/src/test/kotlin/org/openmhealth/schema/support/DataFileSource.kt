@@ -51,7 +51,6 @@ class DataFileArgumentsProvider : ArgumentsProvider, AnnotationConsumer<DataFile
         }
 
         return listOf(jsonNode)
-            .map { objectMapper.writeValueAsString(it) }
             .stream()
             .map { Arguments.of(it) }
     }
