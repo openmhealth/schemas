@@ -1,6 +1,7 @@
 import os
 from jsonschema import validate, RefResolver, ValidationError, draft202012_format_checker
-from validator_types import SchemaFile, DataFile
+from validator_types import SchemaFile, DataFile, SchemaId
+from ieee_url_workaround import ieee_schema_directories, create_synthetic_ieee_schema
 import sys
 import traceback
 
@@ -41,6 +42,19 @@ def load_schemas():
             total_loaded += 1
 
     print("Loaded {} schemas.".format(total_loaded))
+
+
+def load_synthetic_ieee_schemas():
+    total_loaded = 0
+    for schema_name in ieee_schema_directories.keys():
+        schema_id = SchemaId("ieee", schema_name)
+        schema_data = create_synthetic_ieee_schema(schema_id)
+        schema_file = SchemaFile(schema_id, schema_data, "synthetic")
+        record_schema_version(schema_file)
+        ref_resolver_store[schema_file.schema_id.base_uri] = schema_file.data
+        total_loaded += 1
+
+    print("Loaded {} synthetic IEEE schemas.".format(total_loaded))
 
 
 def validate_data_file_against_schema(data_file: DataFile, schema_file: SchemaFile):
@@ -127,5 +141,6 @@ def validate_data_files():
 
 
 load_schemas()
+load_synthetic_ieee_schemas()
 add_wildcard_versions_to_ref_resolver_store()
 validate_data_files()
