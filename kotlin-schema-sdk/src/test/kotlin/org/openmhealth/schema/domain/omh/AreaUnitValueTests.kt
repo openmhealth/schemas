@@ -1,0 +1,27 @@
+package org.openmhealth.schema.domain.omh
+
+import org.junit.jupiter.params.ParameterizedTest
+import org.openmhealth.schema.domain.omh.AreaUnit.SQUARE_INCH
+import org.openmhealth.schema.domain.omh.AreaUnit.SQUARE_METER
+import org.openmhealth.schema.support.DataFileSource
+import java.math.BigDecimal.ZERO
+
+
+class AreaUnitValueTests : MappingTests() {
+
+    @ParameterizedTest
+    @DataFileSource(schemaId = "omh:area-unit-value:1.0", filename = "positive-value.json")
+    fun `positive-value`(json: String) {
+        val value = AreaUnitValue(SQUARE_METER, 7.6)
+
+        assertThatMappingWorks(value, json)
+    }
+
+    @ParameterizedTest
+    @DataFileSource(schemaId = "omh:area-unit-value:1.0", filename = "zero-value.json")
+    fun `zero-value`(json: String) {
+        val value = AreaUnitValue(SQUARE_INCH, ZERO)
+
+        assertThatMappingWorks(value, json)
+    }
+}
