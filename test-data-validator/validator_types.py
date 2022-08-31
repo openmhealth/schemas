@@ -1,5 +1,6 @@
 import json
 import os
+import requests
 
 
 schema_namespace_uris = {
@@ -28,6 +29,7 @@ class SchemaId:
         self.namespace = namespace
         self.name = name
         self.version = version
+        self.base_uri = schema_namespace_uris[namespace] + "/{0}-{1}.json".format(name, version)
 
     def __str__(self):
         return "{0}:{1}:{2}".format(self.namespace, self.name, self.version)
@@ -37,8 +39,6 @@ class SchemaFile:
     def __init__(self, schema_id: SchemaId, data: dict, path: str):
         self.schema_id = schema_id
         self.data = data
-        self.filename = "{0}-{1}.json".format(schema_id.name, schema_id.version)
-        self.base_uri = schema_namespace_uris[schema_id.namespace] + "/" + self.filename
         self.path = path
 
     @classmethod
@@ -56,6 +56,15 @@ class SchemaFile:
         file.close()
 
         return cls(schema_id, data, path)
+
+    @classmethod
+    def from_schema_id(cls, schema_id: SchemaId):
+        response = requests.get(schema_id.base_uri)
+        if response.status_code == 200:
+            data = json.loads(response.text)
+            return cls(schema_id, data, "remote")
+        else:
+            return None
 
     def __str__(self):
         return self.schema_id.__str__()

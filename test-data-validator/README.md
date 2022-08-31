@@ -6,9 +6,10 @@ This validator is a Python application that validates test data against schemas.
 
 You'll need [Python 3.7](https://www.python.org/downloads/) or later.
  
-You'll also need the [jsonschema](https://pypi.org/project/jsonschema/) Python package. `jsonschema` depends on format checkers, [listed at the bottom of the `jsonschema` validation documentation](https://python-jsonschema.readthedocs.io/en/stable/validate/#validating-formats). To install the format checking Python packages along with `jsonschema`, run: 
+You'll also need the [requests](https://pypi.org/project/requests/) and [jsonschema](https://pypi.org/project/jsonschema/) Python packages. Note that `jsonschema` depends on [format checkers](https://python-jsonschema.readthedocs.io/en/stable/validate/#validating-formats). You can install the format checkers with `jsonschema` by using the following commands:
 
 ```sh
+pip install requests
 pip install "jsonschema[format]"
 ```
 
@@ -64,7 +65,7 @@ The validator helps you test whether the new schemas you're creating validate da
 
 Validation is triggered by the presence of test data files. If a schema doesn't have any corresponding test data files, it won't be tested directly. The schema may however be tested indirectly if it's referenced by another schema that has its own test data. For example, if there are no test data files for the `omh:time-frame:1.0` schema, but the `omh:blood-pressure:3.0` schema references `omh:time-frame`, the relevant time frame properties in the `omh:blood-pressure` test data files would be checked against the `omh:time-frame` schema. 
 
-If a test data file is loaded by the validator but no corresponding schema file is found, a warning will be shown.
+If a test data file is loaded by the validator but no corresponding local or remote schema is found, a warning will be shown.
 ```
 Warning: No schemas have been found that validate data file '../test-data/omh/new-schema/1.0/shouldPass/some-data.json'.
 ```
