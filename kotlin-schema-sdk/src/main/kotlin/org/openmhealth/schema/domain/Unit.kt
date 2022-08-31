@@ -1,4 +1,4 @@
-package org.openmhealth.schema.domain.omh
+package org.openmhealth.schema.domain
 
 import org.openmhealth.schema.domain.SchemaEnumValue
 

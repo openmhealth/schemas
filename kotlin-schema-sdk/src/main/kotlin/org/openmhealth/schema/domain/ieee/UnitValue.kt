@@ -1,6 +1,6 @@
-package org.openmhealth.schema.domain.omh
+package org.openmhealth.schema.domain.ieee
 
-import org.openmhealth.schema.domain.OMH_NAMESPACE
+import org.openmhealth.schema.domain.IEEE_NAMESPACE
 import org.openmhealth.schema.domain.SchemaId
 import org.openmhealth.schema.domain.SchemaSupport
 import java.math.BigDecimal
@@ -11,7 +11,7 @@ import java.math.BigDecimal
  *
  * @author Emerson Farrugia
  * @version 1.0
- * @see [unit-value](https://www.openmhealth.org/documentation/#/schema-docs/schema-library/schemas/omh_unit-value)
+ * @see [unit-value][https://w3id.org/ieee/ieee-1752-schema/unit-value.json]
  */
 data class UnitValue(
     val unit: String,
@@ -26,5 +26,5 @@ data class UnitValue(
     }
 
     override val schemaId: SchemaId
-        get() = SchemaId(OMH_NAMESPACE.value, "unit-value", "1.0")
+        get() = SchemaId(IEEE_NAMESPACE.value, "unit-value", "1.0")
 }

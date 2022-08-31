@@ -1,5 +1,7 @@
 package org.openmhealth.schema.domain.omh
 
+import org.openmhealth.schema.domain.Unit
+
 
 /**
  * A unit of area, or a measure of a surface.
