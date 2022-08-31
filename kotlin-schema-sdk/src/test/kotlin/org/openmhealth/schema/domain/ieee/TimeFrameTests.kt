@@ -15,7 +15,7 @@ class TimeFrameTests : MappingTests() {
     fun `date-time`(json: JsonNode) {
 
         val value = DateTimeTimeFrame(
-            dateTime = OffsetDateTime.parse("2013-02-05T07:25:00.123Z"),
+            dateTime = DateTime.parse("2013-02-05T07:25:00.123Z"),
         )
 
         assertThatMappingWorks(value, json)

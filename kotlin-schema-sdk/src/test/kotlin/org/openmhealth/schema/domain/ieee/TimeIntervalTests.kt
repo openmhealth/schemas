@@ -2,11 +2,8 @@ package org.openmhealth.schema.domain.omh
 
 import com.fasterxml.jackson.databind.JsonNode
 import org.junit.jupiter.params.ParameterizedTest
+import org.openmhealth.schema.domain.ieee.*
 import org.openmhealth.schema.domain.ieee.DurationUnit.DAY
-import org.openmhealth.schema.domain.ieee.DurationUnitValue
-import org.openmhealth.schema.domain.ieee.EndDurationTimeInterval
-import org.openmhealth.schema.domain.ieee.StartDurationTimeInterval
-import org.openmhealth.schema.domain.ieee.StartEndTimeInterval
 import org.openmhealth.schema.support.DataFileSource
 import java.time.OffsetDateTime
 
@@ -18,8 +15,8 @@ class TimeIntervalTests : MappingTests() {
     fun `start-time-end-time`(json: JsonNode) {
 
         val value = StartEndTimeInterval(
-            startDateTime = OffsetDateTime.parse("2013-02-05T07:25:00Z"),
-            endDateTime = OffsetDateTime.parse("2013-02-05T07:35:00Z")
+            startDateTime = DateTime.parse("2013-02-05T07:25:00Z"),
+            endDateTime = DateTime.parse("2013-02-05T07:35:00Z")
         )
 
         assertThatMappingWorks(value, json)
@@ -30,7 +27,7 @@ class TimeIntervalTests : MappingTests() {
     fun `start-time-duration`(json: JsonNode) {
 
         val value = StartDurationTimeInterval(
-            startDateTime = OffsetDateTime.parse("2013-02-05T07:25:00Z"),
+            startDateTime = DateTime.parse("2013-02-05T07:25:00Z"),
             duration = DurationUnitValue(DAY, 10.2)
         )
 
@@ -42,7 +39,7 @@ class TimeIntervalTests : MappingTests() {
     fun `end-time-duration`(json: JsonNode) {
 
         val value = EndDurationTimeInterval(
-            endDateTime = OffsetDateTime.parse("2013-02-05T07:35:00Z"),
+            endDateTime = DateTime.parse("2013-02-05T07:35:00Z"),
             duration = DurationUnitValue(DAY, 10.9)
         )
 
