@@ -9,10 +9,12 @@ import org.openmhealth.schema.domain.SchemaSupport
 import java.time.OffsetDateTime
 
 /**
- * A time interval.
+ * A time interval. No commitments are made whether the start or end time point itself is included in the
+ * interval (i.e., whether the defined interval includes the boundary point(s) or not).
  *
  * @author Emerson Farrugia
  * @version 1.0
+ * @see [time-interval][https://w3id.org/ieee/ieee-1752-schema/time-interval.json]
  */
 @JsonTypeInfo(use = DEDUCTION)
 sealed class TimeInterval: SchemaSupport {
@@ -21,8 +23,8 @@ sealed class TimeInterval: SchemaSupport {
 }
 
 data class StartEndTimeInterval(
-    val startDateTime: OffsetDateTime,
-    val endDateTime: OffsetDateTime,
+    val startDateTime: DateTime,
+    val endDateTime: DateTime,
 ) : TimeInterval() {
     init {
         require(!startDateTime.isAfter(endDateTime)) { "The specified start and end date times are reversed." }
@@ -30,11 +32,11 @@ data class StartEndTimeInterval(
 }
 
 data class StartDurationTimeInterval(
-    val startDateTime: OffsetDateTime,
+    val startDateTime: DateTime,
     val duration: DurationUnitValue
 ) : TimeInterval()
 
 data class EndDurationTimeInterval(
-    val endDateTime: OffsetDateTime,
+    val endDateTime: DateTime,
     val duration: DurationUnitValue
 ) : TimeInterval()
