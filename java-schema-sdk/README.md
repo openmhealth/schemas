@@ -1,5 +1,7 @@
 # Java Schema SDK
 
+> The Java SDK is no longer being maintained. Please see the [Kotlin SDK](../kotlin-schema-sdk/README.md) instead.
+ 
 This SDK is a collection of Java classes that help you produce and consume Open mHealth compliant data in your Java, 
 Groovy, and Scala applications. It contains a Java class for each schema, along with all necessary builders, enums, 
   serialization annotations, and unit tests. 
