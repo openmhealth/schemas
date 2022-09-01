@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
-rootProject.name = 'schemas'
-include 'java-schema-sdk'
+rootProject.name = "schemas"
+include("java-schema-sdk")
+include("kotlin-schema-sdk")
 

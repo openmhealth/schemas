@@ -1,6 +1,6 @@
 {
     "heart_rate": {
-        "value": 50,
+        "value": 50.0,
         "unit": "beats/min"
     },
     "effective_time_frame": {
@@ -9,5 +9,5 @@
             "end_date_time": "2020-02-06T06:00:00+01:00"
         }
     },
-    "descriptive-statistics": "minimum"
+    "descriptive_statistic": "minimum"
 }

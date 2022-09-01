@@ -11,8 +11,11 @@ The schemas are located in the [schema](schema) directory.
 The [validator](test-data-validator) is a simple application that validates test data against schemas. The test data 
 that it uses is located in the [test-data](test-data) directory.  
 
+## Kotlin SDK
+The [Kotlin SDK](kotlin-schema-sdk) helps you produce and consume Open mHealth-compliant data in your Kotlin, Java, Groovy, and Scala applications.
+
 ## Java SDK 
-The [Java SDK](java-schema-sdk) helps you produce and consume Open mHealth compliant data in your Java, Groovy, and Scala applications. 
+The [deprecated Java SDK](java-schema-sdk) helped you produce and consume Open mHealth compliant data in your Java, Groovy, and Scala applications. This SDK is no longer maintained and is superseded by the Kotlin SDK.
 
 ## Tooling
 There are a few tools which are well suited to working with the schemas and source code in this repository.
