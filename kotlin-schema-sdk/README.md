@@ -2,7 +2,7 @@
  
 This SDK is a collection of Kotlin classes that help you produce and consume Open mHealth-compliant data in your Kotlin, Java, Scala, and Groovy applications. It contains template Kotlin classes for a few Open mHealth and IEEE schemas.
 
-> The SDK doesn't currently have classes for all schemas, but is meant as a template to be extended as needed. We are gathering feedback on whether a completed, pre-packaged SDK is useful. Please let us know in [this discussion](https://github.com/openmhealth/schemas/discussions/19).
+> The SDK doesn't currently have classes for all schemas, but is meant as a template to be extended as needed. We are gathering feedback on whether a complete, pre-packaged SDK is useful. Please let us know in [this poll](https://github.com/openmhealth/schemas/discussions/19).
 > 
 > If you find the SDK useful and would like to contribute, feel free to open PRs to add support for more Open mHealth or IEEE schemas.
 
