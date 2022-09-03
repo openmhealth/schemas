@@ -9,8 +9,8 @@ schema_base_dir = '../schema'
 test_data_base_dir = '../test-data'
 
 # e.g. {
-#        "https://www.openmhealth.org/schema/omh/step-count-1.0.json" : <dict>,
-#        "https://www.openmhealth.org/schema/omh/step-count-1.x.json" : <dict>,
+#        "https://w3id.org/openmhealth/schemas/omh/step-count-1.0.json" : <dict>,
+#        "https://w3id.org/openmhealth/schemas/omh/step-count-2.0.json" : <dict>,
 #      }
 ref_resolver_store = {}
 

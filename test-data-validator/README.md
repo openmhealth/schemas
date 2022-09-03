@@ -80,15 +80,15 @@ The validator is capable of resolving both local and remote schemas by their bas
 - You can use the absolute base URI of a remote schema in the `$ref` property of a local schema, and the validator will retrieve, cache, and use the remote schema.
 - You can create a test data file for a schema that only exists remotely, and the validator will similarly fetch and use the schema. For this to work, the suffix of the base URI of the remote schema must follow the `name-version.json` convention.  
 
-The validator constructs a base URI for a schema by mapping its schema namespace to a base URI prefix and appending its filename. The `omh` namespace is mapped to the `https://www.openmhealth.org/schema/omh` prefix, so the `omh:blood-glucose:3.0` schema has base URI `https://www.openmhealth.org/schema/omh/blood-glucose-3.0.json`.
+The validator constructs a base URI for a schema by mapping its schema namespace to a base URI prefix and appending its filename. The `omh` namespace is mapped to the `https://w3id.org/openmhealth/schemas/omh` prefix, so the `omh:blood-glucose:3.0` schema has base URI `https://w3id.org/openmhealth/schemas/omh/blood-glucose-3.0.json`.
 
 The following mappings are configured:
 
-| namespace | base URI prefix                            |
-|-----------|--------------------------------------------|
-| granola   | https://www.openmhealth.org/schema/granola |
-| ieee      | https://w3id.org/ieee/ieee-1752-schema     |
-| omh       | https://www.openmhealth.org/schema/omh     |
+| namespace | base URI prefix                              |
+|-----------|----------------------------------------------|
+| granola   | https://w3id.org/openmhealth/schemas/granola |
+| ieee      | https://w3id.org/ieee/ieee-1752-schema       |
+| omh       | https://w3id.org/openmhealth/schemas/omh     |
 
 
 To create a new namespace, add a dictionary entry to `schema_namespace_uris` in `validator_types.py`.
