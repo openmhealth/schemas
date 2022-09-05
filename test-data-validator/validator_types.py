@@ -4,9 +4,9 @@ import requests
 
 
 schema_namespace_uris = {
-    "granola": "https://www.openmhealth.org/schema/granola",
+    "granola": "https://w3id.org/openmhealth/schemas/granola",
     "ieee": "https://w3id.org/ieee/ieee-1752-schema",
-    "omh": "https://www.openmhealth.org/schema/omh",
+    "omh": "https://w3id.org/openmhealth/schemas/omh",
 }
 
 
