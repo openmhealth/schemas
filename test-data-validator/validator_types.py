@@ -84,7 +84,13 @@ class DataFile:
         name = path[path.rindex(os.sep)+1:]
         coordinates = path[len(base_dir) + 1:].split(os.sep)  # e.g. ['omh', 'blood-pressure', '2.0', 'shouldPass']
 
-        schema_version = SchemaVersion.from_string(coordinates[2])
+        try:
+            schema_version = SchemaVersion.from_string(coordinates[2])
+        except ValueError:
+            print("Error: An exception occurred while extracting a schema version from path '{}'.".format(path), file=sys.stderr)
+            traceback.print_exc()
+            sys.exit(1)
+
         schema_id = SchemaId(coordinates[0], coordinates[1], schema_version)
         should_pass = coordinates[3] == "shouldPass"
 
