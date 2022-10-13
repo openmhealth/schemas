@@ -2,5 +2,5 @@
     "namespace": "omh",
     "name": "calories-burned",
     "version": "1.0",
-    "url": "w3id.org/openmhealth/schemas/omh/calories-burned-1.0.json"
+    "url": "https://w3id.org/openmhealth/schemas/omh/calories-burned-1.0.json"
 }
