@@ -1,6 +1,8 @@
 import json
 import os
 import requests
+import sys
+import traceback
 
 
 schema_namespace_uris = {
@@ -86,7 +88,7 @@ class DataFile:
 
         try:
             schema_version = SchemaVersion.from_string(coordinates[2])
-        except ValueError:
+        except Exception:
             print("Error: An exception occurred while extracting a schema version from path '{}'.".format(path), file=sys.stderr)
             traceback.print_exc()
             sys.exit(1)
