@@ -1,5 +1,5 @@
 import os
-from jsonschema import validate, RefResolver, ValidationError, draft202012_format_checker
+from jsonschema import validate, RefResolver, ValidationError, Draft202012Validator
 from validator_types import SchemaFile, DataFile, SchemaId
 from ieee_url_workaround import ieee_schema_directories, create_synthetic_ieee_schema
 import sys
@@ -64,7 +64,7 @@ def validate_data_file_against_schema(data_file: DataFile, schema_file: SchemaFi
         resolver = RefResolver(schema_file.schema_id.base_uri, schema_file.data, ref_resolver_store)
 
         # see https://python-jsonschema.readthedocs.io/en/stable/validate/
-        validate(data_file.data, schema_file.data, resolver=resolver, format_checker=draft202012_format_checker)
+        validate(data_file.data, schema_file.data, resolver=resolver, format_checker=Draft202012Validator.format_checker)
 
         if not data_file.should_pass:
             print("Error: The data file '{}' should have failed validation against schema {}, but"
