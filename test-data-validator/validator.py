@@ -64,7 +64,7 @@ def validate_data_file_against_schema(data_file: DataFile, schema_file: SchemaFi
         resolver = RefResolver(schema_file.schema_id.base_uri, schema_file.data, ref_resolver_store)
 
         # see https://python-jsonschema.readthedocs.io/en/stable/validate/
-        validate(data_file.data, schema_file.data, resolver=resolver, format_checker=Draft202012Validator.format_checker)
+        validate(data_file.data, schema_file.data, resolver=resolver, format_checker=Draft202012Validator.FORMAT_CHECKER)
 
         if not data_file.should_pass:
             print("Error: The data file '{}' should have failed validation against schema {}, but"
