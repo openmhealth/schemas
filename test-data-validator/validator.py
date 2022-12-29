@@ -30,9 +30,6 @@ def record_schema_version(schema_file: SchemaFile):
 def load_schemas():
     total_loaded = 0
     for path, _, schema_filenames in os.walk(schema_base_dir):
-        if not schema_filenames:
-            continue
-
         for schema_filename in schema_filenames:
             if schema_filename.startswith(".") or schema_filename.endswith("x.json"):
                 continue
@@ -126,18 +123,46 @@ def add_wildcard_versions_to_ref_resolver_store():
         add_wildcard_version_to_ref_resolver_store(latest_schema_file)
 
 
+def is_data_file(filename: str):
+    return filename.find(".json") > -1
+
+
+def count_data_files():
+    total_files = 0
+
+    for path, _, test_data_filenames in os.walk(test_data_base_dir):
+        for filename in test_data_filenames:
+            if is_data_file(filename):
+                total_files += 1
+
+    return total_files
+
+
 def validate_data_files():
+    total_files = count_data_files()
+    if total_files == 0:
+        print("No data files found.")
+        return
+
     total_validated = 0
     for path, _, test_data_filenames in os.walk(test_data_base_dir):
-        if not test_data_filenames:
-            continue
 
         for test_data_filename in test_data_filenames:
+            if not is_data_file(test_data_filename):
+                continue
+
             data_file = DataFile.from_path(os.path.join(path, test_data_filename), test_data_base_dir)
             validate_data_file(data_file)
             total_validated += 1
+            print("Validating test data files: %3u%% (%u/%u)"
+                  % (
+                      total_validated * 100 / total_files,
+                      total_validated,
+                      total_files
+                  ),
+                  end='\r')
 
-    print("Validated {} test data files.".format(total_validated))
+    print("\nValidated {} test data files.".format(total_validated))
 
 
 load_schemas()
