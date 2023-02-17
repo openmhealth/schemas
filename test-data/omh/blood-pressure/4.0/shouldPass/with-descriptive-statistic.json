@@ -1,0 +1,19 @@
+{
+    "systolic_blood_pressure": {
+        "value": 160,
+        "unit": "mmHg"
+    },
+    "diastolic_blood_pressure": {
+        "value": 60,
+        "unit": "mmHg"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2020-02-05T07:00:00-08:00",
+            "end_date_time": "2020-02-12T07:00:00-08:00"
+        }
+    },
+    "body_posture": "sitting",
+    "measurement_location": "left wrist",
+    "descriptive_statistic": "maximum"
+}
