@@ -7,7 +7,7 @@ A repository of Open mHealth [schemas](http://www.openmhealth.org/documentation/
 ## Schemas
 The schemas are located in the [schema](schema) directory.
 #### Important note 
-The schema repository is currently being updated to reference [IEEE 1752.1 schemas](https://opensource.ieee.org/omh/1752/-/tree/main) wherever relevant. In particular, Open mHealth schemas modeling sleep and physical activity measures and metadata are superseded by IEEE 1752.1 sleep, physical activity and metadata schemas]
+The schema repository is currently being updated to reference [IEEE 1752.1 schemas](https://opensource.ieee.org/omh/1752/-/tree/main) wherever relevant. Open mHealth schemas modeling sleep and physical activity measures and metadata are superseded by IEEE 1752.1 sleep, physical activity and metadata schemas.
 
 ## Validator and test data
 The [validator](test-data-validator) is a simple application that validates test data against schemas. The test data 
