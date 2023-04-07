@@ -1,0 +1,43 @@
+# for more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+name: Run test data validator
+
+on:
+  push:
+    branches:
+      - "**"
+    paths:
+      - '.github/workflows/validator.yaml'
+      - 'test-data-validator/**'
+      - 'test-data/**'
+
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - '.github/workflows/validator.yaml'
+      - 'test-data-validator/**'
+      - 'test-data/**'
+
+permissions:
+  contents: read
+
+jobs:
+  run-validator:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests "jsonschema[format]"
+
+    - name: Run validator
+      run: |
+        python validator.py
