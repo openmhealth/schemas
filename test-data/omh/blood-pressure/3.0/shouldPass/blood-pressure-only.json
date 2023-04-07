@@ -5,7 +5,7 @@
     },
     "diastolic_blood_pressure": {
         "value": 60,
-        "unit": "mmHg"
+        "unit": "mHg"
     },
     "effective_time_frame": {
         "date_time": "2020-02-05T07:25:00-08:00"
