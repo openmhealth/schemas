@@ -1,4 +1,5 @@
 import os
+
 from jsonschema import validate, RefResolver, ValidationError, Draft202012Validator
 from validator_types import SchemaFile, DataFile, SchemaId
 from ieee_url_workaround import ieee_schema_directories, create_synthetic_ieee_schema
@@ -54,8 +55,10 @@ def load_synthetic_ieee_schemas():
     print("Loaded {} synthetic IEEE schemas.".format(total_loaded))
 
 
-def validate_data_file_against_schema(data_file: DataFile, schema_file: SchemaFile):
-
+def validate_data_file_against_schema(data_file: DataFile, schema_file: SchemaFile) -> bool:
+    """
+    :return: true if validation passed, false otherwise
+    """
     try:
         # see https://python-jsonschema.readthedocs.io/en/stable/references/
         resolver = RefResolver(schema_file.schema_id.base_uri, schema_file.data, ref_resolver_store)
@@ -68,6 +71,7 @@ def validate_data_file_against_schema(data_file: DataFile, schema_file: SchemaFi
                   " passed.".format(data_file.name, schema_file.schema_id), end="\n\n", file=sys.stderr)
             print("- Schema path: {}".format(schema_file.path))
             print("- Data file path: {}".format(data_file.path), end="\n\n")
+            return False
 
     except ValidationError as ve:
         if data_file.should_pass:
@@ -76,33 +80,41 @@ def validate_data_file_against_schema(data_file: DataFile, schema_file: SchemaFi
             print(ve, end="\n\n")
             print("- Schema path: {}".format(schema_file.path))
             print("- Data file path: {}".format(data_file.path), end="\n\n")
+            return False
 
     except Exception:
         print("Error: An exception occurred while validating {} against {}.".format(data_file, schema_file), file=sys.stderr)
         traceback.print_exc()
         sys.exit(1)
 
+    return True
 
-def validate_data_file(data_file: DataFile):
+
+def validate_data_file(data_file: DataFile) -> int:
+    """
+    :return: the number of validation failures
+    """
     schema_major_version_key = \
         "{0}:{1}:{2}".format(data_file.schema_id.namespace, data_file.schema_id.name, data_file.schema_id.version.major)
 
     validated = False
+    failures = 0
+
     for schema_file in schema_major_version_map.get(schema_major_version_key, []):
         if data_file.schema_id.version.minor > schema_file.schema_id.version.minor:
             continue
 
-        validate_data_file_against_schema(data_file, schema_file)
+        failures += 1 if not validate_data_file_against_schema(data_file, schema_file) else 0
         validated = True
 
     if not validated:
         remote_schema_file = SchemaFile.from_schema_id(data_file.schema_id)
         if remote_schema_file:
-            validate_data_file_against_schema(data_file, remote_schema_file)
+            failures += 1 if not validate_data_file_against_schema(data_file, remote_schema_file) else 0
         else:
             print("Warning: No local or remote schemas have been found that validate data file '{0}'.".format(data_file.path))
 
-    return
+    return failures
 
 
 def add_wildcard_version_to_ref_resolver_store(schema_file: SchemaFile):
@@ -138,13 +150,18 @@ def count_data_files():
     return total_files
 
 
-def validate_data_files():
+def validate_data_files() -> int:
+    """
+    :return: the number of validation failures
+    """
     total_files = count_data_files()
     if total_files == 0:
         print("No data files found.")
-        return
+        return 0
 
     total_validated = 0
+    total_failures = 0
+
     for path, _, test_data_filenames in os.walk(test_data_base_dir):
 
         for test_data_filename in test_data_filenames:
@@ -152,7 +169,7 @@ def validate_data_files():
                 continue
 
             data_file = DataFile.from_path(os.path.join(path, test_data_filename), test_data_base_dir)
-            validate_data_file(data_file)
+            total_failures += validate_data_file(data_file)
             total_validated += 1
             print("Validating test data files: %3u%% (%u/%u)"
                   % (
@@ -163,9 +180,12 @@ def validate_data_files():
                   end='\r')
 
     print("\nValidated {} test data files.".format(total_validated))
+    return total_failures
 
 
 load_schemas()
 load_synthetic_ieee_schemas()
 add_wildcard_versions_to_ref_resolver_store()
-validate_data_files()
+
+validation_failure_count = validate_data_files()
+sys.exit(0 if validation_failure_count == 0 else 1)
