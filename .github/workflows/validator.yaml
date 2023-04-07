@@ -24,6 +24,9 @@ permissions:
 jobs:
   run-validator:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./test-data-validator
 
     steps:
     - uses: actions/checkout@v3
