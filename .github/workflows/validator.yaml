@@ -1,5 +1,5 @@
 # for more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-name: Run test data validator
+name: Validate test data
 
 on:
   push:
