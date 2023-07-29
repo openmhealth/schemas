@@ -1,10 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "deprecation": {
-        "reason": "This schema is now deprecated, in favor of the IEEE 1752.1 schema of the same name.",
-        "supersededBy": "https://w3id.org/ieee/ieee-1752-schema/time-interval.json",
-        "date": "2022-12-01"
-    },
+
     "description": "This schema describes an interval of time. In the absence of a precise start and/or end time, the time interval can be described as a date + a part of the day (morning, afternoon, evening, night). No commitments are made as to whether the start or end time point itself is included in the interval (i.e., whether the defined interval includes the boundary point(s) or not).",
     "type": "object",
 
