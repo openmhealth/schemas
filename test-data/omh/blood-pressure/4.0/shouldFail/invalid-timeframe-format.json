@@ -1,0 +1,17 @@
+{
+    "systolic_blood_pressure": {
+        "value": 115,
+        "unit": "mmHg"
+    },
+    "diastolic_blood_pressure": {
+        "value": 60,
+        "unit": "mmHg"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "date": "2013-02-05",
+            "part_of_day": "morning"
+        }
+    },
+    "temporal_relationship_to_physical_activity": "at rest"
+}
