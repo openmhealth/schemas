@@ -1,0 +1,2 @@
+jsonschema[format]==4.17.3
+requests==2.31.0
