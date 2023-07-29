@@ -9,8 +9,7 @@ You'll need [Python 3.7](https://www.python.org/downloads/) or later.
 You'll also need the [requests](https://pypi.org/project/requests/) and [jsonschema](https://pypi.org/project/jsonschema/) Python packages. Note that `jsonschema` depends on [format checkers](https://python-jsonschema.readthedocs.io/en/stable/validate/#validating-formats). You can install the format checkers with `jsonschema` by using the following commands:
 
 ```sh
-pip install requests
-pip install "jsonschema[format]"
+pip install -r requirements.txt
 ```
 
 > If you have both Python 2 and Python 3, your Python 3 command may be called `python3` and your Python 3 package installer command may be called `pip3`. Please use the appropriate Python 3 commands for your system. 
