@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/angular-velocity-unit-value-1.1.json",
+    "description": "This schema represents angular velocity.",
+    "type": "object",
+
+    "allOf": [
+        {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/unit-value-1.0.json"
+        },
+        {
+            "properties": {
+                "unit": {
+                    "references": [
+                        {
+                            "description": "The unit of measure of the element. SI unit is radians per second.",
+                            "url": "http://unitsofmeasure.org/ucum.html#datyp2apdxatblxmp"
+                        }
+                    ],
+                    "enum": [
+                        "rad/s"
+                    ]
+                }
+            }
+        }
+    ]
+}
