@@ -1,10 +1,5 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "deprecation": {
-        "reason": "This schema is now deprecated, in favor of the IEEE 1752.1 schema of the same name.",
-        "supersededBy": "https://w3id.org/ieee/ieee-1752-schema/temperature-unit-value.json",
-        "date": "2024-01-31"
-    },
     "type": "object",
     "description": "This schema represents a temperature (intensity of heat)",
     "references": [
