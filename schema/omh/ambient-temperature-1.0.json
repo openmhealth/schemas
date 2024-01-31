@@ -1,6 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "deprecation": {
+        "reason": "This schema is now deprecated, in favor of the IEEE 1752.1 schema with the same name.",
+        "supersededBy": "https://w3id.org/ieee/ieee-1752-schema/ambient-temperature.json",
+        "date": "2022-12-01"
+    },
     "description": "This schema represents the ambient temperature, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive schema for a list of aggregate measures)",
     "type": "object",
     "references": [

@@ -1,6 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-
+    "deprecation": {
+        "reason": "This schema is now deprecated, in favor of the IEEE 1752.1 schema of the same name.",
+        "supersededBy": "https://w3id.org/ieee/ieee-1752-schema/unit-value-range.json",
+        "date": "2024-01-30"
+    },
     "description": "This schema represents a range of numerical values with a unit of measure. The lower and upper boundaries are included in the interval.",
 
     "type": "object",
