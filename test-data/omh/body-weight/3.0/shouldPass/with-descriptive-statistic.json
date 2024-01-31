@@ -1,0 +1,13 @@
+{
+    "body_weight": {
+        "value": 49.5,
+        "unit": "kg"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2020-02-05T09:45:00-08:00",
+            "end_date_time": "2020-03-05T10:40:00-08:00"
+        }
+    },
+    "descriptive_statistic": "minimum"
+}
