@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/blood-glucose-4.0.json",
+    "description": "This schema represents a person's blood glucose level.",
+    "type": "object",
+
+    "references": [
+        {
+            "description": "The SNOMED code represents Blood glucose level (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/365812005"
+        }
+    ],
+    "definitions": {
+        "unit_value": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/unit-value-1.0.json"
+        },
+        "specimen_source": {
+            "$ref": "specimen-source-2.x.json"
+        },
+        "time_frame": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/time-frame-1.0.json"
+        },
+        "temporal_relationship_to_meal": {
+            "$ref": "temporal-relationship-to-meal-1.x.json"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "temporal-relationship-to-sleep-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/descriptive-statistic-1.0.json"
+        }
+    },
+
+    "properties": {
+        "blood_glucose": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "mg/dL",
+                                "mmol/L"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "specimen_source": {
+            "$ref": "#/definitions/specimen_source"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "temporal_relationship_to_meal": {
+            "$ref": "#/definitions/temporal_relationship_to_meal"
+        },
+        "temporal_relationship_to_sleep": {
+            "$ref": "#/definitions/temporal_relationship_to_sleep"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+    "required": [
+        "blood_glucose",
+        "effective_time_frame"
+    ]
+}

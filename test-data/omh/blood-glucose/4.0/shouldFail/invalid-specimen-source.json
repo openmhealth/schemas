@@ -1,0 +1,7 @@
+{
+    "blood_glucose": {
+        "unit": "mg/dL",
+        "value": 95
+    },
+    "specimen_source": "fluid"
+}
