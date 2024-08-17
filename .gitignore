@@ -1,6 +1,8 @@
+
 .gradle/
-build/
 __pycache__/
+build/
+/test-data-validator/venv/
 
 ### macOS ###
 .DS_Store
