@@ -42,14 +42,6 @@
                 }
             ]
         },
-        "measurement_status": {
-            "description": "patientMpowr data quality label",
-            "enum": [
-                "usable",
-                "acceptable",
-                "rejected"
-            ]
-        },
         "effective_time_frame": {
             "$ref": "#/definitions/time_frame"
         },
