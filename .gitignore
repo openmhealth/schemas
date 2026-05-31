@@ -20,3 +20,6 @@ out/
 *.class
 *.jar
 !gradle/wrapper/gradle-wrapper.jar
+
+# checked-out schemas
+ieee

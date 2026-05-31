@@ -8,7 +8,6 @@ on:
     paths:
       - '.github/workflows/validator.yaml'
       - 'schema/**'
-      - 'test-data-validator/**'
       - 'test-data/**'
 
   pull_request:
@@ -17,7 +16,6 @@ on:
     paths:
       - '.github/workflows/validator.yaml'
       - 'schema/**'
-      - 'test-data-validator/**'
       - 'test-data/**'
 
 permissions:
@@ -26,17 +24,14 @@ permissions:
 jobs:
   run-validator:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./test-data-validator
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v5
+    - name: Set up Python
+      uses: actions/setup-python@v6
       with:
-        python-version: "3.10"
+        python-version: "3.13"
         
     - name: Install dependencies
       run: |
@@ -45,4 +40,4 @@ jobs:
 
     - name: Run validator
       run: |
-        python validator.py
+        pytest -v
