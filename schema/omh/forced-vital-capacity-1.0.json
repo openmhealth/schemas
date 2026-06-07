@@ -42,10 +42,20 @@
                 }
             ]
         },
+        "measurement_quality": {
+            "description": "data quality label",
+            "enum": [
+                "acceptable",
+                "usable",
+                "rejected"
+            ]
+        },
         "effective_time_frame": {
+            "description": "The date-time at which, or time interval during which the measurement is asserted as being valid.",
             "$ref": "#/definitions/time_frame"
         },
         "descriptive_statistic": {
+            "description": "The  statistic is a set of measurements (eg. average, maximum) within the specified time frame.",
             "$ref": "#/definitions/descriptive_statistic"
         },
         "temporal_relationship_to_physical_activity": {
