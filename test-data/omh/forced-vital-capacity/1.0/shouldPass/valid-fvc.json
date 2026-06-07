@@ -1,0 +1,10 @@
+{
+    "forced_vital_capacity": {
+        "value": 3.04,
+        "unit": "L"
+    },
+    "measurement_quality": "acceptable",
+    "effective_time_frame": {
+        "date_time": "2025-02-05T09:45:10-08:00"
+    }
+}
