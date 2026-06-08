@@ -10,8 +10,10 @@ The schemas are located in the [schema](schema) directory.
 The schema repository is currently being updated to reference [IEEE 1752.1 schemas](https://opensource.ieee.org/omh/1752/-/tree/main) wherever relevant. Open mHealth schemas modeling sleep and physical activity measures and metadata are superseded by IEEE 1752.1 sleep, physical activity and metadata schemas.
 
 ## Validator and test data
-The [validator](test-data-validator) is a simple application that validates test data against schemas. The test data 
-that it uses is located in the [test-data](test-data) directory.  
+
+The schemas are validated with `pytest`, using data in the `test-data` directory.
+Validation is configured in pytest collection and in [test-data/conftest.py](test-data/conftest.py).
+ 
 
 ## Kotlin SDK
 The [Kotlin SDK](kotlin-schema-sdk) helps you produce and consume Open mHealth-compliant data in your Kotlin, Java, Groovy, and Scala applications.

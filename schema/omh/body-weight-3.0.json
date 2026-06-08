@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://w3id.org/openmhealth/schemas/omh/body-weight-2.0.json",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/body-weight-3.0.json",
     "description": "This schema represents a person's body weight.",
 
     "type": "object",
