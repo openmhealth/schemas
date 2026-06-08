@@ -4,6 +4,9 @@ __pycache__/
 build/
 /test-data-validator/venv/
 
+.venv
+.cache
+
 ### macOS ###
 .DS_Store
 .AppleDouble

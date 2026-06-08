@@ -13,6 +13,15 @@ The schema repository is currently being updated to reference [IEEE 1752.1 schem
 
 The schemas are validated with `pytest`, using data in the `test-data` directory.
 Validation is configured in pytest collection and in [test-data/conftest.py](test-data/conftest.py).
+
+Quickstart for running the validator, starting only with python3:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+pytest
+```
  
 
 ## Kotlin SDK
