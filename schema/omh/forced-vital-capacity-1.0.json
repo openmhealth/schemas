@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/forced-vital-capacity-1.0.json",
+    "description": "This schema represents a person's forced vital capacity (FVC), the total volume of air (in liters) blown out of the lungs during forced exhalation after maximal inspiration.",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Forced vital capacity (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/50834005"
+        }
+    ],
+
+    "definitions": {
+        "volume_unit_value": {
+            "$ref": "volume-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/time-frame-1.0.json"
+        },
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "temporal-relationship-to-physical-activity-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/descriptive-statistic-1.0.json"
+        }
+    },
+
+    "properties": {
+        "forced_vital_capacity": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/volume_unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "L"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "measurement_quality": {
+            "description": "data quality label",
+            "enum": [
+                "acceptable",
+                "usable",
+                "rejected"
+            ]
+        },
+        "effective_time_frame": {
+            "description": "The date-time at which, or time interval during which the measurement is asserted as being valid.",
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "description": "The  statistic is a set of measurements (eg. average, maximum) within the specified time frame.",
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "#/definitions/temporal_relationship_to_physical_activity"
+        }
+    },
+    "required": [
+        "forced_vital_capacity",
+        "effective_time_frame"
+    ]
+}

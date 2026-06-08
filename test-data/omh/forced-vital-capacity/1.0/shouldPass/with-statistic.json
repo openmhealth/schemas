@@ -1,0 +1,13 @@
+{
+    "forced_vital_capacity": {
+        "value": 3.25,
+        "unit": "L"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2025-01-05T09:45:10-08:00",
+            "end_date_time": "2025-02-15T08:15:10-08:00"
+        }
+    },
+    "descriptive_statistic": "minimum"
+}

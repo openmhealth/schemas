@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/forced-expiratory-volume-1-second-1.0.json",
+    "description": "This schema represents a person's forced expired volume in 1 second (FEV1), the volume of air (in liters) forcibly blown out of the lungs in 1 second after maximal inspiration.",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents expired volume in 1 second (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/59328004"
+        }
+    ],
+
+    "definitions": {
+        "volume_unit_value": {
+            "$ref": "volume-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/time-frame-1.0.json"
+        },
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "temporal-relationship-to-physical-activity-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/descriptive-statistic-1.0.json"
+        }
+    },
+
+    "properties": {
+        "forced_expiratory_volume_1_second": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/volume_unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "L"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "measurement_quality": {
+            "description": "data quality label",
+            "enum": [
+                "acceptable",
+                "usable",
+                "rejected"
+            ]
+        },
+        "effective_time_frame": {
+            "description": "The date-time at which, or time interval during which the measurement is asserted as being valid.",
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "description": "The  statistic is a set of measurements (eg. average, maximum) within the specified time frame.",
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "#/definitions/temporal_relationship_to_physical_activity"
+        }
+    },
+
+    "required": [
+        "forced_expiratory_volume_1_second",
+        "effective_time_frame"
+    ]
+}

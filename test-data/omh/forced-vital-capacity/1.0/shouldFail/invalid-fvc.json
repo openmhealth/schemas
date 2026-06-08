@@ -1,0 +1,9 @@
+{
+    "forced_vital_capacity": {
+        "value": 3.5,
+        "unit": "dL"
+    },
+    "effective_time_frame": {
+        "date_time": "2025-02-05T09:45:10-08:00"
+    }
+}
