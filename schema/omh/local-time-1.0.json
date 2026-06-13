@@ -1,7 +1,8 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "string",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/local-time-1.0.json",
     "description": "This schema describes local time in a 24-hour clock format (with optional milliseconds).",
+    "type": "string",
     "references": [
         {
             "description": "Reference RFC 3339 5.6 for details.",
