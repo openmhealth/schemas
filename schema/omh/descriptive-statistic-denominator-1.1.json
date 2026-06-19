@@ -1,6 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-
+    "deprecation": {
+        "reason": "This schema is now deprecated, in favor of the IEEE 1752.1 schema of the same name.",
+        "supersededBy": "https://w3id.org/ieee/ieee-1752-schema/descriptive-statistic-denominator.json",
+        "date": "2026-06-14"
+    },
     "description": "The denominator of the descriptive statistic when the measures has an implicit duration. For example in the context of step count, if the descriptive statistic is 'average' and the statistic denominator is 'd' the value describes average daily step count during the period delimited by the effective time frame; in the context of step count, if the descriptive statistic is 'maximum' and the statistic denominator is 'session' the value describes maximum step count per session during the period delimited by the effective time frame.",
     "type": "string",
     "enum": [
