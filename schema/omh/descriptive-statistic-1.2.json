@@ -3,7 +3,7 @@
     "deprecation": {
         "reason": "This schema is now deprecated, in favor of the IEEE 1752.1 schema of the same name.",
         "supersededBy": "https://w3id.org/ieee/ieee-1752-schema/descriptive-statistic.json",
-        "date": "2026-06-14"
+        "date": "2026-06-15"
     },
     "description": "The descriptive statistic of a set of measurements. A measurement value can be the result of combining various measurements and calculating descriptive statistics like average, maximum, minimum, etc. Additional descriptive statistics will be added as the need arises. A measurement value without a descriptive statistic is interpreted as being the result of an individual measurement.",
     "type": "string",

@@ -1,6 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-
+    "deprecation": {
+        "reason": "This schema is now deprecated, in favor of the IEEE 1752.1 schema of the same name.",
+        "supersededBy": "https://w3id.org/ieee/ieee-1752-schema/frequency-unit-value.json",
+        "date": "2026-06-18"
+    },
     "description": "This schema represents the frequency of an event as number of times over a duration, e.g., 1/14 d meaning once every 14 days, or a duration range.",
 
     "type": "object",
