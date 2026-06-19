@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://w3id.org/openmhealth/schemas/omh/day-of-week-1.0.json",
   "description": "The names of the days of week.",
 
   "type": "string",

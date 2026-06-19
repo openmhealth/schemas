@@ -1,6 +1,6 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/temporal-relationship-to-meal-1.2.json",
     "type": "string",
     "description": "The temporal relationship of a clinical measure or assessment to meals. ",
     "references": [

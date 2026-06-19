@@ -1,6 +1,6 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/specimen-source-2.1.json",
     "type": "string",
     "description": "The specimen or sample analyzed. More values will be added as needed.",
     "references": [
