@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://w3id.org/openmhealth/schemas/omh/activity-name-1.0.json",
-    "description": "The name(s) of the physical activity(ies) in which the person is engaged. It is recommended that the activity name be drawn from the CDC guidelines to facilitate mapping to standard energy expenditure values (METs)",
+    "description": "The name(s) of the physical activity(ies) in which the person is engaged. It is recommended that the activity name be drawn from the relevant compendium to facilitate mapping to standard energy expenditure values (METs)",
 
     "references": [
         {
@@ -9,8 +9,12 @@
             "url": "http://purl.bioontology.org/ontology/SNOMEDCT/257733005"
         },
         {
-             "description": "CDC guidelines on standard energy expenditure values (METs).",
-             "url": "https://www.cdc.gov/nccdphp/dnpa/physical/pdf/pa_intensity_table_2_1.pdf"
+            "description": "Compendium of Physical Activities",
+            "url": "https://pacompendium.com/"
+        },
+        {
+            "description": "Youth Compendium of Physical Activities",
+            "url": "https://www.nccor.org/tools-youthcompendium/"
         }
     ],
     "type": "string"
