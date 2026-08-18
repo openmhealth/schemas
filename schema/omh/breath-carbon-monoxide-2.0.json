@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/breath-carbon-monoxide-2.0.json",
+    "description": "This schema represents the concentration of carbon monoxide (CO) in a person's expired breath, either a single measurement, or the result of aggregating several measurements made over time (see Descriptive statistic schema for a list of aggregate measures)",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Expired carbon monoxide concentration",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/251900003"
+        }
+    ],
+
+    "definitions": {
+        "unit_value": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/unit-value-1.0.json"
+        },
+        "time_frame": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/time-frame-1.0.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/descriptive-statistic-1.0.json"
+        }
+    },
+
+    "properties": {
+        "breath_carbon_monoxide": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "references": [
+                                {
+                                    "description": "The unit of measure of the element: parts per million",
+                                    "url": "https://unitsofmeasure.org/ucum#para-29"
+                                }
+                            ],
+                            "enum": [
+                                "ppm"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+
+    "required": [
+        "breath_carbon_monoxide",
+        "effective_time_frame"
+    ]
+}
