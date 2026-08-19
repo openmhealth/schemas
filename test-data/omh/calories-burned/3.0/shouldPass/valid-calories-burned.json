@@ -1,0 +1,12 @@
+{
+    "kcal_burned": {
+        "value": 1600,
+        "unit": "kcal"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2026-02-05T06:00:00-08:00",
+            "end_date_time": "2026-02-05T23:00:00-08:00"
+        }
+    }
+}

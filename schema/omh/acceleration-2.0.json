@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://w3id.org/openmhealth/schemas/omh/acceleration-1.1.json",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/acceleration-2.0.json",
     "description": "This schema represents accelerometer measurements. The assumption is a 2-axis accelerometer. For a 3-axis accelerometer, the z measurement should also be required.",
     "type": "object",
 
