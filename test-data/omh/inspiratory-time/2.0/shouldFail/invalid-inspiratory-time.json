@@ -1,0 +1,9 @@
+{
+    "inspiratory_time": {
+        "value": 2,
+        "unit": "s"
+    },
+    "effective_time_frame": {
+        "date_time": "2023-02-05T07:25:00-08:00"
+    }
+}
