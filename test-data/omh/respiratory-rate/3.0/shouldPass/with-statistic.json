@@ -1,0 +1,13 @@
+{
+    "respiratory_rate": {
+        "value": 10,
+        "unit": "breaths/min"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2020-02-05T07:05:00-08:00",
+            "end_date_time": "2020-02-05T08:05:00-08:00"
+        }
+    },
+    "descriptive_statistic": "minimum"
+}
