@@ -1,0 +1,13 @@
+{
+    "speed": {
+        "value": 112,
+        "unit": "km/h"
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "start_date_time": "2016-12-01T10:00:00Z",
+            "end_date_time": "2016-12-31T11:00:00Z"
+        }
+    },
+    "descriptive_statistic": "maximum"
+}
