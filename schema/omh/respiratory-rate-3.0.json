@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/respiratory-rate-3.0.json",
+    "description": "This schema represents a person's respiratory rate (inhalation and exhalation)",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents respiratory rate (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/86290005"
+        }
+    ],
+
+    "definitions": {
+        "unit_value": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/unit-value-1.0.json"
+        },
+        "time_frame": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/time-frame-1.0.json"
+        },
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "temporal-relationship-to-physical-activity-1.x.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/descriptive-statistic-1.0.json"
+        }
+    },
+
+    "properties": {
+        "respiratory_rate": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "breaths/min"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        },
+        "temporal_relationship_to_physical_activity": {
+            "$ref": "#/definitions/temporal_relationship_to_physical_activity"
+        }
+    },
+
+    "required": [
+        "respiratory_rate",
+        "effective_time_frame"
+    ]
+}

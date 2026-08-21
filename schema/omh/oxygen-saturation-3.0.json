@@ -1,0 +1,81 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/oxygen-saturation-3.0.json",
+    "description": "This schema represents hemoglobin oxygen saturation.",
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Hemoglobin saturation with oxygen (observable entity)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/431314004"
+        }
+    ],
+
+    "definitions": {
+        "unit_value": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/unit-value-1.0.json"
+        },
+        "percent_unit_value": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/percent-unit-value-1.0.json"
+        },
+        "time_frame": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/time-frame-1.0.json"
+        },
+        "descriptive_statistic": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/descriptive-statistic-1.0.json"
+        }
+    },
+
+    "properties": {
+        "oxygen_saturation": {
+            "$ref": "#/definitions/percent_unit_value"
+        },
+        "system": {
+            "description": "Oxygen saturation can be measured at different levels in the body and is labeled accordingly: peripheral, arterial, etc.",
+            "type": "string",
+            "enum": [
+                "peripheral capillary"
+            ]
+        },
+        "supplemental_oxygen_flow_rate": {
+            "description": "0 L/min means room air",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/unit_value"
+
+                },
+                {
+                    "properties": {
+                        "unit": {
+                            "enum": [
+                                "L/min"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "oxygen_therapy_mode_of_administration": {
+            "type": "string",
+            "enum": [
+                "nasal cannula"
+            ]
+        },
+        "measurement_method": {
+            "description": "Currently pulse oximetry is the only method used for measuring oxygen saturation in a non-hospital setting.",
+            "type": "string",
+            "enum": [
+                "pulse oximetry"
+            ]
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "descriptive_statistic": {
+            "$ref": "#/definitions/descriptive_statistic"
+        }
+    },
+    "required": [
+        "oxygen_saturation",
+        "effective_time_frame"
+    ]
+}
