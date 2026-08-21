@@ -1,0 +1,8 @@
+{
+    "oxygen_saturation": {
+        "value": 95,
+        "unit": "%"
+    },
+    "system": "peripheral capillary",
+    "measurement_method": "pulse oximetry"
+}

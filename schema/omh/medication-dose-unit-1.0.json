@@ -1,5 +1,6 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/medication-dose-unit-1.0.json",
     "type": "string",
     "description": "The list of most commonly used units of measure for a medication dose. Suggestions for additions are accepted.",
     "references": [

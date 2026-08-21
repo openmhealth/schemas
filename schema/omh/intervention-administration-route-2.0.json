@@ -1,6 +1,6 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/intervention-administration-route-2.0.json",
     "type": "string",
     "description": "The route of administration of a therapeutic agent or other intervention (e.g., a device).",
     "references": [
