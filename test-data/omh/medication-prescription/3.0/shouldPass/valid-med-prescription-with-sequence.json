@@ -1,0 +1,73 @@
+{
+    "description": "Tenormin 50 mg 1 tab and 1/2 tab alternating every other day after breakfast",
+
+    "medication": {
+        "trade_name": "Tenormin",
+        "strength": [
+            {
+                "value": 50,
+                "unit": "mg"
+            }
+        ],
+        "rxnorm_code": 152414
+    },
+
+    "route": "oral",
+
+    "schedule": [
+        {
+            "dose_duration": {
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
+            },
+            "medication_dose": {
+                "dose": {
+                    "value": 1,
+                    "unit": "tablet"
+                }
+            },
+            "dose_recurrence": {
+                "timing": [
+                    {
+                        "temporal_relationship_to_meal": "after breakfast"
+                    }
+                ],
+                "sequence": [
+                    {
+                        "unit": "d",
+                        "value": 1
+                    }
+                ]
+            }
+        },
+        {
+            "dose_duration": {
+                "duration": {
+                    "value": 99,
+                    "unit": "yr"
+                }
+            },
+            "medication_dose": {
+                "dose": {
+                    "value": 0.5,
+                    "unit": "tablet"
+                }
+            },
+            "dose_recurrence": {
+                "timing": [
+                    {
+                        "temporal_relationship_to_meal": "after breakfast"
+                    }
+                ],
+                "sequence": [
+                    {
+                        "unit": "d",
+                        "value": 2
+                    }
+                ]
+            }
+        }
+    ]
+}
