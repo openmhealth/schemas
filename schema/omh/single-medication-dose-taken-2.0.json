@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/single-medication-dose-taken-2.0.json",
+    "description": "This schema represents assumption of a single dose of a medication.",
+
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Medication regimen behavior finding (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/422979000"
+        }
+    ],
+    "definitions": {
+        "medication": {
+            "$ref": "medication-1.x.json"
+        },
+        "medication_dose_unit_value": {
+            "$ref": "medication-dose-unit-value-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/time-frame-1.0.json"
+        }
+    },
+
+    "properties": {
+        "medication": {
+            "$ref": "#/definitions/medication"
+        },
+        "dose": {
+            "description": "This is the dose actually taken, which may differ from the dose prescribed.",
+            "$ref": "#/definitions/medication_dose_unit_value"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "reason_dose_taken_not_as_prescribed": {
+            "description": "This is to describe cases of under or over-dosing or medication taken outside the prescribed acceptable window.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "medication",
+        "dose",
+        "effective_time_frame"
+    ]
+}
