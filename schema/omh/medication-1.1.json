@@ -1,0 +1,138 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/medication-1.1.json",
+    "description": "This schema represents a therapeutic agent, single-active ingredient or combination.",
+    "references": [
+        {
+            "description": "The SNOMED code represents Drug or medicament",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/410942007"
+        }
+    ],
+    "type": "object",
+
+    "definitions": {
+        "ingredient_strength_unit_value": {
+            "type": "array",
+            "description": "A therapeutic agent can be the combination of more than one active ingredients, hence this isn an array.",
+            "items": {
+                "type": "object",
+                "description": "This property represents the strength of a therapeutic agent. The value set covers the most common values. Suggestions for additions are accepted.",
+                "references": [
+                    {
+                        "description": "The NCIT code represents Pharmaceutical Strength",
+                        "url": "https://ncim.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&code=C1705922"
+                    }
+                ],
+                "allOf": [
+                    {
+                        "$ref": "https://w3id.org/ieee/ieee-1752-schema/unit-value-1.0.json"
+                    },
+                    {
+                        "properties": {
+                            "ingredient_name": {
+                                "type": "string"
+                            },
+                            "unit": {
+                                "description": "The list of most commonly used units of measure for a medication's strength. Suggestions for additions are accepted.",
+                                "references": [
+                                    {
+                                        "description": "Units are drawn in part from FDA units of measure",
+                                        "url": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm"
+                                    }
+                                ],
+                                "enum": [
+                                    "%",
+                                    "AU",
+                                    "AU/mL",
+                                    "BAU",
+                                    "BAU/mL",
+                                    "BU",
+                                    "CCID_50",
+                                    "Ci",
+                                    "cm^2",
+                                    "D'ag'U",
+                                    "dL",
+                                    "FFU",
+                                    "g",
+                                    "hp_C",
+                                    "hp_M",
+                                    "hp_Q",
+                                    "hp_X",
+                                    "IU",
+                                    "IU/L",
+                                    "IU/mL",
+                                    "kp_C",
+                                    "L",
+                                    "Lf",
+                                    "LfU/mL",
+                                    "mCi",
+                                    "mCi/mL",
+                                    "mEq",
+                                    "mg",
+                                    "mg/actuat",
+                                    "mg/hr",
+                                    "mg/mg",
+                                    "mg/mL",
+                                    "mL",
+                                    "mmol",
+                                    "mol",
+                                    "mU",
+                                    "ng",
+                                    "nmol",
+                                    "organisms",
+                                    "PFU",
+                                    "PNU",
+                                    "PNU/mL",
+                                    "TCID_50",
+                                    "U",
+                                    "uCi",
+                                    "ug",
+                                    "ug/mL",
+                                    "uL",
+                                    "umol",
+                                    "unt",
+                                    "unt/mL",
+                                    "USP'U",
+                                    "X"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "properties": {
+        "generic_name": {
+            "description": "The generic name of the drug.",
+            "type": "string"
+        },
+        "trade_name": {
+            "description": "The trade (brand) name of the drug.",
+            "type": "string"
+        },
+        "strength": {
+            "$ref": "#/definitions/ingredient_strength_unit_value"
+        },
+        "rxnorm_code": {
+            "description": "The RxNORM CUI of the drug, which includes drug name, strength (if applicable), formulation, manufacturer.",
+            "type": "number"
+        }
+    },
+    "required": [
+        "strength"
+    ],
+    "anyOf": [
+        {
+            "required": [
+                "generic_name"
+            ]
+        },
+        {
+            "required": [
+                "trade_name"
+            ]
+        }
+    ]
+}
