@@ -1,0 +1,16 @@
+{
+    "trade_name": "Percocet",
+    "strength": [
+        {
+            "ingredient_name": "Acetaminophen",
+            "value": 325,
+            "unit": "mg"
+        },
+        {
+            "ingredient_name": "Oxycodone Hydrochloride",
+            "value": 5,
+            "unit": "mg"
+        }
+    ],
+    "rxnorm_code": 1049640
+}

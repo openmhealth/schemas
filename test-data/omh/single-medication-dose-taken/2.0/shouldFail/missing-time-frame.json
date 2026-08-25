@@ -1,0 +1,15 @@
+{
+    "medication": {
+        "trade_name": "Tenormin",
+        "strength": [
+            {
+                "value": 50,
+                "unit": "mg"
+            }
+        ]
+    },
+    "dose": {
+        "value": 0.5,
+        "unit": "tablet"
+    }
+}

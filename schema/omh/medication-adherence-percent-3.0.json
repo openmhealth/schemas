@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/medication-adherence-percent-3.0.json",
+    "description": "This schema represents summary adherence to a prescription as percent over a time period.",
+
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Adherence to medication regime",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/418633004"
+        }
+    ],
+    "definitions": {
+        "medication_prescription": {
+            "$ref": "medication-prescription-3.x.json"
+        },
+        "percent_unit_value": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/percent-unit-value-1.0.json"
+        },
+        "time_frame": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/time-frame-1.0.json"
+        }
+    },
+    "properties": {
+        "medication_prescription": {
+            "$ref": "#/definitions/medication_prescription"
+        },
+        "effective_time_frame": {
+            "$ref": "#/definitions/time_frame"
+        },
+        "medication_adherence_percent": {
+            "$ref": "#/definitions/percent_unit_value"
+        }
+    },
+    "required": [
+        "medication_prescription",
+        "medication_adherence_percent",
+        "effective_time_frame"
+    ]
+}

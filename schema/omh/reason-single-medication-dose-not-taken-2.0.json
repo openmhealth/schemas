@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/openmhealth/schemas/omh/reason-single-medication-dose-not-taken-2.0.json",
+    "description": "This schema represents the given reason for missing a single prescribed dose of a medication.",
+
+    "type": "object",
+    "references": [
+        {
+            "description": "The SNOMED code represents Medication regimen behavior finding (finding)",
+            "url": "http://purl.bioontology.org/ontology/SNOMEDCT/422979000"
+        }
+    ],
+    "definitions": {
+        "medication": {
+            "$ref": "medication-1.x.json"
+        },
+        "time_frame": {
+            "$ref": "https://w3id.org/ieee/ieee-1752-schema/time-frame-1.0.json"
+        }
+    },
+
+    "properties": {
+        "medication": {
+            "$ref": "#/definitions/medication"
+        },
+        "effective_time_frame": {
+            "description": "The time frame of the dose missed.",
+            "$ref": "#/definitions/time_frame"
+        },
+        "reason_for_missing_dose": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "medication",
+        "effective_time_frame",
+        "reason_for_missing_dose"
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "description": "Lidoderm: Postherpetic neuralgia: Apply patch to most painful area. Up to 3 patches may be applied in a single application. Patch(es) may remain in place for up to 12 hours in any 24-hour period.",
+
+    "medication": {
+        "trade_name": "Lidoderm",
+        "strength": [
+            {
+                "value": 0.05,
+                "unit": "mg/mg"
+            }
+        ],
+        "rxnorm_code": 1011705
+    },
+
+    "route": "transdermal",
+
+    "schedule": [
+        {
+            "dose_duration": {
+                "free_text": "until pain abates"
+            },
+            "dose_administration_duration": {
+                "duration_range":{
+                    "low_value": 1,
+                    "high_value": 12,
+                    "unit": "h"
+                }
+            },
+            "medication_dose": {
+                "dose_range": {
+                    "low_value": 1,
+                    "high_value": 3,
+                    "unit": "patch"
+                }
+            },
+            "dose_recurrence": {
+                "number_of_times": 1,
+                "time_window": {
+                    "value": 24,
+                    "unit": "h"
+                }
+            }
+        }
+    ]
+}
