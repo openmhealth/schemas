@@ -1,0 +1,18 @@
+{
+    "medication": {
+        "generic_name": "atenolol 25 mg oral tablet",
+        "strength": [
+            {
+                "value": 25,
+                "unit": "mg"
+            }
+        ]
+    },
+    "effective_time_frame": {
+        "time_interval": {
+            "date": "2015-02-05",
+            "part_of_day": "morning"
+        }
+    },
+    "reason_for_missing_dose": "I ran out of med."
+}
