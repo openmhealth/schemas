@@ -1,0 +1,17 @@
+{
+    "magnetic_field_strength_x": {
+        "value": 0.0596923828125,
+        "unit": "mT"
+    },
+    "magnetic_field_strength_y": {
+        "value": 0.0125,
+        "unit": "m/s"
+    },
+    "magnetic_field_strength_z": {
+        "value": 0.0001,
+        "unit": "mT"
+    },
+    "effective_time_frame": {
+        "date_time": "2015-08-18T07:25:00Z"
+    }
+}
